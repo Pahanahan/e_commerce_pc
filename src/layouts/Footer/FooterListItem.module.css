@@ -1,0 +1,25 @@
+.footer-list__item-title {
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff7e;
+}
+
+.footer-list__item-li {
+  list-style: none;
+  max-width: 300px;
+  line-height: 140%;
+  margin-bottom: 10px;
+}
+
+.footer-list__item-link {
+  font-size: 13px;
+  font-weight: 400;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-list__item-phone,
+.footer-list__item-email {
+  color: #01a4ff;
+  text-decoration: none;
+}

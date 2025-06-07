@@ -1,0 +1,586 @@
+[
+  {
+    "id": 1,
+    "category": "PC",
+    "title": "Skytech Gaming Desktop PC",
+    "description": "Skytech Blaze 3.0 Gaming Desktop PC - AMD Ryzen 5 5600X 6-Core, 16GB DDR4 RAM, NVIDIA GeForce RTX 3060 12GB, 1TB NVMe SSD, Windows 11 Home, 5.5 GHz Overclock",
+    "price": 1299.99,
+    "old price": 1399.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/pc/pc-1/1.jpg",
+      "/images/products/pc/pc-1/2.jpg",
+      "/images/products/pc/pc-1/3.jpg",
+      "/images/products/pc/pc-1/4.jpg",
+      "/images/products/pc/pc-1/5.jpg"
+    ],
+    "specs": {
+      "Processor": "AMD Ryzen 5 5600X 6-Core",
+      "RAM": "16GB DDR4",
+      "Graphics": "NVIDIA GeForce RTX 3060 12GB",
+      "Storage": "1TB NVMe SSD",
+      "Operating System": "Windows 11 Home",
+      "Max Clock Speed": "5.5 GHz (Overclocked)"
+    },
+    "availability": "in stock",
+    "rating": 4.9,
+    "reviewsCount": 146
+  },
+  {
+    "id": 2,
+    "category": "PC",
+    "title": "Skytech Rampage Gaming Desktop PC",
+    "description": "Skytech Rampage Gaming Desktop PC - AMD Ryzen 5 5600X 6-Core, NVIDIA GeForce RTX 4070 Ti 12GB, 16GB DDR4 RAM, 1TB NVMe SSD, Windows 11 Home, Overclocked up to 5.5 GHz",
+    "price": 1699.99,
+    "old price": 1899.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/pc/pc-2/1.jpg",
+      "/images/products/pc/pc-2/2.jpg",
+      "/images/products/pc/pc-2/3.jpg",
+      "/images/products/pc/pc-2/4.jpg",
+      "/images/products/pc/pc-2/5.jpg"
+    ],
+    "specs": {
+      "Processor": "AMD Ryzen 5 5600X 6-Core",
+      "Graphics": "NVIDIA GeForce RTX 4070 Ti 12GB",
+      "RAM": "16GB DDR4",
+      "Storage": "1TB NVMe SSD",
+      "Operating System": "Windows 11 Home",
+      "Max Clock Speed": "5.5 GHz (Overclocked)"
+    },
+    "availability": "in stock",
+    "rating": 4.5,
+    "reviewsCount": 22
+  },
+  {
+    "id": 3,
+    "category": "PC",
+    "title": "LXZ Desktop Computer Gaming PC",
+    "description": "LXZ Desktop Computer - Intel Core i7-12700 12-Core, NVIDIA GeForce RTX 3060 12GB, 16GB DDR4 RAM, 512GB SSD, Windows 11 Pro, 3.9GHz Turbo",
+    "price": 1149.99,
+    "old price": 1359.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/pc/pc-3/1.jpg",
+      "/images/products/pc/pc-3/2.jpg",
+      "/images/products/pc/pc-3/3.jpg",
+      "/images/products/pc/pc-3/4.jpg",
+      "/images/products/pc/pc-3/5.jpg"
+    ],
+    "specs": {
+      "Processor": "Intel Core i7-12700 12-Core",
+      "Graphics": "NVIDIA GeForce RTX 3060 12GB",
+      "RAM": "16GB DDR4",
+      "Storage": "512GB SSD",
+      "Operating System": "Windows 11 Pro",
+      "Turbo Clock Speed": "3.9 GHz"
+    },
+    "availability": "in stock",
+    "rating": 4.4,
+    "reviewsCount": 66
+  },
+  {
+    "id": 4,
+    "category": "PC",
+    "title": "MXZ Gaming Computer Desktop PC",
+    "description": "MXZ Gaming Computer Desktop PC - Intel Core i5-12400F, NVIDIA GeForce RTX 3060 12GB, 16GB DDR4 RAM, 512GB NVMe SSD, Windows 11 Pro, 4.4 GHz Turbo",
+    "price": 1099.99,
+    "old price": 1399.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/pc/pc-4/1.jpg",
+      "/images/products/pc/pc-4/2.jpg",
+      "/images/products/pc/pc-4/3.jpg",
+      "/images/products/pc/pc-4/4.jpg",
+      "/images/products/pc/pc-4/5.jpg"
+    ],
+    "specs": {
+      "Processor": "Intel Core i5-12400F",
+      "Graphics": "NVIDIA GeForce RTX 3060 12GB",
+      "RAM": "16GB DDR4",
+      "Storage": "512GB NVMe SSD",
+      "Operating System": "Windows 11 Pro",
+      "Turbo Clock Speed": "4.4 GHz"
+    },
+    "availability": "in stock",
+    "rating": 4.4,
+    "reviewsCount": 52
+  },
+  {
+    "id": 5,
+    "category": "PC",
+    "title": "AEXPXO Gaming Desktop Computer",
+    "description": "AEXPXO Gaming Desktop Computer - Intel 13th Gen Core i7-13700F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 3200MHz RAM, 1TB NVMe SSD, WiFi, Windows 11 Pro",
+    "price": 1199.99,
+    "old price": 1399.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/pc/pc-5/1.jpg",
+      "/images/products/pc/pc-5/2.jpg",
+      "/images/products/pc/pc-5/3.jpg",
+      "/images/products/pc/pc-5/4.jpg",
+      "/images/products/pc/pc-5/5.jpg"
+    ],
+    "specs": {
+      "Processor": "Intel Core i7-13700F (13th Gen)",
+      "Graphics": "NVIDIA GeForce RTX 4060 8GB",
+      "RAM": "16GB DDR4 3200MHz",
+      "Storage": "1TB NVMe SSD",
+      "WiFi": "Yes",
+      "Operating System": "Windows 11 Pro"
+    },
+    "availability": "check availability",
+    "rating": 4.7,
+    "reviewsCount": 20
+  },
+  {
+    "id": 6,
+    "category": "laptops",
+    "title": "ASUS TUF Gaming F15 FA506NF-ES51",
+    "description": "15.6\" FHD 144Hz Gaming Laptop, Intel Core i5-11400H, NVIDIA GeForce GTX 1650, 8GB RAM, 512GB SSD, Windows 11",
+    "price": 799.99,
+    "old price": 999.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/laptop/laptop-1/1.jpg",
+      "/images/products/laptop/laptop-1/2.jpg",
+      "/images/products/laptop/laptop-1/3.jpg",
+      "/images/products/laptop/laptop-1/4.jpg",
+      "/images/products/laptop/laptop-1/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Core i5-11400H",
+      "graphics": "NVIDIA GeForce GTX 1650",
+      "display": "15.6\" Full HD, 144Hz",
+      "memory": "8GB RAM",
+      "storage": "512GB SSD",
+      "os": "Windows 11"
+    },
+    "availability": "in stock",
+    "rating": 4.5,
+    "reviewsCount": 132
+  },
+  {
+    "id": 7,
+    "category": "laptops",
+    "title": "Acer Aspire 3 A315-24P-R7VH Laptop",
+    "description": "15.6\" Full HD Display, AMD Ryzen 5 7520U Quad-Core Processor, 8GB RAM, 512GB SSD, AMD Radeon Graphics, Windows 11 Home",
+    "price": 449.99,
+    "old price": 699.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/laptop/laptop-2/1.jpg",
+      "/images/products/laptop/laptop-2/2.jpg",
+      "/images/products/laptop/laptop-2/3.jpg",
+      "/images/products/laptop/laptop-2/4.jpg",
+      "/images/products/laptop/laptop-2/5.jpg"
+    ],
+    "specs": {
+      "processor": "AMD Ryzen 5 7520U Quad-Core",
+      "graphics": "AMD Radeon Graphics",
+      "display": "15.6\" Full HD (1920 x 1080)",
+      "memory": "8GB DDR4 RAM",
+      "storage": "512GB SSD",
+      "os": "Windows 11 Home"
+    },
+    "availability": "in stock",
+    "rating": 4.3,
+    "reviewsCount": 520
+  },
+  {
+    "id": 8,
+    "category": "laptops",
+    "title": "AOC 15.6\" Premium Laptop",
+    "description": "15.6\" FHD Display, Intel Celeron N4500 Processor, 8GB RAM, 128GB SSD, Windows 11 Home",
+    "price": 269.99,
+    "old price": 399.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/laptop/laptop-3/1.jpg",
+      "/images/products/laptop/laptop-3/2.jpg",
+      "/images/products/laptop/laptop-3/3.jpg",
+      "/images/products/laptop/laptop-3/4.jpg",
+      "/images/products/laptop/laptop-3/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Celeron N4500",
+      "graphics": "Integrated Intel UHD Graphics",
+      "display": "15.6\" Full HD (1920 x 1080)",
+      "memory": "8GB DDR4 RAM",
+      "storage": "128GB SSD",
+      "os": "Windows 11 Home"
+    },
+    "availability": "in stock",
+    "rating": 4.1,
+    "reviewsCount": 150
+  },
+  {
+    "id": 9,
+    "category": "laptops",
+    "title": "AOC Expandable Processor Laptop",
+    "description": "15.6\" HD Display, Intel Celeron Processor, 8GB RAM, 256GB SSD, Windows 11 Pro",
+    "price": 299.99,
+    "old price": 499.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/laptop/laptop-4/1.jpg",
+      "/images/products/laptop/laptop-4/2.jpg",
+      "/images/products/laptop/laptop-4/3.jpg",
+      "/images/products/laptop/laptop-4/4.jpg",
+      "/images/products/laptop/laptop-4/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Celeron",
+      "graphics": "Integrated Intel UHD Graphics",
+      "display": "15.6\" HD (1366 x 768)",
+      "memory": "8GB RAM",
+      "storage": "256GB SSD",
+      "os": "Windows 11 Pro"
+    },
+    "availability": "in stock",
+    "rating": 3.9,
+    "reviewsCount": 40
+  },
+  {
+    "id": 10,
+    "category": "laptops",
+    "title": "ApoloSign Notebook Expandable Processor Laptop",
+    "description": "15.6\" HD Display, Intel Celeron Processor, 8GB RAM, 256GB SSD, Windows 11 Pro, Dual Band WiFi",
+    "price": 329.99,
+    "old price": 399.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/laptop/laptop-5/1.jpg",
+      "/images/products/laptop/laptop-5/2.jpg",
+      "/images/products/laptop/laptop-5/3.jpg",
+      "/images/products/laptop/laptop-5/4.jpg",
+      "/images/products/laptop/laptop-5/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Celeron",
+      "graphics": "Integrated Intel UHD Graphics",
+      "display": "15.6\" HD (1366 x 768)",
+      "memory": "8GB RAM",
+      "storage": "256GB SSD",
+      "os": "Windows 11 Pro",
+      "wireless": "Dual Band WiFi"
+    },
+    "availability": "in stock",
+    "rating": 4.0,
+    "reviewsCount": 50
+  },
+  {
+    "id": 11,
+    "category": "monitors",
+    "title": "MSI PRO MP275 E2 27\" IPS FHD 120Hz Monitor",
+    "description": "27\" IPS FHD (1920x1080) Display, 120Hz Refresh Rate, 1ms MPRT, FreeSync, HDR Ready, Eye Care Tech, HDMI/DisplayPort/VGA",
+    "price": 129.99,
+    "old price": 159.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/monitor/monitor-1/1.jpg",
+      "/images/products/monitor/monitor-1/2.jpg",
+      "/images/products/monitor/monitor-1/3.jpg",
+      "/images/products/monitor/monitor-1/4.jpg",
+      "/images/products/monitor/monitor-1/5.jpg"
+    ],
+    "specs": {
+      "display": "27\" IPS, FHD 1920x1080",
+      "refreshRate": "120Hz",
+      "responseTime": "1ms (MPRT)",
+      "brightness": "300 nits",
+      "contrastRatio": "1500:1",
+      "colorGamut": "116% sRGB",
+      "syncTech": "AMD FreeSync",
+      "ports": "HDMI 2.0, DisplayPort 1.2a, VGA, Audio Out",
+      "speakers": "Yes, Built-in",
+      "mounting": "VESA 100x100",
+      "eyeCare": "Less Blue Light PRO, Flicker-Free, TÜV Certified"
+    },
+    "availability": "in stock",
+    "rating": 4.5,
+    "reviewsCount": 510
+  },
+  {
+    "id": 12,
+    "category": "monitors",
+    "title": "MSI MAG 321UPX QD-OLED 32\" 4K 240Hz Gaming Monitor",
+    "description": "32\" 4K UHD OLED Display, 240Hz Refresh Rate, 0.03ms Response Time, Quantum Dot, G-SYNC Compatible, DisplayHDR True Black 400, USB-C, HDMI 2.1, DisplayPort 1.4a",
+    "price": 949.99,
+    "old price": 1099.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/monitor/monitor-2/1.jpg",
+      "/images/products/monitor/monitor-2/2.jpg",
+      "/images/products/monitor/monitor-2/3.jpg",
+      "/images/products/monitor/monitor-2/4.jpg",
+      "/images/products/monitor/monitor-2/5.jpg"
+    ],
+    "specs": {
+      "display": "32\" OLED, 3840x2160 (4K UHD)",
+      "refreshRate": "240Hz",
+      "responseTime": "0.03ms (GtG)",
+      "brightness": "250 nits (typical), 1000 nits (peak HDR)",
+      "contrastRatio": "1,500,000:1",
+      "colorGamut": "99% DCI-P3, 139% sRGB",
+      "syncTech": "G-SYNC Compatible, Adaptive Sync",
+      "ports": "2x HDMI 2.1, 1x DisplayPort 1.4a, 1x USB-C (65W PD), USB Hub",
+      "speakers": "No",
+      "mounting": "VESA 100x100",
+      "eyeCare": "Flicker-Free, Less Blue Light"
+    },
+    "availability": "in stock",
+    "rating": 4.7,
+    "reviewsCount": 165
+  },
+  {
+    "id": 13,
+    "category": "monitors",
+    "title": "MSI G2422C 24\" Curved Gaming Monitor",
+    "description": "24\" FHD (1920x1080) VA Curved Display, 180Hz Refresh Rate, 1ms MPRT, FreeSync Premium, HDMI, DisplayPort, VESA Mount, Eye Care",
+    "price": 119.99,
+    "old price": 149.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/monitor/monitor-3/1.jpg",
+      "/images/products/monitor/monitor-3/2.jpg",
+      "/images/products/monitor/monitor-3/3.jpg",
+      "/images/products/monitor/monitor-3/4.jpg",
+      "/images/products/monitor/monitor-3/5.jpg"
+    ],
+    "specs": {
+      "display": "24\" VA, FHD 1920x1080, 1500R Curved",
+      "refreshRate": "180Hz",
+      "responseTime": "1ms (MPRT)",
+      "brightness": "300 nits",
+      "contrastRatio": "3000:1",
+      "colorGamut": "90% DCI-P3, 115% sRGB",
+      "syncTech": "AMD FreeSync Premium",
+      "ports": "1x HDMI 2.0, 1x DisplayPort 1.2a",
+      "speakers": "No",
+      "mounting": "VESA 100x100",
+      "eyeCare": "Flicker-Free, Less Blue Light"
+    },
+    "availability": "in stock",
+    "rating": 4.4,
+    "reviewsCount": 280
+  },
+  {
+    "id": 14,
+    "category": "monitors",
+    "title": "Z-Edge UG32F 32\" Curved Gaming Monitor",
+    "description": "32\" Curved FHD (1920x1080) Display, 200Hz Refresh Rate, 1ms MPRT, FreeSync, HDMI & DisplayPort, VESA Mount, Eye Care Technology",
+    "price": 159.99,
+    "old price": 229.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/monitor/monitor-4/1.jpg",
+      "/images/products/monitor/monitor-4/2.jpg",
+      "/images/products/monitor/monitor-4/3.jpg",
+      "/images/products/monitor/monitor-4/4.jpg",
+      "/images/products/monitor/monitor-4/5.jpg"
+    ],
+    "specs": {
+      "display": "32\" VA, FHD 1920x1080, 1500R Curved",
+      "refreshRate": "200Hz",
+      "responseTime": "1ms (MPRT)",
+      "brightness": "250 nits",
+      "contrastRatio": "3000:1",
+      "colorGamut": "99% sRGB (typical)",
+      "syncTech": "AMD FreeSync",
+      "ports": "2x HDMI, 1x DisplayPort",
+      "speakers": "No",
+      "mounting": "VESA 100x100",
+      "eyeCare": "Flicker-Free, Low Blue Light"
+    },
+    "availability": "in stock",
+    "rating": 4.3,
+    "reviewsCount": 2100
+  },
+  {
+    "id": 15,
+    "category": "monitors",
+    "title": "MSI G255F 24.5\" FHD Gaming Monitor",
+    "description": "24.5\" FHD (1920x1080) Rapid IPS Display, 180Hz Refresh Rate, 1ms GTG, Adaptive Sync, Adjustable Stand, DisplayPort, HDMI, VESA Mount",
+    "price": 139.99,
+    "old price": 189.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/monitor/monitor-5/1.jpg",
+      "/images/products/monitor/monitor-5/2.jpg",
+      "/images/products/monitor/monitor-5/3.jpg",
+      "/images/products/monitor/monitor-5/4.jpg",
+      "/images/products/monitor/monitor-5/5.jpg"
+    ],
+    "specs": {
+      "display": "24.5\" Rapid IPS, FHD 1920x1080",
+      "refreshRate": "180Hz",
+      "responseTime": "1ms (GtG)",
+      "brightness": "300 nits",
+      "contrastRatio": "1000:1",
+      "colorGamut": "sRGB 99%, DCI-P3 85%",
+      "syncTech": "Adaptive Sync (AMD/NVIDIA)",
+      "ports": "1x DisplayPort 1.2a, 2x HDMI 2.0b",
+      "speakers": "No",
+      "mounting": "VESA 100x100",
+      "eyeCare": "Less Blue Light, Flicker-Free"
+    },
+    "availability": "in stock",
+    "rating": 4.6,
+    "reviewsCount": 330
+  },
+  {
+    "id": 16,
+    "category": "custom pc",
+    "title": "MXZ Gaming Desktop PC - Ryzen 7 7800X3D, RX 7800 XT",
+    "description": "AMD Ryzen 7 7800X3D, RX 7800 XT 16GB, 32GB DDR5 6000MHz, 1TB NVMe SSD, WiFi, RGB Fans, Windows 11 Pro",
+    "price": 1399.99,
+    "old price": 1699.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-1/1.jpg",
+      "/images/products/custom-pc/custom-pc-1/2.jpg",
+      "/images/products/custom-pc/custom-pc-1/3.jpg",
+      "/images/products/custom-pc/custom-pc-1/4.jpg",
+      "/images/products/custom-pc/custom-pc-1/5.jpg"
+    ],
+    "specs": {
+      "processor": "AMD Ryzen 7 7800X3D",
+      "graphics": "AMD Radeon RX 7800 XT 16GB",
+      "memory": "32GB DDR5 6000MHz",
+      "storage": "1TB NVMe SSD",
+      "os": "Windows 11 Pro",
+      "cooling": "4x RGB Fans",
+      "wireless": "WiFi Included",
+      "powerSupply": "650W 80+ Bronze",
+      "motherboard": "B650 Chipset (unspecified)"
+    },
+    "availability": "in stock",
+    "rating": 4.7,
+    "reviewsCount": 95
+  },
+  {
+    "id": 17,
+    "category": "custom pc",
+    "title": "LXZ Desktop Computer - AMD Ryzen 7 5700G, 16GB RAM, 512GB SSD",
+    "description": "AMD Ryzen 7 5700G 3.9GHz, 16GB DDR4 RAM, 512GB NVMe SSD, Windows 11 Pro, WiFi, Bluetooth, HDMI & DisplayPort",
+    "price": 649.99,
+    "old price": 799.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-2/1.jpg",
+      "/images/products/custom-pc/custom-pc-2/2.jpg",
+      "/images/products/custom-pc/custom-pc-2/3.jpg",
+      "/images/products/custom-pc/custom-pc-2/4.jpg",
+      "/images/products/custom-pc/custom-pc-2/5.jpg"
+    ],
+    "specs": {
+      "processor": "AMD Ryzen 7 5700G",
+      "graphics": "Integrated Radeon Graphics",
+      "memory": "16GB DDR4",
+      "storage": "512GB NVMe SSD",
+      "os": "Windows 11 Pro",
+      "wireless": "WiFi and Bluetooth",
+      "ports": "HDMI, DisplayPort, USB 3.0",
+      "powerSupply": "450W",
+      "motherboard": "B550 Chipset (unspecified)"
+    },
+    "availability": "in stock",
+    "rating": 4.4,
+    "reviewsCount": 120
+  },
+  {
+    "id": 18,
+    "category": "custom pc",
+    "title": "Skytech Nebula Gaming Desktop - Intel Core i5-10105F, RTX 3060 Ti",
+    "description": "Intel Core i5-10105F, NVIDIA GeForce RTX 3060 Ti 8GB, 16GB DDR4 RAM, 1TB NVMe SSD, Windows 11 Home, RGB Lighting",
+    "price": 1099.99,
+    "old price": 1299.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-3/1.jpg",
+      "/images/products/custom-pc/custom-pc-3/2.jpg",
+      "/images/products/custom-pc/custom-pc-3/3.jpg",
+      "/images/products/custom-pc/custom-pc-3/4.jpg",
+      "/images/products/custom-pc/custom-pc-3/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Core i5-10105F",
+      "graphics": "NVIDIA GeForce RTX 3060 Ti 8GB",
+      "memory": "16GB DDR4",
+      "storage": "1TB NVMe SSD",
+      "os": "Windows 11 Home",
+      "cooling": "Air Cooling with RGB Fans",
+      "motherboard": "B560 Chipset (unspecified)",
+      "powerSupply": "650W 80+ Bronze",
+      "ports": "HDMI, DisplayPort, USB 3.0",
+      "wireless": "No"
+    },
+    "availability": "in stock",
+    "rating": 4.5,
+    "reviewsCount": 75
+  },
+  {
+    "id": 19,
+    "category": "custom pc",
+    "title": "CyberPowerPC Gamer Xtreme - Intel Core i5-13400F, GeForce RTX 4060",
+    "description": "Intel Core i5-13400F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 RAM, 500GB NVMe SSD, Windows 11 Home, Gaming Desktop",
+    "price": 1099.99,
+    "old price": 1299.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-4/1.jpg",
+      "/images/products/custom-pc/custom-pc-4/2.jpg",
+      "/images/products/custom-pc/custom-pc-4/3.jpg",
+      "/images/products/custom-pc/custom-pc-4/4.jpg",
+      "/images/products/custom-pc/custom-pc-4/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Core i5-13400F",
+      "graphics": "NVIDIA GeForce RTX 4060 8GB",
+      "memory": "16GB DDR4",
+      "storage": "500GB NVMe SSD",
+      "os": "Windows 11 Home",
+      "cooling": "Air Cooling",
+      "motherboard": "B760 Chipset (unspecified)",
+      "powerSupply": "600W 80+ Bronze",
+      "ports": "HDMI, DisplayPort, USB 3.0",
+      "wireless": "No"
+    },
+    "availability": "in stock",
+    "rating": 4.7,
+    "reviewsCount": 88
+  },
+  {
+    "id": 20,
+    "category": "custom pc",
+    "title": "Skytech Archangel Gaming Desktop - Intel Core i5-13400F, RTX 4060",
+    "description": "Intel Core i5-13400F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 RAM, 500GB NVMe SSD, Windows 11 Home, RGB Lighting",
+    "price": 1149.99,
+    "old price": 1349.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-5/1.jpg",
+      "/images/products/custom-pc/custom-pc-5/2.jpg",
+      "/images/products/custom-pc/custom-pc-5/3.jpg",
+      "/images/products/custom-pc/custom-pc-5/4.jpg",
+      "/images/products/custom-pc/custom-pc-5/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Core i5-13400F",
+      "graphics": "NVIDIA GeForce RTX 4060 8GB",
+      "memory": "16GB DDR4",
+      "storage": "500GB NVMe SSD",
+      "os": "Windows 11 Home",
+      "cooling": "Air Cooling with RGB Fans",
+      "motherboard": "B760 Chipset (unspecified)",
+      "powerSupply": "600W 80+ Bronze",
+      "ports": "HDMI, DisplayPort, USB 3.0",
+      "wireless": "No"
+    },
+    "availability": "in stock",
+    "rating": 4.6,
+    "reviewsCount": 52
+  }
+]

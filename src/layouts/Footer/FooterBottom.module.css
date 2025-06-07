@@ -1,0 +1,17 @@
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 17px;
+}
+
+.footer-bottom__payment {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-bottom__text {
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff73;
+}

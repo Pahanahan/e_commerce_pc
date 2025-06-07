@@ -1,0 +1,32 @@
+.benefit {
+  margin-bottom: 45px;
+}
+
+.benefit__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.benefit__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 265px;
+}
+
+.benefit__item-img {
+  margin-bottom: 24px;
+}
+
+.benefit__item-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.benefit__item-text {
+  line-height: 140%;
+  text-align: center;
+}

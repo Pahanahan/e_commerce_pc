@@ -1,0 +1,31 @@
+.promo {
+  margin-bottom: 15px;
+}
+
+.promo__box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f7ff;
+  padding: 20px 0;
+  gap: 8px;
+}
+
+.promo__box-img {
+  padding: 0 10px;
+  border-right: 2px solid #00aeb8;
+}
+
+.promo__box-text {
+  font-size: 18px;
+  color: #272560;
+}
+
+.promo__box-text strong {
+  font-weight: 600;
+}
+
+.promo__box-link {
+  font-size: 14px;
+  color: #272560;
+}

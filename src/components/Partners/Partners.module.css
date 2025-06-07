@@ -1,0 +1,18 @@
+.partners {
+  margin-bottom: 40px;
+}
+
+.partners__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.partners__img {
+  background-color: #fff;
+  padding: 35px 23px;
+}
+
+.partners__img:hover {
+  background-color: #f5f7ff;
+}

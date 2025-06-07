@@ -1,0 +1,88 @@
+.comments {
+  margin-bottom: 60px;
+}
+
+.comments__box {
+  background-color: #f5f7ff;
+  overflow: hidden;
+}
+
+.comments__box-slider {
+  padding-bottom: 65px;
+  display: flex;
+  transition: all 0.3s;
+}
+
+.comment__inner {
+  background-color: #f5f7ff;
+  padding: 50px 120px;
+  padding-top: 0;
+}
+
+.comment {
+  padding: 50px 120px 0 192px;
+  min-width: 100%;
+  position: relative;
+}
+
+.comment::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  left: 120px;
+  width: 38px;
+  height: 22px;
+  background-image: url("../../assets/images/others/backtics.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.comment__text {
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+.comment__author {
+  font-size: 14px;
+  text-align: end;
+}
+
+.comment__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.comment__link {
+  color: #0156ff;
+  padding: 8px 25px;
+  border: 2px solid #0156ff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #cacdd8;
+  cursor: pointer;
+}
+
+.dot--active {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background-color: #0156ff;
+  cursor: pointer;
+}

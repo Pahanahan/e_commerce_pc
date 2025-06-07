@@ -1,0 +1,36 @@
+.home-slider {
+  margin-bottom: 37px;
+}
+
+.home-slider__container {
+  overflow: hidden;
+  position: relative;
+}
+
+.home-slider__box {
+  display: flex;
+  transition: all 0.3s;
+}
+
+.home-slider__arrow-left,
+.home-slider__arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.home-slider__arrow-left {
+  left: 0;
+}
+
+.home-slider__arrow-right {
+  right: 0;
+}
+
+.home-slider__item {
+  width: 100%;
+}

@@ -1,0 +1,42 @@
+.instagram-news {
+  margin-bottom: 57px;
+}
+
+.instagram-news__title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.instagram-news__box {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.instagram-news__item {
+  width: 220px;
+  margin-bottom: 20px;
+}
+
+.instagram-news__item a {
+  text-decoration: none;
+}
+
+.instagram-news__item-img {
+  margin-bottom: 10px;
+}
+
+.instagram-news__item-text {
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.instagram-news__item-date {
+  font-size: 10px;
+  text-align: center;
+  color: #a2a6b0;
+}

@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "title": "Information",
+    "text": [
+      "About Us",
+      "About Zip",
+      "Privacy Policy",
+      "Search",
+      "Terms",
+      "Orders and Returns",
+      "Contact Us",
+      "Advanced Search",
+      "Newsletter Subscription"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "PC Parts",
+    "text": [
+      "CPUS",
+      "Add On Cards",
+      "Hard Drives (Internal)",
+      "Graphic Cards",
+      "Keyboards / Mice",
+      "Cases / Power Supplies / Cooling",
+      "RAM (Memory)",
+      "Software",
+      "Speakers / Headsets",
+      "Motherboards"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Desktop PCs",
+    "text": [
+      "Custom PCs",
+      "Servers",
+      "MSI All-In-One PCs",
+      "HP/Compaq PCs",
+      "ASUS PCs",
+      "Tecs PCs"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Laptops",
+    "text": [
+      "Evryday Use Notebooks",
+      "MSI Workstation Series",
+      "MSI Prestige Series",
+      "Tablets and Pads",
+      "Netbooks",
+      "Infinity Gaming Notebooks"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Address",
+    "text": [
+      "Address: 1234 Street Adress City Address, 1234",
+      "Phones: (00) 1234 5678",
+      "We are open: Monday-Thursday: 9:00 AM - 5:30 PM",
+      "Friday: 9:00 AM - 6:00 PM",
+      "Saturday: 11:00 AM - 5:00 PM",
+      "E-mail: shop@email.com"
+    ]
+  }
+]

@@ -1,0 +1,31 @@
+.menu-action {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.menu-action__search {
+  border: none;
+  background-color: transparent;
+}
+
+.menu-action__cart {
+  position: relative;
+}
+
+.menu-action__cart-current {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #0156ff;
+  font-size: 10px;
+  font-weight: 700;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  color: #fff;
+}
