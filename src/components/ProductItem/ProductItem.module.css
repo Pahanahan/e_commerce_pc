@@ -1,5 +1,6 @@
 .product {
-  min-width: 234px;
+  min-width: 226px;
+  max-width: 226px;
   height: 346px;
   padding: 20px;
 }
@@ -28,10 +29,13 @@
   width: 150px;
   height: 150px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .product__image img {
-  width: 110px;
+  width: auto;
   height: 110px;
 }
 

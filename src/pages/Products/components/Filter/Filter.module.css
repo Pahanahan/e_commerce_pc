@@ -1,0 +1,13 @@
+.filter-back {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 15px;
+  transition: all 0.4s;
+}
+
+.filter-back:hover {
+  background-color: #f5f7ff;
+}

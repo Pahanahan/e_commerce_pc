@@ -1,0 +1,8 @@
+.products-main {
+  margin-bottom: 35px;
+}
+
+.products-main__inner {
+  display: flex;
+  gap: 10px;
+}

@@ -1,12 +1,14 @@
-import laptop from "/images/promo/promo.jpg";
+import { Link } from "react-router-dom";
+
+import laptop from "../../../../assets/images/promo/promo.jpg";
 
 function Promo() {
   return (
     <div>
       <div className="container">
-        <a href="#">
+        <Link to="/product">
           <img src={laptop} alt="laptop" />
-        </a>
+        </Link>
       </div>
     </div>
   );

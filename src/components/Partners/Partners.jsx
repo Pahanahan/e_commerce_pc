@@ -1,11 +1,11 @@
 import styles from "./Partners.module.css";
-import roccat from "/images/partners/roccat.png";
-import msi from "/images/partners/msi.png";
-import razer from "/images/partners/razer.png";
-import thermaltake from "/images/partners/thermaltake.png";
-import adata from "/images/partners/adata.png";
-import hp from "/images/partners/hp.png";
-import gigabyte from "/images/partners/gigabyte.png";
+import roccat from "../../assets/images/partners/roccat.png";
+import msi from "../../assets/images/partners/msi.png";
+import razer from "../../assets/images/partners/razer.png";
+import thermaltake from "../../assets/images/partners/thermaltake.png";
+import adata from "../../assets/images/partners/adata.png";
+import hp from "../../assets/images/partners/hp.png";
+import gigabyte from "../../assets/images/partners/gigabyte.png";
 
 function Partners() {
   const imageArr = [roccat, msi, razer, thermaltake, adata, hp, gigabyte];

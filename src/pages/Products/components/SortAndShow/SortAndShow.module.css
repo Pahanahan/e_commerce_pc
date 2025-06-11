@@ -1,0 +1,62 @@
+.sort-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.sort-box__length {
+  font-size: 13px;
+  color: #a2a6b0;
+}
+
+.sort-box__items {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+.sort-box__position,
+.sort-box__show {
+  padding: 15px 40px 15px 20px;
+  border: 2px solid #cacdd8;
+  border-radius: 2px;
+  color: #a2a6b0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+}
+
+.sort-box__position::after,
+.sort-box__show::after {
+  content: "";
+  position: absolute;
+  background-image: url("../../../../assets/icons/arrow-down-black.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 18px;
+  right: 12px;
+  width: 10px;
+  height: 10px;
+}
+
+.sort-box__position span,
+.sort-box__show span {
+  font-size: 13px;
+  color: #000;
+}
+
+.sort-box__style-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-box__btn {
+  border: none;
+  background-color: transparent;
+  padding-top: 5px;
+}

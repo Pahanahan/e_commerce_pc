@@ -1,10 +1,10 @@
 import ProductCategoryItem from "./ProductCategoryItem";
 import productsdata from "../../data/products-data.json";
 import styles from "./ProductCategories.module.css";
-import custom from "/images/categories/custom.jpg";
-import laptop from "/images/categories/laptop.jpg";
-import desctop from "/images/categories/desctop.jpg";
-import monitor from "/images/categories/monitor.jpg";
+import custom from "../../assets/images/categories/custom.jpg";
+import laptop from "../../assets/images/categories/laptop.jpg";
+import desctop from "../../assets/images/categories/desctop.jpg";
+import monitor from "../../assets/images/categories/monitor.jpg";
 
 function ProductCategories() {
   const productsDataCustom = productsdata

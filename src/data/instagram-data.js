@@ -1,12 +1,12 @@
-import img_1 from "/images/instagram/1.jpg";
-import img_2 from "/images/instagram/2.jpg";
-import img_3 from "/images/instagram/3.jpg";
-import img_4 from "/images/instagram/4.jpg";
-import img_5 from "/images/instagram/5.jpg";
-import img_6 from "/images/instagram/6.jpg";
-import img_7 from "/images/instagram/7.jpg";
-import img_8 from "/images/instagram/8.jpg";
-import img_9 from "/images/instagram/9.jpg";
+import img_1 from "../assets/images/instagram/1.jpg";
+import img_2 from "../assets/images/instagram/2.jpg";
+import img_3 from "../assets/images/instagram/3.jpg";
+import img_4 from "../assets/images/instagram/4.jpg";
+import img_5 from "../assets/images/instagram/5.jpg";
+import img_6 from "../assets/images/instagram/6.jpg";
+import img_7 from "../assets/images/instagram/7.jpg";
+import img_8 from "../assets/images/instagram/8.jpg";
+import img_9 from "../assets/images/instagram/9.jpg";
 
 const imageArr = [
   {
