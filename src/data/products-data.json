@@ -582,5 +582,33 @@
     "availability": "in stock",
     "rating": 4.6,
     "reviewsCount": 52
+  },
+  {
+    "id": 21,
+    "category": "laptops",
+    "title": "ASUS TUF Gaming FX505DT",
+    "description": "15.6\" FHD 120Hz Display, AMD Ryzen 7 3750H, GTX 1650 Graphics, 16GB RAM, 512GB SSD, RGB Keyboard, Windows 11",
+    "price": 699.99,
+    "old price": 899.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/laptop/laptop-6/1.jpg",
+      "/images/products/laptop/laptop-6/2.jpg",
+      "/images/products/laptop/laptop-6/3.jpg",
+      "/images/products/laptop/laptop-6/4.jpg",
+      "/images/products/laptop/laptop-6/5.jpg"
+    ],
+    "specs": {
+      "processor": "AMD Ryzen 7 3750H",
+      "graphics": "NVIDIA GeForce GTX 1650 4GB",
+      "display": "15.6\" Full HD (1920 x 1080), 120Hz",
+      "memory": "16GB DDR4 RAM",
+      "storage": "512GB NVMe SSD",
+      "keyboard": "RGB Backlit Keyboard",
+      "os": "Windows 11 Home"
+    },
+    "availability": "in stock",
+    "rating": 4.5,
+    "reviewsCount": 932
   }
 ]

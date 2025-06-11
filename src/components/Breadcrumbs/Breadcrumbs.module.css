@@ -1,0 +1,16 @@
+.breadcrumbs {
+  margin: 20px 0;
+}
+
+.breadcrubms__inner {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.breadcrubms__inner a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+}
