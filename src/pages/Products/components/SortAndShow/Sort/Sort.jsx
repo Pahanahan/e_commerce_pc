@@ -6,19 +6,14 @@ import {
   sortPriceHigher,
   sortPriceLower,
   sortRating,
-} from "../../../../redux/products/actionCreators";
+} from "../../../../../redux/products/actionCreators";
 
-import productsdata from "../../../../data/products-data.json";
-import styles from "./SortAndShow.module.css";
-import box from "../../../../assets/icons/box.svg";
-import list from "../../../../assets/icons/list.svg";
+import styles from "./Sort.module.css";
 
 function SortAndShow() {
   const [sortBy, setSortBy] = useState("Position");
   const [overflowSort, setOverflowSort] = useState("hidden");
   const dispatch = useDispatch();
-
-  const currentProducts = productsdata.length;
 
   const sortOptions = [
     "Position",
@@ -81,35 +76,13 @@ function SortAndShow() {
   ));
 
   return (
-    <div className={styles["sort-box"]}>
-      <div className={styles["sort-box__length"]}>
-        Items 1-21 of {currentProducts}
-      </div>
-      <div className={styles["sort-box__items"]}>
-        <div
-          onClick={handleOverflowVisible}
-          style={{ overflow: overflowSort }}
-          className={styles["sort-box__sort-by"]}
-        >
-          Sort By: <span>{sortBy}</span>
-          <div className={styles["sort-box__sort-by-select"]}>
-            {optionsItems}
-          </div>
-        </div>
-
-        <div className={styles["sort-box__show"]}>
-          Show: <span>20 per page</span>
-        </div>
-
-        <div className={styles["sort-box__style-btn"]}>
-          <button className={styles["sort-box__btn"]}>
-            <img src={box} alt="button" />
-          </button>
-          <button className={styles["sort-box__btn"]}>
-            <img src={list} alt="button" />
-          </button>
-        </div>
-      </div>
+    <div
+      onClick={handleOverflowVisible}
+      style={{ overflow: overflowSort }}
+      className={styles["sort-box__sort-by"]}
+    >
+      Sort By: <span>{sortBy}</span>
+      <div className={styles["sort-box__sort-by-select"]}>{optionsItems}</div>
     </div>
   );
 }

@@ -11,3 +11,79 @@
 .filter-back:hover {
   background-color: #f5f7ff;
 }
+
+.filter {
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f7ff;
+  padding: 20px 15px;
+}
+
+.filter__title {
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.filter__clear-btn {
+  font-size: 14px;
+  font-weight: 600;
+  color: #a2a6b0;
+  padding: 10px;
+  border: 2px solid #a2a6b0;
+  border-radius: 20px;
+  background-color: transparent;
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 17px;
+  transition: all 0.4s;
+}
+
+.filter__clear-btn:hover {
+  color: #414347;
+  border: 2px solid #414347;
+  transform: scale(1.05);
+}
+
+.filter__category {
+  margin-bottom: 20px;
+}
+
+.filter__category h3 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.filter__category-item {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.filter__category-item:hover {
+  transform: scale(1.05);
+}
+
+.filter__apply {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  padding: 10px;
+  border: 2px solid #0156ff;
+  border-radius: 20px;
+  background-color: #0156ff;
+  width: 200px;
+  margin: 0 auto;
+  transition: all 0.4s;
+}
+
+.filter__apply:hover {
+  transform: scale(1.05);
+  border: 2px solid #003fbe;
+  background-color: #003fbe;
+}

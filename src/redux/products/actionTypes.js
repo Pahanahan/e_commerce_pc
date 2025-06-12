@@ -1,0 +1,5 @@
+export const SORT_POSITION = "SORT_POSITION";
+export const SORT_NAME = "SORT_NAME";
+export const SORT_PRICE_HIGHER = "SORT_PRICE_HIGHER";
+export const SORT_PRICE_LOWER = "SORT_PRICE_LOWER";
+export const SORT_RATING = "SORT_RATING";

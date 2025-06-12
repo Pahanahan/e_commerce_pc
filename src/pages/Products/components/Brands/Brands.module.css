@@ -29,7 +29,7 @@
 .brands__show-all:hover {
   color: #414347;
   border: 2px solid #414347;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .brands__box {

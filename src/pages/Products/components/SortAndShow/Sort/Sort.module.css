@@ -17,8 +17,7 @@
   gap: 10px;
 }
 
-.sort-box__sort-by,
-.sort-box__show {
+.sort-box__sort-by {
   background-color: #fff;
   padding: 15px 40px 15px 20px;
   border: 2px solid #cacdd8;
@@ -30,8 +29,7 @@
   position: relative;
 }
 
-.sort-box__sort-by::after,
-.sort-box__show::after {
+.sort-box__sort-by::after {
   content: "";
   position: absolute;
   background-image: url("../../../../assets/icons/arrow-down-black.svg");
@@ -44,8 +42,7 @@
   height: 10px;
 }
 
-.sort-box__sort-by span,
-.sort-box__show span {
+.sort-box__sort-by span {
   font-size: 13px;
   color: #000;
 }
@@ -71,16 +68,4 @@
 
 .sort-box__sort-by-option:hover {
   background-color: #0156ff;
-}
-
-.sort-box__style-btn {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.sort-box__btn {
-  border: none;
-  background-color: transparent;
-  padding-top: 5px;
 }
