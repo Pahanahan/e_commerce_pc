@@ -1,0 +1,11 @@
+.sort-box__style-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-box__btn {
+  border: none;
+  background-color: transparent;
+  padding-top: 5px;
+}

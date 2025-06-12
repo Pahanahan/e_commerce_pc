@@ -1,23 +1,4 @@
-.sort-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
-}
-
-.sort-box__length {
-  font-size: 13px;
-  color: #a2a6b0;
-}
-
-.sort-box__items {
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  gap: 10px;
-}
-
-.sort-box__sort-by {
+.show-box {
   background-color: #fff;
   padding: 15px 40px 15px 20px;
   border: 2px solid #cacdd8;
@@ -29,10 +10,10 @@
   position: relative;
 }
 
-.sort-box__sort-by::after {
+.show-box::after {
   content: "";
   position: absolute;
-  background-image: url("../../../../assets/icons/arrow-down-black.svg");
+  background-image: url("../../../../../assets/icons/arrow-down-black.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -42,23 +23,20 @@
   height: 10px;
 }
 
-.sort-box__sort-by span {
+.show-box span {
   font-size: 13px;
   color: #000;
-}
-
-.sort-box__sort-by {
   position: relative;
 }
 
-.sort-box__sort-by-select {
+.show-box__select {
   position: absolute;
   width: 100%;
   background-color: #fff;
   margin: 18px 0 0 -19px;
 }
 
-.sort-box__sort-by-option {
+.show-box__option {
   padding-top: 10px;
   padding-right: 40px;
   text-align: end;
@@ -66,6 +44,6 @@
   padding-bottom: 7px;
 }
 
-.sort-box__sort-by-option:hover {
+.show-box__option:hover {
   background-color: #0156ff;
 }

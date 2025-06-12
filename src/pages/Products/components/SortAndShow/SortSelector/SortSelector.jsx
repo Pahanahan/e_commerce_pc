@@ -8,11 +8,11 @@ import {
   sortRating,
 } from "../../../../../redux/products/actionCreators";
 
-import styles from "./Sort.module.css";
+import styles from "./SortSelector.module.css";
 
 function SortAndShow() {
   const [sortBy, setSortBy] = useState("Position");
-  const [overflowSort, setOverflowSort] = useState("hidden");
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
   const sortOptions = [
@@ -29,45 +29,43 @@ function SortAndShow() {
 
     switch (selected) {
       case "Position":
-        dispatch(sortPosition(sortBy));
+        dispatch(sortPosition(selected));
         break;
       case "Name":
-        dispatch(sortName(sortBy));
+        dispatch(sortName(selected));
         break;
       case "Price Higher":
-        dispatch(sortPriceHigher(sortBy));
+        dispatch(sortPriceHigher(selected));
         break;
       case "Price Lower":
-        dispatch(sortPriceLower(sortBy));
+        dispatch(sortPriceLower(selected));
         break;
       case "Rating":
-        dispatch(sortRating(sortBy));
+        dispatch(sortRating(selected));
         break;
       default:
         break;
     }
   };
 
+  const handleOverflowVisible = () => {
+    setIsOpen((prevState) => !prevState);
+  };
+
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (!e.target.closest(`.${styles["sort-box__sort-by"]}`)) {
-        setOverflowSort("hidden");
+      if (!e.target.closest(`.${styles["sort__by"]}`)) {
+        setIsOpen(false);
       }
     };
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
-  const handleOverflowVisible = () => {
-    setOverflowSort((prevState) => {
-      return prevState === "hidden" ? "visible" : "hidden";
-    });
-  };
-
-  const optionsItems = sortOptions.map((item) => (
+  const optionItems = sortOptions.map((item) => (
     <div
       key={item}
-      className={styles["sort-box__sort-by-option"]}
+      className={styles["sort__option"]}
       data-sort={item}
       onClick={handleChangeSort}
     >
@@ -76,13 +74,14 @@ function SortAndShow() {
   ));
 
   return (
-    <div
-      onClick={handleOverflowVisible}
-      style={{ overflow: overflowSort }}
-      className={styles["sort-box__sort-by"]}
-    >
+    <div onClick={handleOverflowVisible} className={styles["sort__by"]}>
       Sort By: <span>{sortBy}</span>
-      <div className={styles["sort-box__sort-by-select"]}>{optionsItems}</div>
+      <div
+        className={styles["sort__select"]}
+        style={{ display: isOpen ? "block" : "none" }}
+      >
+        {optionItems}
+      </div>
     </div>
   );
 }

@@ -6,4 +6,18 @@ const sortPriceHigher = () => ({ type: a.SORT_PRICE_HIGHER });
 const sortPriceLower = () => ({ type: a.SORT_PRICE_LOWER });
 const sortRating = () => ({ type: a.SORT_RATING });
 
-export { sortName, sortPosition, sortPriceHigher, sortPriceLower, sortRating };
+const showCurrentsProducts = (num) => {
+  return {
+    type: a.SHOW_CURRENTS_PRODUCTS,
+    payload: num,
+  };
+};
+
+export {
+  sortName,
+  sortPosition,
+  sortPriceHigher,
+  sortPriceLower,
+  sortRating,
+  showCurrentsProducts,
+};
