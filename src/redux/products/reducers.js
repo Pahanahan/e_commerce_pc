@@ -4,6 +4,7 @@ import productsdata from "../../data/products-data.json";
 const initialState = {
   allProducts: [...productsdata],
   visibleProducts: [...productsdata],
+  itemsToShow: productsdata.length,
 };
 
 const productsReducer = (state = initialState, action) => {
@@ -15,7 +16,7 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.visibleProducts.length),
+        visibleProducts: sorted.slice(0, state.itemsToShow),
       };
     }
 
@@ -24,7 +25,7 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.visibleProducts.length),
+        visibleProducts: sorted.slice(0, state.itemsToShow),
       };
     }
 
@@ -33,7 +34,7 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.visibleProducts.length),
+        visibleProducts: sorted.slice(0, state.itemsToShow),
       };
     }
 
@@ -42,7 +43,7 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.visibleProducts.length),
+        visibleProducts: sorted.slice(0, state.itemsToShow),
       };
     }
 
@@ -51,23 +52,20 @@ const productsReducer = (state = initialState, action) => {
       return {
         ...state,
         allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.visibleProducts.length),
+        visibleProducts: sorted.slice(0, state.itemsToShow),
       };
     }
 
     case a.SHOW_CURRENTS_PRODUCTS: {
-      if (action.payload === "All") {
-        return {
-          ...state,
-          visibleProducts: [...state.allProducts],
-        };
-      } else {
-        const count = Number(action.payload);
-        return {
-          ...state,
-          visibleProducts: [...state.allProducts].slice(0, count),
-        };
-      }
+      const itemsToShow =
+        action.payload === "All"
+          ? state.allProducts.length
+          : Number(action.payload);
+      return {
+        ...state,
+        itemsToShow,
+        visibleProducts: [...state.allProducts].slice(0, itemsToShow),
+      };
     }
 
     default:

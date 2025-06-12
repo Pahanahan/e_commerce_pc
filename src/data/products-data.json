@@ -5,7 +5,7 @@
     "title": "Skytech Gaming Desktop PC",
     "description": "Skytech Blaze 3.0 Gaming Desktop PC - AMD Ryzen 5 5600X 6-Core, 16GB DDR4 RAM, NVIDIA GeForce RTX 3060 12GB, 1TB NVMe SSD, Windows 11 Home, 5.5 GHz Overclock",
     "price": 1299.99,
-    "old price": 1399.99,
+    "oldPrice": 1399.99,
     "currency": "USD",
     "images": [
       "/images/products/pc/pc-1/1.jpg",
@@ -32,7 +32,7 @@
     "title": "Skytech Rampage Gaming Desktop PC",
     "description": "Skytech Rampage Gaming Desktop PC - AMD Ryzen 5 5600X 6-Core, NVIDIA GeForce RTX 4070 Ti 12GB, 16GB DDR4 RAM, 1TB NVMe SSD, Windows 11 Home, Overclocked up to 5.5 GHz",
     "price": 1699.99,
-    "old price": 1899.99,
+    "oldPrice": 1899.99,
     "currency": "USD",
     "images": [
       "/images/products/pc/pc-2/1.jpg",
@@ -59,7 +59,7 @@
     "title": "LXZ Desktop Computer Gaming PC",
     "description": "LXZ Desktop Computer - Intel Core i7-12700 12-Core, NVIDIA GeForce RTX 3060 12GB, 16GB DDR4 RAM, 512GB SSD, Windows 11 Pro, 3.9GHz Turbo",
     "price": 1149.99,
-    "old price": 1359.99,
+    "oldPrice": 1359.99,
     "currency": "USD",
     "images": [
       "/images/products/pc/pc-3/1.jpg",
@@ -86,7 +86,7 @@
     "title": "MXZ Gaming Computer Desktop PC",
     "description": "MXZ Gaming Computer Desktop PC - Intel Core i5-12400F, NVIDIA GeForce RTX 3060 12GB, 16GB DDR4 RAM, 512GB NVMe SSD, Windows 11 Pro, 4.4 GHz Turbo",
     "price": 1099.99,
-    "old price": 1399.99,
+    "oldPrice": 1399.99,
     "currency": "USD",
     "images": [
       "/images/products/pc/pc-4/1.jpg",
@@ -113,7 +113,7 @@
     "title": "AEXPXO Gaming Desktop Computer",
     "description": "AEXPXO Gaming Desktop Computer - Intel 13th Gen Core i7-13700F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 3200MHz RAM, 1TB NVMe SSD, WiFi, Windows 11 Pro",
     "price": 1199.99,
-    "old price": 1399.99,
+    "oldPrice": 1399.99,
     "currency": "USD",
     "images": [
       "/images/products/pc/pc-5/1.jpg",
@@ -140,7 +140,7 @@
     "title": "ASUS TUF Gaming F15 FA506NF-ES51",
     "description": "15.6\" FHD 144Hz Gaming Laptop, Intel Core i5-11400H, NVIDIA GeForce GTX 1650, 8GB RAM, 512GB SSD, Windows 11",
     "price": 799.99,
-    "old price": 999.99,
+    "oldPrice": 999.99,
     "currency": "USD",
     "images": [
       "/images/products/laptop/laptop-1/1.jpg",
@@ -167,7 +167,7 @@
     "title": "Acer Aspire 3 A315-24P-R7VH Laptop",
     "description": "15.6\" Full HD Display, AMD Ryzen 5 7520U Quad-Core Processor, 8GB RAM, 512GB SSD, AMD Radeon Graphics, Windows 11 Home",
     "price": 449.99,
-    "old price": 699.99,
+    "oldPrice": 699.99,
     "currency": "USD",
     "images": [
       "/images/products/laptop/laptop-2/1.jpg",
@@ -194,7 +194,7 @@
     "title": "AOC 15.6\" Premium Laptop",
     "description": "15.6\" FHD Display, Intel Celeron N4500 Processor, 8GB RAM, 128GB SSD, Windows 11 Home",
     "price": 269.99,
-    "old price": 399.99,
+    "oldPrice": 399.99,
     "currency": "USD",
     "images": [
       "/images/products/laptop/laptop-3/1.jpg",
@@ -221,7 +221,7 @@
     "title": "AOC Expandable Processor Laptop",
     "description": "15.6\" HD Display, Intel Celeron Processor, 8GB RAM, 256GB SSD, Windows 11 Pro",
     "price": 299.99,
-    "old price": 499.99,
+    "oldPrice": 499.99,
     "currency": "USD",
     "images": [
       "/images/products/laptop/laptop-4/1.jpg",
@@ -248,7 +248,7 @@
     "title": "ApoloSign Notebook Expandable Processor Laptop",
     "description": "15.6\" HD Display, Intel Celeron Processor, 8GB RAM, 256GB SSD, Windows 11 Pro, Dual Band WiFi",
     "price": 329.99,
-    "old price": 399.99,
+    "oldPrice": 399.99,
     "currency": "USD",
     "images": [
       "/images/products/laptop/laptop-5/1.jpg",
@@ -276,7 +276,7 @@
     "title": "MSI PRO MP275 E2 27\" IPS FHD 120Hz Monitor",
     "description": "27\" IPS FHD (1920x1080) Display, 120Hz Refresh Rate, 1ms MPRT, FreeSync, HDR Ready, Eye Care Tech, HDMI/DisplayPort/VGA",
     "price": 129.99,
-    "old price": 159.99,
+    "oldPrice": 159.99,
     "currency": "USD",
     "images": [
       "/images/products/monitor/monitor-1/1.jpg",
@@ -308,7 +308,7 @@
     "title": "MSI MAG 321UPX QD-OLED 32\" 4K 240Hz Gaming Monitor",
     "description": "32\" 4K UHD OLED Display, 240Hz Refresh Rate, 0.03ms Response Time, Quantum Dot, G-SYNC Compatible, DisplayHDR True Black 400, USB-C, HDMI 2.1, DisplayPort 1.4a",
     "price": 949.99,
-    "old price": 1099.99,
+    "oldPrice": 1099.99,
     "currency": "USD",
     "images": [
       "/images/products/monitor/monitor-2/1.jpg",
@@ -340,7 +340,7 @@
     "title": "MSI G2422C 24\" Curved Gaming Monitor",
     "description": "24\" FHD (1920x1080) VA Curved Display, 180Hz Refresh Rate, 1ms MPRT, FreeSync Premium, HDMI, DisplayPort, VESA Mount, Eye Care",
     "price": 119.99,
-    "old price": 149.99,
+    "oldPrice": 149.99,
     "currency": "USD",
     "images": [
       "/images/products/monitor/monitor-3/1.jpg",
@@ -372,7 +372,7 @@
     "title": "Z-Edge UG32F 32\" Curved Gaming Monitor",
     "description": "32\" Curved FHD (1920x1080) Display, 200Hz Refresh Rate, 1ms MPRT, FreeSync, HDMI & DisplayPort, VESA Mount, Eye Care Technology",
     "price": 159.99,
-    "old price": 229.99,
+    "oldPrice": 229.99,
     "currency": "USD",
     "images": [
       "/images/products/monitor/monitor-4/1.jpg",
@@ -404,7 +404,7 @@
     "title": "MSI G255F 24.5\" FHD Gaming Monitor",
     "description": "24.5\" FHD (1920x1080) Rapid IPS Display, 180Hz Refresh Rate, 1ms GTG, Adaptive Sync, Adjustable Stand, DisplayPort, HDMI, VESA Mount",
     "price": 139.99,
-    "old price": 189.99,
+    "oldPrice": 189.99,
     "currency": "USD",
     "images": [
       "/images/products/monitor/monitor-5/1.jpg",
@@ -436,7 +436,7 @@
     "title": "MXZ Gaming Desktop PC - Ryzen 7 7800X3D, RX 7800 XT",
     "description": "AMD Ryzen 7 7800X3D, RX 7800 XT 16GB, 32GB DDR5 6000MHz, 1TB NVMe SSD, WiFi, RGB Fans, Windows 11 Pro",
     "price": 1399.99,
-    "old price": 1699.99,
+    "oldPrice": 1699.99,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-1/1.jpg",
@@ -466,7 +466,7 @@
     "title": "LXZ Desktop Computer - AMD Ryzen 7 5700G, 16GB RAM, 512GB SSD",
     "description": "AMD Ryzen 7 5700G 3.9GHz, 16GB DDR4 RAM, 512GB NVMe SSD, Windows 11 Pro, WiFi, Bluetooth, HDMI & DisplayPort",
     "price": 649.99,
-    "old price": 799.99,
+    "oldPrice": 799.99,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-2/1.jpg",
@@ -496,7 +496,7 @@
     "title": "Skytech Nebula Gaming Desktop - Intel Core i5-10105F, RTX 3060 Ti",
     "description": "Intel Core i5-10105F, NVIDIA GeForce RTX 3060 Ti 8GB, 16GB DDR4 RAM, 1TB NVMe SSD, Windows 11 Home, RGB Lighting",
     "price": 1099.99,
-    "old price": 1299.99,
+    "oldPrice": 1299.99,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-3/1.jpg",
@@ -527,7 +527,7 @@
     "title": "CyberPowerPC Gamer Xtreme - Intel Core i5-13400F, GeForce RTX 4060",
     "description": "Intel Core i5-13400F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 RAM, 500GB NVMe SSD, Windows 11 Home, Gaming Desktop",
     "price": 1099.99,
-    "old price": 1299.99,
+    "oldPrice": 1299.99,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-4/1.jpg",
@@ -558,7 +558,7 @@
     "title": "Skytech Archangel Gaming Desktop - Intel Core i5-13400F, RTX 4060",
     "description": "Intel Core i5-13400F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 RAM, 500GB NVMe SSD, Windows 11 Home, RGB Lighting",
     "price": 1149.99,
-    "old price": 1349.99,
+    "oldPrice": 1349.99,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-5/1.jpg",
@@ -589,7 +589,7 @@
     "title": "ASUS TUF Gaming FX505DT",
     "description": "15.6\" FHD 120Hz Display, AMD Ryzen 7 3750H, GTX 1650 Graphics, 16GB RAM, 512GB SSD, RGB Keyboard, Windows 11",
     "price": 699.99,
-    "old price": 899.99,
+    "oldPrice": 899.99,
     "currency": "USD",
     "images": [
       "/images/products/laptop/laptop-6/1.jpg",
@@ -610,5 +610,264 @@
     "availability": "in stock",
     "rating": 4.5,
     "reviewsCount": 932
+  },
+  {
+    "id": 22,
+    "category": "custom pc",
+    "title": "ZOTAC MEK AI-Enhanced Gaming PC",
+    "description": "NVIDIA GeForce RTX 5090, AMD Ryzen 7 9700X 5.5 GHz, 32GB DDR5 RGB, 2TB NVMe M.2 SSD, 1300W 80+ Gold PSU, WiFi 7, Bluetooth 5.4, Windows 11 Pro",
+    "price": 4699.99,
+    "old price": null,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-6/1.jpg",
+      "/images/products/custom-pc/custom-pc-6/2.jpg",
+      "/images/products/custom-pc/custom-pc-6/3.jpg",
+      "/images/products/custom-pc/custom-pc-6/4.jpg",
+      "/images/products/custom-pc/custom-pc-6/5.jpg"
+    ],
+    "specs": {
+      "processor": "AMD Ryzen 7 9700X 8-core / 16-thread, up to 5.5 GHz",
+      "graphics": "NVIDIA GeForce RTX 5090 32GB GDDR7",
+      "memory": "32GB DDR5 6400 MHz RGB",
+      "storage": "2TB NVMe M.2 SSD",
+      "powerSupply": "1300W 80+ Gold",
+      "wireless": "WiFi 7, Bluetooth 5.4",
+      "os": "Windows 11 Pro"
+    },
+    "availability": "in stock",
+    "rating": 5.0,
+    "reviewsCount": 9
+  },
+  {
+    "id": 23,
+    "category": "custom pc",
+    "title": "Thermaltake Arctic i4790 Gaming Desktop",
+    "description": "Intel Core i9-14900KF, NVIDIA GeForce RTX 4090, 64GB DDR5 ToughRam RGB, 2TB NVMe Gen4 SSD, WiFi, Windows 11 Home",
+    "price": 4199.99,
+    "old price": 4799.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-7/1.jpg",
+      "/images/products/custom-pc/custom-pc-7/2.jpg",
+      "/images/products/custom-pc/custom-pc-7/3.jpg",
+      "/images/products/custom-pc/custom-pc-7/4.jpg",
+      "/images/products/custom-pc/custom-pc-7/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Core i9-14900KF (24-core, up to 6.0 GHz)",
+      "graphics": "NVIDIA GeForce RTX 4090 24GB GDDR6X",
+      "memory": "64GB DDR5 ToughRam RGB (2x32GB)",
+      "storage": "2TB NVMe Gen4 SSD",
+      "powerSupply": "850W 80+ Gold",
+      "wireless": "WiFi, Bluetooth",
+      "os": "Windows 11 Home"
+    },
+    "availability": "in stock",
+    "rating": 4.7,
+    "reviewsCount": 138
+  },
+  {
+    "id": 24,
+    "category": "custom pc",
+    "title": "Corsair Vengeance a5100 Gaming PC",
+    "description": "AMD Ryzen 9 5900X, NVIDIA GeForce RTX 3080, 32GB DDR4 Dominator RGB, 1TB NVMe SSD + 2TB HDD, Wi-Fi 6, Windows 11",
+    "price": 2499.99,
+    "old price": 2999.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/custom-pc/custom-pc-8/1.jpg",
+      "/images/products/custom-pc/custom-pc-8/2.jpg",
+      "/images/products/custom-pc/custom-pc-8/3.jpg",
+      "/images/products/custom-pc/custom-pc-8/4.jpg",
+      "/images/products/custom-pc/custom-pc-8/5.jpg"
+    ],
+    "specs": {
+      "processor": "AMD Ryzen 9 5900X (12-core, up to 4.8 GHz)",
+      "graphics": "NVIDIA GeForce RTX 3080 10GB GDDR6X",
+      "memory": "32GB DDR4 Corsair Dominator RGB",
+      "storage": "1TB NVMe SSD + 2TB 7200RPM HDD",
+      "powerSupply": "750W 80+ Gold",
+      "wireless": "Wi-Fi 6, Bluetooth 5.1",
+      "os": "Windows 11 Home"
+    },
+    "availability": "in stock",
+    "rating": 4.6,
+    "reviewsCount": 205
+  },
+  {
+    "id": 25,
+    "category": "smartphones",
+    "title": "Samsung Galaxy A14 5G (Factory Unlocked)",
+    "description": "6.6\" FHD+ Display, 128GB Storage, 4GB RAM, 50MP Triple Camera, 5000mAh Battery, Android 13, Expandable Storage, Fast Charging",
+    "price": 179.99,
+    "old price": 199.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/smartphones/smartphones-1/1.jpg",
+      "/images/products/smartphones/smartphones-1/2.jpg",
+      "/images/products/smartphones/smartphones-1/3.jpg",
+      "/images/products/smartphones/smartphones-1/4.jpg"
+    ],
+    "specs": {
+      "display": "6.6\" Full HD+ Infinity-V (2408 x 1080)",
+      "processor": "MediaTek Dimensity 700 Octa-Core",
+      "memory": "4GB RAM",
+      "storage": "128GB (expandable up to 1TB)",
+      "camera": "Triple Rear Camera (50MP + 2MP + 2MP), 13MP Front",
+      "battery": "5000mAh, Fast Charging",
+      "os": "Android 13",
+      "network": "5G, Dual SIM (Unlocked for all carriers)"
+    },
+    "availability": "in stock",
+    "rating": 4.4,
+    "reviewsCount": 1572
+  },
+  {
+    "id": 26,
+    "category": "smartphones",
+    "title": "Tracfone Motorola Moto g Pure (2023)",
+    "description": "Locked to Tracfone, 6.5\" HD+ Display, 32GB Storage, 3GB RAM, 13MP Camera, 5000mAh Battery, Android 12, Sapphire Blue",
+    "price": 39.88,
+    "old price": 49.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/smartphones/smartphones-2/1.jpg",
+      "/images/products/smartphones/smartphones-2/2.jpg",
+      "/images/products/smartphones/smartphones-2/3.jpg",
+      "/images/products/smartphones/smartphones-2/4.jpg"
+    ],
+    "specs": {
+      "display": "6.5\" HD+ Max Vision (1600 x 720)",
+      "processor": "MediaTek Helio G25",
+      "memory": "3GB RAM",
+      "storage": "32GB (expandable via microSD)",
+      "camera": "13MP Rear, 5MP Front",
+      "battery": "5000mAh, up to 2-day battery life",
+      "os": "Android 12",
+      "network": "Locked to Tracfone, 4G LTE"
+    },
+    "availability": "in stock",
+    "rating": 4.2,
+    "reviewsCount": 342
+  },
+  {
+    "id": 27,
+    "category": "smartphones",
+    "title": "Motorola Moto G Stylus 5G (2023)",
+    "description": "Unlocked, 6.6\" FHD+ 120Hz Display, Snapdragon 6 Gen 1, 6GB RAM, 256GB Storage, 50MP Camera, 5000mAh Battery, Android 13, Midnight Blue",
+    "price": 249.99,
+    "old price": 399.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/smartphones/smartphones-3/1.jpg",
+      "/images/products/smartphones/smartphones-3/2.jpg",
+      "/images/products/smartphones/smartphones-3/3.jpg",
+      "/images/products/smartphones/smartphones-3/4.jpg",
+      "/images/products/smartphones/smartphones-3/5.jpg"
+    ],
+    "specs": {
+      "display": "6.6\" FHD+ (2400 x 1080), 120Hz",
+      "processor": "Snapdragon 6 Gen 1",
+      "memory": "6GB RAM",
+      "storage": "256GB (expandable via microSD)",
+      "camera": "50MP Rear (OIS), 16MP Front",
+      "battery": "5000mAh, TurboPower charging",
+      "os": "Android 13",
+      "stylus": "Built-in stylus",
+      "network": "Unlocked, 5G compatible"
+    },
+    "availability": "in stock",
+    "rating": 4.4,
+    "reviewsCount": 820
+  },
+  {
+    "id": 28,
+    "category": "smartphones",
+    "title": "Google Pixel 8a",
+    "description": "Unlocked Android Smartphone with 6.1\" OLED Display, Google Tensor G3 Chip, 128GB Storage, Advanced Camera, Long Battery Life, Android 14",
+    "price": 499.0,
+    "old price": 549.0,
+    "currency": "USD",
+    "images": [
+      "/images/products/smartphones/smartphones-4/1.jpg",
+      "/images/products/smartphones/smartphones-4/2.jpg",
+      "/images/products/smartphones/smartphones-4/3.jpg",
+      "/images/products/smartphones/smartphones-4/4.jpg",
+      "/images/products/smartphones/smartphones-4/5.jpg"
+    ],
+    "specs": {
+      "display": "6.1\" FHD+ OLED, 120Hz",
+      "processor": "Google Tensor G3",
+      "memory": "8GB RAM",
+      "storage": "128GB",
+      "camera": "64MP + 13MP Dual Rear, 13MP Front",
+      "battery": "4492mAh, Fast Charging",
+      "os": "Android 14",
+      "features": "5G, IP67 water resistance, Face Unlock, Fingerprint Sensor",
+      "network": "Unlocked"
+    },
+    "availability": "in stock",
+    "rating": 4.6,
+    "reviewsCount": 190
+  },
+  {
+    "id": 29,
+    "category": "smartphones",
+    "title": "Reno9Pro Unlocked Smartphone",
+    "description": "6.7\" FHD+ Display, 12GB RAM + 512GB ROM, Expandable Storage, 5G LTE, 64MP AI Dual Camera, 4500mAh Battery, Face ID, Fingerprint Unlock, Dual SIM, Android",
+    "price": 219.99,
+    "old price": 279.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/smartphones/smartphones-5/1.jpg",
+      "/images/products/smartphones/smartphones-5/2.jpg",
+      "/images/products/smartphones/smartphones-5/3.jpg",
+      "/images/products/smartphones/smartphones-5/4.jpg",
+      "/images/products/smartphones/smartphones-5/5.jpg"
+    ],
+    "specs": {
+      "display": "6.7\" FHD+ (2400x1080)",
+      "processor": "Octa-core (unspecified)",
+      "memory": "12GB RAM",
+      "storage": "512GB ROM (Expandable)",
+      "camera": "64MP + AI Rear, 32MP Front",
+      "battery": "4500mAh, USB-C Fast Charging",
+      "os": "Android (unspecified version)",
+      "features": "5G LTE, Face ID, Fingerprint Sensor, Dual SIM",
+      "network": "Unlocked"
+    },
+    "availability": "in stock",
+    "rating": 4.3,
+    "reviewsCount": 134
+  },
+  {
+    "id": 30,
+    "category": "laptops",
+    "title": "ASUS ROG Strix G16 (2024)",
+    "description": "16\" Nebula Display, Intel Core i9-13980HX, NVIDIA GeForce RTX 4070, 16GB DDR5 RAM, 1TB SSD, Windows 11, RGB Keyboard, Eclipse Gray",
+    "price": 1799.99,
+    "old price": 1999.99,
+    "currency": "USD",
+    "images": [
+      "/images/products/laptop/laptop-7/1.jpg",
+      "/images/products/laptop/laptop-7/2.jpg",
+      "/images/products/laptop/laptop-7/3.jpg",
+      "/images/products/laptop/laptop-7/4.jpg",
+      "/images/products/laptop/laptop-7/5.jpg"
+    ],
+    "specs": {
+      "display": "16\" QHD+ Nebula Display (2560x1600), 240Hz, 500 nits",
+      "processor": "Intel Core i9-13980HX",
+      "graphics": "NVIDIA GeForce RTX 4070 8GB GDDR6",
+      "memory": "16GB DDR5 RAM",
+      "storage": "1TB PCIe 4.0 NVMe SSD",
+      "keyboard": "Per-key RGB backlit",
+      "os": "Windows 11 Home",
+      "features": "MUX Switch, Wi-Fi 6E, Dolby Vision, AI Noise Cancellation"
+    },
+    "availability": "in stock",
+    "rating": 4.7,
+    "reviewsCount": 215
   }
 ]

@@ -5,7 +5,7 @@ import { showCurrentsProducts } from "../../../../../redux/products/actionCreato
 import styles from "./ShowSelector.module.css";
 
 function SortAndShow() {
-  const [currentShow, setCurrentShow] = useState(20);
+  const [currentShow, setCurrentShow] = useState("All");
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -16,11 +16,12 @@ function SortAndShow() {
   };
 
   const handleChangeShow = (e) => {
-    const selected = e.target.dataset.show;
-    setCurrentShow(selected);
-
-    dispatch(showCurrentsProducts(selected));
+    setCurrentShow(e.target.dataset.show);
   };
+
+  useEffect(() => {
+    dispatch(showCurrentsProducts(currentShow));
+  }, [currentShow, dispatch]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {

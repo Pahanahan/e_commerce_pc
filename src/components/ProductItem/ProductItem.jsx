@@ -37,9 +37,13 @@ function ProductItem({ data }) {
           ? data.description
           : data.description.slice(0, 45) + "..."}
       </div>
-      <div className={styles["product__oldprice"]}>
-        ${data["old price"].toFixed(2)}
-      </div>
+      {data.oldPrice ? (
+        <div className={styles["product__oldprice"]}>
+          ${data["oldPrice"].toFixed(2)}
+        </div>
+      ) : (
+        ""
+      )}
       <div className={styles["product__price"]}>${data.price.toFixed(2)}</div>
     </div>
   );
