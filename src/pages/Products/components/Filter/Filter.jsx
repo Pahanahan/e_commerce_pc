@@ -1,9 +1,125 @@
+// import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { RiArrowDropLeftLine } from "react-icons/ri";
+import {
+  addFilter,
+  deleteFilters,
+  applyFilters,
+} from "../../../../redux/products/actionCreators";
 
 import arrowUp from "../../../../assets/icons/arrow-up.svg";
 import styles from "./Filter.module.css";
 
-function Filter() {
+function Filter({
+  onCategoryActiveIndex,
+  onSetCategoryActiveIndex,
+  onPriceActiveIndex,
+  onSetPriceActiveIndex,
+}) {
+  const products = useSelector((state) => state.products.allProducts);
+  const filterProductKeys = useSelector((state) => state.products.filtersDraft);
+
+  // const [categoryActiveIndex, setCategoryActiveIndex] = useState(null);
+  // const [priceActiveIndex, setPriceActiveIndex] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const priceRanges = [
+    { max: 500, label: "$0.00 - $500.00" },
+    { max: 1000, label: "$500.00 - $1000.00" },
+    { max: 2000, label: "$1000.00 - $2000.00" },
+    { max: 3000, label: "$2000.00 - $3000.00" },
+    { max: 4000, label: "$3000.00 - $4000.00" },
+    { max: 5000, label: "$4000.00 - $5000.00" },
+    { max: 6000, label: "$5000.00 - $6000.00" },
+    { max: 7000, label: "$6000.00 - $7000.00" },
+    { max: Infinity, label: "$7000.00 And Above" },
+  ];
+
+  const pricesCount = {};
+
+  products.forEach((item) => {
+    if (!item.price) return;
+
+    const range = priceRanges.find((r) => item.price <= r.max);
+
+    if (range) {
+      pricesCount[range.label] = (pricesCount[range.label] || 0) + 1;
+    }
+  });
+
+  const sortedPricesCount = Object.entries(pricesCount).sort(
+    (a, b) =>
+      Number(a[0].split("-")[0].slice(1)) - Number(b[0].split("-")[0].slice(1))
+  );
+
+  const handleFilterPrice = (e, id) => {
+    onSetPriceActiveIndex(id);
+    dispatch(addFilter("price", e.currentTarget.dataset.price));
+  };
+
+  const pricesCountMap = sortedPricesCount.map(([label, count], i) => (
+    <div
+      onClick={(e) => handleFilterPrice(e, i)}
+      key={label}
+      data-price={label}
+      className={`${styles["filter__box-item"]} ${
+        onPriceActiveIndex === i ? styles["active"] : ""
+      }`}
+    >
+      <div>{label}</div>
+      <div>{count}</div>
+    </div>
+  ));
+
+  const categoriesCount = {};
+
+  products.forEach((item) => {
+    if (!item.category) return;
+
+    if (categoriesCount[item.category]) {
+      categoriesCount[item.category] += 1;
+    } else {
+      categoriesCount[item.category] = 1;
+    }
+  });
+
+  const sortedCategoriesCount = Object.entries(categoriesCount).sort(
+    (a, b) => b[1] - a[1]
+  );
+
+  const handleAddFilterCategory = (category, id) => {
+    onSetCategoryActiveIndex(id);
+    dispatch(addFilter("category", category));
+  };
+
+  const categoriesCountMap = sortedCategoriesCount.map(
+    ([category, count], i) => (
+      <div
+        onClick={() => handleAddFilterCategory(category, i)}
+        key={category}
+        data-category={category}
+        className={`${styles["filter__box-item"]} ${
+          onCategoryActiveIndex === i ? styles["active"] : ""
+        }`}
+      >
+        <div>{category.toLocaleUpperCase()}</div>
+        <div>{count}</div>
+      </div>
+    )
+  );
+
+  const handleDeleteFilters = () => {
+    onSetCategoryActiveIndex(null);
+    onSetPriceActiveIndex(null);
+    dispatch(deleteFilters());
+  };
+
+  const handleApplyFilters = () => {
+    dispatch(applyFilters());
+  };
+
   return (
     <>
       <div className={styles["filter-back"]}>
@@ -12,68 +128,35 @@ function Filter() {
       </div>
       <div className={styles["filter"]}>
         <h2 className={styles["filter__title"]}>Filters</h2>
-        <button className={styles["filter__clear-btn"]}>Clear Filter</button>
-        <div className={styles["filter__category"]}>
-          <div className={styles["filter__category-item"]}>
+        <button
+          onClick={handleDeleteFilters}
+          className={styles["filter__clear-btn"]}
+        >
+          Clear Filter
+        </button>
+        <div className={styles["filter__box"]}>
+          <div className={styles["filter__box-item__title"]}>
             <h3>Category</h3>
             <img src={arrowUp} alt="arrow" />
           </div>
-          <div className={styles["filter__category-item"]}>
-            <div>CUSTOM PCS</div>
-            <div>15</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>LAPTOPS</div>
-            <div>45</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>MONITORS</div>
-            <div>5</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>PCS</div>
-            <div>16</div>
-          </div>
+          {categoriesCountMap}
         </div>
-        <div className={styles["filter__category"]}>
-          <div className={styles["filter__category-item"]}>
+        <div className={styles["filter__box"]}>
+          <div className={styles["filter__box-item__title"]}>
             <h3>Price</h3>
             <img src={arrowUp} alt="arrow" />
           </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$0.00 - $500.00</div>
-            <div>15</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$1.000.00 - $2.000.00</div>
-            <div>45</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$2.000.00 - $3.000.00</div>
-            <div>6</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$3.000.00 - $4.000.00</div>
-            <div>5</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$4.000.00 - $5.000.00</div>
-            <div>4</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$5.000.00 - $6.000.00</div>
-            <div>3</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$6.000.00 - $7.000.00</div>
-            <div>2</div>
-          </div>
-          <div className={styles["filter__category-item"]}>
-            <div>$7.000.00 And Above</div>
-            <div>1</div>
-          </div>
+          {pricesCountMap}
         </div>
-        <button className={styles["filter__apply"]}>Apply Filters (2)</button>
+        <button
+          onClick={handleApplyFilters}
+          className={styles["filter__apply"]}
+        >
+          Apply Filters{" "}
+          {Object.keys(filterProductKeys).length > 0
+            ? Object.keys(filterProductKeys).length
+            : ""}
+        </button>
       </div>
     </>
   );

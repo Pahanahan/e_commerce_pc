@@ -1,8 +1,11 @@
 .product {
   min-width: 226px;
   max-width: 226px;
-  height: 346px;
+  height: 330px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .product__availability--yes,

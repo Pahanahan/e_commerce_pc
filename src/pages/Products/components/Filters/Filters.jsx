@@ -5,10 +5,20 @@ import MyWishList from "../MyWishList/MyWishList";
 import promo from "../../../../assets/images/promo/chair.jpg";
 import styles from "./Filters.module.css";
 
-function Filters() {
+function Filters({
+  onCategoryActiveIndex,
+  onSetCategoryActiveIndex,
+  onPriceActiveIndex,
+  onSetPriceActiveIndex,
+}) {
   return (
     <div className={styles["filters"]}>
-      <Filter />
+      <Filter
+        onCategoryActiveIndex={onCategoryActiveIndex}
+        onSetCategoryActiveIndex={onSetCategoryActiveIndex}
+        onPriceActiveIndex={onPriceActiveIndex}
+        onSetPriceActiveIndex={onSetPriceActiveIndex}
+      />
       <Brands />
       <MyWishList />
       <div className={styles["promo"]}>

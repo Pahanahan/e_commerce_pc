@@ -1,17 +1,19 @@
+import { useSelector } from "react-redux";
 import SortSelector from "./SortSelector/SortSelector";
 import ShowSelector from "./ShowSelector/ShowSelector";
 import ButtonsStyle from "./ButtonsStyle/ButtonsStyle";
 
-import productsdata from "../../../../data/products-data.json";
 import styles from "./SortAndShow.module.css";
 
 function SortAndShow() {
-  const currentProducts = productsdata.length;
+  const products = useSelector((state) => state.products);
+  const productsLength = products.allProducts.length;
+  const visibleProducts = products.visibleProducts.length;
 
   return (
     <div className={styles["sort-box"]}>
       <div className={styles["sort-box__length"]}>
-        Items 1-21 of {currentProducts}
+        Products 1-{visibleProducts} of {productsLength}
       </div>
       <div className={styles["sort-box__items"]}>
         <SortSelector />

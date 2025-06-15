@@ -46,27 +46,48 @@
   transform: scale(1.05);
 }
 
-.filter__category {
+.filter__box {
   margin-bottom: 20px;
 }
 
-.filter__category h3 {
+.filter__box h3 {
   font-weight: 600;
-  margin-bottom: 10px;
 }
 
-.filter__category-item {
+.filter__box-item__title {
   font-size: 13px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   cursor: pointer;
   transition: all 0.4s;
 }
 
-.filter__category-item:hover {
+.filter__box-item__title:hover {
   transform: scale(1.05);
+}
+
+.filter__box-item {
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.active {
+  background-color: #0156ff;
+  color: #fff;
+}
+
+.filter__box-item:hover {
+  background-color: #0156ff;
+  color: #fff;
 }
 
 .filter__apply {

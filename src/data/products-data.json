@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "brand": "Skytech",
     "category": "PC",
     "title": "Skytech Gaming Desktop PC",
     "description": "Skytech Blaze 3.0 Gaming Desktop PC - AMD Ryzen 5 5600X 6-Core, 16GB DDR4 RAM, NVIDIA GeForce RTX 3060 12GB, 1TB NVMe SSD, Windows 11 Home, 5.5 GHz Overclock",
@@ -28,6 +29,7 @@
   },
   {
     "id": 2,
+    "brand": "Skytech",
     "category": "PC",
     "title": "Skytech Rampage Gaming Desktop PC",
     "description": "Skytech Rampage Gaming Desktop PC - AMD Ryzen 5 5600X 6-Core, NVIDIA GeForce RTX 4070 Ti 12GB, 16GB DDR4 RAM, 1TB NVMe SSD, Windows 11 Home, Overclocked up to 5.5 GHz",
@@ -55,6 +57,7 @@
   },
   {
     "id": 3,
+    "brand": "LXZ",
     "category": "PC",
     "title": "LXZ Desktop Computer Gaming PC",
     "description": "LXZ Desktop Computer - Intel Core i7-12700 12-Core, NVIDIA GeForce RTX 3060 12GB, 16GB DDR4 RAM, 512GB SSD, Windows 11 Pro, 3.9GHz Turbo",
@@ -82,6 +85,7 @@
   },
   {
     "id": 4,
+    "brand": "MZX",
     "category": "PC",
     "title": "MXZ Gaming Computer Desktop PC",
     "description": "MXZ Gaming Computer Desktop PC - Intel Core i5-12400F, NVIDIA GeForce RTX 3060 12GB, 16GB DDR4 RAM, 512GB NVMe SSD, Windows 11 Pro, 4.4 GHz Turbo",
@@ -109,6 +113,7 @@
   },
   {
     "id": 5,
+    "brand": "AEXPXO",
     "category": "PC",
     "title": "AEXPXO Gaming Desktop Computer",
     "description": "AEXPXO Gaming Desktop Computer - Intel 13th Gen Core i7-13700F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 3200MHz RAM, 1TB NVMe SSD, WiFi, Windows 11 Pro",
@@ -136,6 +141,7 @@
   },
   {
     "id": 6,
+    "brand": "ASUS",
     "category": "laptops",
     "title": "ASUS TUF Gaming F15 FA506NF-ES51",
     "description": "15.6\" FHD 144Hz Gaming Laptop, Intel Core i5-11400H, NVIDIA GeForce GTX 1650, 8GB RAM, 512GB SSD, Windows 11",
@@ -163,6 +169,7 @@
   },
   {
     "id": 7,
+    "brand": "ACER",
     "category": "laptops",
     "title": "Acer Aspire 3 A315-24P-R7VH Laptop",
     "description": "15.6\" Full HD Display, AMD Ryzen 5 7520U Quad-Core Processor, 8GB RAM, 512GB SSD, AMD Radeon Graphics, Windows 11 Home",
@@ -190,6 +197,7 @@
   },
   {
     "id": 8,
+    "brand": "AOC",
     "category": "laptops",
     "title": "AOC 15.6\" Premium Laptop",
     "description": "15.6\" FHD Display, Intel Celeron N4500 Processor, 8GB RAM, 128GB SSD, Windows 11 Home",
@@ -217,6 +225,7 @@
   },
   {
     "id": 9,
+    "brand": "AOC",
     "category": "laptops",
     "title": "AOC Expandable Processor Laptop",
     "description": "15.6\" HD Display, Intel Celeron Processor, 8GB RAM, 256GB SSD, Windows 11 Pro",
@@ -244,6 +253,7 @@
   },
   {
     "id": 10,
+    "brand": "ApoloSign",
     "category": "laptops",
     "title": "ApoloSign Notebook Expandable Processor Laptop",
     "description": "15.6\" HD Display, Intel Celeron Processor, 8GB RAM, 256GB SSD, Windows 11 Pro, Dual Band WiFi",
@@ -272,6 +282,7 @@
   },
   {
     "id": 11,
+    "brand": "MSI",
     "category": "monitors",
     "title": "MSI PRO MP275 E2 27\" IPS FHD 120Hz Monitor",
     "description": "27\" IPS FHD (1920x1080) Display, 120Hz Refresh Rate, 1ms MPRT, FreeSync, HDR Ready, Eye Care Tech, HDMI/DisplayPort/VGA",
@@ -304,6 +315,7 @@
   },
   {
     "id": 12,
+    "brand": "MSI",
     "category": "monitors",
     "title": "MSI MAG 321UPX QD-OLED 32\" 4K 240Hz Gaming Monitor",
     "description": "32\" 4K UHD OLED Display, 240Hz Refresh Rate, 0.03ms Response Time, Quantum Dot, G-SYNC Compatible, DisplayHDR True Black 400, USB-C, HDMI 2.1, DisplayPort 1.4a",
@@ -336,6 +348,7 @@
   },
   {
     "id": 13,
+    "brand": "MSI",
     "category": "monitors",
     "title": "MSI G2422C 24\" Curved Gaming Monitor",
     "description": "24\" FHD (1920x1080) VA Curved Display, 180Hz Refresh Rate, 1ms MPRT, FreeSync Premium, HDMI, DisplayPort, VESA Mount, Eye Care",
@@ -368,6 +381,7 @@
   },
   {
     "id": 14,
+    "brand": "Z-Edge",
     "category": "monitors",
     "title": "Z-Edge UG32F 32\" Curved Gaming Monitor",
     "description": "32\" Curved FHD (1920x1080) Display, 200Hz Refresh Rate, 1ms MPRT, FreeSync, HDMI & DisplayPort, VESA Mount, Eye Care Technology",
@@ -400,6 +414,7 @@
   },
   {
     "id": 15,
+    "brand": "MSI",
     "category": "monitors",
     "title": "MSI G255F 24.5\" FHD Gaming Monitor",
     "description": "24.5\" FHD (1920x1080) Rapid IPS Display, 180Hz Refresh Rate, 1ms GTG, Adaptive Sync, Adjustable Stand, DisplayPort, HDMI, VESA Mount",
@@ -432,6 +447,7 @@
   },
   {
     "id": 16,
+    "brand": "MXZ",
     "category": "custom pc",
     "title": "MXZ Gaming Desktop PC - Ryzen 7 7800X3D, RX 7800 XT",
     "description": "AMD Ryzen 7 7800X3D, RX 7800 XT 16GB, 32GB DDR5 6000MHz, 1TB NVMe SSD, WiFi, RGB Fans, Windows 11 Pro",
@@ -463,6 +479,7 @@
   {
     "id": 17,
     "category": "custom pc",
+    "brand": "LXZ",
     "title": "LXZ Desktop Computer - AMD Ryzen 7 5700G, 16GB RAM, 512GB SSD",
     "description": "AMD Ryzen 7 5700G 3.9GHz, 16GB DDR4 RAM, 512GB NVMe SSD, Windows 11 Pro, WiFi, Bluetooth, HDMI & DisplayPort",
     "price": 649.99,
@@ -492,6 +509,7 @@
   },
   {
     "id": 18,
+    "brand": "Skytech",
     "category": "custom pc",
     "title": "Skytech Nebula Gaming Desktop - Intel Core i5-10105F, RTX 3060 Ti",
     "description": "Intel Core i5-10105F, NVIDIA GeForce RTX 3060 Ti 8GB, 16GB DDR4 RAM, 1TB NVMe SSD, Windows 11 Home, RGB Lighting",
@@ -523,6 +541,7 @@
   },
   {
     "id": 19,
+    "brand": "CyberPowerPC",
     "category": "custom pc",
     "title": "CyberPowerPC Gamer Xtreme - Intel Core i5-13400F, GeForce RTX 4060",
     "description": "Intel Core i5-13400F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 RAM, 500GB NVMe SSD, Windows 11 Home, Gaming Desktop",
@@ -554,6 +573,7 @@
   },
   {
     "id": 20,
+    "brand": "Skytech",
     "category": "custom pc",
     "title": "Skytech Archangel Gaming Desktop - Intel Core i5-13400F, RTX 4060",
     "description": "Intel Core i5-13400F, NVIDIA GeForce RTX 4060 8GB, 16GB DDR4 RAM, 500GB NVMe SSD, Windows 11 Home, RGB Lighting",
@@ -586,6 +606,7 @@
   {
     "id": 21,
     "category": "laptops",
+    "brand": "ASUS",
     "title": "ASUS TUF Gaming FX505DT",
     "description": "15.6\" FHD 120Hz Display, AMD Ryzen 7 3750H, GTX 1650 Graphics, 16GB RAM, 512GB SSD, RGB Keyboard, Windows 11",
     "price": 699.99,
@@ -613,11 +634,12 @@
   },
   {
     "id": 22,
+    "brand": "ZOTAC",
     "category": "custom pc",
     "title": "ZOTAC MEK AI-Enhanced Gaming PC",
     "description": "NVIDIA GeForce RTX 5090, AMD Ryzen 7 9700X 5.5 GHz, 32GB DDR5 RGB, 2TB NVMe M.2 SSD, 1300W 80+ Gold PSU, WiFi 7, Bluetooth 5.4, Windows 11 Pro",
     "price": 4699.99,
-    "old price": null,
+    "oldPrice": null,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-6/1.jpg",
@@ -641,11 +663,12 @@
   },
   {
     "id": 23,
+    "brand": "Thermaltake",
     "category": "custom pc",
     "title": "Thermaltake Arctic i4790 Gaming Desktop",
     "description": "Intel Core i9-14900KF, NVIDIA GeForce RTX 4090, 64GB DDR5 ToughRam RGB, 2TB NVMe Gen4 SSD, WiFi, Windows 11 Home",
     "price": 4199.99,
-    "old price": 4799.99,
+    "oldPrice": 4799.99,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-7/1.jpg",
@@ -669,11 +692,12 @@
   },
   {
     "id": 24,
+    "brand": "Corsair",
     "category": "custom pc",
     "title": "Corsair Vengeance a5100 Gaming PC",
     "description": "AMD Ryzen 9 5900X, NVIDIA GeForce RTX 3080, 32GB DDR4 Dominator RGB, 1TB NVMe SSD + 2TB HDD, Wi-Fi 6, Windows 11",
     "price": 2499.99,
-    "old price": 2999.99,
+    "oldPrice": 2999.99,
     "currency": "USD",
     "images": [
       "/images/products/custom-pc/custom-pc-8/1.jpg",
@@ -697,11 +721,12 @@
   },
   {
     "id": 25,
+    "brand": "Samsung",
     "category": "smartphones",
     "title": "Samsung Galaxy A14 5G (Factory Unlocked)",
     "description": "6.6\" FHD+ Display, 128GB Storage, 4GB RAM, 50MP Triple Camera, 5000mAh Battery, Android 13, Expandable Storage, Fast Charging",
     "price": 179.99,
-    "old price": 199.99,
+    "oldPrice": 199.99,
     "currency": "USD",
     "images": [
       "/images/products/smartphones/smartphones-1/1.jpg",
@@ -725,11 +750,12 @@
   },
   {
     "id": 26,
+    "brand": "Motorola",
     "category": "smartphones",
     "title": "Tracfone Motorola Moto g Pure (2023)",
     "description": "Locked to Tracfone, 6.5\" HD+ Display, 32GB Storage, 3GB RAM, 13MP Camera, 5000mAh Battery, Android 12, Sapphire Blue",
     "price": 39.88,
-    "old price": 49.99,
+    "oldPrice": 49.99,
     "currency": "USD",
     "images": [
       "/images/products/smartphones/smartphones-2/1.jpg",
@@ -753,11 +779,12 @@
   },
   {
     "id": 27,
+    "brand": "Motorola",
     "category": "smartphones",
     "title": "Motorola Moto G Stylus 5G (2023)",
     "description": "Unlocked, 6.6\" FHD+ 120Hz Display, Snapdragon 6 Gen 1, 6GB RAM, 256GB Storage, 50MP Camera, 5000mAh Battery, Android 13, Midnight Blue",
     "price": 249.99,
-    "old price": 399.99,
+    "oldPrice": 399.99,
     "currency": "USD",
     "images": [
       "/images/products/smartphones/smartphones-3/1.jpg",
@@ -783,11 +810,12 @@
   },
   {
     "id": 28,
+    "brand": "Google",
     "category": "smartphones",
     "title": "Google Pixel 8a",
     "description": "Unlocked Android Smartphone with 6.1\" OLED Display, Google Tensor G3 Chip, 128GB Storage, Advanced Camera, Long Battery Life, Android 14",
     "price": 499.0,
-    "old price": 549.0,
+    "oldPrice": 549.0,
     "currency": "USD",
     "images": [
       "/images/products/smartphones/smartphones-4/1.jpg",
@@ -813,11 +841,12 @@
   },
   {
     "id": 29,
+    "brand": "Reno",
     "category": "smartphones",
     "title": "Reno9Pro Unlocked Smartphone",
     "description": "6.7\" FHD+ Display, 12GB RAM + 512GB ROM, Expandable Storage, 5G LTE, 64MP AI Dual Camera, 4500mAh Battery, Face ID, Fingerprint Unlock, Dual SIM, Android",
     "price": 219.99,
-    "old price": 279.99,
+    "oldPrice": 279.99,
     "currency": "USD",
     "images": [
       "/images/products/smartphones/smartphones-5/1.jpg",
@@ -843,11 +872,12 @@
   },
   {
     "id": 30,
+    "brand": "ASUS",
     "category": "laptops",
     "title": "ASUS ROG Strix G16 (2024)",
     "description": "16\" Nebula Display, Intel Core i9-13980HX, NVIDIA GeForce RTX 4070, 16GB DDR5 RAM, 1TB SSD, Windows 11, RGB Keyboard, Eclipse Gray",
     "price": 1799.99,
-    "old price": 1999.99,
+    "oldPrice": 1999.99,
     "currency": "USD",
     "images": [
       "/images/products/laptop/laptop-7/1.jpg",
@@ -869,5 +899,35 @@
     "availability": "in stock",
     "rating": 4.7,
     "reviewsCount": 215
+  },
+  {
+    "id": 31,
+    "brand": "MSI",
+    "category": "PC",
+    "title": "MSI Infinite RS AI 2NVZ9-1291US",
+    "description": "Интеллектуальный игровой десктоп с Intel Core Ultra 9 285K, 64 GB DDR5, NVIDIA GeForce RTX 5090 Liquid Cooled, 2 TB PCIe Gen 5 SSD, Windows 11 Pro",
+    "price": 8499.0,
+    "oldPrice": 9699.0,
+    "currency": "USD",
+    "images": [
+      "/images/products/pc/pc-6/1.jpg",
+      "/images/products/pc/pc-6/2.jpg",
+      "/images/products/pc/pc-6/3.jpg",
+      "/images/products/pc/pc-6/4.jpg",
+      "/images/products/pc/pc-6/5.jpg"
+    ],
+    "specs": {
+      "processor": "Intel Core Ultra 9 285K (24-core, 3.7–5.5 GHz)",
+      "graphics": "NVIDIA GeForce RTX 5090 LC 32 GB GDDR7",
+      "memory": "64 GB DDR5-6000",
+      "storage": "2 TB PCIe NVMe Gen 5 SSD",
+      "cooling": "Liquid-cooled CPU + RTX 5090 LC",
+      "os": "Windows 11 Pro",
+      "network": "Intel Wi-Fi 7, Bluetooth 5.4",
+      "ports": "HDMI, Thunderbolt 4 Type-C, RJ45 2.5 Gb LAN"
+    },
+    "availability": "in stock",
+    "rating": 4.2,
+    "reviewsCount": 46
   }
 ]

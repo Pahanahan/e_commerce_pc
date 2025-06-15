@@ -1,58 +1,33 @@
 import * as a from "./actionTypes";
 import productsdata from "../../data/products-data.json";
+import getFilterAndSortedProducts from "../../utils/getFilterAndSortedProducts";
 
 const initialState = {
   allProducts: [...productsdata],
   visibleProducts: [...productsdata],
   itemsToShow: productsdata.length,
+  filtersDraft: {},
+  filtersApplied: {},
+  sortOption: "Position",
 };
 
 const productsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case a.SORT_NAME: {
-      const sorted = [...state.allProducts].sort((a, b) =>
-        a.title.localeCompare(b.title)
-      );
-      return {
-        ...state,
-        allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.itemsToShow),
-      };
-    }
-
-    case a.SORT_POSITION: {
-      const sorted = [...state.allProducts].sort((a, b) => a.id - b.id);
-      return {
-        ...state,
-        allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.itemsToShow),
-      };
-    }
-
-    case a.SORT_PRICE_HIGHER: {
-      const sorted = [...state.allProducts].sort((a, b) => b.price - a.price);
-      return {
-        ...state,
-        allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.itemsToShow),
-      };
-    }
-
-    case a.SORT_PRICE_LOWER: {
-      const sorted = [...state.allProducts].sort((a, b) => a.price - b.price);
-      return {
-        ...state,
-        allProducts: sorted,
-        visibleProducts: sorted.slice(0, state.itemsToShow),
-      };
-    }
-
+    case a.SORT_NAME:
+    case a.SORT_POSITION:
+    case a.SORT_PRICE_HIGHER:
+    case a.SORT_PRICE_LOWER:
     case a.SORT_RATING: {
-      const sorted = [...state.allProducts].sort((a, b) => b.rating - a.rating);
+      const sorted = getFilterAndSortedProducts({
+        products: state.allProducts,
+        filters: state.filtersApplied,
+        sort: action.payload,
+      });
+
       return {
         ...state,
-        allProducts: sorted,
         visibleProducts: sorted.slice(0, state.itemsToShow),
+        sortOption: action.payload,
       };
     }
 
@@ -61,10 +36,52 @@ const productsReducer = (state = initialState, action) => {
         action.payload === "All"
           ? state.allProducts.length
           : Number(action.payload);
+      const sorted = getFilterAndSortedProducts({
+        products: state.allProducts,
+        filters: state.filtersApplied,
+        sort: state.sortOption,
+      });
       return {
         ...state,
         itemsToShow,
-        visibleProducts: [...state.allProducts].slice(0, itemsToShow),
+        visibleProducts: sorted.slice(0, itemsToShow),
+      };
+    }
+
+    case a.ADD_FILTER: {
+      return {
+        ...state,
+        filtersDraft: {
+          ...state.filtersDraft,
+          [action.payload.type]: action.payload.value,
+        },
+      };
+    }
+
+    case a.DELETE_FILTERS: {
+      const sorted = getFilterAndSortedProducts({
+        products: state.allProducts,
+        sort: state.sortOption,
+      });
+      return {
+        ...state,
+        visibleProducts: sorted.slice(0, state.itemsToShow),
+        filtersDraft: {},
+        filtersApplied: {},
+      };
+    }
+
+    case a.APPLY_FILTERS: {
+      const filteredProducts = getFilterAndSortedProducts({
+        products: state.allProducts,
+        filters: state.filtersDraft,
+        sort: state.sortOption,
+      });
+
+      return {
+        ...state,
+        visibleProducts: filteredProducts.slice(0, state.itemsToShow),
+        filtersApplied: state.filtersDraft,
       };
     }
 
