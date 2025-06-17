@@ -86,7 +86,7 @@ const productsReducer = (state = initialState, action) => {
     }
 
     case a.DELETE_ONE_FILTER: {
-      const deletedFilter = JSON.parse(JSON.stringify(state.filtersApplied));
+      const deletedFilter = { ...state.filtersApplied };
       delete deletedFilter[action.payload];
 
       const filteredProducts = getFilterAndSortedProducts({
@@ -103,42 +103,22 @@ const productsReducer = (state = initialState, action) => {
       };
     }
 
-    // fixe normal add to redux brand
-    case a.ADD_BRAND_FILTER: {
-      const updatedFilters = {
-        ...state.filtersDraft,
-        brand: action.payload,
-      };
-
-      const filteredProducts = getFilterAndSortedProducts({
-        products: state.allProducts,
-        filters: updatedFilters,
-        sort: state.sortOption,
-      });
-
-      return {
-        ...state,
-        filtersDraft: updatedFilters,
-        filtersApplied: updatedFilters,
-        visibleProducts: filteredProducts.slice(0, state.itemsToShow),
-      };
-    }
-
     case a.DELETE_BRAND_FILTER: {
-      const updatedFilters = { ...state.filtersDraft };
-      delete updatedFilters.brand;
+      const updatedDraft = { ...state.filtersDraft };
+      const updatedApplied = { ...state.filtersApplied };
+      delete updatedDraft.brand;
+      delete updatedApplied.brand;
 
       const filteredProducts = getFilterAndSortedProducts({
         products: state.allProducts,
-        filters: {
-          ...updatedFilters,
-        },
+        filters: updatedApplied,
         sort: state.sortOption,
       });
 
       return {
         ...state,
-        filtersApplied: updatedFilters,
+        filtersDraft: updatedDraft,
+        filtersApplied: updatedApplied,
         visibleProducts: filteredProducts.slice(0, state.itemsToShow),
       };
     }

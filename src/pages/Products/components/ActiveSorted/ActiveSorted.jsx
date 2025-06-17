@@ -45,8 +45,6 @@ function ActiveSorted({
     { value: "brand", label: filtersBrand, count: brandCount },
   ];
 
-  console.log(activeFilters);
-
   const handleDeleteFilters = () => {
     onSetCategoryActiveIndex(null);
     onSetPriceActiveIndex(null);

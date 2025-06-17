@@ -57,3 +57,28 @@
 .active {
   background-color: #f5f7ff;
 }
+
+.brands__apply-box {
+  padding: 30px;
+}
+
+.brands__apply {
+  font-size: 14px;
+  font-weight: 600;
+  color: #a2a6b0;
+  padding: 10px;
+  border: 2px solid #a2a6b0;
+  border-radius: 20px;
+  background-color: transparent;
+  width: 200px;
+  margin: 0 auto;
+  cursor: auto;
+  transition: all 0.4s;
+}
+
+.brands__apply:enabled:hover {
+  border: 2px solid #0156ff;
+  background-color: #0156ff;
+  color: #fff;
+  cursor: pointer;
+}

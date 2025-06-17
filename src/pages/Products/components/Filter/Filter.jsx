@@ -4,7 +4,6 @@ import { RiArrowDropLeftLine } from "react-icons/ri";
 import {
   addFilter,
   deleteFilters,
-  applyFilters,
 } from "../../../../redux/products/actionCreators";
 
 import arrowUp from "../../../../assets/icons/arrow-up.svg";
@@ -114,10 +113,6 @@ function Filter({
     dispatch(deleteFilters());
   };
 
-  const handleApplyFilters = () => {
-    dispatch(applyFilters());
-  };
-
   return (
     <>
       <div className={styles["filter-back"]}>
@@ -147,16 +142,6 @@ function Filter({
           </div>
           {pricesCountMap}
         </div>
-        <button
-          onClick={handleApplyFilters}
-          className={styles["filter__apply"]}
-          disabled={!Object.keys(filterProductKeys).length > 0}
-        >
-          Apply Filters{" "}
-          {Object.keys(filterProductKeys).length > 0
-            ? Object.keys(filterProductKeys).length
-            : ""}
-        </button>
       </div>
     </>
   );

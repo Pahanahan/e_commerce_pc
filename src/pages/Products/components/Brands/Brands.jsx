@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import {
-  addBrandFilter,
+  addFilter,
   deleteBrandFilter,
+  applyFilters,
 } from "../../../../redux/products/actionCreators";
 import roccat from "../../../../assets/images/partners/roccat-min.png";
 import msi from "../../../../assets/images/partners/msi-min.png";
@@ -14,8 +15,9 @@ import styles from "./Brands.module.css";
 
 function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
   const haveBrandFilter = useSelector(
-    (products) => products.products.filtersApplied?.brand
+    (products) => products.products.filtersDraft?.brand
   );
+  const filterProductKeys = useSelector((state) => state.products.filtersDraft);
   const dispatch = useDispatch();
 
   const brands = [
@@ -29,12 +31,16 @@ function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
 
   const handleAddFilterBrand = (brand, id) => {
     onSetBrandActiveIndex(id);
-    dispatch(addBrandFilter(brand));
+    dispatch(addFilter("brand", brand));
   };
 
   const handleDeleteFilterBrand = (brand) => {
     onSetBrandActiveIndex(null);
     dispatch(deleteBrandFilter(brand));
+  };
+
+  const handleApplyFilters = () => {
+    dispatch(applyFilters());
   };
 
   const brandsMap = brands.map((item, i) => (
@@ -62,6 +68,18 @@ function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
         All Brands
       </button>
       <div className={styles["brands__box"]}>{brandsMap}</div>
+      <div className={styles["brands__apply-box"]}>
+        <button
+          onClick={handleApplyFilters}
+          className={styles["brands__apply"]}
+          disabled={!Object.keys(filterProductKeys).length > 0}
+        >
+          Apply Filters{" "}
+          {Object.keys(filterProductKeys).length > 0
+            ? Object.keys(filterProductKeys).length
+            : ""}
+        </button>
+      </div>
     </div>
   );
 }
