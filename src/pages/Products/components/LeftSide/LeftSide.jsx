@@ -6,8 +6,8 @@ function LeftSide({
   onSetCategoryActiveIndex,
   onPriceActiveIndex,
   onSetPriceActiveIndex,
-  onBrandActiveIndes,
-  onSetBrandActiveIndes,
+  onBrandActiveIndex,
+  onSetBrandActiveIndex,
 }) {
   return (
     <div className={styles["left"]}>
@@ -16,8 +16,8 @@ function LeftSide({
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}
         onPriceActiveIndex={onPriceActiveIndex}
         onSetPriceActiveIndex={onSetPriceActiveIndex}
-        onBrandActiveIndes={onBrandActiveIndes}
-        onSetBrandActiveIndes={onSetBrandActiveIndes}
+        onBrandActiveIndex={onBrandActiveIndex}
+        onSetBrandActiveIndex={onSetBrandActiveIndex}
       />
     </div>
   );

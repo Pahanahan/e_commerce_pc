@@ -5,13 +5,18 @@ import Pagination from "../Pagination/Pagination";
 import More from "../More/More";
 import styles from "./RightSide.module.css";
 
-function RightSide({ onSetCategoryActiveIndex, onSetPriceActiveIndex }) {
+function RightSide({
+  onSetCategoryActiveIndex,
+  onSetPriceActiveIndex,
+  onSetBrandActiveIndex,
+}) {
   return (
     <div className={styles["right"]}>
       <SortAndShow />
       <ActiveSorted
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}
         onSetPriceActiveIndex={onSetPriceActiveIndex}
+        onSetBrandActiveIndex={onSetBrandActiveIndex}
       />
       <ProductsBox />
       <Pagination />

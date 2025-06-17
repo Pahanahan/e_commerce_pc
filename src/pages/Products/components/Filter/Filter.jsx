@@ -15,7 +15,7 @@ function Filter({
   onSetCategoryActiveIndex,
   onPriceActiveIndex,
   onSetPriceActiveIndex,
-  onSetBrandActiveIndes,
+  onSetBrandActiveIndex,
 }) {
   const products = useSelector((state) => state.products.allProducts);
   const filterProductKeys = useSelector((state) => state.products.filtersDraft);
@@ -110,7 +110,7 @@ function Filter({
   const handleDeleteFilters = () => {
     onSetCategoryActiveIndex(null);
     onSetPriceActiveIndex(null);
-    onSetBrandActiveIndes(null);
+    onSetBrandActiveIndex(null);
     dispatch(deleteFilters());
   };
 

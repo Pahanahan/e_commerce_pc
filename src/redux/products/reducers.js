@@ -103,44 +103,42 @@ const productsReducer = (state = initialState, action) => {
       };
     }
 
+    // fixe normal add to redux brand
     case a.ADD_BRAND_FILTER: {
+      const updatedFilters = {
+        ...state.filtersDraft,
+        brand: action.payload,
+      };
+
       const filteredProducts = getFilterAndSortedProducts({
         products: state.allProducts,
-        filters: {
-          ...state.filtersDraft,
-          ...state.filtersApplied,
-          brand: action.payload,
-        },
+        filters: updatedFilters,
         sort: state.sortOption,
       });
 
       return {
         ...state,
-        filtersDraft: { ...state.filtersApplied, brand: action.payload },
-        filtersApplied: { ...state.filtersApplied, brand: action.payload },
+        filtersDraft: updatedFilters,
+        filtersApplied: updatedFilters,
         visibleProducts: filteredProducts.slice(0, state.itemsToShow),
       };
     }
 
     case a.DELETE_BRAND_FILTER: {
-      const filtersWithoutBrandsDraft = { ...state.filtersDraft };
-      const filtersWithoutBrandsApplied = { ...state.filtersDraft };
-      delete filtersWithoutBrandsDraft[action.payload];
-      delete filtersWithoutBrandsApplied[action.payload];
+      const updatedFilters = { ...state.filtersDraft };
+      delete updatedFilters.brand;
 
       const filteredProducts = getFilterAndSortedProducts({
         products: state.allProducts,
         filters: {
-          filtersWithoutBrandsDraft,
-          filtersWithoutBrandsApplied,
+          ...updatedFilters,
         },
         sort: state.sortOption,
       });
 
       return {
         ...state,
-        filtersDraft: filtersWithoutBrandsDraft,
-        filtersApplied: filtersWithoutBrandsApplied,
+        filtersApplied: updatedFilters,
         visibleProducts: filteredProducts.slice(0, state.itemsToShow),
       };
     }

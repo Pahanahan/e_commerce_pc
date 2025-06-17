@@ -10,8 +10,8 @@ function Filters({
   onSetCategoryActiveIndex,
   onPriceActiveIndex,
   onSetPriceActiveIndex,
-  onBrandActiveIndes,
-  onSetBrandActiveIndes,
+  onBrandActiveIndex,
+  onSetBrandActiveIndex,
 }) {
   return (
     <div className={styles["filters"]}>
@@ -20,11 +20,11 @@ function Filters({
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}
         onPriceActiveIndex={onPriceActiveIndex}
         onSetPriceActiveIndex={onSetPriceActiveIndex}
-        onSetBrandActiveIndes={onSetBrandActiveIndes}
+        onSetBrandActiveIndex={onSetBrandActiveIndex}
       />
       <Brands
-        onBrandActiveIndes={onBrandActiveIndes}
-        onSetBrandActiveIndes={onSetBrandActiveIndes}
+        onBrandActiveIndex={onBrandActiveIndex}
+        onSetBrandActiveIndex={onSetBrandActiveIndex}
       />
       <MyWishList />
       <div className={styles["promo"]}>

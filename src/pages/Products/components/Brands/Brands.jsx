@@ -12,11 +12,10 @@ import hp from "../../../../assets/images/partners/hp-min.png";
 import gigabyte from "../../../../assets/images/partners/gigabyte-min.png";
 import styles from "./Brands.module.css";
 
-function Brands({ onBrandActiveIndes, onSetBrandActiveIndes }) {
+function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
   const haveBrandFilter = useSelector(
     (products) => products.products.filtersApplied?.brand
   );
-  console.log(haveBrandFilter);
   const dispatch = useDispatch();
 
   const brands = [
@@ -29,12 +28,12 @@ function Brands({ onBrandActiveIndes, onSetBrandActiveIndes }) {
   ];
 
   const handleAddFilterBrand = (brand, id) => {
-    onSetBrandActiveIndes(id);
+    onSetBrandActiveIndex(id);
     dispatch(addBrandFilter(brand));
   };
 
   const handleDeleteFilterBrand = (brand) => {
-    onSetBrandActiveIndes(null);
+    onSetBrandActiveIndex(null);
     dispatch(deleteBrandFilter(brand));
   };
 
@@ -43,7 +42,7 @@ function Brands({ onBrandActiveIndes, onSetBrandActiveIndes }) {
       onClick={() => handleAddFilterBrand(item[1], i)}
       key={item[0]}
       className={`${styles["brands__item"]} ${
-        onBrandActiveIndes === i ? styles["active"] : ""
+        onBrandActiveIndex === i ? styles["active"] : ""
       }`}
     >
       <img src={item[2]} />

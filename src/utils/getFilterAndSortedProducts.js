@@ -7,6 +7,8 @@ const getFilterAndSortedProducts = ({
 }) => {
   let result = [...products];
 
+  console.log(filters);
+
   if (sort === "Name") {
     result.sort((a, b) => a.title.localeCompare(b.title));
   } else if (sort === "Position") {

@@ -8,12 +8,20 @@ import parseRange from "../../../../utils/parseRange";
 import styles from "./ActiveSorted.module.css";
 import close from "../../../../assets/icons/close.svg";
 
-function ActiveSorted({ onSetCategoryActiveIndex, onSetPriceActiveIndex }) {
+function ActiveSorted({
+  onSetCategoryActiveIndex,
+  onSetPriceActiveIndex,
+  onSetBrandActiveIndex,
+}) {
   const dispatch = useDispatch();
   const { allProducts, filtersApplied } = useSelector(
     (state) => state.products
   );
-  const { price: filtersPrice, category: filtersCategory } = filtersApplied;
+  const {
+    price: filtersPrice,
+    category: filtersCategory,
+    brand: filtersBrand,
+  } = filtersApplied;
 
   const priceRange = filtersPrice ? parseRange(filtersPrice) : null;
 
@@ -27,14 +35,22 @@ function ActiveSorted({ onSetCategoryActiveIndex, onSetPriceActiveIndex }) {
     ? allProducts.filter((item) => item.category === filtersCategory).length
     : null;
 
+  const brandCount = filtersBrand
+    ? allProducts.filter((item) => item.brand === filtersBrand).length
+    : null;
+
   const activeFilters = [
     { value: "price", label: filtersPrice, count: priceCount },
     { value: "category", label: filtersCategory, count: categoryCount },
+    { value: "brand", label: filtersBrand, count: brandCount },
   ];
+
+  console.log(activeFilters);
 
   const handleDeleteFilters = () => {
     onSetCategoryActiveIndex(null);
     onSetPriceActiveIndex(null);
+    onSetBrandActiveIndex(null);
     dispatch(deleteFilters());
   };
 
@@ -43,6 +59,8 @@ function ActiveSorted({ onSetCategoryActiveIndex, onSetPriceActiveIndex }) {
       onSetCategoryActiveIndex(null);
     } else if (filter === "price") {
       onSetPriceActiveIndex(null);
+    } else if (filter === "brand") {
+      onSetBrandActiveIndex(null);
     }
     dispatch(deleteOneFilter(filter));
   };
@@ -63,7 +81,9 @@ function ActiveSorted({ onSetCategoryActiveIndex, onSetPriceActiveIndex }) {
   return (
     <div className={styles["active-sorted"]}>
       {activeFiltersMap}
-      {activeFilters[0].count || activeFilters[1].count ? (
+      {activeFilters[0].count ||
+      activeFilters[1].count ||
+      activeFilters[2].count ? (
         <div
           onClick={handleDeleteFilters}
           className={styles["active-sorted__item-clear"]}

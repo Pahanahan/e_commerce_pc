@@ -19,12 +19,13 @@ function ProductsMain() {
             onSetCategoryActiveIndex={setCategoryActiveIndex}
             onPriceActiveIndex={priceActiveIndex}
             onSetPriceActiveIndex={setPriceActiveIndex}
-            onBrandActiveIndes={brandActiveIndex}
-            onSetBrandActiveIndes={setBrandActiveIndex}
+            onBrandActiveIndex={brandActiveIndex}
+            onSetBrandActiveIndex={setBrandActiveIndex}
           />
           <RightSide
             onSetCategoryActiveIndex={setCategoryActiveIndex}
             onSetPriceActiveIndex={setPriceActiveIndex}
+            onSetBrandActiveIndex={setBrandActiveIndex}
           />
         </div>
       </div>
