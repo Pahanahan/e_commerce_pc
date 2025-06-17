@@ -45,7 +45,6 @@ function ActiveSorted({ onSetCategoryActiveIndex, onSetPriceActiveIndex }) {
       onSetPriceActiveIndex(null);
     }
     dispatch(deleteOneFilter(filter));
-    console.log(filter);
   };
 
   const activeFiltersMap = activeFilters.map(

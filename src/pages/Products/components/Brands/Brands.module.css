@@ -27,9 +27,10 @@
 }
 
 .brands__show-all:hover {
-  color: #414347;
-  border: 2px solid #414347;
-  transform: scale(1.05);
+  border: 2px solid #0156ff;
+  background-color: #0156ff;
+  color: #fff;
+  cursor: pointer;
 }
 
 .brands__box {
@@ -46,4 +47,12 @@
   cursor: pointer;
   background-color: #fff;
   padding: 13px;
+}
+
+.brands__item:hover {
+  background-color: #f5f7ff;
+}
+
+.active {
+  background-color: #f5f7ff;
 }

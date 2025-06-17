@@ -50,6 +50,9 @@ const deleteOneFilter = (filter) => {
     payload: filter,
   };
 };
+const addBrandFilter = (brand) => {
+  return { type: a.ADD_BRAND_FILTER, payload: brand };
+};
 
 export {
   sortName,
@@ -62,4 +65,5 @@ export {
   deleteFilters,
   applyFilters,
   deleteOneFilter,
+  addBrandFilter,
 };

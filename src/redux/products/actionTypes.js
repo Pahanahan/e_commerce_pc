@@ -8,3 +8,4 @@ export const ADD_FILTER = "ADD_FILTER";
 export const DELETE_FILTERS = "DELETE_FILTERS";
 export const APPLY_FILTERS = "APPLY_FILTERS";
 export const DELETE_ONE_FILTER = "DELETE_ONE_FILTER";
+export const ADD_BRAND_FILTER = "ADD_BRAND_FILTER";

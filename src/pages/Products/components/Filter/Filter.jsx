@@ -1,4 +1,3 @@
-// import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { RiArrowDropLeftLine } from "react-icons/ri";
@@ -19,9 +18,6 @@ function Filter({
 }) {
   const products = useSelector((state) => state.products.allProducts);
   const filterProductKeys = useSelector((state) => state.products.filtersDraft);
-
-  // const [categoryActiveIndex, setCategoryActiveIndex] = useState(null);
-  // const [priceActiveIndex, setPriceActiveIndex] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -54,14 +50,14 @@ function Filter({
       Number(a[0].split("-")[0].slice(1)) - Number(b[0].split("-")[0].slice(1))
   );
 
-  const handleFilterPrice = (e, id) => {
+  const handleFilterPrice = (label, id) => {
     onSetPriceActiveIndex(id);
-    dispatch(addFilter("price", e.currentTarget.dataset.price));
+    dispatch(addFilter("price", label));
   };
 
   const pricesCountMap = sortedPricesCount.map(([label, count], i) => (
     <div
-      onClick={(e) => handleFilterPrice(e, i)}
+      onClick={() => handleFilterPrice(label, i)}
       key={label}
       data-price={label}
       className={`${styles["filter__box-item"]} ${
@@ -130,9 +126,10 @@ function Filter({
         <h2 className={styles["filter__title"]}>Filters</h2>
         <button
           onClick={handleDeleteFilters}
+          disabled={!Object.keys(filterProductKeys).length > 0}
           className={styles["filter__clear-btn"]}
         >
-          Clear Filter
+          Clear Filters
         </button>
         <div className={styles["filter__box"]}>
           <div className={styles["filter__box-item__title"]}>
@@ -151,6 +148,7 @@ function Filter({
         <button
           onClick={handleApplyFilters}
           className={styles["filter__apply"]}
+          disabled={!Object.keys(filterProductKeys).length > 0}
         >
           Apply Filters{" "}
           {Object.keys(filterProductKeys).length > 0

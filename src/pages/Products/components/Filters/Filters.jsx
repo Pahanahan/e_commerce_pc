@@ -10,6 +10,8 @@ function Filters({
   onSetCategoryActiveIndex,
   onPriceActiveIndex,
   onSetPriceActiveIndex,
+  onBrandActiveIndes,
+  onSetBrandActiveIndes,
 }) {
   return (
     <div className={styles["filters"]}>
@@ -19,7 +21,10 @@ function Filters({
         onPriceActiveIndex={onPriceActiveIndex}
         onSetPriceActiveIndex={onSetPriceActiveIndex}
       />
-      <Brands />
+      <Brands
+        onBrandActiveIndes={onBrandActiveIndes}
+        onSetBrandActiveIndes={onSetBrandActiveIndes}
+      />
       <MyWishList />
       <div className={styles["promo"]}>
         <img src={promo} alt="chair" />

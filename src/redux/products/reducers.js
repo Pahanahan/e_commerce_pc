@@ -8,6 +8,7 @@ const initialState = {
   itemsToShow: productsdata.length,
   filtersDraft: {},
   filtersApplied: {},
+  filtersBrand: {},
   sortOption: "Position",
 };
 
@@ -82,6 +83,30 @@ const productsReducer = (state = initialState, action) => {
         ...state,
         visibleProducts: filteredProducts.slice(0, state.itemsToShow),
         filtersApplied: state.filtersDraft,
+      };
+    }
+
+    case a.DELETE_ONE_FILTER: {
+      const deletedFilter = JSON.parse(JSON.stringify(state.filtersApplied));
+      delete deletedFilter[action.payload];
+
+      const filteredProducts = getFilterAndSortedProducts({
+        products: state.allProducts,
+        filters: deletedFilter,
+        sort: state.sortOption,
+      });
+
+      return {
+        ...state,
+        filtersDraft: deletedFilter,
+        filtersApplied: deletedFilter,
+        visibleProducts: filteredProducts.slice(0, state.itemsToShow),
+      };
+    }
+
+    case a.ADD_BRAND_FILTER: {
+      return {
+        ...state,
       };
     }
 

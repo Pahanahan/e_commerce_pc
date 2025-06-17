@@ -8,6 +8,7 @@ import styles from "./ProductsMain.module.css";
 function ProductsMain() {
   const [categoryActiveIndex, setCategoryActiveIndex] = useState(null);
   const [priceActiveIndex, setPriceActiveIndex] = useState(null);
+  const [brandActiveIndex, setBrandActiveIndex] = useState(null);
 
   return (
     <div className={styles["products-main"]}>
@@ -18,6 +19,8 @@ function ProductsMain() {
             onSetCategoryActiveIndex={setCategoryActiveIndex}
             onPriceActiveIndex={priceActiveIndex}
             onSetPriceActiveIndex={setPriceActiveIndex}
+            onBrandActiveIndes={brandActiveIndex}
+            onSetBrandActiveIndes={setBrandActiveIndex}
           />
           <RightSide
             onSetCategoryActiveIndex={setCategoryActiveIndex}

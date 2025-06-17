@@ -36,14 +36,16 @@
   background-color: transparent;
   width: 200px;
   margin: 0 auto;
-  margin-bottom: 17px;
+  margin-bottom: 20px;
+  cursor: auto;
   transition: all 0.4s;
 }
 
-.filter__clear-btn:hover {
-  color: #414347;
-  border: 2px solid #414347;
-  transform: scale(1.05);
+.filter__clear-btn:enabled:hover {
+  border: 2px solid #0156ff;
+  background-color: #0156ff;
+  color: #fff;
+  cursor: pointer;
 }
 
 .filter__box {
@@ -93,18 +95,20 @@
 .filter__apply {
   font-size: 14px;
   font-weight: 600;
-  color: #fff;
+  color: #a2a6b0;
   padding: 10px;
-  border: 2px solid #0156ff;
+  border: 2px solid #a2a6b0;
   border-radius: 20px;
-  background-color: #0156ff;
+  background-color: transparent;
   width: 200px;
   margin: 0 auto;
+  cursor: auto;
   transition: all 0.4s;
 }
 
-.filter__apply:hover {
-  transform: scale(1.05);
-  border: 2px solid #003fbe;
-  background-color: #003fbe;
+.filter__apply:enabled:hover {
+  border: 2px solid #0156ff;
+  background-color: #0156ff;
+  color: #fff;
+  cursor: pointer;
 }
