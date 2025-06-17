@@ -20,11 +20,12 @@ const getFilterAndSortedProducts = ({
   }
 
   if (filters) {
-    const { category = null, price = null } = filters;
+    const { category = null, price = null, brand = null } = filters;
 
-    if (!category && !price) {
+    if (!category && !price && !brand) {
       return result;
     }
+
     if (category) {
       result = result.filter((item) => item.category === category);
     }
@@ -33,6 +34,9 @@ const getFilterAndSortedProducts = ({
       let max;
       [min, max] = parseRange(price);
       result = result.filter((item) => item.price > min && item.price <= max);
+    }
+    if (brand) {
+      result = result.filter((item) => item.brand === brand);
     }
   }
 

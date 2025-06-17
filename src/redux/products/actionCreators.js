@@ -51,7 +51,16 @@ const deleteOneFilter = (filter) => {
   };
 };
 const addBrandFilter = (brand) => {
-  return { type: a.ADD_BRAND_FILTER, payload: brand };
+  return {
+    type: a.ADD_BRAND_FILTER,
+    payload: brand,
+  };
+};
+const deleteBrandFilter = (brand) => {
+  return {
+    type: a.DELETE_BRAND_FILTER,
+    payload: brand,
+  };
 };
 
 export {
@@ -66,4 +75,5 @@ export {
   applyFilters,
   deleteOneFilter,
   addBrandFilter,
+  deleteBrandFilter,
 };

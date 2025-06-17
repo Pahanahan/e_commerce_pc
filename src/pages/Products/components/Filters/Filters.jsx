@@ -20,6 +20,7 @@ function Filters({
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}
         onPriceActiveIndex={onPriceActiveIndex}
         onSetPriceActiveIndex={onSetPriceActiveIndex}
+        onSetBrandActiveIndes={onSetBrandActiveIndes}
       />
       <Brands
         onBrandActiveIndes={onBrandActiveIndes}

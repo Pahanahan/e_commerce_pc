@@ -22,11 +22,12 @@
   border-radius: 20px;
   background-color: transparent;
   width: 200px;
+  cursor: auto;
   margin-bottom: 17px;
   transition: all 0.4s;
 }
 
-.brands__show-all:hover {
+.brands__show-all:enabled:hover {
   border: 2px solid #0156ff;
   background-color: #0156ff;
   color: #fff;

@@ -8,7 +8,6 @@ const initialState = {
   itemsToShow: productsdata.length,
   filtersDraft: {},
   filtersApplied: {},
-  filtersBrand: {},
   sortOption: "Position",
 };
 
@@ -105,8 +104,44 @@ const productsReducer = (state = initialState, action) => {
     }
 
     case a.ADD_BRAND_FILTER: {
+      const filteredProducts = getFilterAndSortedProducts({
+        products: state.allProducts,
+        filters: {
+          ...state.filtersDraft,
+          ...state.filtersApplied,
+          brand: action.payload,
+        },
+        sort: state.sortOption,
+      });
+
       return {
         ...state,
+        filtersDraft: { ...state.filtersApplied, brand: action.payload },
+        filtersApplied: { ...state.filtersApplied, brand: action.payload },
+        visibleProducts: filteredProducts.slice(0, state.itemsToShow),
+      };
+    }
+
+    case a.DELETE_BRAND_FILTER: {
+      const filtersWithoutBrandsDraft = { ...state.filtersDraft };
+      const filtersWithoutBrandsApplied = { ...state.filtersDraft };
+      delete filtersWithoutBrandsDraft[action.payload];
+      delete filtersWithoutBrandsApplied[action.payload];
+
+      const filteredProducts = getFilterAndSortedProducts({
+        products: state.allProducts,
+        filters: {
+          filtersWithoutBrandsDraft,
+          filtersWithoutBrandsApplied,
+        },
+        sort: state.sortOption,
+      });
+
+      return {
+        ...state,
+        filtersDraft: filtersWithoutBrandsDraft,
+        filtersApplied: filtersWithoutBrandsApplied,
+        visibleProducts: filteredProducts.slice(0, state.itemsToShow),
       };
     }
 
