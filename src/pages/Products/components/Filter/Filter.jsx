@@ -1,10 +1,11 @@
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useState, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { RiArrowDropLeftLine } from "react-icons/ri";
 import {
   addFilter,
   deleteFilters,
 } from "../../../../redux/products/actionCreators";
+import accordion from "../../../../utils/accordion";
 
 import arrowUp from "../../../../assets/icons/arrow-up.svg";
 import styles from "./Filter.module.css";
@@ -16,6 +17,12 @@ function Filter({
   onSetPriceActiveIndex,
   onSetBrandActiveIndex,
 }) {
+  const [stateCategoryAccordion, setStateCategoryAccordion] = useState(true);
+  const [statePriceAccordion, setStatePriceAccordion] = useState(true);
+  const categoryRef = useRef(null);
+  const priceRef = useRef(null);
+  const imgCategoryRef = useRef(null);
+  const imgPriceRef = useRef(null);
   const products = useSelector((state) => state.products.allProducts);
   const filterProductKeys = useSelector((state) => state.products.filtersDraft);
 
@@ -128,19 +135,69 @@ function Filter({
         >
           Clear Filters
         </button>
-        <div className={styles["filter__box"]}>
-          <div className={styles["filter__box-item__title"]}>
-            <h3>Category</h3>
-            <img src={arrowUp} alt="arrow" />
+        <div>
+          <div
+            onClick={() =>
+              accordion(
+                stateCategoryAccordion,
+                setStateCategoryAccordion,
+                imgCategoryRef
+              )
+            }
+            className={styles["filter__box-accordion"]}
+          >
+            <h3 className={styles["filter__box-title"]}>Category</h3>
+            <img
+              ref={imgCategoryRef}
+              className={styles["filter__img"]}
+              src={arrowUp}
+              alt="arrow"
+            />
           </div>
-          {categoriesCountMap}
+          <div className={styles["filter__box"]}>
+            <div
+              ref={categoryRef}
+              className={`${styles["filter__box-accordion-items"]} ${
+                stateCategoryAccordion
+                  ? styles["filter__box-accordion-items--open"]
+                  : ""
+              }`}
+            >
+              {categoriesCountMap}
+            </div>
+          </div>
         </div>
-        <div className={styles["filter__box"]}>
-          <div className={styles["filter__box-item__title"]}>
-            <h3>Price</h3>
-            <img src={arrowUp} alt="arrow" />
+        <div>
+          <div
+            onClick={() =>
+              accordion(
+                statePriceAccordion,
+                setStatePriceAccordion,
+                imgPriceRef
+              )
+            }
+            className={styles["filter__box-accordion"]}
+          >
+            <h3 className={styles["filter__box-title"]}>Price</h3>
+            <img
+              ref={imgPriceRef}
+              className={styles["filter__img"]}
+              src={arrowUp}
+              alt="arrow"
+            />
           </div>
-          {pricesCountMap}
+          <div className={styles["filter__box"]}>
+            <div
+              ref={priceRef}
+              className={`${styles["filter__box-accordion-items"]} ${
+                statePriceAccordion
+                  ? styles["filter__box-accordion-items--open"]
+                  : ""
+              }`}
+            >
+              {pricesCountMap}
+            </div>
+          </div>
         </div>
       </div>
     </>
