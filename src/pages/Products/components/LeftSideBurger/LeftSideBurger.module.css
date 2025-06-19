@@ -1,0 +1,30 @@
+.burger {
+  padding: 20px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 234px;
+  border: 2px solid #f5f7ff;
+  margin-bottom: 7px;
+  transition: all 0.4s;
+}
+
+.burger:hover {
+  background-color: #f5f7ff;
+  color: #0156ff;
+}
+
+.burger--hidden {
+  width: 50px;
+}
+
+.burger__box {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.burger__box {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}

@@ -1,6 +1,5 @@
 import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RiArrowDropLeftLine } from "react-icons/ri";
 import {
   addFilter,
   deleteFilters,
@@ -122,10 +121,6 @@ function Filter({
 
   return (
     <>
-      <div className={styles["filter-back"]}>
-        <RiArrowDropLeftLine />
-        <span>Back</span>
-      </div>
       <div className={styles["filter"]}>
         <h2 className={styles["filter__title"]}>Filters</h2>
         <button

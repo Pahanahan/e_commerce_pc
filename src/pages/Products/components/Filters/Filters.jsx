@@ -12,9 +12,16 @@ function Filters({
   onSetPriceActiveIndex,
   onBrandActiveIndex,
   onSetBrandActiveIndex,
+  onBurgerState,
 }) {
+  console.log(onBurgerState);
+
   return (
-    <div className={styles["filters"]}>
+    <div
+      className={`${styles["filters"]} ${
+        !onBurgerState ? styles["filters--hide"] : ""
+      }`}
+    >
       <Filter
         onCategoryActiveIndex={onCategoryActiveIndex}
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}

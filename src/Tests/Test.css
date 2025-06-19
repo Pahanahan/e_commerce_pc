@@ -1,0 +1,29 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 10px;
+  width: 100%;
+}
+
+.products-main__inner {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.left {
+  width: 50px;
+  /* width: 234px; */
+  flex-shrink: 0;
+  transition: width 0.4s;
+  background: #ddd;
+}
+
+.left--hidden {
+  width: 50px;
+}
+
+.right {
+  flex-grow: 1;
+  background: #bde;
+}

@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 import Filters from "../Filters/Filters";
+import LeftSideBurger from "../LeftSideBurger/LeftSideBurger";
+
 import styles from "./LeftSide.module.css";
 
 function LeftSide({
@@ -9,8 +13,18 @@ function LeftSide({
   onBrandActiveIndex,
   onSetBrandActiveIndex,
 }) {
+  const [burgerState, setBurgerState] = useState(true);
+
   return (
-    <div className={styles["left"]}>
+    <div
+      className={`${styles["left"]} ${
+        !burgerState ? styles["left--hidden"] : ""
+      }`}
+    >
+      <LeftSideBurger
+        onBurgerState={burgerState}
+        onSetBurgerState={setBurgerState}
+      />
       <Filters
         onCategoryActiveIndex={onCategoryActiveIndex}
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}
@@ -18,6 +32,7 @@ function LeftSide({
         onSetPriceActiveIndex={onSetPriceActiveIndex}
         onBrandActiveIndex={onBrandActiveIndex}
         onSetBrandActiveIndex={onSetBrandActiveIndex}
+        onBurgerState={burgerState}
       />
     </div>
   );

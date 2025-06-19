@@ -2,4 +2,10 @@
   display: flex;
   flex-direction: column;
   gap: 7px;
+  overflow: hidden;
+  transition: transform 0.4s, width 1s;
+}
+
+.filters--hide {
+  transform: translateX(-200%);
 }

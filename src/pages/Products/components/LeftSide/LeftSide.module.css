@@ -1,3 +1,11 @@
 .left {
   min-width: 234px;
+  width: 234px;
+  flex-shrink: 0;
+  transition: all 0.4s;
+}
+
+.left--hidden {
+  min-width: 50px;
+  width: 50px;
 }
