@@ -4,8 +4,8 @@ import { showCurrentsProducts } from "../../../../../redux/products/actionCreato
 
 import styles from "./ShowSelector.module.css";
 
-function SortAndShow() {
-  const [currentShow, setCurrentShow] = useState("All");
+function ShowSelector() {
+  const [currentShow, setCurrentShow] = useState(10);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -57,4 +57,4 @@ function SortAndShow() {
   );
 }
 
-export default SortAndShow;
+export default ShowSelector;

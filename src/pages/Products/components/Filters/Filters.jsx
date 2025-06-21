@@ -14,8 +14,6 @@ function Filters({
   onSetBrandActiveIndex,
   onBurgerState,
 }) {
-  console.log(onBurgerState);
-
   return (
     <div
       className={`${styles["filters"]} ${

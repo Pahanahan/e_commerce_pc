@@ -56,6 +56,12 @@ const deleteBrandFilter = (brand) => {
     payload: brand,
   };
 };
+const changeCurrentPage = (num) => {
+  return {
+    type: a.CHANGE_CURRENT_PAGE,
+    payload: num,
+  };
+};
 
 export {
   sortName,
@@ -69,4 +75,5 @@ export {
   applyFilters,
   deleteOneFilter,
   deleteBrandFilter,
+  changeCurrentPage,
 };

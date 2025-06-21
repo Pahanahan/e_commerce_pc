@@ -10,7 +10,7 @@ import {
 
 import styles from "./SortSelector.module.css";
 
-function SortAndShow() {
+function SortSelector() {
   const [sortBy, setSortBy] = useState("Position");
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
@@ -86,4 +86,4 @@ function SortAndShow() {
   );
 }
 
-export default SortAndShow;
+export default SortSelector;
