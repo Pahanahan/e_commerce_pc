@@ -1,33 +1,76 @@
+import { createSelector } from "reselect";
+
 import getFilterAndSortedProducts from "../../utils/getFilterAndSortedProducts";
 
 const selectAllProducts = (state) => state.products.allProducts;
+const selectFiltersApplied = (state) => state.products.filtersApplied;
+const selectSortOption = (state) => state.products.sortOption;
+const selectCurrentPage = (state) => state.products.currentPage;
+const selectPageShowProducts = (state) => state.products.pageShowProducts;
 
-const selectFilteredSortedProducts = (state) => {
-  const { allProducts, filtersApplied, sortOption } = state.products;
-  return getFilterAndSortedProducts({
-    products: allProducts,
-    filters: filtersApplied,
-    sort: sortOption,
-  });
-};
+const selectVisibleProducts = createSelector(
+  [
+    selectAllProducts,
+    selectFiltersApplied,
+    selectSortOption,
+    selectCurrentPage,
+    selectPageShowProducts,
+  ],
+  (products, filters, sort, currentPage, pageShowProducts) => {
+    const filteredProducts = getFilterAndSortedProducts({
+      products,
+      filters,
+      sort,
+    });
 
-const selectVisibleProducts = (state) => {
-  const { currentPage, pageShowProducts } = state.products;
-  const filtered = selectFilteredSortedProducts(state);
-  const start = (currentPage - 1) * pageShowProducts;
-  const end = currentPage * pageShowProducts;
-  return filtered.slice(start, end);
-};
+    const startIndex = (currentPage - 1) * pageShowProducts;
+    const endIndex = currentPage * pageShowProducts;
 
-const selectTotalPages = (state) => {
-  const { pageShowProducts } = state.products;
-  const total = selectFilteredSortedProducts(state).length;
-  return Math.ceil(total / pageShowProducts);
-};
+    return filteredProducts.slice(startIndex, endIndex);
+  }
+);
 
-export {
-  selectAllProducts,
-  selectFilteredSortedProducts,
-  selectVisibleProducts,
-  selectTotalPages,
-};
+const selectAllFilteredProducts = createSelector(
+  [selectAllProducts, selectFiltersApplied, selectSortOption],
+  (products, filters, sort) => {
+    const filteredProducts = getFilterAndSortedProducts({
+      products,
+      filters,
+      sort,
+    });
+
+    return filteredProducts;
+  }
+);
+
+const selectVisibleRange = createSelector(
+  [
+    selectAllProducts,
+    selectFiltersApplied,
+    selectSortOption,
+    selectCurrentPage,
+    selectPageShowProducts,
+  ],
+  (products, filters, sort, currentPage, pageShowProducts) => {
+    const filteredProducts = getFilterAndSortedProducts({
+      products,
+      filters,
+      sort,
+    });
+
+    const allProductsLength = filteredProducts.length;
+    const start = currentPage * pageShowProducts - pageShowProducts + 1;
+    const end =
+      pageShowProducts * currentPage <= allProductsLength
+        ? pageShowProducts * currentPage
+        : allProductsLength;
+
+    return {
+      length: allProductsLength,
+      start: start,
+      end: end,
+    };
+  }
+);
+
+export { selectVisibleProducts, selectAllFilteredProducts, selectVisibleRange };

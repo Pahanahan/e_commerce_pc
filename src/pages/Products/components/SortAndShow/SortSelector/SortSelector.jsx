@@ -10,18 +10,18 @@ import {
 
 import styles from "./SortSelector.module.css";
 
+const sortOptions = [
+  "Position",
+  "Name",
+  "Price Lower",
+  "Price Higher",
+  "Rating",
+];
+
 function SortSelector() {
   const [sortBy, setSortBy] = useState("Position");
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-
-  const sortOptions = [
-    "Position",
-    "Name",
-    "Price Lower",
-    "Price Higher",
-    "Rating",
-  ];
 
   const handleChangeSort = (e) => {
     const selected = e.target.dataset.sort;

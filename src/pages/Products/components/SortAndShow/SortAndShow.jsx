@@ -1,19 +1,20 @@
 import { useSelector } from "react-redux";
+
 import SortSelector from "./SortSelector/SortSelector";
 import ShowSelector from "./ShowSelector/ShowSelector";
 import ButtonsStyle from "./ButtonsStyle/ButtonsStyle";
+import { selectVisibleRange } from "../../../../redux/selectors/productsSelectors";
 
 import styles from "./SortAndShow.module.css";
 
 function SortAndShow() {
-  const products = useSelector((state) => state.products);
-  const productsLength = products.allProducts.length;
-  const visibleProducts = products.visibleProducts.length;
+  const productsText = useSelector(selectVisibleRange);
 
   return (
     <div className={styles["sort-box"]}>
       <div className={styles["sort-box__length"]}>
-        Products 1-{visibleProducts} of {productsLength}
+        Products {productsText.start}-{productsText.end} of{" "}
+        {productsText.length}
       </div>
       <div className={styles["sort-box__items"]}>
         <SortSelector />

@@ -1,8 +1,12 @@
+import { useSelector } from "react-redux";
+
 import SortAndShow from "../SortAndShow/SortAndShow";
 import ActiveSorted from "../ActiveSorted/ActiveSorted";
 import ProductsBox from "../ProductsBox/ProductsBox";
 import Pagination from "../Pagination/Pagination";
 import More from "../More/More";
+import { selectAllFilteredProducts } from "../../../../redux/selectors/productsSelectors";
+
 import styles from "./RightSide.module.css";
 
 function RightSide({
@@ -10,6 +14,9 @@ function RightSide({
   onSetPriceActiveIndex,
   onSetBrandActiveIndex,
 }) {
+  const { pageShowProducts } = useSelector((products) => products.products);
+  const allFilteredProducts = useSelector(selectAllFilteredProducts);
+
   return (
     <div className={styles["right"]}>
       <SortAndShow />
@@ -19,7 +26,7 @@ function RightSide({
         onSetBrandActiveIndex={onSetBrandActiveIndex}
       />
       <ProductsBox />
-      <Pagination />
+      {allFilteredProducts.length > pageShowProducts ? <Pagination /> : ""}
       <More />
     </div>
   );
