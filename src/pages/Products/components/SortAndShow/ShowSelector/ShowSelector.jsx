@@ -4,10 +4,10 @@ import { showCurrentsProducts } from "../../../../../redux/products/actionCreato
 
 import styles from "./ShowSelector.module.css";
 
-const showArray = [5, 10, 20, 30, 40, 50, "All"];
+const showArray = [10, 20, 30, 40, 50, "All"];
 
 function ShowSelector() {
-  const [currentShow, setCurrentShow] = useState(5);
+  const [currentShow, setCurrentShow] = useState(10);
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
 
