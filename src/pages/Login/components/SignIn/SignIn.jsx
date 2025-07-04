@@ -1,17 +1,18 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+// import { useDispatch } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
 
 import styles from "./SignIn.module.css";
 
 function SignIn() {
-  // const [isLogedIn, setIsLogedIn] = useState(false);
   const [emailValid, setEmailValid] = useState(false);
   const [passwordValid, setPasswordValid] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+  // const dispatch = useDispatch();
 
   const changeEmail = (e) => {
     const newEmail = e.target.value.toLowerCase();
@@ -47,17 +48,6 @@ function SignIn() {
       passwordRef.current.focus();
     }
   };
-
-  useEffect(() => {
-    const loginAndPassword = JSON.parse(
-      localStorage.getItem("loginsAndPasswords")
-    );
-    console.log(loginAndPassword);
-    // const loginAndPassword = JSON.parse(
-    //   localStorage.getItem("loginsAndPasswords")
-    // );
-    // console.log(loginAndPassword);
-  }, []);
 
   return (
     <div className={styles["sign-in"]}>

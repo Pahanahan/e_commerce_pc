@@ -1,0 +1,15 @@
+.out {
+  background-color: #f5f7ff;
+  padding: 37px 57px;
+}
+
+.out h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.out__btn {
+  display: flex;
+  justify-content: center;
+}
