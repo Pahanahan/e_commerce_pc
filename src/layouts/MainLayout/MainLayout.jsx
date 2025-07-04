@@ -10,7 +10,7 @@ import Checkout from "../../pages/Checkout";
 import Contacts from "../../pages/Contacts";
 import Dashboard from "../../pages/Dashboard";
 import Product from "../../pages/Product";
-import Register from "../../pages/Register";
+import Login from "../../pages/Login/Login";
 import TermsAndConditions from "../../pages/TermsAndConditions";
 
 import styles from "./MainLayout.module.css";
@@ -29,7 +29,7 @@ function MainLayout() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/product" element={<Product />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
         </Routes>
       </main>

@@ -1,0 +1,9 @@
+.main {
+  margin-bottom: 58px;
+}
+
+.main__inner {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+}

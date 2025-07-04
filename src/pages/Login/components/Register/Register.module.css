@@ -1,0 +1,27 @@
+.register {
+  background-color: #f5f7ff;
+  padding: 37px 57px;
+}
+
+.register h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.register p {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.register ul {
+  margin-bottom: 30px;
+}
+
+.register li {
+  font-size: 14px;
+  font-weight: 300;
+  margin-left: 20px;
+  margin-bottom: 7px;
+}

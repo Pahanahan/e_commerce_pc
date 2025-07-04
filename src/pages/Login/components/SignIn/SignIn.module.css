@@ -1,0 +1,57 @@
+.sign-in {
+  background-color: #f5f7ff;
+  padding: 37px 57px;
+}
+
+.sign-in h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+
+.sign-in__text {
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.sign-in__label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.sign-in__label-text {
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.sign-in__input {
+  border: 1px solid #a2a6b0;
+  border-radius: 4px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px 15px;
+  width: 100%;
+}
+
+.sign-in__input::placeholder {
+  color: #a2a6b0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.sign-in__forgot-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  color: #0156ff;
+  margin-left: 23px;
+}
+
+.invalid {
+  border: 1px solid red;
+}
