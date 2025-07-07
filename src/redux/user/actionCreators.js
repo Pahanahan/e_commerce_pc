@@ -1,9 +1,9 @@
 import * as a from "./actionTypes";
 
-const signIn = (obj) => {
+const signIn = (login) => {
   return {
     type: a.SIGN_IN,
-    payload: obj,
+    payload: login,
   };
 };
 

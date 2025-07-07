@@ -1,14 +1,15 @@
 import * as a from "./actionTypes";
 
-const initialState =
-  JSON.parse(localStorage.getItem("loginsAndPasswords")) || [];
-console.log(initialState);
+const initialState = JSON.parse(localStorage.getItem("loginsAndPasswords")) || {
+  isLogedIn: "",
+  users: [],
+};
 
 const loginReducer = (state = initialState, action) => {
   if (action.type === a.SIGN_IN) {
     return {
       ...state,
-      loginsAndPasswords: action.payload,
+      isLogedIn: action.payload,
     };
   }
   if (action.type === a.LOG_OUT) {

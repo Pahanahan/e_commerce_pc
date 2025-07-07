@@ -52,6 +52,11 @@
   margin-left: 23px;
 }
 
+.sign-in__incorrect {
+  color: red;
+  margin-bottom: 10px;
+}
+
 .invalid {
   border: 1px solid red;
 }
