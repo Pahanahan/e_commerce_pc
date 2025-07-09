@@ -106,11 +106,14 @@ function SignIn() {
   );
 
   const incorrectEmailMessage = !correctEmail && (
-    <div className={styles["sign-in__incorrect"]}>Incorrect Email!</div>
+    <div className={styles["sign-in__incorrect"]}>
+      {" "}
+      Please enter a valid email address.
+    </div>
   );
 
   const incorrectPasswordMessage = !correctPassword && (
-    <div className={styles["sign-in__incorrect"]}>Password too little!</div>
+    <div className={styles["sign-in__incorrect"]}>Password is too short.</div>
   );
 
   const notFoundMessage = !userNotFound && (
