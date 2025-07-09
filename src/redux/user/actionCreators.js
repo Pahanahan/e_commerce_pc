@@ -14,4 +14,11 @@ const logOut = () => {
   };
 };
 
-export { signIn, logOut };
+const register = (data) => {
+  return {
+    type: a.CREATE_ACCOUNT,
+    payload: data,
+  };
+};
+
+export { signIn, logOut, register };

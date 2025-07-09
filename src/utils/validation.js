@@ -1,5 +1,6 @@
 const isValidEmail = (value) => {
-  return /\S+@\S+\.\S+/.test(value);
+  // return /\S+@\S+\.\S+/.test(value);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 };
 
 const changeEmail = (e, setEmail, setEmailValid, setUserNotFound) => {

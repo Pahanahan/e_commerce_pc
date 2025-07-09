@@ -1,56 +1,121 @@
 import { useState, useRef } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
 import { changeEmail, changePassword } from "../../../../utils/validation";
+import { register } from "../../../../redux/user/actionCreators";
 
 import styles from "./Register.module.css";
 
 function Register() {
   const [createAccount, setCreateAccount] = useState(false);
 
-  const [emailValid, setEmailValid] = useState(false);
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [passwordConfirmValid, setPasswordConfirmValid] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [emailValid, setEmailValid] = useState(false);
+  const [passwordValid, setPasswordValid] = useState(false);
+  const [passwordConfirmValid, setPasswordConfirmValid] = useState(false);
+
   const [correctEmail, setCorrectEmail] = useState(true);
   const [correctPassword, setCorrectPassword] = useState(true);
   const [correctConfirmPassword, setCorrectConfirmPassword] = useState(true);
+
   const [overlapPasswords, setOverlapPasswords] = useState(true);
+  const [unicEmail, setUnicEmail] = useState(false);
+
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const passwordConfirmRef = useRef(null);
-  // const dispatch = useDispatch();
-  // const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    if (!emailValid && !passwordValid) {
+
+    setOverlapPasswords(false);
+    setUnicEmail(false);
+
+    if (!emailValid && !passwordValid && !passwordConfirmValid) {
       emailRef.current.focus();
       setCorrectEmail(false);
       setCorrectPassword(false);
+      setCorrectConfirmPassword(false);
+    } else if (!emailValid && !passwordValid) {
+      emailRef.current.focus();
+      setCorrectEmail(false);
+      setCorrectPassword(false);
+      setCorrectConfirmPassword(true);
+    } else if (!emailValid && !passwordConfirmValid) {
+      emailRef.current.focus();
+      setCorrectEmail(false);
+      setCorrectPassword(true);
+      setCorrectConfirmPassword(false);
+    } else if (!passwordValid && !passwordConfirmValid) {
+      passwordRef.current.focus();
+      setCorrectEmail(true);
+      setCorrectPassword(false);
+      setCorrectConfirmPassword(false);
+    } else if (!passwordValid) {
+      passwordRef.current.focus();
+      setCorrectEmail(true);
+      setCorrectPassword(false);
+      setCorrectConfirmPassword(true);
+    } else if (!passwordConfirmValid) {
+      passwordConfirmRef.current.focus();
+      setCorrectEmail(true);
+      setCorrectPassword(true);
+      setCorrectConfirmPassword(false);
     } else if (!emailValid) {
       emailRef.current.focus();
       setCorrectEmail(false);
       setCorrectPassword(true);
-    } else if (!passwordValid) {
-      passwordRef.current.focus();
-      setCorrectPassword(false);
-      setCorrectEmail(true);
-    } else if (emailValid && passwordValid) {
+      setCorrectConfirmPassword(true);
+    } else if (emailValid && passwordValid && passwordConfirmValid) {
       setCorrectEmail(true);
       setCorrectPassword(true);
+      setCorrectConfirmPassword(true);
       if (password !== confirmPassword) {
-        setPasswordValid(false);
-        setPasswordConfirmValid(false);
         setOverlapPasswords(false);
-      } else {
+      } else if (password === confirmPassword) {
         setOverlapPasswords(true);
+
+        const dataUsers = JSON.parse(
+          localStorage.getItem("loginsAndPasswords")
+        );
+
+        if (dataUsers) {
+          const findUnicEmail = dataUsers.users.find(
+            (user) => user.login === email
+          );
+
+          if (findUnicEmail) {
+            setUnicEmail(true);
+          } else {
+            setUnicEmail(false);
+            const newUser = { login: email, password: password };
+            dataUsers.isLogedIn = email;
+            dataUsers.users.push(newUser);
+            localStorage.setItem(
+              "loginsAndPasswords",
+              JSON.stringify(dataUsers)
+            );
+            dispatch(register(dataUsers));
+            navigate("/");
+          }
+        } else {
+          const newData = {
+            isLogedIn: email,
+            users: [{ login: email, password: password }],
+          };
+          localStorage.setItem("loginsAndPasswords", JSON.stringify(newData));
+          dispatch(register(newData));
+          navigate("/");
+        }
       }
-      console.log(overlapPasswords);
     }
   };
 
@@ -90,23 +155,35 @@ function Register() {
     ""
   );
 
-  const classNameConfirmPasswordValid = !passwordValid ? (
+  const classNameConfirmPasswordValid = !passwordConfirmValid ? (
     <span style={{ color: "red" }}> *</span>
   ) : (
     ""
   );
 
   const incorrectEmailMessage = !correctEmail && (
-    <div className={styles["register__incorrect"]}>Incorrect Email!</div>
+    <div className={styles["register__incorrect"]}>
+      Please enter a valid email address.
+    </div>
   );
 
   const incorrectPasswordMessage = !correctPassword && (
-    <div className={styles["register__incorrect"]}>Password too little!</div>
+    <div className={styles["register__incorrect"]}>Password is too short.</div>
+  );
+
+  const incorrectConfirmPasswordMessage = !correctConfirmPassword && (
+    <div className={styles["register__incorrect"]}>
+      Confirm password is too short.
+    </div>
   );
 
   const incorrectOverlapPasswordsMessage = !overlapPasswords && (
+    <div className={styles["register__incorrect"]}>Passwords do not match.</div>
+  );
+
+  const incorrectUnicEmail = unicEmail && (
     <div className={styles["register__incorrect"]}>
-      Passwords not confirmed!
+      An account with this email already exists.
     </div>
   );
 
@@ -159,7 +236,9 @@ function Register() {
               placeholder="Confirm password"
             />
           </label>
+          {incorrectConfirmPasswordMessage}
           {incorrectOverlapPasswordsMessage}
+          {incorrectUnicEmail}
           <div className={styles["register__btns"]}>
             <Button type={"submit"} title={"Create An Account"} />
           </div>
@@ -167,7 +246,7 @@ function Register() {
       ) : (
         <>
           <ul>
-            <li>Chek out faster</li>
+            <li>Cheсk out faster</li>
             <li>Keep more than one address</li>
             <li>Track orders and more</li>
           </ul>

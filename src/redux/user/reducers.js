@@ -18,6 +18,12 @@ const loginReducer = (state = initialState, action) => {
       isLogedIn: "",
     };
   }
+  if (action.type === a.CREATE_ACCOUNT) {
+    return {
+      ...state,
+      ...action.payload,
+    };
+  }
 
   return state;
 };
