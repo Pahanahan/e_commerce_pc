@@ -21,4 +21,11 @@ const register = (data) => {
   };
 };
 
-export { signIn, logOut, register };
+const toggleLike = (data) => {
+  return {
+    type: a.TOGGLE_LIKE,
+    payload: data,
+  };
+};
+
+export { signIn, logOut, register, toggleLike };

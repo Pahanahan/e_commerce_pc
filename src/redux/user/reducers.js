@@ -1,9 +1,10 @@
 import * as a from "./actionTypes";
+import { getItemLocalStorage } from "../../utils/storageUtils";
 
-const initialState = JSON.parse(localStorage.getItem("loginsAndPasswords")) || {
+const initialState = getItemLocalStorage("loginsAndPasswords", {
   isLogedIn: "",
   users: [],
-};
+});
 
 const loginReducer = (state = initialState, action) => {
   if (action.type === a.SIGN_IN) {
@@ -24,11 +25,14 @@ const loginReducer = (state = initialState, action) => {
       ...action.payload,
     };
   }
+  if (action.type === a.TOGGLE_LIKE) {
+    return {
+      ...state,
+      ...action.payload,
+    };
+  }
 
   return state;
 };
 
 export { loginReducer };
-
-// key: loginsAndPasswords
-// value: {"isLogedIn":"korgfd@yandex.ru","users":[{"login":"korgfd@yandex.ru","password":"korsunenko1"}]}

@@ -3,9 +3,10 @@ import { useDispatch } from "react-redux";
 
 import RatingStar from "../RatingStar/RatingStar";
 import {
-  addLike,
-  // addToCart,
-} from "../../redux/likeAndCartProducts/actionCreators";
+  getItemLocalStorage,
+  setItemLocalStorage,
+} from "../../utils/storageUtils";
+import { toggleLike } from "../../redux/user/actionCreators";
 
 import check from "../../assets/icons/check.svg";
 import call from "../../assets/icons/call.svg";
@@ -13,17 +14,54 @@ import cart from "../../assets/icons/cart-product.svg";
 import styles from "./ProductItem.module.css";
 
 function ProductItem({ data }) {
-  const [like, setLike] = useState(false);
-  const [added, setAdded] = useState(false);
+  const dataLocalStorage = getItemLocalStorage("loginsAndPasswords");
+
+  const user = dataLocalStorage?.isLogedIn;
+
+  const findUser = dataLocalStorage?.users.find(
+    (login) => login.login === user
+  );
+
+  const likeOrNot = findUser?.likes?.includes(data.id) || false;
+
+  const [like, setLike] = useState(likeOrNot);
   const dispatch = useDispatch();
 
-  const handleLike = (like) => {
-    setLike(!like);
-    dispatch(addLike(!like));
-  };
+  const handleLike = () => {
+    const dataLocalStorage = getItemLocalStorage("loginsAndPasswords");
 
-  const handleAddedToCart = () => {
-    setAdded(true);
+    if (!dataLocalStorage) return;
+
+    const newDataUsers = dataLocalStorage.users.map((item) => {
+      if (item.login === findUser.login) {
+        if (item.likes) {
+          if (like) {
+            item.likes = item.likes.filter((item) => item !== data.id);
+          } else {
+            item.likes.push(data.id);
+            item.likes = [...new Set(item.likes)];
+          }
+        } else {
+          item.likes = [];
+          if (like) {
+            item.likes = item.likes.filter((item) => item !== data.id);
+          } else {
+            item.likes.push(data.id);
+            item.likes = [...new Set(item.likes)];
+          }
+        }
+        return { ...item };
+      } else {
+        return { ...item };
+      }
+    });
+
+    const newDataLocalStorage = { ...dataLocalStorage, users: newDataUsers };
+
+    setItemLocalStorage("loginsAndPasswords", newDataLocalStorage);
+
+    setLike(!like);
+    dispatch(toggleLike(newDataLocalStorage));
   };
 
   const rating = Math.round(data.rating);
@@ -36,7 +74,7 @@ function ProductItem({ data }) {
         }`}
       >
         <svg
-          onClick={() => handleLike(like)}
+          onClick={handleLike}
           className={styles["product__hover-top-like"]}
           width="30"
           height="30"
@@ -62,13 +100,13 @@ function ProductItem({ data }) {
       </div>
       <div className={styles["product__hover-bottom"]}>
         <button
-          onClick={handleAddedToCart}
+          // onClick={handleAddedToCart}
           type="button"
           className={styles["product__cart"]}
-          disabled={added}
+          // disabled={added}
         >
           <img className={styles["product__cart-img"]} src={cart} alt="cart" />
-          {added ? "Added" : "Add To Cart"}
+          {/* {added ? "Added" : "Add To Cart"} */}
         </button>
       </div>
       <div>
