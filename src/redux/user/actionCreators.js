@@ -28,4 +28,11 @@ const toggleLike = (data) => {
   };
 };
 
-export { signIn, logOut, register, toggleLike };
+const addToCart = (data) => {
+  return {
+    type: a.ADD_TO_CART,
+    payload: data,
+  };
+};
+
+export { signIn, logOut, register, toggleLike, addToCart };

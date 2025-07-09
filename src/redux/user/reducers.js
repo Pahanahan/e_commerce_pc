@@ -31,6 +31,12 @@ const loginReducer = (state = initialState, action) => {
       ...action.payload,
     };
   }
+  if (action.type === a.ADD_TO_CART) {
+    return {
+      ...state,
+      ...action.payload,
+    };
+  }
 
   return state;
 };

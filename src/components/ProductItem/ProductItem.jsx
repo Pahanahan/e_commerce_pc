@@ -6,11 +6,11 @@ import {
   getItemLocalStorage,
   setItemLocalStorage,
 } from "../../utils/storageUtils";
-import { toggleLike } from "../../redux/user/actionCreators";
+import { toggleLike, addToCart } from "../../redux/user/actionCreators";
 
 import check from "../../assets/icons/check.svg";
 import call from "../../assets/icons/call.svg";
-import cart from "../../assets/icons/cart-product.svg";
+import cartProduct from "../../assets/icons/cart-product.svg";
 import styles from "./ProductItem.module.css";
 
 function ProductItem({ data }) {
@@ -23,31 +23,41 @@ function ProductItem({ data }) {
   );
 
   const likeOrNot = findUser?.likes?.includes(data.id) || false;
+  const inCartOrNot = findUser?.cart?.includes(data.id) || false;
 
   const [like, setLike] = useState(likeOrNot);
+  const [cart, setCart] = useState(inCartOrNot);
   const dispatch = useDispatch();
 
-  const handleLike = () => {
+  const handleAddLikeOrAddToCart = (value, road) => {
     const dataLocalStorage = getItemLocalStorage("loginsAndPasswords");
 
     if (!dataLocalStorage) return;
 
+    let likeOrCart;
+    if (value === "like") {
+      likeOrCart = like;
+    }
+    if (value === "cart") {
+      likeOrCart = cart;
+    }
+
     const newDataUsers = dataLocalStorage.users.map((item) => {
       if (item.login === findUser.login) {
-        if (item.likes) {
-          if (like) {
-            item.likes = item.likes.filter((item) => item !== data.id);
+        if (item[road]) {
+          if (likeOrCart) {
+            item[road] = item[road].filter((item) => item !== data.id);
           } else {
-            item.likes.push(data.id);
-            item.likes = [...new Set(item.likes)];
+            item[road].push(data.id);
+            item[road] = [...new Set(item[road])];
           }
         } else {
-          item.likes = [];
-          if (like) {
-            item.likes = item.likes.filter((item) => item !== data.id);
+          item[road] = [];
+          if (likeOrCart) {
+            item[road] = item[road].filter((item) => item !== data.id);
           } else {
-            item.likes.push(data.id);
-            item.likes = [...new Set(item.likes)];
+            item[road].push(data.id);
+            item[road] = [...new Set(item[road])];
           }
         }
         return { ...item };
@@ -60,8 +70,14 @@ function ProductItem({ data }) {
 
     setItemLocalStorage("loginsAndPasswords", newDataLocalStorage);
 
-    setLike(!like);
-    dispatch(toggleLike(newDataLocalStorage));
+    if (value === "like") {
+      setLike(!like);
+      dispatch(toggleLike(newDataLocalStorage));
+    }
+    if (value === "cart") {
+      setCart(!cart);
+      dispatch(addToCart(newDataLocalStorage));
+    }
   };
 
   const rating = Math.round(data.rating);
@@ -74,7 +90,7 @@ function ProductItem({ data }) {
         }`}
       >
         <svg
-          onClick={handleLike}
+          onClick={() => handleAddLikeOrAddToCart("like", "likes")}
           className={styles["product__hover-top-like"]}
           width="30"
           height="30"
@@ -100,13 +116,16 @@ function ProductItem({ data }) {
       </div>
       <div className={styles["product__hover-bottom"]}>
         <button
-          // onClick={handleAddedToCart}
+          onClick={() => handleAddLikeOrAddToCart("cart", "cart")}
           type="button"
           className={styles["product__cart"]}
-          // disabled={added}
         >
-          <img className={styles["product__cart-img"]} src={cart} alt="cart" />
-          {/* {added ? "Added" : "Add To Cart"} */}
+          <img
+            className={styles["product__cart-img"]}
+            src={cartProduct}
+            alt="cart"
+          />
+          {cart ? "Remove" : "Add To Cart"}
         </button>
       </div>
       <div>
