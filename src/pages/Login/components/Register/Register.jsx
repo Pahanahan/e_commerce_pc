@@ -96,7 +96,12 @@ function Register() {
             setUnicEmail(true);
           } else {
             setUnicEmail(false);
-            const newUser = { login: email, password: password };
+            const newUser = {
+              login: email,
+              password: password,
+              likes: [],
+              cart: [],
+            };
             dataUsers.isLogedIn = email;
             dataUsers.users.push(newUser);
             localStorage.setItem(
@@ -109,7 +114,7 @@ function Register() {
         } else {
           const newData = {
             isLogedIn: email,
-            users: [{ login: email, password: password }],
+            users: [{ login: email, password: password, likes: [], cart: [] }],
           };
           localStorage.setItem("loginsAndPasswords", JSON.stringify(newData));
           dispatch(register(newData));

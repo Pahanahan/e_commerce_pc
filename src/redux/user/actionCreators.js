@@ -21,17 +21,17 @@ const register = (data) => {
   };
 };
 
-const toggleLike = (data) => {
+const toggleLike = (payload) => {
   return {
     type: a.TOGGLE_LIKE,
-    payload: data,
+    payload: payload,
   };
 };
 
-const addToCart = (data) => {
+const addToCart = (payload) => {
   return {
     type: a.ADD_TO_CART,
-    payload: data,
+    payload: payload,
   };
 };
 

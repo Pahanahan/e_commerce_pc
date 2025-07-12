@@ -1,11 +1,6 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import RatingStar from "../RatingStar/RatingStar";
-import {
-  getItemLocalStorage,
-  setItemLocalStorage,
-} from "../../utils/storageUtils";
 import { toggleLike, addToCart } from "../../redux/user/actionCreators";
 
 import check from "../../assets/icons/check.svg";
@@ -14,69 +9,28 @@ import cartProduct from "../../assets/icons/cart-product.svg";
 import styles from "./ProductItem.module.css";
 
 function ProductItem({ data }) {
-  const dataLocalStorage = getItemLocalStorage("loginsAndPasswords");
+  const { isLogedIn, users } = useSelector((state) => state.login);
 
-  const user = dataLocalStorage?.isLogedIn;
-
-  const findUser = dataLocalStorage?.users.find(
-    (login) => login.login === user
-  );
+  const findUser = users.find((login) => login.login === isLogedIn);
 
   const likeOrNot = findUser?.likes?.includes(data.id) || false;
   const inCartOrNot = findUser?.cart?.includes(data.id) || false;
 
-  const [like, setLike] = useState(likeOrNot);
-  const [cart, setCart] = useState(inCartOrNot);
   const dispatch = useDispatch();
 
-  const handleAddLikeOrAddToCart = (value, road) => {
-    const dataLocalStorage = getItemLocalStorage("loginsAndPasswords");
+  const handleAddLikeOrAddToCart = (value) => {
+    if (!isLogedIn) return;
 
-    if (!dataLocalStorage) return;
-
-    let likeOrCart;
-    if (value === "like") {
-      likeOrCart = like;
-    }
-    if (value === "cart") {
-      likeOrCart = cart;
-    }
-
-    const newDataUsers = dataLocalStorage.users.map((item) => {
-      if (item.login === findUser.login) {
-        if (item[road]) {
-          if (likeOrCart) {
-            item[road] = item[road].filter((item) => item !== data.id);
-          } else {
-            item[road].push(data.id);
-            item[road] = [...new Set(item[road])];
-          }
-        } else {
-          item[road] = [];
-          if (likeOrCart) {
-            item[road] = item[road].filter((item) => item !== data.id);
-          } else {
-            item[road].push(data.id);
-            item[road] = [...new Set(item[road])];
-          }
-        }
-        return { ...item };
-      } else {
-        return { ...item };
-      }
-    });
-
-    const newDataLocalStorage = { ...dataLocalStorage, users: newDataUsers };
-
-    setItemLocalStorage("loginsAndPasswords", newDataLocalStorage);
+    const payload = {
+      login: findUser.login,
+      productId: data.id,
+    };
 
     if (value === "like") {
-      setLike(!like);
-      dispatch(toggleLike(newDataLocalStorage));
+      dispatch(toggleLike(payload));
     }
     if (value === "cart") {
-      setCart(!cart);
-      dispatch(addToCart(newDataLocalStorage));
+      dispatch(addToCart(payload));
     }
   };
 
@@ -86,11 +40,11 @@ function ProductItem({ data }) {
     <div className={styles["product"]}>
       <div
         className={`${styles["product__hover-top"]} ${
-          like ? styles["like--active"] : ""
+          likeOrNot ? styles["like--active"] : ""
         }`}
       >
         <svg
-          onClick={() => handleAddLikeOrAddToCart("like", "likes")}
+          onClick={() => handleAddLikeOrAddToCart("like")}
           className={styles["product__hover-top-like"]}
           width="30"
           height="30"
@@ -116,7 +70,7 @@ function ProductItem({ data }) {
       </div>
       <div className={styles["product__hover-bottom"]}>
         <button
-          onClick={() => handleAddLikeOrAddToCart("cart", "cart")}
+          onClick={() => handleAddLikeOrAddToCart("cart")}
           type="button"
           className={styles["product__cart"]}
         >
@@ -125,7 +79,7 @@ function ProductItem({ data }) {
             src={cartProduct}
             alt="cart"
           />
-          {cart ? "Remove" : "Add To Cart"}
+          {inCartOrNot ? "Remove" : "Add To Cart"}
         </button>
       </div>
       <div>
