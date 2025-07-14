@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
 import { changeEmail, changePassword } from "../../../../utils/validation";
@@ -29,6 +29,9 @@ function Register() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const passwordConfirmRef = useRef(null);
+
+  const usersSelector = useSelector((state) => state.login);
+  const users = JSON.parse(JSON.stringify(usersSelector));
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -83,41 +86,21 @@ function Register() {
       } else if (password === confirmPassword) {
         setOverlapPasswords(true);
 
-        const dataUsers = JSON.parse(
-          localStorage.getItem("loginsAndPasswords")
-        );
+        const findUnicEmail = users.users.find((user) => user.login === email);
 
-        if (dataUsers) {
-          const findUnicEmail = dataUsers.users.find(
-            (user) => user.login === email
-          );
-
-          if (findUnicEmail) {
-            setUnicEmail(true);
-          } else {
-            setUnicEmail(false);
-            const newUser = {
-              login: email,
-              password: password,
-              likes: [],
-              cart: [],
-            };
-            dataUsers.isLogedIn = email;
-            dataUsers.users.push(newUser);
-            localStorage.setItem(
-              "loginsAndPasswords",
-              JSON.stringify(dataUsers)
-            );
-            dispatch(register(dataUsers));
-            navigate("/");
-          }
+        if (findUnicEmail) {
+          setUnicEmail(true);
         } else {
-          const newData = {
-            isLogedIn: email,
-            users: [{ login: email, password: password, likes: [], cart: [] }],
+          setUnicEmail(false);
+          const newUser = {
+            login: email,
+            password: password,
+            likes: [],
+            cart: [],
           };
-          localStorage.setItem("loginsAndPasswords", JSON.stringify(newData));
-          dispatch(register(newData));
+          users.isLogedIn = email;
+          users.users.push(newUser);
+          dispatch(register(users));
           navigate("/");
         }
       }

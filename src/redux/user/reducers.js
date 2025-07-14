@@ -69,6 +69,8 @@ const loginReducer = (state = initialState, action) => {
     };
   }
 
+  console.log(newState);
+
   localStorage.setItem("loginsAndPasswords", JSON.stringify(newState));
 
   return newState;
