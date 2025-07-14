@@ -1,7 +1,7 @@
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import BenefitsSection from "../../components/BenefitsSection/BenefitsSection";
 import Promo from "./components/Promo/Promo";
-import ProductsTitle from "./components/ProductsTitle/ProductsTitle";
+import Title from "../../components/Title/Title";
 import ProductsMain from "./components/ProductsMain/ProductsMain";
 
 function Products() {
@@ -9,7 +9,7 @@ function Products() {
     <>
       <Promo />
       <Breadcrumbs />
-      <ProductsTitle />
+      <Title title={"Products"} />
       <ProductsMain />
       <BenefitsSection background={"#F5F7FF"} />
     </>

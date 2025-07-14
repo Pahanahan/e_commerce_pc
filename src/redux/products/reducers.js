@@ -3,7 +3,6 @@ import productsdata from "../../data/products-data.json";
 
 const initialState = {
   allProducts: [...productsdata],
-  // allFilteredProducts: [...productsdata],
   filtersDraft: {},
   filtersApplied: {},
   sortOption: "Position",

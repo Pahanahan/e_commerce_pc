@@ -1,5 +1,8 @@
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
+
 import ProductCategoryItem from "./ProductCategoryItem";
-import productsdata from "../../data/products-data.json";
+
 import styles from "./ProductCategories.module.css";
 import custom from "../../assets/images/categories/custom.jpg";
 import laptop from "../../assets/images/categories/laptop.jpg";
@@ -7,21 +10,31 @@ import desctop from "../../assets/images/categories/desctop.jpg";
 import monitor from "../../assets/images/categories/monitor.jpg";
 
 function ProductCategories() {
-  const productsDataCustom = productsdata
-    .filter((product) => product.category === "custom pc")
-    .slice(0, 5);
+  const allProducts = useSelector((state) => state.products.allProducts);
 
-  const productsDataLaptop = productsdata
-    .filter((product) => product.category === "laptops")
-    .slice(0, 5);
+  const productsDataCustom = useMemo(() => {
+    return allProducts
+      .filter((product) => product.category === "custom pc")
+      .slice(0, 5);
+  }, [allProducts]);
 
-  const productsDataPC = productsdata
-    .filter((product) => product.category === "PC")
-    .slice(0, 5);
+  const productsDataLaptop = useMemo(() => {
+    return allProducts
+      .filter((product) => product.category === "laptops")
+      .slice(0, 5);
+  }, [allProducts]);
 
-  const productsDataMonitor = productsdata
-    .filter((product) => product.category === "monitors")
-    .slice(0, 5);
+  const productsDataPC = useMemo(() => {
+    return allProducts
+      .filter((product) => product.category === "PC")
+      .slice(0, 5);
+  }, [allProducts]);
+
+  const productsDataMonitor = useMemo(() => {
+    return allProducts
+      .filter((product) => product.category === "monitors")
+      .slice(0, 5);
+  }, [allProducts]);
 
   const textArray = ["Custome Builds", "Laptops", "Desktops", "Monitors"];
 

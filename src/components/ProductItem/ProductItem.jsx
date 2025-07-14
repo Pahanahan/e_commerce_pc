@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import RatingStar from "../RatingStar/RatingStar";
@@ -8,7 +9,7 @@ import call from "../../assets/icons/call.svg";
 import cartProduct from "../../assets/icons/cart-product.svg";
 import styles from "./ProductItem.module.css";
 
-function ProductItem({ data }) {
+const ProductItem = memo(function ProductItem({ data }) {
   const { isLogedIn, users } = useSelector((state) => state.login);
 
   const findUser = users.find((login) => login.login === isLogedIn);
@@ -126,6 +127,6 @@ function ProductItem({ data }) {
       </div>
     </div>
   );
-}
+});
 
 export default ProductItem;

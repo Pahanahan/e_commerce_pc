@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 import ProductItems from "../ProductItems/ProductItems";
-import productsdata from "../../data/products-data.json";
+
 import styles from "./NewProductsSlider.module.css";
 import leftarrow from "../../assets/images/new-slider/arrow-left.svg";
 import rightarrow from "../../assets/images/new-slider/arrow-right.svg";
@@ -9,7 +10,8 @@ import rightarrow from "../../assets/images/new-slider/arrow-right.svg";
 function NewProductsSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const productsLength = productsdata.length - 5;
+  const productsLength =
+    useSelector((state) => state.products.allProducts).length - 5;
 
   const handleSlides = (arrow) => {
     if (arrow === "left") {
@@ -52,7 +54,7 @@ function NewProductsSlider() {
             }}
             className={styles["products-slider__box"]}
           >
-            <ProductItems data={productsdata} reverse={true} />
+            <ProductItems reverse={true} />
           </div>
           <button
             className={styles["products-slider__arrow-right"]}
