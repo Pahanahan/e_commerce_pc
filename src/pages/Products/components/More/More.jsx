@@ -1,6 +1,8 @@
+import { memo } from "react";
+
 import styles from "./More.module.css";
 
-function More() {
+const More = memo(function More() {
   return (
     <>
       <div className={styles["fading-text"]}>
@@ -32,6 +34,6 @@ function More() {
       <button className={styles["more__btn"]}>More</button>
     </>
   );
-}
+});
 
 export default More;
