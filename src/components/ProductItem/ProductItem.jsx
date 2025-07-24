@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import RatingStar from "../RatingStar/RatingStar";
 import { toggleLike, addToCart } from "../../redux/user/actionCreators";
@@ -9,22 +9,27 @@ import call from "../../assets/icons/call.svg";
 import cartProduct from "../../assets/icons/cart-product.svg";
 import styles from "./ProductItem.module.css";
 
-const ProductItem = memo(function ProductItem({ data }) {
-  const { isLogedIn, users } = useSelector((state) => state.login);
-
-  const findUser = users.find((login) => login.login === isLogedIn);
-
-  const likeOrNot = findUser?.likes?.includes(data.id) || false;
-  const inCartOrNot = findUser?.cart?.includes(data.id) || false;
-
+const ProductItem = memo(function ProductItem({
+  id,
+  rating,
+  availability,
+  image,
+  reviewsCount,
+  description,
+  price,
+  oldPrice,
+  isLogedIn,
+  likeOrNot,
+  inCartOrNot,
+}) {
   const dispatch = useDispatch();
 
   const handleAddLikeOrAddToCart = (value) => {
     if (!isLogedIn) return;
 
     const payload = {
-      login: findUser.login,
-      productId: data.id,
+      login: isLogedIn,
+      productId: id,
     };
 
     if (value === "like") {
@@ -35,7 +40,7 @@ const ProductItem = memo(function ProductItem({ data }) {
     }
   };
 
-  const rating = Math.round(data.rating);
+  const ratingStar = Math.round(rating);
 
   return (
     <div className={styles["product"]}>
@@ -84,7 +89,7 @@ const ProductItem = memo(function ProductItem({ data }) {
         </button>
       </div>
       <div>
-        {data.availability === "in stock" ? (
+        {availability === "in stock" ? (
           <div className={styles["product__availability--yes"]}>
             <img src={check} alt="icon" />
             in stock
@@ -97,33 +102,33 @@ const ProductItem = memo(function ProductItem({ data }) {
         )}
         <div className={styles["product__image"]}>
           <a href="#">
-            <img src={data.images[0]} alt="image" />
+            <img src={image} alt="image" />
           </a>
         </div>
         <div className={styles["product__box"]}>
           <span className={styles["product__star"]}>
-            <RatingStar rating={rating} />
+            <RatingStar rating={ratingStar} />
           </span>
           <span className={styles["product__reviews"]}>
-            Reviews ({data.reviewsCount})
+            Reviews ({reviewsCount})
           </span>
         </div>
         <div className={styles["product__text"]}>
-          {data.description.length < 45
-            ? data.description
-            : data.description.slice(0, 40) + "..."}
+          {description.length < 45
+            ? description
+            : description.slice(0, 40) + "..."}
         </div>
       </div>
 
       <div>
-        {data.oldPrice ? (
+        {oldPrice ? (
           <div className={styles["product__oldprice"]}>
-            ${data.oldPrice.toFixed(2)}
+            ${oldPrice.toFixed(2)}
           </div>
         ) : (
           ""
         )}
-        <div className={styles["product__price"]}>${data.price.toFixed(2)}</div>
+        <div className={styles["product__price"]}>${price.toFixed(2)}</div>
       </div>
     </div>
   );

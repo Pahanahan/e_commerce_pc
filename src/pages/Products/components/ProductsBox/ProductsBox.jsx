@@ -1,8 +1,7 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
-// import ProductItem from "../../../../components/ProductItem/ProductItem";
-import Test from "../../../../Tests/Test";
+import ProductItem from "../../../../components/ProductItem/ProductItem";
 import { selectVisibleProducts } from "../../../../redux/selectors/productsSelectors";
 
 import styles from "./ProductsBox.module.css";
@@ -15,15 +14,13 @@ function ProductsBox() {
   const visibleProductsMap = useMemo(
     () =>
       visibleProducts.map((product) => {
-        // <ProductItem key={product.id} data={product} />
-
         const findUser = users.find((login) => login.login === isLogedIn);
 
         const likeOrNot = findUser?.likes?.includes(product.id) || false;
         const inCartOrNot = findUser?.cart?.includes(product.id) || false;
 
         return (
-          <Test
+          <ProductItem
             key={product.id}
             id={product.id}
             rating={product.rating}

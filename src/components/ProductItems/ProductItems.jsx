@@ -16,11 +16,33 @@ function ProductItems({ reverse }) {
     }
   }, [allProducts, reverse]);
 
-  const productsMap = useMemo(
-    () =>
-      reversedItems.map((item) => <ProductItem key={item.id} data={item} />),
-    [reversedItems]
-  );
+  const { isLogedIn, users } = useSelector((state) => state.login);
+
+  const productsMap = useMemo(() => {
+    return reversedItems.map((item) => {
+      const findUser = users.find((login) => login.login === isLogedIn);
+
+      const likeOrNot = findUser?.likes?.includes(item.id) || false;
+      const inCartOrNot = findUser?.cart?.includes(item.id) || false;
+
+      return (
+        <ProductItem
+          key={item.id}
+          id={item.id}
+          rating={item.rating}
+          availability={item.availability}
+          image={item.images[0]}
+          reviewsCount={item.reviewsCount}
+          description={item.description}
+          price={item.price}
+          oldPrice={item.oldPrice}
+          isLogedIn={isLogedIn}
+          likeOrNot={likeOrNot}
+          inCartOrNot={inCartOrNot}
+        />
+      );
+    });
+  }, [reversedItems, isLogedIn, users]);
 
   return <div className={styles["product-items"]}>{productsMap}</div>;
 }

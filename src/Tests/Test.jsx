@@ -1,10 +1,7 @@
 import styles from "./Test.module.css";
 
 import { memo } from "react";
-import {
-  useDispatch,
-  // useSelector
-} from "react-redux";
+import { useDispatch } from "react-redux";
 
 import RatingStar from "../components/RatingStar/RatingStar";
 import { toggleLike, addToCart } from "../redux/user/actionCreators";
@@ -26,15 +23,6 @@ const Test = memo(function Test({
   likeOrNot,
   inCartOrNot,
 }) {
-  console.log(inCartOrNot);
-
-  // const { isLogedIn, users } = useSelector((state) => state.login);
-
-  // const findUser = users.find((login) => login.login === isLogedIn);
-
-  // const likeOrNot = findUser?.likes?.includes(id) || false;
-  // const inCartOrNot = findUser?.cart?.includes(id) || false;
-
   const dispatch = useDispatch();
 
   const handleAddLikeOrAddToCart = (value) => {
