@@ -2,6 +2,9 @@
   background-color: #f5f7ff;
   padding: 20px 10px 25px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .wish-list h2 {
