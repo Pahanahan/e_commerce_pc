@@ -16,7 +16,6 @@ function MyWishList() {
   const wishProducts = allProducts.filter((product) =>
     wishProductsLikes.includes(product.id)
   );
-  console.log(wishProducts);
 
   const wishProductsMap = wishProducts.map((item) => {
     const findUser = users.find((login) => login.login === isLogedIn);
@@ -39,8 +38,6 @@ function MyWishList() {
       />
     );
   });
-
-  console.log(wishProductsMap);
 
   return (
     <div className={styles["wish-list"]}>
