@@ -18,8 +18,20 @@
   margin-bottom: 20px;
 }
 
-.fading-text p {
+.normal-text {
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #8c8c8c;
+}
+
+.text__visible {
+  height: 100%;
   margin-bottom: 10px;
+}
+
+.text__invisible {
+  height: 0;
 }
 
 .more__btn {
