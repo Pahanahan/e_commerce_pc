@@ -7,7 +7,7 @@ import { selectVisibleRange } from "../../../../redux/selectors/productsSelector
 
 import styles from "./SortAndShow.module.css";
 
-function SortAndShow() {
+function SortAndShow({ listOrGrid, onSetListOrGrid }) {
   const productsText = useSelector(selectVisibleRange);
 
   return (
@@ -19,7 +19,10 @@ function SortAndShow() {
       <div className={styles["sort-box__items"]}>
         <SortSelector />
         <ShowSelector />
-        <ButtonsStyle />
+        <ButtonsStyle
+          onSetListOrGrid={onSetListOrGrid}
+          listOrGrid={listOrGrid}
+        />
       </div>
     </div>
   );

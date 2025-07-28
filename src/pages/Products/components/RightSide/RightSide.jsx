@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import SortAndShow from "../SortAndShow/SortAndShow";
@@ -14,18 +15,19 @@ function RightSide({
   onSetPriceActiveIndex,
   onSetBrandActiveIndex,
 }) {
+  const [listOrGrid, setListOrGrid] = useState("grid");
   const { pageShowProducts } = useSelector((products) => products.products);
   const allFilteredProducts = useSelector(selectAllFilteredProducts);
 
   return (
     <div className={styles["right"]}>
-      <SortAndShow />
+      <SortAndShow onSetListOrGrid={setListOrGrid} listOrGrid={listOrGrid} />
       <ActiveSorted
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}
         onSetPriceActiveIndex={onSetPriceActiveIndex}
         onSetBrandActiveIndex={onSetBrandActiveIndex}
       />
-      <ProductsBox />
+      <ProductsBox listOrGrid={listOrGrid} />
       {allFilteredProducts.length > pageShowProducts ? <Pagination /> : ""}
       <More />
     </div>
