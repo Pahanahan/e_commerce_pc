@@ -6,9 +6,11 @@ import RightSide from "../RightSide/RightSide";
 import styles from "./ProductsMain.module.css";
 
 function ProductsMain() {
-  const [categoryActiveIndex, setCategoryActiveIndex] = useState(null);
-  const [priceActiveIndex, setPriceActiveIndex] = useState(null);
-  const [brandActiveIndex, setBrandActiveIndex] = useState(null);
+  const [categoryActiveIndex, setCategoryActiveIndex] = useState<number | null>(
+    null
+  );
+  const [priceActiveIndex, setPriceActiveIndex] = useState<number | null>(null);
+  const [brandActiveIndex, setBrandActiveIndex] = useState<number | null>(null);
 
   return (
     <div className={styles["products-main"]}>

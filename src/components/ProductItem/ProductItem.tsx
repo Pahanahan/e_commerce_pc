@@ -9,6 +9,25 @@ import call from "../../assets/icons/call.svg";
 import cartProduct from "../../assets/icons/cart-product.svg";
 import styles from "./ProductItem.module.css";
 
+interface ProductItemProps {
+  id: number;
+  rating: number;
+  availability: string;
+  image: string;
+  reviewsCount: number;
+  description: string;
+  price: number;
+  oldPrice?: number | null;
+  isLogedIn: string;
+  likeOrNot: boolean;
+  inCartOrNot: boolean;
+}
+
+enum LikeOrCart {
+  LIKE = "like",
+  CART = "cart",
+}
+
 const ProductItem = memo(function ProductItem({
   id,
   rating,
@@ -21,10 +40,10 @@ const ProductItem = memo(function ProductItem({
   isLogedIn,
   likeOrNot,
   inCartOrNot,
-}) {
+}: ProductItemProps) {
   const dispatch = useDispatch();
 
-  const handleAddLikeOrAddToCart = (value) => {
+  const handleAddLikeOrAddToCart = (value: LikeOrCart): void => {
     if (!isLogedIn) return;
 
     const payload = {
@@ -50,7 +69,7 @@ const ProductItem = memo(function ProductItem({
         }`}
       >
         <svg
-          onClick={() => handleAddLikeOrAddToCart("like")}
+          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.LIKE)}
           className={styles["product__hover-top-like"]}
           width="30"
           height="30"
@@ -76,7 +95,7 @@ const ProductItem = memo(function ProductItem({
       </div>
       <div className={styles["product__hover-bottom"]}>
         <button
-          onClick={() => handleAddLikeOrAddToCart("cart")}
+          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.CART)}
           type="button"
           className={styles["product__cart"]}
         >

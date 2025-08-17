@@ -18,30 +18,39 @@ const sortOptions = [
   "Rating",
 ];
 
+enum SortOptions {
+  POSITION = "Position",
+  NAME = "Name",
+  PRICE_LOWER = "Price Lower",
+  PRICE_HIGHER = "Price Higher",
+  RATING = "Rating",
+}
+
 function SortSelector() {
-  const [sortBy, setSortBy] = useState("Position");
-  const [isOpen, setIsOpen] = useState(false);
+  const [sortBy, setSortBy] = useState<SortOptions>(SortOptions.POSITION);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 
-  const handleChangeSort = (e) => {
-    const selected = e.target.dataset.sort;
-    setSortBy(selected);
+  const handleChangeSort = (e: React.MouseEvent<HTMLDivElement>) => {
+    const selected = e.currentTarget.dataset.sort!;
+    if (!selected) return;
+    setSortBy(selected as SortOptions);
 
     switch (selected) {
-      case "Position":
-        dispatch(sortPosition(selected));
+      case SortOptions.POSITION:
+        dispatch(sortPosition());
         break;
-      case "Name":
-        dispatch(sortName(selected));
+      case SortOptions.NAME:
+        dispatch(sortName());
         break;
-      case "Price Higher":
-        dispatch(sortPriceHigher(selected));
+      case SortOptions.PRICE_HIGHER:
+        dispatch(sortPriceHigher());
         break;
-      case "Price Lower":
-        dispatch(sortPriceLower(selected));
+      case SortOptions.PRICE_LOWER:
+        dispatch(sortPriceLower());
         break;
-      case "Rating":
-        dispatch(sortRating(selected));
+      case SortOptions.RATING:
+        dispatch(sortRating());
         break;
       default:
         break;
@@ -53,8 +62,9 @@ function SortSelector() {
   };
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!e.target.closest(`.${styles["sort__by"]}`)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(`.${styles["sort__by"]}`)) {
         setIsOpen(false);
       }
     };

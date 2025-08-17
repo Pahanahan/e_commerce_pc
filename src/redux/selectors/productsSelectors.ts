@@ -2,11 +2,61 @@ import { createSelector } from "reselect";
 
 import getFilterAndSortedProducts from "../../utils/getFilterAndSortedProducts";
 
-const selectAllProducts = (state) => state.products.allProducts;
-const selectFiltersApplied = (state) => state.products.filtersApplied;
-const selectSortOption = (state) => state.products.sortOption;
-const selectCurrentPage = (state) => state.products.currentPage;
-const selectPageShowProducts = (state) => state.products.pageShowProducts;
+interface Product {
+  id: number;
+  brand: string;
+  category: string;
+  title: string;
+  description: string;
+  price: number;
+  oldPrice?: number;
+  currency: string;
+  images: string[];
+  rating: number;
+}
+
+type FiltersAppliedType = {
+  category?: string;
+  price?: string;
+  brand?: string;
+};
+
+type FiltersDraftType = {
+  category?: string;
+  price?: string;
+  brand?: string;
+};
+
+type SortOptionType =
+  | "Position"
+  | "Name"
+  | "Price Lower"
+  | "Price Higher"
+  | "Rating";
+
+interface ProductsState {
+  allProducts: Product[];
+  filtersApplied: FiltersAppliedType;
+  filtersDraft: FiltersDraftType;
+  sortOption: SortOptionType;
+  currentPage: number;
+  pageShowProducts: number;
+}
+
+interface RootStateInterface {
+  products: ProductsState;
+}
+
+const selectAllProducts = (state: RootStateInterface) =>
+  state.products.allProducts;
+const selectFiltersApplied = (state: RootStateInterface) =>
+  state.products.filtersApplied;
+const selectSortOption = (state: RootStateInterface) =>
+  state.products.sortOption;
+const selectCurrentPage = (state: RootStateInterface) =>
+  state.products.currentPage;
+const selectPageShowProducts = (state: RootStateInterface) =>
+  state.products.pageShowProducts;
 
 const selectVisibleProducts = createSelector(
   [

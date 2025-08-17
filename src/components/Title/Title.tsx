@@ -1,6 +1,10 @@
 import styles from "./Title.module.css";
 
-function Title({ title }) {
+interface TitleProps {
+  title: string;
+}
+
+function Title({ title }: TitleProps) {
   return (
     <>
       <div className={styles["title"]}>

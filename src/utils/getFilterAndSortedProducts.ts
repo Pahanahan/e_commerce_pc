@@ -1,10 +1,38 @@
 import parseRange from "./parseRange";
 
+type ProductItem = {
+  id: number;
+  brand: string;
+  category: string;
+  title: string;
+  price: number;
+  rating: number;
+};
+
+type FiltersAppliedType = {
+  category?: string;
+  price?: string;
+  brand?: string;
+};
+
+type SortOptionType =
+  | "Position"
+  | "Name"
+  | "Price Lower"
+  | "Price Higher"
+  | "Rating";
+
+interface GetFilterAndSortedProducts {
+  products: ProductItem[];
+  filters: FiltersAppliedType;
+  sort: SortOptionType;
+}
+
 const getFilterAndSortedProducts = ({
   products,
   filters,
   sort = "Position",
-}) => {
+}: GetFilterAndSortedProducts): ProductItem[] => {
   let result = [...products];
 
   if (sort === "Name") {
@@ -30,9 +58,8 @@ const getFilterAndSortedProducts = ({
       result = result.filter((item) => item.category === category);
     }
     if (price) {
-      let min;
-      let max;
-      [min, max] = parseRange(price);
+      const range = parseRange(price);
+      const [min, max] = range;
       result = result.filter((item) => item.price > min && item.price <= max);
     }
     if (brand) {

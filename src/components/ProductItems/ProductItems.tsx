@@ -1,12 +1,44 @@
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
+import { RootState } from "../../redux/store";
 import ProductItem from "../ProductItem/ProductItem";
 
 import styles from "./ProductItems.module.css";
+import defaultimage from "../../assets/images/default/default-product-img.png";
 
-function ProductItems({ reverse }) {
-  const allProducts = useSelector((state) => state.products.allProducts);
+interface ProductItemsProps {
+  reverse: boolean;
+}
+
+interface Product {
+  id: number;
+  rating: number;
+  availability: string;
+  images: string[];
+  reviewsCount: number;
+  description: string;
+  price: number;
+  oldPrice?: number | null;
+  image?: string;
+}
+
+interface User {
+  login: string;
+  password: string;
+  likes: number[];
+  cart: number[];
+}
+
+interface LoginState {
+  isLogedIn: string;
+  users: User[];
+}
+
+function ProductItems({ reverse }: ProductItemsProps) {
+  const allProducts: Product[] = useSelector(
+    (state: RootState) => state.products.allProducts
+  );
 
   let reversedItems = useMemo(() => {
     if (reverse) {
@@ -16,11 +48,14 @@ function ProductItems({ reverse }) {
     }
   }, [allProducts, reverse]);
 
-  const { isLogedIn, users } = useSelector((state) => state.login);
+  const { isLogedIn, users }: LoginState = useSelector(
+    (state: RootState) => state.login
+  );
 
   const productsMap = useMemo(() => {
     return reversedItems.map((item) => {
-      const findUser = users.find((login) => login.login === isLogedIn);
+      const findUser = users.find((user) => user.login === isLogedIn);
+      const image: string = item.images[0] || defaultimage;
 
       const likeOrNot = findUser?.likes?.includes(item.id) || false;
       const inCartOrNot = findUser?.cart?.includes(item.id) || false;
@@ -31,11 +66,11 @@ function ProductItems({ reverse }) {
           id={item.id}
           rating={item.rating}
           availability={item.availability}
-          image={item.images[0]}
+          image={image}
           reviewsCount={item.reviewsCount}
           description={item.description}
           price={item.price}
-          oldPrice={item.oldPrice}
+          oldPrice={item.oldPrice || null}
           isLogedIn={isLogedIn}
           likeOrNot={likeOrNot}
           inCartOrNot={inCartOrNot}

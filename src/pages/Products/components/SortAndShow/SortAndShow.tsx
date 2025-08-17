@@ -7,7 +7,12 @@ import { selectVisibleRange } from "../../../../redux/selectors/productsSelector
 
 import styles from "./SortAndShow.module.css";
 
-function SortAndShow({ listOrGrid, onSetListOrGrid }) {
+interface SortAndShowProps {
+  listOrGrid: "list" | "grid";
+  onSetListOrGrid: React.Dispatch<React.SetStateAction<"grid" | "list">>;
+}
+
+function SortAndShow({ listOrGrid, onSetListOrGrid }: SortAndShowProps) {
   const productsText = useSelector(selectVisibleRange);
 
   return (

@@ -5,6 +5,7 @@ import styles from "./Breadcrumbs.module.css";
 
 function Breadcrumbs() {
   const location = useLocation();
+
   const breadcrumbLocation =
     location.pathname.slice(1, 2).toUpperCase() + location.pathname.slice(2);
 

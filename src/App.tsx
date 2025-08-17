@@ -5,11 +5,7 @@ import "./assets/styles/fonts.css";
 import "./App.css";
 
 function App() {
-  return (
-    <>
-      <MainLayout></MainLayout>
-    </>
-  );
+  return <MainLayout />;
 }
 
 export default App;

@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    /* === Базовые настройки === */
+    "target": "esnext", // современный JS
+    "module": "esnext", // для сборщиков (Vite, Webpack)
+    "moduleResolution": "node", // классический резолвер без расширений
+    "jsx": "react-jsx", // новый JSX-трансформ
+    "lib": ["DOM", "ES2020"], // браузер + современный JS
+    "allowJs": true, // можно временно использовать .js
+    "checkJs": false, // не проверять JS-файлы типами
+
+    /* === Строгий режим === */
+    "strict": true, // включает все строгие проверки
+    "noImplicitAny": true, // запрещает неявный any
+    "strictNullChecks": true, // null/undefined под контролем
+    "noUncheckedIndexedAccess": true, // защита индексов массива
+    "exactOptionalPropertyTypes": true, // точные типы для optional-свойств
+
+    /* === Импорты и модули === */
+    "esModuleInterop": true, // удобный импорт commonjs
+    "allowSyntheticDefaultImports": true, // импорт default даже без него
+    "resolveJsonModule": true, // можно импортировать JSON
+    "skipLibCheck": true, // не проверять типы библиотек
+    "forceConsistentCasingInFileNames": true,
+
+    /* === Вывод файлов === */
+    "sourceMap": true, // для отладки
+    "outDir": "./dist", // куда класть билд
+    "declaration": true, // генерировать .d.ts
+    "declarationMap": true // карта деклараций
+  },
+  "include": ["src", "global.d.ts"], // включить все из src
+  "exclude": ["node_modules", "dist"] // исключить лишнее
+}

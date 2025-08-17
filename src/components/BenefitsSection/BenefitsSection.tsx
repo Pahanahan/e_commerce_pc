@@ -3,7 +3,11 @@ import support from "../../assets/images/others/support.svg";
 import account from "../../assets/images/others/account.svg";
 import savings from "../../assets/images/others/savings.svg";
 
-function BenefitsSection({ background }) {
+interface BenefitsSectionProps {
+  background: string;
+}
+
+function BenefitsSection({ background }: BenefitsSectionProps) {
   return (
     <div className={styles["benefit"]} style={{ backgroundColor: background }}>
       <div className="small-container">

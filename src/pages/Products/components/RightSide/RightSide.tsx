@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
+import { RootState } from "../../../../redux/store";
 import SortAndShow from "../SortAndShow/SortAndShow";
 import ActiveSorted from "../ActiveSorted/ActiveSorted";
 import ProductsBox from "../ProductsBox/ProductsBox";
@@ -10,13 +11,30 @@ import { selectAllFilteredProducts } from "../../../../redux/selectors/productsS
 
 import styles from "./RightSide.module.css";
 
+type Setter<T> = React.Dispatch<React.SetStateAction<T>>;
+
+interface RightSideProps {
+  onSetCategoryActiveIndex: Setter<null | number>;
+  onSetPriceActiveIndex: Setter<null | number>;
+  onSetBrandActiveIndex: Setter<null | number>;
+}
+
+enum GridOrList {
+  GRID = "grid",
+  LIST = "list",
+}
+
 function RightSide({
   onSetCategoryActiveIndex,
   onSetPriceActiveIndex,
   onSetBrandActiveIndex,
-}) {
-  const [listOrGrid, setListOrGrid] = useState("grid");
-  const { pageShowProducts } = useSelector((products) => products.products);
+}: RightSideProps) {
+  const [listOrGrid, setListOrGrid] = useState<"grid" | "list">(
+    GridOrList.GRID
+  );
+  const { pageShowProducts } = useSelector(
+    (products: RootState) => products.products
+  );
   const allFilteredProducts = useSelector(selectAllFilteredProducts);
 
   return (

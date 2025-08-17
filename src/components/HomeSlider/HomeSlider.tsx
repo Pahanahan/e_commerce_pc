@@ -9,9 +9,14 @@ import leftarrow from "../../assets/images/home-slider/arrow-left-slider.svg";
 import rightarrow from "../../assets/images/home-slider/arrow-right-slider.svg";
 
 function HomeSlider() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
-  const imagesArr = [imageslider1, imageslider2, imageslider3, imageslider4];
+  const imagesArr: string[] = [
+    imageslider1,
+    imageslider2,
+    imageslider3,
+    imageslider4,
+  ];
 
   const imagesArrMap = imagesArr.map((item, i) => (
     <div key={i} className={styles["home-slider__item"]}>
@@ -19,7 +24,9 @@ function HomeSlider() {
     </div>
   ));
 
-  const handleSlides = (arrow) => {
+  type Arrow = "left" | "right";
+
+  const handleSlides = (arrow: Arrow): void => {
     if (arrow === "left") {
       if (currentSlide === 0) {
         setCurrentSlide(imagesArr.length - 1);
