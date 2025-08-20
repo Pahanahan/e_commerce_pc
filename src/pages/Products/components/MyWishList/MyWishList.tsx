@@ -1,15 +1,29 @@
 import { useSelector } from "react-redux";
 
 import MyWishItem from "./MyWishItem";
+import { RootState } from "../../../../redux/store";
 
 import styles from "./MyWishList.module.css";
 
+interface LoginValues {
+  login: string;
+  password: string;
+  likes: {
+    cart: number[];
+    likes: number[];
+  };
+}
+
 function MyWishList() {
-  const allProducts = useSelector((state) => state.products.allProducts);
-  const { isLogedIn, users } = useSelector((state) => state.login);
+  const allProducts = useSelector(
+    (state: RootState) => state.products.allProducts
+  );
+  const isLogedIn = useSelector((state: RootState) => state.login.isLogedIn);
+  const users = useSelector((state: RootState) => state.login.users);
+  console.log(users);
   const wishProductsLikes =
     useSelector(
-      (state) =>
+      (state: RootState) =>
         state.login.users.find((item) => item.login === isLogedIn)?.likes
     ) || [];
 
