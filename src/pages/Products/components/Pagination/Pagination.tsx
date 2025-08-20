@@ -1,16 +1,23 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { changeCurrentPage } from "../../../../redux/products/actionCreators";
+import {
+  changeCurrentPage,
+  NewPage,
+} from "../../../../redux/products/reducers";
 import { selectAllFilteredProducts } from "../../../../redux/selectors/productsSelectors";
 import getPaginationRange from "../../../../utils/getPaginationRange";
+import { RootState } from "../../../../redux/store";
 
 import styles from "./Pagination.module.css";
 import arrowLeft from "../../../../assets/icons/arrow-left-grey.svg";
 import arrowRight from "../../../../assets/icons/arrow-right-grey.svg";
 
 function Pagination() {
-  const { currentPage, pageShowProducts } = useSelector(
-    (products) => products.products
+  const currentPage: number = useSelector(
+    (state: RootState) => state.products.currentPage
+  );
+  const pageShowProducts: number = useSelector(
+    (state: RootState) => state.products.pageShowProducts
   );
   const allFilteredProducts = useSelector(selectAllFilteredProducts);
   const dispatch = useDispatch();
@@ -19,15 +26,10 @@ function Pagination() {
     allFilteredProducts.length / pageShowProducts
   );
 
-  let arrayNumbers = [];
-  for (let i = 1; i <= currentAllPages; i++) {
-    arrayNumbers.push(i);
-  }
-
-  const handleChangePage = (num) => {
+  const handleChangePage = (num: number | NewPage) => {
     if (
-      (num === "prev" && currentPage === 1) ||
-      (num === "next" && currentPage === currentAllPages)
+      (num === NewPage.PREV && currentPage === 1) ||
+      (num === NewPage.NEXT && currentPage === currentAllPages)
     )
       return;
     dispatch(changeCurrentPage(num));
@@ -39,7 +41,7 @@ function Pagination() {
 
   const paginationArray = getPaginationRange(currentPage, currentAllPages, 5);
 
-  const pagination = paginationArray.map((num, i) => {
+  const pagination = paginationArray.map((num: number | NewPage, i) => {
     if (num === currentPage) {
       return (
         <div
@@ -50,7 +52,7 @@ function Pagination() {
           {num}
         </div>
       );
-    } else if (num === "...") {
+    } else if (num === NewPage.DOTS) {
       return (
         <div key={i} className={styles["pagination__item-more"]}>
           {num}
@@ -72,14 +74,14 @@ function Pagination() {
   return (
     <div className={styles["pagination"]}>
       <div
-        onClick={() => handleChangePage("prev")}
+        onClick={() => handleChangePage(NewPage.PREV)}
         className={styles["pagination__item"]}
       >
         <img src={arrowLeft} alt="arrow-left" />
       </div>
       {pagination}
       <div
-        onClick={() => handleChangePage("next")}
+        onClick={() => handleChangePage(NewPage.NEXT)}
         className={styles["pagination__item"]}
       >
         <img src={arrowRight} alt="arrow-right" />

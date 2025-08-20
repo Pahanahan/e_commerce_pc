@@ -3,7 +3,15 @@ import { RiArrowDropLeftLine } from "react-icons/ri";
 
 import styles from "./LeftSideBurger.module.css";
 
-function LeftSideBurger({ onBurgerState, onSetBurgerState }) {
+interface LeftSideBurgerProps {
+  onBurgerState: boolean;
+  onSetBurgerState: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function LeftSideBurger({
+  onBurgerState,
+  onSetBurgerState,
+}: LeftSideBurgerProps) {
   return (
     <div
       onClick={() => onSetBurgerState(!onBurgerState)}

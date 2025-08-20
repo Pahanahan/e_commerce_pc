@@ -1,21 +1,63 @@
 import { useDispatch, useSelector } from "react-redux";
 
+// import {
+//   deleteFilters,
+//   deleteOneFilter,
+// } from "../../../../redux/products/actionCreators";
 import {
   deleteFilters,
   deleteOneFilter,
-} from "../../../../redux/products/actionCreators";
+} from "../../../../redux/products/reducers";
 import parseRange from "../../../../utils/parseRange";
-import styles from "./ActiveSorted.module.css";
+
 import close from "../../../../assets/icons/close.svg";
+import styles from "./ActiveSorted.module.css";
+
+interface ActiveSortedProps {
+  onSetCategoryActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
+  onSetPriceActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
+  onSetBrandActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
+}
+
+interface Product {
+  price: number;
+  category: string;
+  brand: string;
+}
+
+interface Filters {
+  price?: string;
+  category?: string;
+  brand?: string;
+}
+
+interface State {
+  products: {
+    allProducts: Product[];
+    filtersApplied: {};
+  };
+  login: {};
+}
+
+type PriceRange = [number, number];
+
+enum FiltersEnum {
+  PRICE = "price",
+  CATEGORY = "category",
+  BRAND = "brand",
+}
 
 function ActiveSorted({
   onSetCategoryActiveIndex,
   onSetPriceActiveIndex,
   onSetBrandActiveIndex,
-}) {
+}: ActiveSortedProps) {
   const dispatch = useDispatch();
-  const { allProducts, filtersApplied } = useSelector(
-    (state) => state.products
+  const allProducts: Product[] = useSelector(
+    (state: State) => state.products.allProducts
+  );
+  const filtersApplied: Filters = useSelector(
+    (state: State) => state.products.filtersApplied
   );
   const {
     price: filtersPrice,
@@ -23,7 +65,7 @@ function ActiveSorted({
     brand: filtersBrand,
   } = filtersApplied;
 
-  const priceRange = filtersPrice ? parseRange(filtersPrice) : null;
+  const priceRange: PriceRange = parseRange(filtersPrice);
 
   const priceCount = filtersPrice
     ? allProducts.filter(
@@ -40,24 +82,28 @@ function ActiveSorted({
     : null;
 
   const activeFilters = [
-    { value: "price", label: filtersPrice, count: priceCount },
-    { value: "category", label: filtersCategory, count: categoryCount },
-    { value: "brand", label: filtersBrand, count: brandCount },
+    { value: FiltersEnum.PRICE, label: filtersPrice, count: priceCount },
+    {
+      value: FiltersEnum.CATEGORY,
+      label: filtersCategory,
+      count: categoryCount,
+    },
+    { value: FiltersEnum.BRAND, label: filtersBrand, count: brandCount },
   ];
 
-  const handleDeleteFilters = () => {
+  const handleDeleteFilters = (): void => {
     onSetCategoryActiveIndex(null);
     onSetPriceActiveIndex(null);
     onSetBrandActiveIndex(null);
     dispatch(deleteFilters());
   };
 
-  const handleDeleteOneFilter = (filter) => {
-    if (filter === "category") {
+  const handleDeleteOneFilter = (filter: FiltersEnum): void => {
+    if (filter === FiltersEnum.CATEGORY) {
       onSetCategoryActiveIndex(null);
-    } else if (filter === "price") {
+    } else if (filter === FiltersEnum.PRICE) {
       onSetPriceActiveIndex(null);
-    } else if (filter === "brand") {
+    } else if (filter === FiltersEnum.BRAND) {
       onSetBrandActiveIndex(null);
     }
     dispatch(deleteOneFilter(filter));
@@ -70,7 +116,7 @@ function ActiveSorted({
           {label.toUpperCase()}
           <span>{count}</span>
           <button onClick={() => handleDeleteOneFilter(value)}>
-            <img src={close} alt="close" />
+            <img src={close} alt="delete filter" />
           </button>
         </div>
       )
@@ -79,9 +125,9 @@ function ActiveSorted({
   return (
     <div className={styles["active-sorted"]}>
       {activeFiltersMap}
-      {activeFilters[0].count ||
-      activeFilters[1].count ||
-      activeFilters[2].count ? (
+      {activeFilters[0]?.count ||
+      activeFilters[1]?.count ||
+      activeFilters[2]?.count ? (
         <div
           onClick={handleDeleteFilters}
           className={styles["active-sorted__item-clear"]}

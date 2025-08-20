@@ -1,13 +1,47 @@
 import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  addFilter,
-  deleteFilters,
-} from "../../../../redux/products/actionCreators";
+
+import { addFilter, deleteFilters } from "../../../../redux/products/reducers";
+import { RootState } from "../../../../redux/store";
 import accordion from "../../../../utils/accordion";
 
 import arrowUp from "../../../../assets/icons/arrow-up.svg";
 import styles from "./Filter.module.css";
+
+type Setter<T> = React.Dispatch<React.SetStateAction<T>>;
+
+interface FiltersProps {
+  onCategoryActiveIndex: number | null;
+  onSetCategoryActiveIndex: Setter<number | null>;
+  onPriceActiveIndex: number | null;
+  onSetPriceActiveIndex: Setter<number | null>;
+  onSetBrandActiveIndex: Setter<number | null>;
+}
+
+interface Product {
+  price: number;
+  category: string;
+}
+
+type FiltersDraft = {
+  price?: string;
+  category?: string;
+  brand?: string;
+};
+
+type Range =
+  | {
+      max: number;
+      label: string;
+    }
+  | undefined;
+
+type ObjectCount = Record<string, number>;
+
+enum PriceOrCategory {
+  PRICE = "price",
+  CATEGORY = "category",
+}
 
 function Filter({
   onCategoryActiveIndex,
@@ -15,15 +49,20 @@ function Filter({
   onPriceActiveIndex,
   onSetPriceActiveIndex,
   onSetBrandActiveIndex,
-}) {
-  const [stateCategoryAccordion, setStateCategoryAccordion] = useState(true);
-  const [statePriceAccordion, setStatePriceAccordion] = useState(true);
-  const categoryRef = useRef(null);
-  const priceRef = useRef(null);
-  const imgCategoryRef = useRef(null);
-  const imgPriceRef = useRef(null);
-  const products = useSelector((state) => state.products.allProducts);
-  const filterProductKeys = useSelector((state) => state.products.filtersDraft);
+}: FiltersProps) {
+  const [stateCategoryAccordion, setStateCategoryAccordion] =
+    useState<boolean>(true);
+  const [statePriceAccordion, setStatePriceAccordion] = useState<boolean>(true);
+  const categoryRef = useRef<HTMLDivElement | null>(null);
+  const priceRef = useRef<HTMLDivElement | null>(null);
+  const imgCategoryRef = useRef<HTMLImageElement | null>(null);
+  const imgPriceRef = useRef<HTMLImageElement | null>(null);
+  const products: Product[] = useSelector(
+    (state: RootState) => state.products.allProducts
+  );
+  const filterProductKeys: FiltersDraft = useSelector(
+    (state: RootState) => state.products.filtersDraft
+  );
 
   const dispatch = useDispatch();
 
@@ -39,26 +78,30 @@ function Filter({
     { max: Infinity, label: "$7000.00 And Above" },
   ];
 
-  const pricesCount = {};
+  const pricesCount: ObjectCount = {};
 
   products.forEach((item) => {
     if (!item.price) return;
 
-    const range = priceRanges.find((r) => item.price <= r.max);
+    const range: Range = priceRanges.find((r) => item.price <= r.max);
 
-    if (range) {
-      pricesCount[range.label] = (pricesCount[range.label] || 0) + 1;
-    }
+    if (!range) return;
+
+    pricesCount[range.label] = (pricesCount[range.label] ?? 0) + 1;
   });
 
-  const sortedPricesCount = Object.entries(pricesCount).sort(
-    (a, b) =>
-      Number(a[0].split("-")[0].slice(1)) - Number(b[0].split("-")[0].slice(1))
-  );
+  const sortedPricesCount: [string, number][] = Object.entries(
+    pricesCount
+  ).sort((a, b) => {
+    return (
+      Number(a[0].split("-")[0]?.slice(1)) -
+      Number(b[0].split("-")[0]?.slice(1))
+    );
+  });
 
-  const handleFilterPrice = (label, id) => {
+  const handleFilterPrice = (label: string, id: number): void => {
     onSetPriceActiveIndex(id);
-    dispatch(addFilter("price", label));
+    dispatch(addFilter({ type: PriceOrCategory.PRICE, value: label }));
   };
 
   const pricesCountMap = sortedPricesCount.map(([label, count], i) => (
@@ -75,15 +118,11 @@ function Filter({
     </div>
   ));
 
-  const categoriesCount = {};
+  const categoriesCount: ObjectCount = {};
 
-  products.forEach((item) => {
-    if (!item.category) return;
-
-    if (categoriesCount[item.category]) {
-      categoriesCount[item.category] += 1;
-    } else {
-      categoriesCount[item.category] = 1;
+  products.forEach(({ category }) => {
+    if (category) {
+      categoriesCount[category] = (categoriesCount[category] ?? 0) + 1;
     }
   });
 
@@ -91,9 +130,9 @@ function Filter({
     (a, b) => b[1] - a[1]
   );
 
-  const handleAddFilterCategory = (category, id) => {
+  const handleAddFilterCategory = (category: string, id: number): void => {
     onSetCategoryActiveIndex(id);
-    dispatch(addFilter("category", category));
+    dispatch(addFilter({ type: PriceOrCategory.CATEGORY, value: category }));
   };
 
   const categoriesCountMap = sortedCategoriesCount.map(
@@ -119,13 +158,15 @@ function Filter({
     dispatch(deleteFilters());
   };
 
+  const notDisabled: boolean = Object.keys(filterProductKeys).length > 0;
+
   return (
     <>
       <div className={styles["filter"]}>
         <h2 className={styles["filter__title"]}>Filters</h2>
         <button
           onClick={handleDeleteFilters}
-          disabled={!Object.keys(filterProductKeys).length > 0}
+          disabled={!notDisabled}
           className={styles["filter__clear-btn"]}
         >
           Clear Filters

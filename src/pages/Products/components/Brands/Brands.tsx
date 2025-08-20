@@ -4,7 +4,8 @@ import {
   addFilter,
   deleteBrandFilter,
   applyFilters,
-} from "../../../../redux/products/actionCreators";
+} from "../../../../redux/products/reducers";
+
 import roccat from "../../../../assets/images/partners/roccat-min.png";
 import msi from "../../../../assets/images/partners/msi-min.png";
 import thermaltake from "../../../../assets/images/partners/thermaltake-min.png";
@@ -13,14 +14,29 @@ import hp from "../../../../assets/images/partners/hp-min.png";
 import gigabyte from "../../../../assets/images/partners/gigabyte-min.png";
 import styles from "./Brands.module.css";
 
-function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
+interface BrandsProps {
+  onBrandActiveIndex: number | null;
+  onSetBrandActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
+}
+
+interface State {
+  products: {
+    filtersDraft: {
+      brand?: string;
+    };
+  };
+}
+
+function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }: BrandsProps) {
   const haveBrandFilter = useSelector(
-    (products) => products.products.filtersDraft?.brand
+    (state: State) => state.products.filtersDraft?.brand
   );
-  const filterProductKeys = useSelector((state) => state.products.filtersDraft);
+  const filterProductKeys = useSelector(
+    (state: State) => state.products.filtersDraft
+  );
   const dispatch = useDispatch();
 
-  const brands = [
+  const brands: [number, string, string][] = [
     [0, "roccat", roccat],
     [1, "MSI", msi],
     [2, "Thermaltake", thermaltake],
@@ -29,17 +45,17 @@ function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
     [5, "gigabyte", gigabyte],
   ];
 
-  const handleAddFilterBrand = (brand, id) => {
+  const handleAddFilterBrand = (brand: string, id: number): void => {
     onSetBrandActiveIndex(id);
-    dispatch(addFilter("brand", brand));
+    dispatch(addFilter({ type: "brand", value: brand }));
   };
 
-  const handleDeleteFilterBrand = (brand) => {
+  const handleDeleteFilterBrand = (): void => {
     onSetBrandActiveIndex(null);
-    dispatch(deleteBrandFilter(brand));
+    dispatch(deleteBrandFilter());
   };
 
-  const handleApplyFilters = () => {
+  const handleApplyFilters = (): void => {
     dispatch(applyFilters());
   };
 
@@ -55,11 +71,13 @@ function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
     </div>
   ));
 
+  const notDisabled = Object.keys(filterProductKeys).length > 0;
+
   return (
     <div className={styles["brands"]}>
       <h2 className={styles["brands__title"]}>Brands</h2>
       <button
-        onClick={() => handleDeleteFilterBrand("brand")}
+        onClick={() => handleDeleteFilterBrand()}
         className={`${styles["brands__show-all"]} ${
           haveBrandFilter ? styles["active"] : ""
         }`}
@@ -72,7 +90,7 @@ function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }) {
         <button
           onClick={handleApplyFilters}
           className={styles["brands__apply"]}
-          disabled={!Object.keys(filterProductKeys).length > 0}
+          disabled={!notDisabled}
         >
           Apply Filters{" "}
           {Object.keys(filterProductKeys).length > 0

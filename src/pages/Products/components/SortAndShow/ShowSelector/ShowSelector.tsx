@@ -1,22 +1,40 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { showCurrentsProducts } from "../../../../../redux/products/actionCreators";
+
+import { showCurrentsProducts } from "../../../../../redux/products/reducers";
 
 import styles from "./ShowSelector.module.css";
 
-const showArray = [10, 20, 30, 40, 50, "All"];
+enum ShowEnumValue {
+  TEN = 10,
+  TWENTY = 20,
+  THIRTY = 30,
+  FORTY = 40,
+  FIFTY = 50,
+  ALL = "All",
+}
+
+const showArray: (string | number)[] = [10, 20, 30, 40, 50, "All"];
 
 function ShowSelector() {
-  const [currentShow, setCurrentShow] = useState(10);
-  const [isOpen, setIsOpen] = useState(false);
+  const [currentShow, setCurrentShow] = useState<ShowEnumValue>(
+    ShowEnumValue.TEN
+  );
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 
-  const handleOverflowVisible = () => {
+  const handleOverflowVisible = (): void => {
     setIsOpen((prevState) => !prevState);
   };
 
-  const handleChangeShow = (e) => {
-    setCurrentShow(e.target.dataset.show);
+  const handleChangeShow = (e: React.MouseEvent<HTMLDivElement>): void => {
+    const datasetShow: string = e.currentTarget.dataset.show!;
+    if (!datasetShow) return;
+    if (datasetShow === ShowEnumValue.ALL) {
+      setCurrentShow(datasetShow);
+    } else {
+      setCurrentShow(Number(datasetShow));
+    }
   };
 
   useEffect(() => {
@@ -24,8 +42,9 @@ function ShowSelector() {
   }, [currentShow, dispatch]);
 
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (!e.target.closest(`.${styles["show-box"]}`)) {
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(`.${styles["show-box"]}`)) {
         setIsOpen(false);
       }
     };

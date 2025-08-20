@@ -3,7 +3,7 @@ import { memo, useState } from "react";
 import styles from "./More.module.css";
 
 const More = memo(function More() {
-  const [allText, setAllText] = useState(false);
+  const [allText, setAllText] = useState<boolean>(false);
 
   return (
     <>

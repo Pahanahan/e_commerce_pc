@@ -123,4 +123,24 @@ const selectVisibleRange = createSelector(
   }
 );
 
-export { selectVisibleProducts, selectAllFilteredProducts, selectVisibleRange };
+const selectorCurrentPage = createSelector(
+  [selectCurrentPage],
+  (currentPage) => {
+    return currentPage;
+  }
+);
+
+const selectorPageShowProducts = createSelector(
+  [selectCurrentPage],
+  (pageShowProducts) => {
+    return pageShowProducts;
+  }
+);
+
+export {
+  selectVisibleProducts,
+  selectAllFilteredProducts,
+  selectVisibleRange,
+  selectorCurrentPage,
+  selectorPageShowProducts,
+};

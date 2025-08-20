@@ -5,6 +5,18 @@ import MyWishList from "../MyWishList/MyWishList";
 import promo from "../../../../assets/images/promo/chair.jpg";
 import styles from "./Filters.module.css";
 
+type Setter<T> = React.Dispatch<React.SetStateAction<T>>;
+
+interface FiltersProps {
+  onCategoryActiveIndex: number | null;
+  onSetCategoryActiveIndex: Setter<number | null>;
+  onPriceActiveIndex: number | null;
+  onSetPriceActiveIndex: Setter<number | null>;
+  onBrandActiveIndex: number | null;
+  onSetBrandActiveIndex: Setter<number | null>;
+  onBurgerState: boolean;
+}
+
 function Filters({
   onCategoryActiveIndex,
   onSetCategoryActiveIndex,
@@ -13,7 +25,7 @@ function Filters({
   onBrandActiveIndex,
   onSetBrandActiveIndex,
   onBurgerState,
-}) {
+}: FiltersProps) {
   return (
     <div
       className={`${styles["filters"]} ${

@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+
 import {
-  sortName,
-  sortPosition,
-  sortPriceHigher,
-  sortPriceLower,
-  sortRating,
-} from "../../../../../redux/products/actionCreators";
+  sortByValue,
+  SortOptions,
+} from "../../../../../redux/products/reducers";
 
 import styles from "./SortSelector.module.css";
 
@@ -17,14 +15,6 @@ const sortOptions = [
   "Price Higher",
   "Rating",
 ];
-
-enum SortOptions {
-  POSITION = "Position",
-  NAME = "Name",
-  PRICE_LOWER = "Price Lower",
-  PRICE_HIGHER = "Price Higher",
-  RATING = "Rating",
-}
 
 function SortSelector() {
   const [sortBy, setSortBy] = useState<SortOptions>(SortOptions.POSITION);
@@ -38,19 +28,19 @@ function SortSelector() {
 
     switch (selected) {
       case SortOptions.POSITION:
-        dispatch(sortPosition());
+        dispatch(sortByValue(SortOptions.POSITION));
         break;
       case SortOptions.NAME:
-        dispatch(sortName());
+        dispatch(sortByValue(SortOptions.NAME));
         break;
       case SortOptions.PRICE_HIGHER:
-        dispatch(sortPriceHigher());
+        dispatch(sortByValue(SortOptions.PRICE_HIGHER));
         break;
       case SortOptions.PRICE_LOWER:
-        dispatch(sortPriceLower());
+        dispatch(sortByValue(SortOptions.PRICE_LOWER));
         break;
       case SortOptions.RATING:
-        dispatch(sortRating());
+        dispatch(sortByValue(SortOptions.RATING));
         break;
       default:
         break;
