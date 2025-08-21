@@ -1,12 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-  changeCurrentPage,
-  NewPage,
-} from "../../../../redux/products/reducers";
+import { changeCurrentPage } from "../../../../redux/products/reducers";
 import { selectAllFilteredProducts } from "../../../../redux/selectors/productsSelectors";
 import getPaginationRange from "../../../../utils/getPaginationRange";
 import { RootState } from "../../../../redux/store";
+import { NewPage } from "../../../../types/types";
 
 import styles from "./Pagination.module.css";
 import arrowLeft from "../../../../assets/icons/arrow-left-grey.svg";
@@ -26,7 +24,7 @@ function Pagination() {
     allFilteredProducts.length / pageShowProducts
   );
 
-  const handleChangePage = (num: number | NewPage) => {
+  const handleChangePage = (num: number | NewPage): void => {
     if (
       (num === NewPage.PREV && currentPage === 1) ||
       (num === NewPage.NEXT && currentPage === currentAllPages)

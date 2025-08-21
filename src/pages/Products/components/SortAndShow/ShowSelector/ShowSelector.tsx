@@ -6,6 +6,7 @@ import { showCurrentsProducts } from "../../../../../redux/products/reducers";
 import styles from "./ShowSelector.module.css";
 
 enum ShowEnumValue {
+  FIVE = 5,
   TEN = 10,
   TWENTY = 20,
   THIRTY = 30,
@@ -18,7 +19,7 @@ const showArray: (string | number)[] = [10, 20, 30, 40, 50, "All"];
 
 function ShowSelector() {
   const [currentShow, setCurrentShow] = useState<ShowEnumValue>(
-    ShowEnumValue.TEN
+    ShowEnumValue.FIVE
   );
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();

@@ -3,49 +3,67 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
-import { signIn } from "../../../../redux/user/actionCreators";
+import { signIn } from "../../../../redux/user/reducers";
 import { changeEmail, changePassword } from "../../../../utils/validation";
 
 import styles from "./SignIn.module.css";
 
+interface User {
+  login: string;
+  password: string;
+  likes: number[];
+  cart: number[];
+}
+
+interface LoginAndPasswords {
+  isLogedIn: string;
+  users: User[];
+}
+
 function SignIn() {
-  const [emailValid, setEmailValid] = useState(false);
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userNotFound, setUserNotFound] = useState(true);
-  const [correctEmail, setCorrectEmail] = useState(true);
-  const [correctPassword, setCorrectPassword] = useState(true);
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [passwordValid, setPasswordValid] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [userNotFound, setUserNotFound] = useState<boolean>(true);
+  const [correctEmail, setCorrectEmail] = useState<boolean>(true);
+  const [correctPassword, setCorrectPassword] = useState<boolean>(true);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmitForm = useCallback(
-    (e) => {
+    (e: React.FormEvent<HTMLFormElement>): void => {
       e.preventDefault();
       if (!emailValid && !passwordValid) {
-        emailRef.current.focus();
-        setCorrectEmail(false);
-        setCorrectPassword(false);
-        setUserNotFound(true);
+        if (emailRef.current) {
+          emailRef.current.focus();
+          setCorrectEmail(false);
+          setCorrectPassword(false);
+          setUserNotFound(true);
+        }
       } else if (!emailValid) {
-        emailRef.current.focus();
-        setCorrectEmail(false);
-        setCorrectPassword(true);
-        setUserNotFound(true);
+        if (emailRef.current) {
+          emailRef.current.focus();
+          setCorrectEmail(false);
+          setCorrectPassword(true);
+          setUserNotFound(true);
+        }
       } else if (!passwordValid) {
-        passwordRef.current.focus();
-        setCorrectPassword(false);
-        setCorrectEmail(true);
-        setUserNotFound(true);
+        if (emailRef.current) {
+          passwordRef.current!.focus();
+          setCorrectPassword(false);
+          setCorrectEmail(true);
+          setUserNotFound(true);
+        }
       } else if (emailValid && passwordValid) {
         setCorrectEmail(true);
         setCorrectPassword(true);
         setUserNotFound(true);
-        const loginsAndPasswords = JSON.parse(
-          localStorage.getItem("loginsAndPasswords")
-        ) || {
+        const loginsAndPasswords: LoginAndPasswords = JSON.parse(
+          localStorage.getItem("loginsAndPasswords")!
+        ) ?? {
           isLogedIn: "",
           users: [],
         };
@@ -77,11 +95,13 @@ function SignIn() {
     [email, password, emailValid, passwordValid, dispatch, navigate]
   );
 
-  const handleChangeEmail = (e) => {
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>): void => {
     changeEmail(e, setEmail, setUserNotFound, setEmailValid);
   };
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
     changePassword(e, setPassword, setPasswordValid);
   };
 

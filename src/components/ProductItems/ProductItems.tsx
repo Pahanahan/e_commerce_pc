@@ -11,18 +11,6 @@ interface ProductItemsProps {
   reverse: boolean;
 }
 
-interface Product {
-  id: number;
-  rating: number;
-  availability: string;
-  images: string[];
-  reviewsCount: number;
-  description: string;
-  price: number;
-  oldPrice?: number | null;
-  image?: string;
-}
-
 interface User {
   login: string;
   password: string;
@@ -36,7 +24,7 @@ interface LoginState {
 }
 
 function ProductItems({ reverse }: ProductItemsProps) {
-  const allProducts: Product[] = useSelector(
+  const allProducts = useSelector(
     (state: RootState) => state.products.allProducts
   );
 

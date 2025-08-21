@@ -2,7 +2,7 @@ import { memo } from "react";
 import { useDispatch } from "react-redux";
 
 import RatingStar from "../RatingStar/RatingStar";
-import { toggleLike, addToCart } from "../../redux/user/actionCreators";
+import { toggleLike, addToCart } from "../../redux/user/reducers";
 
 import check from "../../assets/icons/check.svg";
 import call from "../../assets/icons/call.svg";

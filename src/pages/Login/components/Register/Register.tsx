@@ -4,79 +4,97 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
 import { changeEmail, changePassword } from "../../../../utils/validation";
-import { register } from "../../../../redux/user/actionCreators";
+import { register } from "../../../../redux/user/reducers";
+import { RootState } from "../../../../redux/store";
+import { Login, User } from "../../../../types/types";
 
 import styles from "./Register.module.css";
 
 function Register() {
-  const [createAccount, setCreateAccount] = useState(false);
+  const [createAccount, setCreateAccount] = useState<boolean>(false);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
 
-  const [emailValid, setEmailValid] = useState(false);
-  const [passwordValid, setPasswordValid] = useState(false);
-  const [passwordConfirmValid, setPasswordConfirmValid] = useState(false);
+  const [emailValid, setEmailValid] = useState<boolean>(false);
+  const [passwordValid, setPasswordValid] = useState<boolean>(false);
+  const [passwordConfirmValid, setPasswordConfirmValid] =
+    useState<boolean>(false);
 
-  const [correctEmail, setCorrectEmail] = useState(true);
-  const [correctPassword, setCorrectPassword] = useState(true);
-  const [correctConfirmPassword, setCorrectConfirmPassword] = useState(true);
+  const [correctEmail, setCorrectEmail] = useState<boolean>(true);
+  const [correctPassword, setCorrectPassword] = useState<boolean>(true);
+  const [correctConfirmPassword, setCorrectConfirmPassword] =
+    useState<boolean>(true);
 
-  const [overlapPasswords, setOverlapPasswords] = useState(true);
-  const [unicEmail, setUnicEmail] = useState(false);
+  const [overlapPasswords, setOverlapPasswords] = useState<boolean>(true);
+  const [unicEmail, setUnicEmail] = useState<boolean>(false);
 
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
-  const passwordConfirmRef = useRef(null);
+  const emailRef = useRef<HTMLInputElement | null>(null);
+  const passwordRef = useRef<HTMLInputElement | null>(null);
+  const passwordConfirmRef = useRef<HTMLInputElement | null>(null);
 
-  const usersSelector = useSelector((state) => state.login);
-  const users = JSON.parse(JSON.stringify(usersSelector));
+  const usersSelector: Login = useSelector((state: RootState) => state.login);
+  const users: Login = JSON.parse(JSON.stringify(usersSelector));
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     setOverlapPasswords(false);
     setUnicEmail(false);
 
     if (!emailValid && !passwordValid && !passwordConfirmValid) {
-      emailRef.current.focus();
-      setCorrectEmail(false);
-      setCorrectPassword(false);
-      setCorrectConfirmPassword(false);
+      if (emailRef.current) {
+        emailRef.current.focus();
+        setCorrectEmail(false);
+        setCorrectPassword(false);
+        setCorrectConfirmPassword(false);
+      }
     } else if (!emailValid && !passwordValid) {
-      emailRef.current.focus();
-      setCorrectEmail(false);
-      setCorrectPassword(false);
-      setCorrectConfirmPassword(true);
+      if (emailRef.current) {
+        emailRef.current.focus();
+        setCorrectEmail(false);
+        setCorrectPassword(false);
+        setCorrectConfirmPassword(true);
+      }
     } else if (!emailValid && !passwordConfirmValid) {
-      emailRef.current.focus();
-      setCorrectEmail(false);
-      setCorrectPassword(true);
-      setCorrectConfirmPassword(false);
+      if (emailRef.current) {
+        emailRef.current.focus();
+        setCorrectEmail(false);
+        setCorrectPassword(true);
+        setCorrectConfirmPassword(false);
+      }
     } else if (!passwordValid && !passwordConfirmValid) {
-      passwordRef.current.focus();
-      setCorrectEmail(true);
-      setCorrectPassword(false);
-      setCorrectConfirmPassword(false);
+      if (passwordRef.current) {
+        passwordRef.current.focus();
+        setCorrectEmail(true);
+        setCorrectPassword(false);
+        setCorrectConfirmPassword(false);
+      }
     } else if (!passwordValid) {
-      passwordRef.current.focus();
-      setCorrectEmail(true);
-      setCorrectPassword(false);
-      setCorrectConfirmPassword(true);
+      if (passwordRef.current) {
+        passwordRef.current.focus();
+        setCorrectEmail(true);
+        setCorrectPassword(false);
+        setCorrectConfirmPassword(true);
+      }
     } else if (!passwordConfirmValid) {
-      passwordConfirmRef.current.focus();
-      setCorrectEmail(true);
-      setCorrectPassword(true);
-      setCorrectConfirmPassword(false);
+      if (passwordConfirmRef.current) {
+        passwordConfirmRef.current.focus();
+        setCorrectEmail(true);
+        setCorrectPassword(true);
+        setCorrectConfirmPassword(false);
+      }
     } else if (!emailValid) {
-      emailRef.current.focus();
-      setCorrectEmail(false);
-      setCorrectPassword(true);
-      setCorrectConfirmPassword(true);
+      if (emailRef.current) {
+        emailRef.current.focus();
+        setCorrectEmail(false);
+        setCorrectPassword(true);
+        setCorrectConfirmPassword(true);
+      }
     } else if (emailValid && passwordValid && passwordConfirmValid) {
       setCorrectEmail(true);
       setCorrectPassword(true);
@@ -92,7 +110,7 @@ function Register() {
           setUnicEmail(true);
         } else {
           setUnicEmail(false);
-          const newUser = {
+          const newUser: User = {
             login: email,
             password: password,
             likes: [],
@@ -107,15 +125,17 @@ function Register() {
     }
   };
 
-  const handleChangeEmail = (e) => {
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     changeEmail(e, setEmail, setEmailValid);
   };
 
-  const handleChangePassword = (e) => {
+  const handleChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     changePassword(e, setPassword, setPasswordValid);
   };
 
-  const handleChangeConfirmPassword = (e) => {
+  const handleChangeConfirmPassword = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     changePassword(e, setConfirmPassword, setPasswordConfirmValid);
   };
 

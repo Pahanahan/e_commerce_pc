@@ -2,40 +2,31 @@ import { useSelector } from "react-redux";
 
 import MyWishItem from "./MyWishItem";
 import { RootState } from "../../../../redux/store";
+import { User } from "../../../../types/types";
 
+import defaultImage from "../../../../assets/images/default/default-product-img.png";
 import styles from "./MyWishList.module.css";
-
-interface LoginValues {
-  login: string;
-  password: string;
-  likes: {
-    cart: number[];
-    likes: number[];
-  };
-}
 
 function MyWishList() {
   const allProducts = useSelector(
     (state: RootState) => state.products.allProducts
   );
-  const isLogedIn = useSelector((state: RootState) => state.login.isLogedIn);
-  const users = useSelector((state: RootState) => state.login.users);
-  console.log(users);
-  const wishProductsLikes =
-    useSelector(
-      (state: RootState) =>
-        state.login.users.find((item) => item.login === isLogedIn)?.likes
-    ) || [];
+  const { isLogedIn, users } = useSelector((state: RootState) => state.login);
+
+  const findUser: User = users.find((user: User) => user.login === isLogedIn);
+  const wishProductsLikes = findUser?.likes || [];
 
   const wishProducts = allProducts.filter((product) =>
     wishProductsLikes.includes(product.id)
   );
+  console.log(wishProducts);
 
   const wishProductsMap = wishProducts.map((item) => {
-    const findUser = users.find((login) => login.login === isLogedIn);
+    const findUser: User = users.find((user: User) => user.login === isLogedIn);
 
     const likeOrNot = findUser?.likes?.includes(item.id) || false;
     const inCartOrNot = findUser?.cart?.includes(item.id) || false;
+    const image = item.images[0] ?? defaultImage;
 
     return (
       <MyWishItem
@@ -43,7 +34,7 @@ function MyWishList() {
         id={item.id}
         rating={item.rating}
         availability={item.availability}
-        image={item.images[0]}
+        image={image}
         reviewsCount={item.reviewsCount}
         description={item.description}
         isLogedIn={isLogedIn}

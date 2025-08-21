@@ -4,11 +4,12 @@ import Register from "../Register/Register";
 import SignIn from "../SignIn/SignIn";
 import OutLogin from "../OutLogin/OutLogin";
 import { RootState } from "../../../../redux/store";
+import { Login } from "../../../../types/types";
 
 import styles from "./Main.module.css";
 
 function Main() {
-  const dataSelector = useSelector((data: RootState) => data.login);
+  const dataSelector: Login = useSelector((data: RootState) => data.login);
 
   return (
     <div className={styles["main"]}>

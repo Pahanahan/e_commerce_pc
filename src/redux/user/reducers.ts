@@ -122,22 +122,19 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     signIn(state, action: PayloadAction<string>) {
-      console.log(action);
       state.isLogedIn = action.payload;
     },
     logOut(state) {
       state.isLogedIn = "";
     },
     register(state, action: PayloadAction<LocalStorageData>) {
-      console.log(action);
       state.isLogedIn = action.payload.isLogedIn;
       state.users = action.payload.users;
     },
     toggleLike(state, action: PayloadAction<Payload>) {
-      console.log(action);
       const { login, productId } = action.payload;
 
-      state.users.map((user: User) => {
+      state.users = state.users.map((user: User) => {
         if (user.login !== login) return user;
 
         const alreadyLiked: boolean = user?.likes.includes(productId);
@@ -151,13 +148,12 @@ const loginSlice = createSlice({
       });
     },
     addToCart(state, action: PayloadAction<Payload>) {
-      console.log(action);
       const { login, productId } = action.payload;
 
-      state.users.map((user: User) => {
+      state.users = state.users.map((user: User) => {
         if (user.login !== login) return user;
 
-        const alreadyCart = user?.cart.includes(productId);
+        const alreadyCart: boolean = user?.cart.includes(productId);
 
         return {
           ...user,

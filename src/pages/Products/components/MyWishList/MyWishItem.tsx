@@ -2,12 +2,25 @@ import { memo } from "react";
 import { useDispatch } from "react-redux";
 
 import RatingStar from "../../../../components/RatingStar/RatingStar";
-import { toggleLike, addToCart } from "../../../../redux/user/actionCreators";
+// import { toggleLike, addToCart } from "../../../../redux/user/actionCreators";
+import { toggleLike, addToCart } from "../../../../redux/user/reducers";
 
 import check from "../../../../assets/icons/check.svg";
 import call from "../../../../assets/icons/call.svg";
 import cartProduct from "../../../../assets/icons/cart-product.svg";
 import styles from "./MyWishItem.module.css";
+
+interface MyWishItemProps {
+  id: number;
+  rating: number;
+  availability: string;
+  image: string;
+  reviewsCount: number;
+  description: string;
+  isLogedIn: string;
+  likeOrNot: boolean;
+  inCartOrNot: boolean;
+}
 
 const MyWishItem = memo(function MyWishItem({
   id,
@@ -19,7 +32,7 @@ const MyWishItem = memo(function MyWishItem({
   isLogedIn,
   likeOrNot,
   inCartOrNot,
-}) {
+}: MyWishItemProps) {
   const dispatch = useDispatch();
 
   const handleAddLikeOrAddToCart = (value) => {

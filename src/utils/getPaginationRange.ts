@@ -1,4 +1,10 @@
-const getPaginationRange = (currentPage, totalPages, maxVisible = 5) => {
+import { NewPage } from "../types/types";
+
+const getPaginationRange = (
+  currentPage: number,
+  totalPages: number,
+  maxVisible: number = 5
+): (NewPage | number)[] => {
   const range = [];
 
   if (totalPages < maxVisible) {
@@ -9,13 +15,13 @@ const getPaginationRange = (currentPage, totalPages, maxVisible = 5) => {
   }
 
   if (currentPage === 1) {
-    range.push(1, 2, "...", totalPages);
+    range.push(1, 2, NewPage.DOTS, totalPages);
   }
   if (currentPage === 2 && totalPages === 5) {
     range.push(1, 2, 3, 4, totalPages);
   }
   if (currentPage === 2 && totalPages > 5) {
-    range.push(1, 2, 3, "...", totalPages);
+    range.push(1, 2, 3, NewPage.DOTS, totalPages);
   }
   if (currentPage === 3 && totalPages === 5) {
     range.push(1, 2, 3, 4, totalPages);
@@ -24,7 +30,7 @@ const getPaginationRange = (currentPage, totalPages, maxVisible = 5) => {
     range.push(1, 2, 3, 4, 5, totalPages);
   }
   if (currentPage === 3 && totalPages >= 7) {
-    range.push(1, 2, 3, 4, "...", totalPages);
+    range.push(1, 2, 3, 4, NewPage.DOTS, totalPages);
   }
   if (currentPage === 4 && totalPages === 5) {
     range.push(1, 2, 3, 4, totalPages);
@@ -36,52 +42,52 @@ const getPaginationRange = (currentPage, totalPages, maxVisible = 5) => {
     range.push(1, 2, 3, 4, 5, 6, totalPages);
   }
   if (currentPage === 4 && totalPages > 7) {
-    range.push(1, 2, 3, 4, 5, "...", totalPages);
+    range.push(1, 2, 3, 4, 5, NewPage.DOTS, totalPages);
   }
   if (currentPage === 5 && totalPages === 5) {
-    range.push(1, "...", 4, totalPages);
+    range.push(1, NewPage.DOTS, 4, totalPages);
   }
   if (currentPage === 5 && totalPages === 6) {
-    range.push(1, "...", 4, 5, totalPages);
+    range.push(1, NewPage.DOTS, 4, 5, totalPages);
   }
   if (currentPage === 5 && totalPages === 7) {
-    range.push(1, "...", 4, 5, 6, totalPages);
+    range.push(1, NewPage.DOTS, 4, 5, 6, totalPages);
   }
   if (currentPage === 5 && totalPages === 8) {
-    range.push(1, "...", 4, 5, 6, 7, totalPages);
+    range.push(1, NewPage.DOTS, 4, 5, 6, 7, totalPages);
   }
   if (currentPage === 5 && totalPages > 8) {
-    range.push(1, "...", 4, 5, 6, "...", totalPages);
+    range.push(1, NewPage.DOTS, 4, 5, 6, NewPage.DOTS, totalPages);
   }
   if (currentPage === 6 && totalPages === 6) {
-    range.push(1, "...", 5, totalPages);
+    range.push(1, NewPage.DOTS, 5, totalPages);
   }
   if (currentPage === 6 && totalPages === 7) {
-    range.push(1, "...", 5, 6, totalPages);
+    range.push(1, NewPage.DOTS, 5, 6, totalPages);
   }
   if (currentPage === 6 && totalPages === 8) {
-    range.push(1, "...", 5, 6, 7, totalPages);
+    range.push(1, NewPage.DOTS, 5, 6, 7, totalPages);
   }
   if (currentPage === 6 && totalPages === 9) {
-    range.push(1, "...", 5, 6, 7, 8, totalPages);
+    range.push(1, NewPage.DOTS, 5, 6, 7, 8, totalPages);
   }
   if (currentPage === 6 && totalPages > 9) {
-    range.push(1, "...", 5, 6, 7, "...", totalPages);
+    range.push(1, NewPage.DOTS, 5, 6, 7, NewPage.DOTS, totalPages);
   }
   if (currentPage === 7 && totalPages === 7) {
-    range.push(1, "...", 6, totalPages);
+    range.push(1, NewPage.DOTS, 6, totalPages);
   }
   if (currentPage === 7 && totalPages === 8) {
-    range.push(1, "...", 6, 7, totalPages);
+    range.push(1, NewPage.DOTS, 6, 7, totalPages);
   }
   if (currentPage === 7 && totalPages === 9) {
-    range.push(1, "...", 6, 7, 8, totalPages);
+    range.push(1, NewPage.DOTS, 6, 7, 8, totalPages);
   }
   if (currentPage === 7 && totalPages === 10) {
-    range.push(1, "...", 6, 7, 8, 9, totalPages);
+    range.push(1, NewPage.DOTS, 6, 7, 8, 9, totalPages);
   }
   if (currentPage === 7 && totalPages > 10) {
-    range.push(1, "...", 6, 7, 8, "...", totalPages);
+    range.push(1, NewPage.DOTS, 6, 7, 8, NewPage.DOTS, totalPages);
   }
 
   if (currentPage > 7) {
@@ -92,15 +98,15 @@ const getPaginationRange = (currentPage, totalPages, maxVisible = 5) => {
     const currentPagePlus3 = currentPage + 3;
 
     if (totalPages === currentPage) {
-      range.push(1, "...", currentPageMinus1, totalPages);
+      range.push(1, NewPage.DOTS, currentPageMinus1, totalPages);
     }
     if (totalPages === currentPagePlus1) {
-      range.push(1, "...", currentPageMinus1, currentPage, totalPages);
+      range.push(1, NewPage.DOTS, currentPageMinus1, currentPage, totalPages);
     }
     if (totalPages === currentPagePlus2) {
       range.push(
         1,
-        "...",
+        NewPage.DOTS,
         currentPageMinus1,
         currentPage,
         currentPagePlus1,
@@ -110,7 +116,7 @@ const getPaginationRange = (currentPage, totalPages, maxVisible = 5) => {
     if (totalPages === currentPagePlus3) {
       range.push(
         1,
-        "...",
+        NewPage.DOTS,
         currentPageMinus1,
         currentPage,
         currentPagePlus1,
@@ -121,11 +127,11 @@ const getPaginationRange = (currentPage, totalPages, maxVisible = 5) => {
     if (totalPages > currentPagePlus3) {
       range.push(
         1,
-        "...",
+        NewPage.DOTS,
         currentPageMinus1,
         currentPage,
         currentPagePlus1,
-        "...",
+        NewPage.DOTS,
         totalPages
       );
     }

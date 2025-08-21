@@ -1,9 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 
-// import {
-//   deleteFilters,
-//   deleteOneFilter,
-// } from "../../../../redux/products/actionCreators";
 import {
   deleteFilters,
   deleteOneFilter,
