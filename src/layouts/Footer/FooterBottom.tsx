@@ -1,4 +1,3 @@
-import styles from "./FooterBottom.module.css";
 import facebook from "../../assets/icons/facebook-grey.svg";
 import instagram from "../../assets/icons/instagram-grey.svg";
 import paypal from "../../assets/icons/paypal.svg";
@@ -6,6 +5,8 @@ import visa from "../../assets/icons/visa.svg";
 import maestro from "../../assets/icons/maestro.svg";
 import discover from "../../assets/icons/discover.svg";
 import americanexpress from "../../assets/icons/american-express.svg";
+
+import styles from "./FooterBottom.module.css";
 
 function FooterBottom() {
   return (

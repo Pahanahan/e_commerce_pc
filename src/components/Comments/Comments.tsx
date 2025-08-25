@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
 import comentsdata from "../../data/coments-data.json";
+
 import styles from "./Comments.module.css";
 
 function Comments() {
-  const [currentComment, setCurrentComment] = useState(0);
+  const [currentComment, setCurrentComment] = useState<number>(0);
 
   const commentMap = comentsdata.slice(0, 4).map((item) => (
     <div key={item.id} className={styles["comment"]}>
@@ -20,7 +21,9 @@ function Comments() {
         key={comment.id}
         onClick={() => setCurrentComment(comment.id - 1)}
         className={styles["dot"]}
-        style={currentComment === i ? { backgroundColor: "#0156ff" } : null}
+        style={
+          currentComment === i ? { backgroundColor: "#0156ff" } : undefined
+        }
       ></div>
     ));
 

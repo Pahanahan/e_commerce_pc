@@ -4,12 +4,13 @@ import SortSelector from "./SortSelector/SortSelector";
 import ShowSelector from "./ShowSelector/ShowSelector";
 import ButtonsStyle from "./ButtonsStyle/ButtonsStyle";
 import { selectVisibleRange } from "../../../../redux/selectors/productsSelectors";
+import { GridOrList } from "../../../../types/types";
 
 import styles from "./SortAndShow.module.css";
 
 interface SortAndShowProps {
   listOrGrid: "list" | "grid";
-  onSetListOrGrid: React.Dispatch<React.SetStateAction<"grid" | "list">>;
+  onSetListOrGrid: React.Dispatch<React.SetStateAction<GridOrList>>;
 }
 
 function SortAndShow({ listOrGrid, onSetListOrGrid }: SortAndShowProps) {

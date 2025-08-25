@@ -13,16 +13,20 @@ function MyWishList() {
   );
   const { isLogedIn, users } = useSelector((state: RootState) => state.login);
 
-  const findUser: User = users.find((user: User) => user.login === isLogedIn);
+  const findUser: User | undefined = users.find(
+    (user: User) => user.login === isLogedIn
+  );
+
   const wishProductsLikes = findUser?.likes || [];
 
   const wishProducts = allProducts.filter((product) =>
     wishProductsLikes.includes(product.id)
   );
-  console.log(wishProducts);
 
   const wishProductsMap = wishProducts.map((item) => {
-    const findUser: User = users.find((user: User) => user.login === isLogedIn);
+    const findUser: User | undefined = users.find(
+      (user: User) => user.login === isLogedIn
+    );
 
     const likeOrNot = findUser?.likes?.includes(item.id) || false;
     const inCartOrNot = findUser?.cart?.includes(item.id) || false;

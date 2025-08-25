@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  sortByValue,
-  SortOptions,
-} from "../../../../../redux/products/reducers";
+import { sortByValue } from "../../../../../redux/products/reducers";
+import { SortOptionsEnum } from "../../../../../types/types";
 
 import styles from "./SortSelector.module.css";
 
@@ -17,30 +15,32 @@ const sortOptions = [
 ];
 
 function SortSelector() {
-  const [sortBy, setSortBy] = useState<SortOptions>(SortOptions.POSITION);
+  const [sortBy, setSortBy] = useState<SortOptionsEnum>(
+    SortOptionsEnum.POSITION
+  );
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
 
   const handleChangeSort = (e: React.MouseEvent<HTMLDivElement>) => {
     const selected = e.currentTarget.dataset.sort!;
     if (!selected) return;
-    setSortBy(selected as SortOptions);
+    setSortBy(selected as SortOptionsEnum);
 
     switch (selected) {
-      case SortOptions.POSITION:
-        dispatch(sortByValue(SortOptions.POSITION));
+      case SortOptionsEnum.POSITION:
+        dispatch(sortByValue(SortOptionsEnum.POSITION));
         break;
-      case SortOptions.NAME:
-        dispatch(sortByValue(SortOptions.NAME));
+      case SortOptionsEnum.NAME:
+        dispatch(sortByValue(SortOptionsEnum.NAME));
         break;
-      case SortOptions.PRICE_HIGHER:
-        dispatch(sortByValue(SortOptions.PRICE_HIGHER));
+      case SortOptionsEnum.PRICE_HIGHER:
+        dispatch(sortByValue(SortOptionsEnum.PRICE_HIGHER));
         break;
-      case SortOptions.PRICE_LOWER:
-        dispatch(sortByValue(SortOptions.PRICE_LOWER));
+      case SortOptionsEnum.PRICE_LOWER:
+        dispatch(sortByValue(SortOptionsEnum.PRICE_LOWER));
         break;
-      case SortOptions.RATING:
-        dispatch(sortByValue(SortOptions.RATING));
+      case SortOptionsEnum.RATING:
+        dispatch(sortByValue(SortOptionsEnum.RATING));
         break;
       default:
         break;

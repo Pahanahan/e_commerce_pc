@@ -2,13 +2,39 @@ import { memo } from "react";
 import { useDispatch } from "react-redux";
 
 import RatingStar from "../RatingStar/RatingStar";
-import { toggleLike, addToCart } from "../../redux/user/actionCreators";
+import { toggleLike, addToCart } from "../../redux/user/reducers";
 import firstLetterUpperCase from "../../utils/firstLetterUpperCase";
+import { LikeOrCart } from "../../types/types";
 
 import check from "../../assets/icons/check.svg";
 import call from "../../assets/icons/call.svg";
 import cartProduct from "../../assets/icons/cart-product.svg";
 import styles from "./ProductListItem.module.css";
+
+interface ProductItemProps {
+  id: number;
+  rating: number;
+  availability: string;
+  image: string;
+  reviewsCount: number;
+  title: string;
+  description: string;
+  price: number;
+  oldPrice?: number | null | undefined;
+  isLogedIn: string;
+  likeOrNot: boolean;
+  inCartOrNot: boolean;
+  key1: string;
+  key2: string;
+  key3: string;
+  key4: string;
+  key5: string;
+  value1: string | number | boolean;
+  value2: string | number | boolean;
+  value3: string | number | boolean;
+  value4: string | number | boolean;
+  value5: string | number | boolean;
+}
 
 const ProductListItem = memo(function ProductListItem({
   id,
@@ -33,10 +59,10 @@ const ProductListItem = memo(function ProductListItem({
   value3,
   value4,
   value5,
-}) {
+}: ProductItemProps) {
   const dispatch = useDispatch();
 
-  const handleAddLikeOrAddToCart = (value) => {
+  const handleAddLikeOrAddToCart = (value: LikeOrCart): void => {
     if (!isLogedIn) return;
 
     const payload = {
@@ -44,10 +70,10 @@ const ProductListItem = memo(function ProductListItem({
       productId: id,
     };
 
-    if (value === "like") {
+    if (value === LikeOrCart.LIKE) {
       dispatch(toggleLike(payload));
     }
-    if (value === "cart") {
+    if (value === LikeOrCart.CART) {
       dispatch(addToCart(payload));
     }
   };
@@ -86,7 +112,7 @@ const ProductListItem = memo(function ProductListItem({
         </div>
         <div className={styles["product__btn"]}>
           <button
-            onClick={() => handleAddLikeOrAddToCart("cart")}
+            onClick={() => handleAddLikeOrAddToCart(LikeOrCart.CART)}
             type="button"
             className={styles["product__cart"]}
           >
@@ -148,7 +174,7 @@ const ProductListItem = memo(function ProductListItem({
         }`}
       >
         <svg
-          onClick={() => handleAddLikeOrAddToCart("like")}
+          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.LIKE)}
           className={styles["product__hover-top-like"]}
           width="30"
           height="30"

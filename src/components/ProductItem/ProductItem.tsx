@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import RatingStar from "../RatingStar/RatingStar";
 import { toggleLike, addToCart } from "../../redux/user/reducers";
+import { LikeOrCart } from "../../types/types";
 
 import check from "../../assets/icons/check.svg";
 import call from "../../assets/icons/call.svg";
@@ -17,15 +18,10 @@ interface ProductItemProps {
   reviewsCount: number;
   description: string;
   price: number;
-  oldPrice?: number | null;
+  oldPrice?: number | null | undefined;
   isLogedIn: string;
   likeOrNot: boolean;
   inCartOrNot: boolean;
-}
-
-enum LikeOrCart {
-  LIKE = "like",
-  CART = "cart",
 }
 
 const ProductItem = memo(function ProductItem({

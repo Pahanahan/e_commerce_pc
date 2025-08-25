@@ -4,9 +4,14 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import ProductItems from "../ProductItems/ProductItems";
 
-import styles from "./NewProductsSlider.module.css";
 import leftarrow from "../../assets/images/new-slider/arrow-left.svg";
 import rightarrow from "../../assets/images/new-slider/arrow-right.svg";
+import styles from "./NewProductsSlider.module.css";
+
+enum Arrow {
+  RIGHT = "right",
+  LEFT = "left",
+}
 
 function NewProductsSlider() {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
@@ -14,11 +19,6 @@ function NewProductsSlider() {
   const productsLength = useSelector(
     (state: RootState) => state.products.allProducts.length - 5
   );
-
-  enum Arrow {
-    RIGHT = "right",
-    LEFT = "left",
-  }
 
   const handleSlides = (arrow: Arrow): void => {
     if (arrow === Arrow.LEFT) {

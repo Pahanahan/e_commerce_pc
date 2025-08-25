@@ -1,10 +1,16 @@
-const isValidEmail = (value) => {
-  // return /\S+@\S+\.\S+/.test(value);
+type Setter<T> = React.Dispatch<React.SetStateAction<T>>;
+
+const isValidEmail = (value: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 };
 
-const changeEmail = (e, setEmail, setEmailValid, setUserNotFound) => {
-  const newEmail = e.target.value.toLowerCase();
+const changeEmail = (
+  e: React.ChangeEvent<HTMLInputElement>,
+  setEmail: Setter<string>,
+  setEmailValid: Setter<boolean>,
+  setUserNotFound?: Setter<boolean>
+) => {
+  const newEmail: string = e.target.value.toLowerCase();
   setEmail(newEmail);
   if (setUserNotFound) {
     setUserNotFound(true);
@@ -17,7 +23,11 @@ const changeEmail = (e, setEmail, setEmailValid, setUserNotFound) => {
   }
 };
 
-const changePassword = (e, setPassword, setPasswordValid) => {
+const changePassword = (
+  e: React.ChangeEvent<HTMLInputElement>,
+  setPassword: Setter<string>,
+  setPasswordValid: Setter<boolean>
+) => {
   const newPassword = e.target.value;
   setPassword(newPassword);
 

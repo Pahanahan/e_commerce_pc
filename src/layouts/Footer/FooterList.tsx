@@ -7,7 +7,7 @@ function FooterList() {
   const listItems = footerData;
 
   const listItemsMap = listItems.map((item) => (
-    <FooterListItem key={item.id} data={item} />
+    <FooterListItem key={item.id} title={item.title} text={item.text} />
   ));
 
   return <div className={styles["footer-list"]}>{listItemsMap}</div>;

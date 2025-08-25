@@ -1,107 +1,7 @@
-// import * as a from "./actionTypes";
-
-// interface User {
-//   login: string;
-//   password: string;
-//   likes: number[];
-//   cart: number[];
-// }
-
-// interface InitialState {
-//   isLogedIn: string;
-//   users: User[];
-// }
-
-// const savedData = localStorage.getItem("loginsAndPasswords");
-
-// const initialState: InitialState = savedData
-//   ? JSON.parse(savedData)
-//   : {
-//       isLogedIn: "",
-//       users: [],
-//     };
-
-// const loginReducer = (state = initialState, action: any) => {
-//   let newState = state;
-
-//   if (action.type === a.SIGN_IN) {
-//     newState = {
-//       ...state,
-//       isLogedIn: action.payload,
-//     };
-//   }
-//   if (action.type === a.LOG_OUT) {
-//     newState = {
-//       ...state,
-//       isLogedIn: "",
-//     };
-//   }
-//   if (action.type === a.CREATE_ACCOUNT) {
-//     newState = {
-//       ...state,
-//       ...action.payload,
-//     };
-//   }
-//   if (action.type === a.TOGGLE_LIKE) {
-//     const { login, productId } = action.payload;
-
-//     newState = {
-//       ...state,
-//       users: state.users.map((user) => {
-//         if (user.login !== login) return user;
-
-//         const alreadyLiked = user?.likes.includes(productId);
-
-//         return {
-//           ...user,
-//           likes: alreadyLiked
-//             ? user.likes.filter((id) => id !== productId)
-//             : [...user.likes, productId],
-//         };
-//       }),
-//     };
-//   }
-//   if (action.type === a.ADD_TO_CART) {
-// const { login, productId } = action.payload;
-
-// newState = {
-//   ...state,
-//   users: state.users.map((user) => {
-//     if (user.login !== login) return user;
-
-//     const alreadyCart = user?.cart.includes(productId);
-
-//     return {
-//       ...user,
-//       cart: alreadyCart
-//         ? user.cart.filter((id) => id !== productId)
-//         : [...user.cart, productId],
-//     };
-//   }),
-//     };
-//   }
-
-//   localStorage.setItem("loginsAndPasswords", JSON.stringify(newState));
-
-//   return newState;
-// };
-
-// export default loginReducer;
-
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-interface User {
-  login: string;
-  password: string;
-  likes: number[];
-  cart: number[];
-}
-
-interface LocalStorageData {
-  isLogedIn: string;
-  users: User[];
-}
+import type { User, Login } from "../../types/types";
 
 interface Payload {
   login: string;
@@ -110,7 +10,7 @@ interface Payload {
 
 const savedData = localStorage.getItem("loginsAndPasswords");
 
-const initialState = savedData
+const initialState: Login = savedData
   ? JSON.parse(savedData)
   : {
       isLogedIn: "",
@@ -123,13 +23,16 @@ const loginSlice = createSlice({
   reducers: {
     signIn(state, action: PayloadAction<string>) {
       state.isLogedIn = action.payload;
+      saveToLocalStorage(state);
     },
     logOut(state) {
       state.isLogedIn = "";
+      saveToLocalStorage(state);
     },
-    register(state, action: PayloadAction<LocalStorageData>) {
+    register(state, action: PayloadAction<Login>) {
       state.isLogedIn = action.payload.isLogedIn;
       state.users = action.payload.users;
+      saveToLocalStorage(state);
     },
     toggleLike(state, action: PayloadAction<Payload>) {
       const { login, productId } = action.payload;
@@ -146,6 +49,7 @@ const loginSlice = createSlice({
             : [...user.likes, productId],
         };
       });
+      saveToLocalStorage(state);
     },
     addToCart(state, action: PayloadAction<Payload>) {
       const { login, productId } = action.payload;
@@ -162,9 +66,13 @@ const loginSlice = createSlice({
             : [...user.cart, productId],
         };
       });
+      saveToLocalStorage(state);
     },
   },
 });
+
+const saveToLocalStorage = (state: Login): void =>
+  localStorage.setItem("loginsAndPasswords", JSON.stringify(state));
 
 export const { signIn, logOut, register, toggleLike, addToCart } =
   loginSlice.actions;

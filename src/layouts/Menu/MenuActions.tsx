@@ -1,7 +1,7 @@
-import styles from "./MenuActions.module.css";
 import search from "../../assets/icons/search.svg";
 import cart from "../../assets/icons/cart.svg";
 import avatar from "../../assets/icons/avatar.svg";
+import styles from "./MenuActions.module.css";
 
 function MenuActions() {
   return (

@@ -1,8 +1,13 @@
 import styles from "./FooterListItem.module.css";
 
-function FooterListItem({ data }) {
-  const dataMap = data.text.map((text, i) => {
-    if (text === "Phones: (00) 1234 5678") {
+interface FooterListItemProps {
+  title: string;
+  text: string[];
+}
+
+function FooterListItem({ title, text }: FooterListItemProps) {
+  const dataMap = text.map((item, i) => {
+    if (item === "Phones: (00) 1234 5678") {
       return (
         <li className={styles["footer-list__item-li"]} key={i}>
           <span>Phones: </span>
@@ -10,12 +15,12 @@ function FooterListItem({ data }) {
             className={styles["footer-list__item-phone"]}
             href="tel:0012345678"
           >
-            {text.slice(7)}
+            {item.slice(7)}
           </a>
         </li>
       );
     }
-    if (text === "E-mail: shop@email.com") {
+    if (item === "E-mail: shop@email.com") {
       return (
         <li className={styles["footer-list__item-li"]} key={i}>
           <span>E-mail: </span>
@@ -23,7 +28,7 @@ function FooterListItem({ data }) {
             className={styles["footer-list__item-email"]}
             href="mailto:shop@email"
           >
-            {text.slice(7)}
+            {item.slice(7)}
           </a>
         </li>
       );
@@ -32,7 +37,7 @@ function FooterListItem({ data }) {
     return (
       <li className={styles["footer-list__item-li"]} key={i}>
         <a className={styles["footer-list__item-link"]} href="#">
-          {text}
+          {item}
         </a>
       </li>
     );
@@ -40,7 +45,7 @@ function FooterListItem({ data }) {
 
   return (
     <div>
-      <p className={styles["footer-list__item-title"]}>{data.title}</p>
+      <p className={styles["footer-list__item-title"]}>{title}</p>
       <ul>{dataMap}</ul>
     </div>
   );

@@ -1,9 +1,9 @@
 import Menu from "../Menu/Menu";
 
-import styles from "./Header.module.css";
 import facebook from "../../assets/icons/facebook.svg";
 import instagram from "../../assets/icons/instagram.svg";
 import arrowdown from "../../assets/icons/arrow-down.svg";
+import styles from "./Header.module.css";
 
 function Header() {
   return (

@@ -1,44 +1,13 @@
 import { createSelector } from "reselect";
 
 import getFilterAndSortedProducts from "../../utils/getFilterAndSortedProducts";
-
-interface Product {
-  id: number;
-  brand: string;
-  category: string;
-  title: string;
-  description: string;
-  price: number;
-  oldPrice?: number;
-  currency: string;
-  images: string[];
-  rating: number;
-}
-
-type FiltersAppliedType = {
-  category?: string;
-  price?: string;
-  brand?: string;
-};
-
-type FiltersDraftType = {
-  category?: string;
-  price?: string;
-  brand?: string;
-};
-
-type SortOptionType =
-  | "Position"
-  | "Name"
-  | "Price Lower"
-  | "Price Higher"
-  | "Rating";
+import { Product, Filters, SortOption } from "../../types/types";
 
 interface ProductsState {
   allProducts: Product[];
-  filtersApplied: FiltersAppliedType;
-  filtersDraft: FiltersDraftType;
-  sortOption: SortOptionType;
+  filtersApplied: Filters;
+  filtersDraft: Filters;
+  sortOption: SortOption;
   currentPage: number;
   pageShowProducts: number;
 }

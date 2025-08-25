@@ -2,8 +2,9 @@ import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { addFilter, deleteFilters } from "../../../../redux/products/reducers";
-import { RootState } from "../../../../redux/store";
 import accordion from "../../../../utils/accordion";
+import { RootState } from "../../../../redux/store";
+import { Product, Filters, State } from "../../../../types/types";
 
 import arrowUp from "../../../../assets/icons/arrow-up.svg";
 import styles from "./Filter.module.css";
@@ -17,17 +18,6 @@ interface FiltersProps {
   onSetPriceActiveIndex: Setter<number | null>;
   onSetBrandActiveIndex: Setter<number | null>;
 }
-
-interface Product {
-  price: number;
-  category: string;
-}
-
-type FiltersDraft = {
-  price?: string;
-  category?: string;
-  brand?: string;
-};
 
 type Range =
   | {
@@ -58,9 +48,9 @@ function Filter({
   const imgCategoryRef = useRef<HTMLImageElement | null>(null);
   const imgPriceRef = useRef<HTMLImageElement | null>(null);
   const products: Product[] = useSelector(
-    (state: RootState) => state.products.allProducts
+    (state: State) => state.products.allProducts
   );
-  const filterProductKeys: FiltersDraft = useSelector(
+  const filterProductKeys: Filters = useSelector(
     (state: RootState) => state.products.filtersDraft
   );
 

@@ -1,21 +1,31 @@
 import { useSelector } from "react-redux";
 
 import ProductItem from "../ProductItem/ProductItem";
+import { Product } from "../../types/types";
+import { RootState } from "../../redux/store";
 
+import defaultImage from "../../assets/images/default/default-product-img.png";
 import styles from "./ProductCategoryItem.module.css";
 
-function ProductCategoryItem({ data, image, text }) {
+interface ProductCategoryItemProps {
+  data: Product[];
+  image: string | undefined;
+  text: string | undefined;
+}
+
+function ProductCategoryItem({ data, image, text }: ProductCategoryItemProps) {
   const styleImg = {
     backgroundImage: `url(${image})`,
   };
 
-  const { isLogedIn, users } = useSelector((state) => state.login);
+  const { isLogedIn, users } = useSelector((state: RootState) => state.login);
 
   const productItemMap = data.map((item) => {
     const findUser = users.find((login) => login.login === isLogedIn);
 
     const likeOrNot = findUser?.likes?.includes(item.id) || false;
     const inCartOrNot = findUser?.cart?.includes(item.id) || false;
+    const image = item.images[0] ?? defaultImage;
 
     return (
       <ProductItem
@@ -23,7 +33,7 @@ function ProductCategoryItem({ data, image, text }) {
         id={item.id}
         rating={item.rating}
         availability={item.availability}
-        image={item.images[0]}
+        image={image}
         reviewsCount={item.reviewsCount}
         description={item.description}
         price={item.price}

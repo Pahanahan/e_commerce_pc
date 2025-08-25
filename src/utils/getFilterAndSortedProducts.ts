@@ -1,38 +1,17 @@
 import parseRange from "./parseRange";
-
-type ProductItem = {
-  id: number;
-  brand: string;
-  category: string;
-  title: string;
-  price: number;
-  rating: number;
-};
-
-type FiltersAppliedType = {
-  category?: string;
-  price?: string;
-  brand?: string;
-};
-
-type SortOptionType =
-  | "Position"
-  | "Name"
-  | "Price Lower"
-  | "Price Higher"
-  | "Rating";
+import { Product, Filters, SortOption } from "../types/types";
 
 interface GetFilterAndSortedProducts {
-  products: ProductItem[];
-  filters: FiltersAppliedType;
-  sort: SortOptionType;
+  products: Product[];
+  filters: Filters;
+  sort: SortOption;
 }
 
 const getFilterAndSortedProducts = ({
   products,
   filters,
   sort = "Position",
-}: GetFilterAndSortedProducts): ProductItem[] => {
+}: GetFilterAndSortedProducts): Product[] => {
   let result = [...products];
 
   if (sort === "Name") {

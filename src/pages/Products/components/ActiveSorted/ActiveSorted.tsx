@@ -5,6 +5,7 @@ import {
   deleteOneFilter,
 } from "../../../../redux/products/reducers";
 import parseRange from "../../../../utils/parseRange";
+import { Product, State, Filters } from "../../../../types/types";
 
 import close from "../../../../assets/icons/close.svg";
 import styles from "./ActiveSorted.module.css";
@@ -13,26 +14,6 @@ interface ActiveSortedProps {
   onSetCategoryActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
   onSetPriceActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
   onSetBrandActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
-}
-
-interface Product {
-  price: number;
-  category: string;
-  brand: string;
-}
-
-interface Filters {
-  price?: string;
-  category?: string;
-  brand?: string;
-}
-
-interface State {
-  products: {
-    allProducts: Product[];
-    filtersApplied: {};
-  };
-  login: {};
 }
 
 type PriceRange = [number, number];

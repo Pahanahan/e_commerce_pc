@@ -2,26 +2,27 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import productsdata from "../../data/products-data.json";
 import { NewPage } from "../../types/types";
+import { Product, Filters, SortOptionsEnum } from "../../types/types";
 
-interface Product {
-  id: number;
-  brand: string;
-  category: string;
-  price: number;
-  rating: number;
-  availability: string;
-  images: string[];
-  reviewsCount: number;
-  description: string;
-  oldPrice?: number | null;
-  image?: string;
-}
+// interface Product {
+//   id: number;
+//   brand: string;
+//   category: string;
+//   price: number;
+//   rating: number;
+//   availability: string;
+//   images: string[];
+//   reviewsCount: number;
+//   description: string;
+//   oldPrice?: number | null;
+//   image?: string;
+// }
 
-export interface Filters {
-  category?: string;
-  price?: string;
-  brand?: string;
-}
+// export interface Filters {
+//   category?: string;
+//   price?: string;
+//   brand?: string;
+// }
 
 export interface ProductsState {
   allProducts: Product[];
@@ -30,14 +31,6 @@ export interface ProductsState {
   sortOption: string;
   pageShowProducts: number;
   currentPage: number;
-}
-
-export enum SortOptions {
-  POSITION = "Position",
-  NAME = "Name",
-  PRICE_HIGHER = "Price Higher",
-  PRICE_LOWER = "Price Lower",
-  RATING = "Rating",
 }
 
 const initialState: ProductsState = {
@@ -53,7 +46,7 @@ const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    sortByValue(state, action: PayloadAction<SortOptions>) {
+    sortByValue(state, action: PayloadAction<SortOptionsEnum>) {
       state.sortOption = action.payload;
       state.currentPage = 1;
     },

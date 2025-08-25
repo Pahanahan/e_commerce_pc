@@ -5,6 +5,7 @@ import {
   deleteBrandFilter,
   applyFilters,
 } from "../../../../redux/products/reducers";
+import { State } from "../../../../types/types";
 
 import roccat from "../../../../assets/images/partners/roccat-min.png";
 import msi from "../../../../assets/images/partners/msi-min.png";
@@ -17,14 +18,6 @@ import styles from "./Brands.module.css";
 interface BrandsProps {
   onBrandActiveIndex: number | null;
   onSetBrandActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
-}
-
-interface State {
-  products: {
-    filtersDraft: {
-      brand?: string;
-    };
-  };
 }
 
 function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }: BrandsProps) {

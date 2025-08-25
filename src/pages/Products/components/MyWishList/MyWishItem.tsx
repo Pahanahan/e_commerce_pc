@@ -2,8 +2,9 @@ import { memo } from "react";
 import { useDispatch } from "react-redux";
 
 import RatingStar from "../../../../components/RatingStar/RatingStar";
-// import { toggleLike, addToCart } from "../../../../redux/user/actionCreators";
 import { toggleLike, addToCart } from "../../../../redux/user/reducers";
+import { LikeOrCart } from "../../../../types/types";
+import { useAppDispatch } from "../../../../customHooks/useAppDispatch";
 
 import check from "../../../../assets/icons/check.svg";
 import call from "../../../../assets/icons/call.svg";
@@ -35,7 +36,7 @@ const MyWishItem = memo(function MyWishItem({
 }: MyWishItemProps) {
   const dispatch = useDispatch();
 
-  const handleAddLikeOrAddToCart = (value) => {
+  const handleAddLikeOrAddToCart = (value: LikeOrCart): void => {
     if (!isLogedIn) return;
 
     const payload = {
@@ -61,7 +62,7 @@ const MyWishItem = memo(function MyWishItem({
         }`}
       >
         <svg
-          onClick={() => handleAddLikeOrAddToCart("like")}
+          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.LIKE)}
           className={styles["product__hover-top-like"]}
           width="20"
           height="20"
@@ -109,7 +110,7 @@ const MyWishItem = memo(function MyWishItem({
 
       <div className={styles["product__hover-bottom"]}>
         <button
-          onClick={() => handleAddLikeOrAddToCart("cart")}
+          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.CART)}
           type="button"
           className={styles["product__cart"]}
         >
