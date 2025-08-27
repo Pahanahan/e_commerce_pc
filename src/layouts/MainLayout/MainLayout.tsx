@@ -9,7 +9,7 @@ import Cart from "../../pages/Cart";
 import Checkout from "../../pages/Checkout";
 import Contacts from "../../pages/Contacts";
 import Dashboard from "../../pages/Dashboard";
-import Product from "../../pages/Product";
+import SingleProduct from "../../pages/SingleProduct/SingleProduct";
 import Login from "../../pages/Login/Login";
 import TermsAndConditions from "../../pages/TermsAndConditions";
 
@@ -28,7 +28,7 @@ function MainLayout() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product" element={<SingleProduct />} />
           <Route path="/login" element={<Login />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
         </Routes>

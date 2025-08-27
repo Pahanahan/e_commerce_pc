@@ -8,7 +8,14 @@ import img_7 from "../assets/images/instagram/7.jpg";
 import img_8 from "../assets/images/instagram/8.jpg";
 import img_9 from "../assets/images/instagram/9.jpg";
 
-const imageArr = [
+interface ImageArr {
+  id: number;
+  text: string;
+  date: string;
+  src: string;
+}
+
+const imageArr: ImageArr[] = [
   {
     id: 1,
     text: "Upgrade your workspace with high-performance accessories that match your PC build.",

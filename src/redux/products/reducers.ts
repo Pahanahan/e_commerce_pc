@@ -4,26 +4,6 @@ import productsdata from "../../data/products-data.json";
 import { NewPage } from "../../types/types";
 import { Product, Filters, SortOptionsEnum } from "../../types/types";
 
-// interface Product {
-//   id: number;
-//   brand: string;
-//   category: string;
-//   price: number;
-//   rating: number;
-//   availability: string;
-//   images: string[];
-//   reviewsCount: number;
-//   description: string;
-//   oldPrice?: number | null;
-//   image?: string;
-// }
-
-// export interface Filters {
-//   category?: string;
-//   price?: string;
-//   brand?: string;
-// }
-
 export interface ProductsState {
   allProducts: Product[];
   filtersDraft: Filters;
