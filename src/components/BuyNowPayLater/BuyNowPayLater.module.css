@@ -6,7 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f5f7ff;
   padding: 20px 0;
   gap: 8px;
 }
@@ -28,4 +27,5 @@
 .promo__box-link {
   font-size: 14px;
   color: #272560;
+  margin-left: 2px;
 }

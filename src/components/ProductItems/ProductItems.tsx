@@ -52,6 +52,7 @@ function ProductItems({ reverse }: ProductItemsProps) {
         <ProductItem
           key={item.id}
           id={item.id}
+          category={item.category}
           rating={item.rating}
           availability={item.availability}
           image={image}

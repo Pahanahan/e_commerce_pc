@@ -48,6 +48,7 @@ function ProductsBox({ listOrGrid }: ProductsBoxProps) {
           <ProductItem
             key={product.id}
             id={product.id}
+            category={product.category}
             rating={product.rating}
             availability={product.availability}
             image={image}
@@ -63,6 +64,7 @@ function ProductsBox({ listOrGrid }: ProductsBoxProps) {
           <ProductListItem
             key={product.id}
             id={product.id}
+            category={product.category}
             rating={product.rating}
             availability={product.availability}
             image={image}

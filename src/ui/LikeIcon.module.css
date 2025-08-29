@@ -1,0 +1,18 @@
+.like {
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.like:active {
+  transform: scale(1.2);
+}
+
+.like:hover path,
+.like:hover circle {
+  stroke: rgb(253, 88, 88);
+}
+
+.like:active path,
+.like:active circle {
+  stroke: red;
+}

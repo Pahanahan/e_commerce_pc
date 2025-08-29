@@ -28,7 +28,7 @@ function MainLayout() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/product" element={<SingleProduct />} />
+          <Route path="/products/:slug" element={<SingleProduct />} />
           <Route path="/login" element={<Login />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
         </Routes>

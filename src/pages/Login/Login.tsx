@@ -6,7 +6,9 @@ import BenefitsSection from "../../components/BenefitsSection/BenefitsSection";
 function Login() {
   return (
     <>
-      <Breadcrumbs />
+      <div className="container">
+        <Breadcrumbs />
+      </div>
       <Title title={"Customer Login"} />
       <Main />
       <BenefitsSection background={"#F5F7FF"} />

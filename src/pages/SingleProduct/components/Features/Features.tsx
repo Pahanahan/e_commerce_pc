@@ -1,4 +1,4 @@
-import textArr from "../../../data/features-data";
+import textArr from "../../../../data/features-data";
 
 import styles from "./Features.module.css";
 

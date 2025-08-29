@@ -8,7 +8,9 @@ function Products() {
   return (
     <>
       <Promo />
-      <Breadcrumbs />
+      <div className="container">
+        <Breadcrumbs />
+      </div>
       <Title title={"Products"} />
       <ProductsMain />
       <BenefitsSection background={"#F5F7FF"} />

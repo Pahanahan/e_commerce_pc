@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { changeCurrentPage } from "../../../../redux/products/reducers";
 import { selectAllFilteredProducts } from "../../../../redux/selectors/productsSelectors";
 import getPaginationRange from "../../../../utils/getPaginationRange";
+import { scrollTop } from "../../../../utils/scrollTop";
 import { RootState } from "../../../../redux/store";
 import { NewPage } from "../../../../types/types";
 
@@ -31,10 +32,7 @@ function Pagination() {
     )
       return;
     dispatch(changeCurrentPage(num));
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    scrollTop();
   };
 
   const paginationArray = getPaginationRange(currentPage, currentAllPages, 5);

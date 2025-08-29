@@ -12,7 +12,7 @@ function Home() {
     <>
       <HomeSlider />
       <NewProductsSlider />
-      <BuyNowPayLater />
+      <BuyNowPayLater background={"#F5F7FF"} />
       <ProductCategories />
       <Partners />
       <InstagramNews />

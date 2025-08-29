@@ -167,25 +167,6 @@
   transition: all 0.4s;
 }
 
-.product__hover-top-like {
-  cursor: pointer;
-  transition: all 0.4s;
-}
-
-.product__hover-top-like:active {
-  transform: scale(1.2);
-}
-
-.product__hover-top-like:hover path,
-.product__hover-top-like:hover circle {
-  stroke: rgb(253, 88, 88);
-}
-
-.product__hover-top-like:active path,
-.product__hover-top-like:active circle {
-  stroke: red;
-}
-
 .like--active path,
 .like--active circle {
   stroke: rgb(253, 88, 88);
