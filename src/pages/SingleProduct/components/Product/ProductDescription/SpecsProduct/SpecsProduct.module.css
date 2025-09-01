@@ -1,0 +1,18 @@
+.specs-product {
+  border: 1px solid #cacdd8;
+  background-color: #fff;
+  margin-bottom: 50px;
+}
+
+.specs-product__item {
+  display: flex;
+  padding: 15px 10px;
+}
+
+.specs-product__item-key {
+  width: 120px;
+}
+
+.background {
+  background-color: #f5f7ff;
+}

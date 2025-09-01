@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 import Tabs from "./components/Tabs/Tabs";
+import ProductActionPanel from "./components/ProductActionPanel/ProductActionPanel";
 import Product from "./components/Product/Product";
 import BenefitsSection from "../../components/BenefitsSection/BenefitsSection";
 import Features from "./components/Features/Features";
@@ -21,6 +22,7 @@ function SingleProduct() {
         <div className="container">
           <div className={styles["product__inner"]}>
             <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
+            <ProductActionPanel />
           </div>
         </div>
       </div>

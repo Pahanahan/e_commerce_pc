@@ -24,14 +24,15 @@ function ProductDescription({ id, activeTab }: ProductDescriptionProps) {
     return allProducts.find((item) => item.id === id);
   }, [allProducts]);
   const productText = productById?.description ?? "not found description";
+  const specs = productById?.specs ?? { spec: "Not found details" };
 
   const tabActiveComponent =
     activeTab === 0 ? (
       <AboutProduct productText={productText} />
     ) : activeTab === 1 ? (
-      <DetailsProduct />
+      <DetailsProduct specs={specs} />
     ) : (
-      <SpecsProduct />
+      <SpecsProduct specs={specs} />
     );
 
   return (

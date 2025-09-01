@@ -5,7 +5,8 @@ export interface User {
   cart: number[];
 }
 
-export type Specs = Record<string, string | number | boolean>;
+// export type Specs = Record<string, string | number | boolean>;
+export type Specs = Record<string, string>;
 
 export interface Product {
   id: number;
