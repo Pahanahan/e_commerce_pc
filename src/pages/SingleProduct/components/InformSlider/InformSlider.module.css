@@ -1,0 +1,65 @@
+.inform-slider {
+  background-color: #000;
+}
+
+.inform-slider__inner {
+  overflow: hidden;
+  position: relative;
+}
+
+.inform-slider__items {
+  display: flex;
+  transition: all 0.4s;
+  transform: translateX(100%);
+}
+
+.inform-slider__item {
+  flex: 0 0 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.inform-slider__text {
+  min-width: 435px;
+}
+
+.inform-slider__text h2 {
+  font-size: 44px;
+  font-weight: 500;
+  line-height: 56px;
+  color: #fff;
+  padding-left: 115px;
+  margin-bottom: 50px;
+}
+
+.inform-slider__text p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 26px;
+  color: #fff;
+  padding-left: 115px;
+  margin-bottom: 30px;
+}
+
+.inform-slider__dots {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 50px;
+}
+
+.inform-slider__dot {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot--active {
+  background-color: #0156ff;
+}

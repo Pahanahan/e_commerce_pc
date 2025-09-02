@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
+import { scrollTop } from "../../../../utils/scrollTop";
 import { signIn } from "../../../../redux/user/reducers";
 import { changeEmail, changePassword } from "../../../../utils/validation";
 
@@ -89,6 +90,7 @@ function SignIn() {
         );
         setUserNotFound(true);
         dispatch(signIn(email));
+        scrollTop();
         navigate("/");
       }
     },

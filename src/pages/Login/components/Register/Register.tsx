@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
 import { changeEmail, changePassword } from "../../../../utils/validation";
+import { scrollTop } from "../../../../utils/scrollTop";
 import { register } from "../../../../redux/user/reducers";
 import { RootState } from "../../../../redux/store";
 import { Login, User } from "../../../../types/types";
@@ -119,6 +120,7 @@ function Register() {
           users.isLogedIn = email;
           users.users.push(newUser);
           dispatch(register(users));
+          scrollTop();
           navigate("/");
         }
       }

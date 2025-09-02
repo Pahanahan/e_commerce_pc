@@ -1,0 +1,47 @@
+.action-panel {
+  display: flex;
+  gap: 20px;
+}
+
+.action-panel__current {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.action-panel__current-text span {
+  font-weight: 600;
+}
+
+.action-panel__current-select {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: #f5f7ff;
+  border-radius: 6px;
+  padding: 10px 10px 10px 20px;
+}
+
+.action-panel__current-num {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.action-panel__current-btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-panel__current-btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
+
+.action-panel__btns {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}

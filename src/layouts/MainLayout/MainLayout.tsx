@@ -12,6 +12,7 @@ import Dashboard from "../../pages/Dashboard";
 import SingleProduct from "../../pages/SingleProduct/SingleProduct";
 import Login from "../../pages/Login/Login";
 import TermsAndConditions from "../../pages/TermsAndConditions";
+import ComingSoon from "../../components/ComingSoon/ComingSoon";
 
 import styles from "./MainLayout.module.css";
 
@@ -31,6 +32,15 @@ function MainLayout() {
           <Route path="/products/:slug" element={<SingleProduct />} />
           <Route path="/login" element={<Login />} />
           <Route path="/termsandconditions" element={<TermsAndConditions />} />
+          <Route
+            path="/support"
+            element={<ComingSoon title="Product Support" />}
+          />
+          <Route path="/faq" element={<ComingSoon title="FAQ" />} />
+          <Route
+            path="/guide"
+            element={<ComingSoon title="Our Buyer Guide" />}
+          />
         </Routes>
       </main>
       <Footer />
