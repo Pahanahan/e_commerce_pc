@@ -1,8 +1,13 @@
+export interface UserCart {
+  id: number;
+  quantity: number;
+}
+
 export interface User {
   login: string;
   password: string;
   likes: number[];
-  cart: number[];
+  cart: UserCart[];
 }
 
 // export type Specs = Record<string, string | number | boolean>;

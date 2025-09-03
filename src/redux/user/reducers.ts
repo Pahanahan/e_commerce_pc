@@ -1,11 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-import type { User, Login } from "../../types/types";
+import type { User, Login, UserCart } from "../../types/types";
 
 interface Payload {
   login: string;
   productId: number;
+}
+
+interface PayloadWithQuantity {
+  login: string;
+  productId: number;
+  quantity: number;
 }
 
 const savedData = localStorage.getItem("loginsAndPasswords");
@@ -57,13 +63,53 @@ const loginSlice = createSlice({
       state.users = state.users.map((user: User) => {
         if (user.login !== login) return user;
 
-        const alreadyCart: boolean = user?.cart.includes(productId);
+        const existingItem = user.cart.find((item) => item.id === productId);
+
+        let newCart: UserCart[];
+
+        if (existingItem) {
+          newCart = [...user.cart];
+          newCart = user.cart.filter((item) => item.id !== productId);
+        } else {
+          newCart = [...user.cart, { id: productId, quantity: 1 }];
+        }
 
         return {
           ...user,
-          cart: alreadyCart
-            ? user.cart.filter((id) => id !== productId)
-            : [...user.cart, productId],
+          cart: newCart,
+        };
+      });
+      saveToLocalStorage(state);
+    },
+    incrementCartItem(state, action: PayloadAction<PayloadWithQuantity>) {
+      const { login, productId, quantity } = action.payload;
+
+      state.users = state.users.map((user: User) => {
+        if (user.login !== login) return user;
+
+        const existingItem = user.cart.find((item) => item.id === productId);
+
+        let newCart: UserCart[];
+
+        if (existingItem) {
+          if (quantity > 0) {
+            newCart = user.cart.map((item) =>
+              item.id === productId ? { ...item, quantity: quantity } : item
+            );
+          } else {
+            newCart = user.cart.filter((item) => item.id !== productId);
+          }
+        } else {
+          if (quantity > 0) {
+            newCart = [...user.cart, { id: productId, quantity: quantity }];
+          } else {
+            newCart = [...user.cart];
+          }
+        }
+
+        return {
+          ...user,
+          cart: newCart,
         };
       });
       saveToLocalStorage(state);
@@ -74,7 +120,13 @@ const loginSlice = createSlice({
 const saveToLocalStorage = (state: Login): void =>
   localStorage.setItem("loginsAndPasswords", JSON.stringify(state));
 
-export const { signIn, logOut, register, toggleLike, addToCart } =
-  loginSlice.actions;
+export const {
+  signIn,
+  logOut,
+  register,
+  toggleLike,
+  addToCart,
+  incrementCartItem,
+} = loginSlice.actions;
 
 export default loginSlice.reducer;

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-// import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
+import { incrementCartItem } from "../../../../redux/user/reducers";
 import { RootState } from "../../../../redux/store";
 
 import arrowUp from "../../../../assets/icons/arrow-up-grey.svg";
@@ -20,18 +20,30 @@ interface ProductActionPanelProp {
 }
 
 function ProductActionPanel({ id }: ProductActionPanelProp) {
-  const allProducts = useSelector(
-    (state: RootState) => state.products.allProducts
-  );
-  const product = allProducts.find((item) => item.id === id);
-  console.log(product);
-  const [quantityProduct, setQuantityProduct] = useState<number>(0);
+  const { isLogedIn } = useSelector((state: RootState) => state.login);
+  const quantity: number =
+    useSelector((state: RootState) => state.login.users)
+      .find((user) => user.login === isLogedIn)
+      ?.cart.find((item) => item.id === id)?.quantity ?? 0;
 
-  const handleChangeQuantityProduct = (plusOrMinus: string): void => {
+  const [buttonDisabled] = useState<boolean>(!isLogedIn);
+  const dispatch = useDispatch();
+
+  const handleChangeQuantityProduct = (plusOrMinus: PlusOrMinus): void => {
     if (plusOrMinus === PlusOrMinus.PLUS) {
-      setQuantityProduct((prevState) => prevState + 1);
-    } else if (quantityProduct > 0) {
-      setQuantityProduct((prevState) => prevState - 1);
+      const payload = {
+        login: isLogedIn,
+        productId: id,
+        quantity: quantity + 1,
+      };
+      dispatch(incrementCartItem(payload));
+    } else if (quantity > 0) {
+      const payload = {
+        login: isLogedIn,
+        productId: id,
+        quantity: quantity - 1,
+      };
+      dispatch(incrementCartItem(payload));
     } else {
       return;
     }
@@ -44,13 +56,12 @@ function ProductActionPanel({ id }: ProductActionPanelProp) {
           On Sale from <span>$3,299.00</span>
         </div>
         <div className={styles["action-panel__current-select"]}>
-          <div className={styles["action-panel__current-num"]}>
-            {quantityProduct}
-          </div>
+          <div className={styles["action-panel__current-num"]}>{quantity}</div>
           <div className={styles["action-panel__current-btns"]}>
             <button
               onClick={() => handleChangeQuantityProduct(PlusOrMinus.PLUS)}
               type="button"
+              disabled={buttonDisabled}
               className={styles["action-panel__current-btn"]}
             >
               <img src={arrowUp} alt="plus" />
@@ -58,6 +69,7 @@ function ProductActionPanel({ id }: ProductActionPanelProp) {
             <button
               onClick={() => handleChangeQuantityProduct(PlusOrMinus.MINUS)}
               type="button"
+              disabled={buttonDisabled}
               className={styles["action-panel__current-btn"]}
             >
               <img src={arrowDown} alt="minus" />

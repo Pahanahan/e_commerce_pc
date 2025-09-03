@@ -22,10 +22,11 @@ function ProductCategoryItem({ data, image, text }: ProductCategoryItemProps) {
 
   const productItemMap = data.map((item) => {
     const findUser = users.find((login) => login.login === isLogedIn);
+    const image = item.images[0] ?? defaultImage;
 
     const likeOrNot = findUser?.likes?.includes(item.id) || false;
-    const inCartOrNot = findUser?.cart?.includes(item.id) || false;
-    const image = item.images[0] ?? defaultImage;
+    const inCartOrNot: boolean =
+      !!findUser?.cart?.find((product) => product.id === item.id) || false;
 
     return (
       <ProductItem

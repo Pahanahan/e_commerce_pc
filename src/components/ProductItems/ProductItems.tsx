@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 import { RootState } from "../../redux/store";
+import { Login } from "../../types/types";
 import ProductItem from "../ProductItem/ProductItem";
 
 import styles from "./ProductItems.module.css";
@@ -9,18 +10,6 @@ import defaultimage from "../../assets/images/default/default-product-img.png";
 
 interface ProductItemsProps {
   reverse: boolean;
-}
-
-interface User {
-  login: string;
-  password: string;
-  likes: number[];
-  cart: number[];
-}
-
-interface LoginState {
-  isLogedIn: string;
-  users: User[];
 }
 
 function ProductItems({ reverse }: ProductItemsProps) {
@@ -36,7 +25,7 @@ function ProductItems({ reverse }: ProductItemsProps) {
     }
   }, [allProducts, reverse]);
 
-  const { isLogedIn, users }: LoginState = useSelector(
+  const { isLogedIn, users }: Login = useSelector(
     (state: RootState) => state.login
   );
 
@@ -46,7 +35,8 @@ function ProductItems({ reverse }: ProductItemsProps) {
       const image: string = item.images[0] || defaultimage;
 
       const likeOrNot = findUser?.likes?.includes(item.id) || false;
-      const inCartOrNot = findUser?.cart?.includes(item.id) || false;
+      const inCartOrNot: boolean =
+        !!findUser?.cart?.find((product) => product.id === item.id) || false;
 
       return (
         <ProductItem

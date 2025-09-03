@@ -4,8 +4,7 @@ import { useSelector } from "react-redux";
 import ProductItem from "../../../../components/ProductItem/ProductItem";
 import ProductListItem from "../../../../components/ProductItemList/ProductListItem";
 import { selectVisibleProducts } from "../../../../redux/selectors/productsSelectors";
-import { GridOrList } from "../../../../types/types";
-import { State } from "../../../../types/types";
+import { State, GridOrList } from "../../../../types/types";
 
 import defaultImage from "../../../../assets/images/default/default-product-img.png";
 import styles from "./ProductsBox.module.css";
@@ -21,17 +20,18 @@ function ProductsBox({ listOrGrid }: ProductsBoxProps) {
 
   const visibleProductsMap = useMemo(
     () =>
-      visibleProducts.map((product) => {
-        const arrayValues = Object.entries(product.specs).slice(0, 5) as [
+      visibleProducts.map((item) => {
+        const arrayValues = Object.entries(item.specs).slice(0, 5) as [
           string,
           string | number | boolean
         ][];
 
         const findUser = users.find((login) => login.login === isLogedIn);
+        const image = item.images[0] ?? defaultImage;
 
-        const likeOrNot = findUser?.likes?.includes(product.id) || false;
-        const inCartOrNot = findUser?.cart?.includes(product.id) || false;
-        const image = product.images[0] ?? defaultImage;
+        const likeOrNot = findUser?.likes?.includes(item.id) || false;
+        const inCartOrNot: boolean =
+          !!findUser?.cart?.find((product) => product.id === item.id) || false;
 
         const key1 = arrayValues[0]?.[0] ?? "Spec";
         const key2 = arrayValues[1]?.[0] ?? "Spec";
@@ -46,33 +46,33 @@ function ProductsBox({ listOrGrid }: ProductsBoxProps) {
 
         return listOrGrid === GridOrList.GRID ? (
           <ProductItem
-            key={product.id}
-            id={product.id}
-            category={product.category}
-            rating={product.rating}
-            availability={product.availability}
+            key={item.id}
+            id={item.id}
+            category={item.category}
+            rating={item.rating}
+            availability={item.availability}
             image={image}
-            reviewsCount={product.reviewsCount}
-            description={product.description}
-            price={product.price}
-            oldPrice={product.oldPrice}
+            reviewsCount={item.reviewsCount}
+            description={item.description}
+            price={item.price}
+            oldPrice={item.oldPrice}
             isLogedIn={isLogedIn}
             likeOrNot={likeOrNot}
             inCartOrNot={inCartOrNot}
           />
         ) : (
           <ProductListItem
-            key={product.id}
-            id={product.id}
-            category={product.category}
-            rating={product.rating}
-            availability={product.availability}
+            key={item.id}
+            id={item.id}
+            category={item.category}
+            rating={item.rating}
+            availability={item.availability}
             image={image}
-            reviewsCount={product.reviewsCount}
-            title={product.title}
-            description={product.description}
-            price={product.price}
-            oldPrice={product.oldPrice}
+            reviewsCount={item.reviewsCount}
+            title={item.title}
+            description={item.description}
+            price={item.price}
+            oldPrice={item.oldPrice}
             isLogedIn={isLogedIn}
             likeOrNot={likeOrNot}
             inCartOrNot={inCartOrNot}

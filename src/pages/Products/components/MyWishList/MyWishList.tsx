@@ -27,10 +27,11 @@ function MyWishList() {
     const findUser: User | undefined = users.find(
       (user: User) => user.login === isLogedIn
     );
+    const image = item.images[0] ?? defaultImage;
 
     const likeOrNot = findUser?.likes?.includes(item.id) || false;
-    const inCartOrNot = findUser?.cart?.includes(item.id) || false;
-    const image = item.images[0] ?? defaultImage;
+    const inCartOrNot: boolean =
+      !!findUser?.cart?.find((product) => product.id === item.id) || false;
 
     return (
       <MyWishItem
