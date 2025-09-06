@@ -5,30 +5,33 @@ import styles from "./Button.module.css";
 interface ButtonProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   type?: "submit" | "reset" | "button";
-  title?: string;
-  image?: string;
   backgroundColor?: string;
   color?: string;
+  href?: string;
+  children?: React.ReactNode;
 }
 
 const Button = memo(function Button({
   onClick,
-  type,
-  title,
-  image,
+  type = "button",
   backgroundColor,
   color,
+  href,
+  children,
 }: ButtonProps) {
-  if (image) {
+  const style = { backgroundColor, color };
+
+  if (href) {
     return (
-      <button
-        onClick={onClick}
-        type={type}
+      <a
+        href={href}
         className={styles["button"]}
-        style={{ backgroundColor: backgroundColor }}
+        style={style}
+        target="_blank"
+        rel="noopener noreferrer"
       >
-        <img src={image} alt="button" />
-      </button>
+        {children}
+      </a>
     );
   } else {
     return (
@@ -36,9 +39,9 @@ const Button = memo(function Button({
         onClick={onClick}
         type={type}
         className={styles["button"]}
-        style={{ backgroundColor: backgroundColor, color: color }}
+        style={style}
       >
-        {title}
+        {children}
       </button>
     );
   }

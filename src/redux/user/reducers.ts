@@ -114,6 +114,31 @@ const loginSlice = createSlice({
       });
       saveToLocalStorage(state);
     },
+    increaseOneCartItem(state, action: PayloadAction<PayloadWithQuantity>) {
+      const { login, productId, quantity } = action.payload;
+
+      state.users = state.users.map((user: User) => {
+        if (user.login !== login) return user;
+
+        const existingItem = user.cart.find((item) => item.id === productId);
+
+        let newCart: UserCart[];
+
+        if (existingItem) {
+          newCart = user.cart.map((item) =>
+            item.id === productId ? { ...item, quantity: quantity } : item
+          );
+        } else {
+          newCart = [...user.cart, { id: productId, quantity: quantity }];
+        }
+
+        return {
+          ...user,
+          cart: newCart,
+        };
+      });
+      saveToLocalStorage(state);
+    },
   },
 });
 
@@ -127,6 +152,7 @@ export const {
   toggleLike,
   addToCart,
   incrementCartItem,
+  increaseOneCartItem,
 } = loginSlice.actions;
 
 export default loginSlice.reducer;

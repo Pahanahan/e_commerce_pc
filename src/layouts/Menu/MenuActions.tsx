@@ -10,7 +10,11 @@ import styles from "./MenuActions.module.css";
 function MenuActions() {
   const { isLogedIn, users } = useSelector((state: RootState) => state.login);
   const user = users.find((user) => user.login === isLogedIn);
-  const currentCart = user?.cart.length || 0;
+
+  let currentCart: number =
+    user?.cart.reduce((acc, num) => {
+      return acc + num.quantity;
+    }, 0) || 0;
 
   return (
     <div className={styles["menu-action"]}>

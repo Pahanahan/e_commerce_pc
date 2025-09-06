@@ -20,7 +20,7 @@ function OutLogin() {
     <div className={styles["out"]}>
       <h3>Are you sure you want to log out?</h3>
       <div className={styles["out__btn"]}>
-        <Button onClick={handleLogOut} type="button" title="Log Out" />
+        <Button onClick={handleLogOut}>Log Out</Button>
       </div>
     </div>
   );

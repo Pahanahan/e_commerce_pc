@@ -2,7 +2,11 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
-import { incrementCartItem } from "../../../../redux/user/reducers";
+import {
+  incrementCartItem,
+  increaseOneCartItem,
+} from "../../../../redux/user/reducers";
+import formatPrice from "../../../../utils/formatPrice";
 import { RootState } from "../../../../redux/store";
 
 import arrowUp from "../../../../assets/icons/arrow-up-grey.svg";
@@ -29,6 +33,12 @@ function ProductActionPanel({ id }: ProductActionPanelProp) {
   const [buttonDisabled] = useState<boolean>(!isLogedIn);
   const dispatch = useDispatch();
 
+  const price = useSelector(
+    (state: RootState) => state.products.allProducts
+  ).find((product) => product.id === id)?.price;
+
+  const completedPrice = typeof price === "number" ? price * quantity : 0;
+
   const handleChangeQuantityProduct = (plusOrMinus: PlusOrMinus): void => {
     if (plusOrMinus === PlusOrMinus.PLUS) {
       const payload = {
@@ -49,11 +59,20 @@ function ProductActionPanel({ id }: ProductActionPanelProp) {
     }
   };
 
+  const handleIncrementProduct = (): void => {
+    const payload = {
+      login: isLogedIn,
+      productId: id,
+      quantity: quantity + 1,
+    };
+    dispatch(increaseOneCartItem(payload));
+  };
+
   return (
     <div className={styles["action-panel"]}>
       <div className={styles["action-panel__current"]}>
         <div className={styles["action-panel__current-text"]}>
-          On Sale from <span>$3,299.00</span>
+          On Sale from <span>${formatPrice(completedPrice)}</span>
         </div>
         <div className={styles["action-panel__current-select"]}>
           <div className={styles["action-panel__current-num"]}>{quantity}</div>
@@ -78,9 +97,9 @@ function ProductActionPanel({ id }: ProductActionPanelProp) {
         </div>
       </div>
       <div className={styles["action-panel__btns"]}>
-        <Button type="button" title="Add to Cart" backgroundColor="#0156FF" />
-        <Button type="button" image={paypal} backgroundColor="#FFB800">
-          {/* <Link to={'/https://www.paypal.com/'} /> */}
+        <Button onClick={handleIncrementProduct}>Add to Cart</Button>
+        <Button backgroundColor="#FFB800" href="https://www.paypal.com">
+          <img src={paypal} alt="PayPal" />
         </Button>
       </div>
     </div>

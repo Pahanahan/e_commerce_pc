@@ -250,7 +250,7 @@ function Register() {
           {incorrectOverlapPasswordsMessage}
           {incorrectUnicEmail}
           <div className={styles["register__btns"]}>
-            <Button type={"submit"} title={"Create An Account"} />
+            <Button type={"submit"}>Create An Account</Button>
           </div>
         </form>
       ) : (
@@ -260,11 +260,9 @@ function Register() {
             <li>Keep more than one address</li>
             <li>Track orders and more</li>
           </ul>
-          <Button
-            onClick={() => setCreateAccount(true)}
-            type={"button"}
-            title={"Create An Account"}
-          />
+          <Button onClick={() => setCreateAccount(true)}>
+            Create An Account
+          </Button>
         </>
       )}
     </div>

@@ -179,7 +179,7 @@ function SignIn() {
         {incorrectPasswordMessage}
         {notFoundMessage}
         <div className={styles["sign-in__btns"]}>
-          <Button type={"submit"} title={"Sign In"} />
+          <Button type={"submit"}>Sign In</Button>
           <button type="button" className={styles["sign-in__forgot-btn"]}>
             Forgot Your Password?
           </button>
