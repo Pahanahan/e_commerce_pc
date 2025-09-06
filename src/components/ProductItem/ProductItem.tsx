@@ -6,6 +6,7 @@ import RatingStar from "../RatingStar/RatingStar";
 import { toggleLike, addToCart } from "../../redux/user/reducers";
 import { LikeOrCart } from "../../types/types";
 import { scrollTop } from "../../utils/scrollTop";
+import { joinStringWithoutSpace } from "../../utils/joinStringWithoutSpace";
 import LikeIcon from "../../ui/LikeIcon";
 
 import check from "../../assets/icons/check.svg";
@@ -62,6 +63,8 @@ const ProductItem = memo(function ProductItem({
 
   const ratingStar = Math.round(rating);
 
+  const validCategory = joinStringWithoutSpace(category);
+
   return (
     <div className={styles["product"]}>
       <div
@@ -99,7 +102,7 @@ const ProductItem = memo(function ProductItem({
           </div>
         )}
         <div className={styles["product__image"]}>
-          <Link to={`/products/${category}(id)${id}`} onClick={scrollTop}>
+          <Link to={`/products/${validCategory}(id)${id}`} onClick={scrollTop}>
             <img src={image} alt="image" />
           </Link>
         </div>

@@ -1,9 +1,12 @@
 import { memo } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import RatingStar from "../RatingStar/RatingStar";
 import { toggleLike, addToCart } from "../../redux/user/reducers";
 import firstLetterUpperCase from "../../utils/firstLetterUpperCase";
+import { scrollTop } from "../../utils/scrollTop";
+import { joinStringWithoutSpace } from "../../utils/joinStringWithoutSpace";
 import LikeIcon from "../../ui/LikeIcon";
 import { LikeOrCart } from "../../types/types";
 
@@ -83,13 +86,15 @@ const ProductListItem = memo(function ProductListItem({
 
   const ratingStar = Math.round(rating);
 
+  const validCategory = joinStringWithoutSpace(category);
+
   return (
     <div className={styles["product"]}>
       <div className={styles["product__box"]}>
         <div className={styles["product__image"]}>
-          <a href="#">
+          <Link to={`/products/${validCategory}(id)${id}`} onClick={scrollTop}>
             <img src={image} alt="image" />
-          </a>
+          </Link>
         </div>
         <div className={styles["product__box-item"]}>
           <span className={styles["product__star"]}>
