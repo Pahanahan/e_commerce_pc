@@ -5,3 +5,10 @@
   padding-bottom: 35px;
   border-bottom: 1px solid #ffffff3d;
 }
+
+@media (max-width: 1200px) {
+  .footer-list {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

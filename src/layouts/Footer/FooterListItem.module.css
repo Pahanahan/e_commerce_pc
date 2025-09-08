@@ -23,3 +23,15 @@
   color: #01a4ff;
   text-decoration: none;
 }
+
+@media (max-width: 767px) {
+  .footer-list__item-link {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-list__item-link {
+    font-size: 10px;
+  }
+}

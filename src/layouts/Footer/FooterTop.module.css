@@ -47,3 +47,52 @@
   border-radius: 25px;
   border: none;
 }
+
+@media (max-width: 1200px) {
+  .footer-top {
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .footer-top__form {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .footer-top__input {
+    width: 250px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-top {
+    margin-bottom: 30px;
+  }
+
+  .footer-top__title {
+    font-size: 24px;
+  }
+
+  .footer-top__text {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 650px) {
+  .footer-top {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .footer-top__title {
+    font-size: 20px;
+  }
+
+  .footer-top__text {
+    font-size: 12px;
+  }
+}

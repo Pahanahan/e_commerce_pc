@@ -12,32 +12,60 @@ function FooterBottom() {
   return (
     <div className={styles["footer-bottom"]}>
       <div>
-        <a href="https://www.facebook.com/" target="_blank">
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src={facebook} alt="Facebook" />
         </a>
-        <a href="https://www.instagram.com/" target="_blank">
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src={instagram} alt="Instagram" />
         </a>
       </div>
       <div className={styles["footer-bottom__payment"]}>
-        <a href="#">
+        <a
+          href="https://www.paypal.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src={paypal} alt="PayPal" />
         </a>
-        <a href="#">
+        <a
+          href="https://usa.visa.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src={visa} alt="Visa" />
         </a>
-        <a href="#">
-          <img src={maestro} alt="PayPal" />
+        <a
+          href="https://www.mastercardservices.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={maestro} alt="Master Card" />
         </a>
-        <a href="#">
-          <img src={discover} alt="Visa" />
+        <a
+          href="https://www.discover.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={discover} alt="Discover" />
         </a>
-        <a href="#">
-          <img src={americanexpress} alt="Visa" />
+        <a
+          href="https://www.americanexpress.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img src={americanexpress} alt="American Express" />
         </a>
       </div>
       <p className={styles["footer-bottom__text"]}>
-        Copyright © 2020 Shop Pty. Ltd.
+        Copyright © 2025 Shop Pty. Ltd.
       </p>
     </div>
   );

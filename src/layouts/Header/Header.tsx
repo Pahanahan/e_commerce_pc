@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import Menu from "../Menu/Menu";
 import WorkTime from "./WorkTime";
@@ -33,9 +34,9 @@ function Header() {
         </div>
         <div className={styles["header__contacts"]}>
           Visit our showroom in 1234 Street Adress City Address, 1234
-          <a className={styles["header__contacts-link"]} href="/contact">
+          <Link className={styles["header__contacts-link"]} to="/contacts">
             Contact Us
-          </a>
+          </Link>
         </div>
         <div className={styles["header__links"]}>
           <a className={styles["header__links-phone"]} href="tel:0012345678">
