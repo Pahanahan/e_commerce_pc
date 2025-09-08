@@ -11,14 +11,33 @@
   font-weight: 600;
   font-size: 12px;
   padding: 8px 10px;
+  z-index: 3;
+  position: relative;
 }
 
 .header__time,
-.header__contacts,
 .header__links {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.header__time {
+  cursor: pointer;
+}
+
+.header__time-info {
+  content: "";
+  position: absolute;
+  top: 36px;
+}
+
+.header__contacts {
+  text-align: center;
+}
+
+.header__contacts a {
+  margin-left: 5px;
 }
 
 .header__links {
@@ -54,4 +73,26 @@
 
 .header__links {
   color: #fff;
+}
+
+@media (max-width: 1000px) {
+  .header-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .header__time {
+    order: 3;
+  }
+  .header__time-info {
+    top: 73.5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .header-container {
+    font-size: 10px;
+  }
+  .header__time-info {
+    top: 71px;
+  }
 }

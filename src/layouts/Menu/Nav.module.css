@@ -1,14 +1,21 @@
 .nav {
+  background-color: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.nav__items {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 23px;
+  transition: all 2s;
 }
 
-.nav__btn {
-  font-size: 14px;
+.nav__link {
   color: #000;
   font-weight: 600;
+  text-align: center;
   cursor: pointer;
   border: none;
   background-color: transparent;
@@ -16,9 +23,15 @@
   transition: all 0.4s;
 }
 
-.nav__btn:hover {
+.nav__link:hover {
   color: #0156ff;
   border: 2px solid #0156ff;
   border-radius: 20px;
   padding: 8px 25px;
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    display: none;
+  }
 }

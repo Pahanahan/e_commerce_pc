@@ -12,12 +12,12 @@ function Home() {
     <>
       <HomeSlider />
       <NewProductsSlider />
-      <BuyNowPayLater background={"#F5F7FF"} />
-      <ProductCategories />
-      <Partners />
-      <InstagramNews />
-      <Comments />
-      <BenefitsSection background={"white"} />
+      {/* <BuyNowPayLater background={"#F5F7FF"} /> */}
+      {/* <ProductCategories /> */}
+      {/* <Partners /> */}
+      {/* <InstagramNews /> */}
+      {/* <Comments /> */}
+      {/* <BenefitsSection background={"white"} /> */}
     </>
   );
 }

@@ -1,6 +1,7 @@
 import Logo from "./Logo";
 import Nav from "./Nav";
 import MenuActions from "./MenuActions";
+import MobileMenu from "./MobileMenu";
 
 import styles from "./Menu.module.css";
 
@@ -11,6 +12,7 @@ function Menu() {
         <Logo />
         <Nav />
         <MenuActions />
+        <MobileMenu />
       </div>
     </div>
   );

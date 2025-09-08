@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 import Menu from "../Menu/Menu";
+import WorkTime from "./WorkTime";
+import workDays from "../../data/work-days.json";
 
 import facebook from "../../assets/icons/facebook.svg";
 import instagram from "../../assets/icons/instagram.svg";
@@ -6,15 +10,26 @@ import arrowdown from "../../assets/icons/arrow-down.svg";
 import styles from "./Header.module.css";
 
 function Header() {
+  const [worksInfo, setWorksInfo] = useState<boolean>(false);
+  const workDaysData: [string, string][] = workDays
+    ? Object.entries(workDays)
+    : [["Mon-Thu: ", "unknown"]];
+
+  const weekDay = workDaysData[0]?.[0] || "Mon-Thu: ";
+  const hoursWork = workDaysData[0]?.[1] || "unknown";
+
   return (
     <header className={styles["header"]}>
       <div className={styles["header-container"]}>
-        <div className={styles["header__time"]}>
-          Mon-Thu:
-          <span className={styles["header__time-span"]}>9:00 AM - 5:30 PM</span>
-          <button className={styles["header__time-btn"]}>
+        <div
+          onClick={() => setWorksInfo(!worksInfo)}
+          className={styles["header__time"]}
+        >
+          {weekDay}
+          <span className={styles["header__time-span"]}>{hoursWork}</span>
+          <div className={styles["header__time-btn"]}>
             <img src={arrowdown} />
-          </button>
+          </div>
         </div>
         <div className={styles["header__contacts"]}>
           Visit our showroom in 1234 Street Adress City Address, 1234
@@ -45,6 +60,13 @@ function Header() {
             </a>
           </div>
         </div>
+        {worksInfo ? (
+          <div className={styles["header__time-info"]}>
+            <WorkTime />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
       <Menu />
     </header>

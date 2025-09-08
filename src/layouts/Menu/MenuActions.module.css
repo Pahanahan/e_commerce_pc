@@ -29,3 +29,9 @@
   border-radius: 50%;
   color: #fff;
 }
+
+@media (max-width: 450px) {
+  .menu-action__search {
+    display: none;
+  }
+}
