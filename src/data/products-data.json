@@ -9,11 +9,11 @@
     "oldPrice": 1399.99,
     "currency": "USD",
     "images": [
-      "/images/products/pc/pc-1/1.jpg",
-      "/images/products/pc/pc-1/2.jpg",
-      "/images/products/pc/pc-1/3.jpg",
-      "/images/products/pc/pc-1/4.jpg",
-      "/images/products/pc/pc-1/5.jpg"
+      "images/products/pc/pc-1/1.jpg",
+      "images/products/pc/pc-1/2.jpg",
+      "images/products/pc/pc-1/3.jpg",
+      "images/products/pc/pc-1/4.jpg",
+      "images/products/pc/pc-1/5.jpg"
     ],
     "specs": {
       "Processor": "AMD Ryzen 5 5600X 6-Core",
@@ -37,11 +37,11 @@
     "oldPrice": 1899.99,
     "currency": "USD",
     "images": [
-      "/images/products/pc/pc-2/1.jpg",
-      "/images/products/pc/pc-2/2.jpg",
-      "/images/products/pc/pc-2/3.jpg",
-      "/images/products/pc/pc-2/4.jpg",
-      "/images/products/pc/pc-2/5.jpg"
+      "images/products/pc/pc-2/1.jpg",
+      "images/products/pc/pc-2/2.jpg",
+      "images/products/pc/pc-2/3.jpg",
+      "images/products/pc/pc-2/4.jpg",
+      "images/products/pc/pc-2/5.jpg"
     ],
     "specs": {
       "Processor": "AMD Ryzen 5 5600X 6-Core",
@@ -65,11 +65,11 @@
     "oldPrice": 1359.99,
     "currency": "USD",
     "images": [
-      "/images/products/pc/pc-3/1.jpg",
-      "/images/products/pc/pc-3/2.jpg",
-      "/images/products/pc/pc-3/3.jpg",
-      "/images/products/pc/pc-3/4.jpg",
-      "/images/products/pc/pc-3/5.jpg"
+      "images/products/pc/pc-3/1.jpg",
+      "images/products/pc/pc-3/2.jpg",
+      "images/products/pc/pc-3/3.jpg",
+      "images/products/pc/pc-3/4.jpg",
+      "images/products/pc/pc-3/5.jpg"
     ],
     "specs": {
       "Processor": "Intel Core i7-12700 12-Core",
@@ -93,11 +93,11 @@
     "oldPrice": 1399.99,
     "currency": "USD",
     "images": [
-      "/images/products/pc/pc-4/1.jpg",
-      "/images/products/pc/pc-4/2.jpg",
-      "/images/products/pc/pc-4/3.jpg",
-      "/images/products/pc/pc-4/4.jpg",
-      "/images/products/pc/pc-4/5.jpg"
+      "images/products/pc/pc-4/1.jpg",
+      "images/products/pc/pc-4/2.jpg",
+      "images/products/pc/pc-4/3.jpg",
+      "images/products/pc/pc-4/4.jpg",
+      "images/products/pc/pc-4/5.jpg"
     ],
     "specs": {
       "Processor": "Intel Core i5-12400F",
@@ -121,11 +121,11 @@
     "oldPrice": 1399.99,
     "currency": "USD",
     "images": [
-      "/images/products/pc/pc-5/1.jpg",
-      "/images/products/pc/pc-5/2.jpg",
-      "/images/products/pc/pc-5/3.jpg",
-      "/images/products/pc/pc-5/4.jpg",
-      "/images/products/pc/pc-5/5.jpg"
+      "images/products/pc/pc-5/1.jpg",
+      "images/products/pc/pc-5/2.jpg",
+      "images/products/pc/pc-5/3.jpg",
+      "images/products/pc/pc-5/4.jpg",
+      "images/products/pc/pc-5/5.jpg"
     ],
     "specs": {
       "Processor": "Intel Core i7-13700F (13th Gen)",
@@ -149,11 +149,11 @@
     "oldPrice": 999.99,
     "currency": "USD",
     "images": [
-      "/images/products/laptop/laptop-1/1.jpg",
-      "/images/products/laptop/laptop-1/2.jpg",
-      "/images/products/laptop/laptop-1/3.jpg",
-      "/images/products/laptop/laptop-1/4.jpg",
-      "/images/products/laptop/laptop-1/5.jpg"
+      "images/products/laptop/laptop-1/1.jpg",
+      "images/products/laptop/laptop-1/2.jpg",
+      "images/products/laptop/laptop-1/3.jpg",
+      "images/products/laptop/laptop-1/4.jpg",
+      "images/products/laptop/laptop-1/5.jpg"
     ],
     "specs": {
       "processor": "Intel Core i5-11400H",
@@ -177,11 +177,11 @@
     "oldPrice": 699.99,
     "currency": "USD",
     "images": [
-      "/images/products/laptop/laptop-2/1.jpg",
-      "/images/products/laptop/laptop-2/2.jpg",
-      "/images/products/laptop/laptop-2/3.jpg",
-      "/images/products/laptop/laptop-2/4.jpg",
-      "/images/products/laptop/laptop-2/5.jpg"
+      "images/products/laptop/laptop-2/1.jpg",
+      "images/products/laptop/laptop-2/2.jpg",
+      "images/products/laptop/laptop-2/3.jpg",
+      "images/products/laptop/laptop-2/4.jpg",
+      "images/products/laptop/laptop-2/5.jpg"
     ],
     "specs": {
       "processor": "AMD Ryzen 5 7520U Quad-Core",
@@ -205,11 +205,11 @@
     "oldPrice": 399.99,
     "currency": "USD",
     "images": [
-      "/images/products/laptop/laptop-3/1.jpg",
-      "/images/products/laptop/laptop-3/2.jpg",
-      "/images/products/laptop/laptop-3/3.jpg",
-      "/images/products/laptop/laptop-3/4.jpg",
-      "/images/products/laptop/laptop-3/5.jpg"
+      "images/products/laptop/laptop-3/1.jpg",
+      "images/products/laptop/laptop-3/2.jpg",
+      "images/products/laptop/laptop-3/3.jpg",
+      "images/products/laptop/laptop-3/4.jpg",
+      "images/products/laptop/laptop-3/5.jpg"
     ],
     "specs": {
       "processor": "Intel Celeron N4500",
@@ -233,11 +233,11 @@
     "oldPrice": 499.99,
     "currency": "USD",
     "images": [
-      "/images/products/laptop/laptop-4/1.jpg",
-      "/images/products/laptop/laptop-4/2.jpg",
-      "/images/products/laptop/laptop-4/3.jpg",
-      "/images/products/laptop/laptop-4/4.jpg",
-      "/images/products/laptop/laptop-4/5.jpg"
+      "images/products/laptop/laptop-4/1.jpg",
+      "images/products/laptop/laptop-4/2.jpg",
+      "images/products/laptop/laptop-4/3.jpg",
+      "images/products/laptop/laptop-4/4.jpg",
+      "images/products/laptop/laptop-4/5.jpg"
     ],
     "specs": {
       "processor": "Intel Celeron",
@@ -261,11 +261,11 @@
     "oldPrice": 399.99,
     "currency": "USD",
     "images": [
-      "/images/products/laptop/laptop-5/1.jpg",
-      "/images/products/laptop/laptop-5/2.jpg",
-      "/images/products/laptop/laptop-5/3.jpg",
-      "/images/products/laptop/laptop-5/4.jpg",
-      "/images/products/laptop/laptop-5/5.jpg"
+      "images/products/laptop/laptop-5/1.jpg",
+      "images/products/laptop/laptop-5/2.jpg",
+      "images/products/laptop/laptop-5/3.jpg",
+      "images/products/laptop/laptop-5/4.jpg",
+      "images/products/laptop/laptop-5/5.jpg"
     ],
     "specs": {
       "processor": "Intel Celeron",
@@ -290,11 +290,11 @@
     "oldPrice": 159.99,
     "currency": "USD",
     "images": [
-      "/images/products/monitor/monitor-1/1.jpg",
-      "/images/products/monitor/monitor-1/2.jpg",
-      "/images/products/monitor/monitor-1/3.jpg",
-      "/images/products/monitor/monitor-1/4.jpg",
-      "/images/products/monitor/monitor-1/5.jpg"
+      "images/products/monitor/monitor-1/1.jpg",
+      "images/products/monitor/monitor-1/2.jpg",
+      "images/products/monitor/monitor-1/3.jpg",
+      "images/products/monitor/monitor-1/4.jpg",
+      "images/products/monitor/monitor-1/5.jpg"
     ],
     "specs": {
       "display": "27\" IPS, FHD 1920x1080",
@@ -323,11 +323,11 @@
     "oldPrice": 1099.99,
     "currency": "USD",
     "images": [
-      "/images/products/monitor/monitor-2/1.jpg",
-      "/images/products/monitor/monitor-2/2.jpg",
-      "/images/products/monitor/monitor-2/3.jpg",
-      "/images/products/monitor/monitor-2/4.jpg",
-      "/images/products/monitor/monitor-2/5.jpg"
+      "images/products/monitor/monitor-2/1.jpg",
+      "images/products/monitor/monitor-2/2.jpg",
+      "images/products/monitor/monitor-2/3.jpg",
+      "images/products/monitor/monitor-2/4.jpg",
+      "images/products/monitor/monitor-2/5.jpg"
     ],
     "specs": {
       "display": "32\" OLED, 3840x2160 (4K UHD)",
@@ -356,11 +356,11 @@
     "oldPrice": 149.99,
     "currency": "USD",
     "images": [
-      "/images/products/monitor/monitor-3/1.jpg",
-      "/images/products/monitor/monitor-3/2.jpg",
-      "/images/products/monitor/monitor-3/3.jpg",
-      "/images/products/monitor/monitor-3/4.jpg",
-      "/images/products/monitor/monitor-3/5.jpg"
+      "images/products/monitor/monitor-3/1.jpg",
+      "images/products/monitor/monitor-3/2.jpg",
+      "images/products/monitor/monitor-3/3.jpg",
+      "images/products/monitor/monitor-3/4.jpg",
+      "images/products/monitor/monitor-3/5.jpg"
     ],
     "specs": {
       "display": "24\" VA, FHD 1920x1080, 1500R Curved",
@@ -389,11 +389,11 @@
     "oldPrice": 229.99,
     "currency": "USD",
     "images": [
-      "/images/products/monitor/monitor-4/1.jpg",
-      "/images/products/monitor/monitor-4/2.jpg",
-      "/images/products/monitor/monitor-4/3.jpg",
-      "/images/products/monitor/monitor-4/4.jpg",
-      "/images/products/monitor/monitor-4/5.jpg"
+      "images/products/monitor/monitor-4/1.jpg",
+      "images/products/monitor/monitor-4/2.jpg",
+      "images/products/monitor/monitor-4/3.jpg",
+      "images/products/monitor/monitor-4/4.jpg",
+      "images/products/monitor/monitor-4/5.jpg"
     ],
     "specs": {
       "display": "32\" VA, FHD 1920x1080, 1500R Curved",
@@ -422,11 +422,11 @@
     "oldPrice": 189.99,
     "currency": "USD",
     "images": [
-      "/images/products/monitor/monitor-5/1.jpg",
-      "/images/products/monitor/monitor-5/2.jpg",
-      "/images/products/monitor/monitor-5/3.jpg",
-      "/images/products/monitor/monitor-5/4.jpg",
-      "/images/products/monitor/monitor-5/5.jpg"
+      "images/products/monitor/monitor-5/1.jpg",
+      "images/products/monitor/monitor-5/2.jpg",
+      "images/products/monitor/monitor-5/3.jpg",
+      "images/products/monitor/monitor-5/4.jpg",
+      "images/products/monitor/monitor-5/5.jpg"
     ],
     "specs": {
       "display": "24.5\" Rapid IPS, FHD 1920x1080",
@@ -455,11 +455,11 @@
     "oldPrice": 1699.99,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-1/1.jpg",
-      "/images/products/custom-pc/custom-pc-1/2.jpg",
-      "/images/products/custom-pc/custom-pc-1/3.jpg",
-      "/images/products/custom-pc/custom-pc-1/4.jpg",
-      "/images/products/custom-pc/custom-pc-1/5.jpg"
+      "images/products/custom-pc/custom-pc-1/1.jpg",
+      "images/products/custom-pc/custom-pc-1/2.jpg",
+      "images/products/custom-pc/custom-pc-1/3.jpg",
+      "images/products/custom-pc/custom-pc-1/4.jpg",
+      "images/products/custom-pc/custom-pc-1/5.jpg"
     ],
     "specs": {
       "processor": "AMD Ryzen 7 7800X3D",
@@ -486,11 +486,11 @@
     "oldPrice": 799.99,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-2/1.jpg",
-      "/images/products/custom-pc/custom-pc-2/2.jpg",
-      "/images/products/custom-pc/custom-pc-2/3.jpg",
-      "/images/products/custom-pc/custom-pc-2/4.jpg",
-      "/images/products/custom-pc/custom-pc-2/5.jpg"
+      "images/products/custom-pc/custom-pc-2/1.jpg",
+      "images/products/custom-pc/custom-pc-2/2.jpg",
+      "images/products/custom-pc/custom-pc-2/3.jpg",
+      "images/products/custom-pc/custom-pc-2/4.jpg",
+      "images/products/custom-pc/custom-pc-2/5.jpg"
     ],
     "specs": {
       "processor": "AMD Ryzen 7 5700G",
@@ -517,11 +517,11 @@
     "oldPrice": 1299.99,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-3/1.jpg",
-      "/images/products/custom-pc/custom-pc-3/2.jpg",
-      "/images/products/custom-pc/custom-pc-3/3.jpg",
-      "/images/products/custom-pc/custom-pc-3/4.jpg",
-      "/images/products/custom-pc/custom-pc-3/5.jpg"
+      "images/products/custom-pc/custom-pc-3/1.jpg",
+      "images/products/custom-pc/custom-pc-3/2.jpg",
+      "images/products/custom-pc/custom-pc-3/3.jpg",
+      "images/products/custom-pc/custom-pc-3/4.jpg",
+      "images/products/custom-pc/custom-pc-3/5.jpg"
     ],
     "specs": {
       "processor": "Intel Core i5-10105F",
@@ -549,11 +549,11 @@
     "oldPrice": 1299.99,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-4/1.jpg",
-      "/images/products/custom-pc/custom-pc-4/2.jpg",
-      "/images/products/custom-pc/custom-pc-4/3.jpg",
-      "/images/products/custom-pc/custom-pc-4/4.jpg",
-      "/images/products/custom-pc/custom-pc-4/5.jpg"
+      "images/products/custom-pc/custom-pc-4/1.jpg",
+      "images/products/custom-pc/custom-pc-4/2.jpg",
+      "images/products/custom-pc/custom-pc-4/3.jpg",
+      "images/products/custom-pc/custom-pc-4/4.jpg",
+      "images/products/custom-pc/custom-pc-4/5.jpg"
     ],
     "specs": {
       "processor": "Intel Core i5-13400F",
@@ -581,11 +581,11 @@
     "oldPrice": 1349.99,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-5/1.jpg",
-      "/images/products/custom-pc/custom-pc-5/2.jpg",
-      "/images/products/custom-pc/custom-pc-5/3.jpg",
-      "/images/products/custom-pc/custom-pc-5/4.jpg",
-      "/images/products/custom-pc/custom-pc-5/5.jpg"
+      "images/products/custom-pc/custom-pc-5/1.jpg",
+      "images/products/custom-pc/custom-pc-5/2.jpg",
+      "images/products/custom-pc/custom-pc-5/3.jpg",
+      "images/products/custom-pc/custom-pc-5/4.jpg",
+      "images/products/custom-pc/custom-pc-5/5.jpg"
     ],
     "specs": {
       "processor": "Intel Core i5-13400F",
@@ -613,11 +613,11 @@
     "oldPrice": 899.99,
     "currency": "USD",
     "images": [
-      "/images/products/laptop/laptop-6/1.jpg",
-      "/images/products/laptop/laptop-6/2.jpg",
-      "/images/products/laptop/laptop-6/3.jpg",
-      "/images/products/laptop/laptop-6/4.jpg",
-      "/images/products/laptop/laptop-6/5.jpg"
+      "images/products/laptop/laptop-6/1.jpg",
+      "images/products/laptop/laptop-6/2.jpg",
+      "images/products/laptop/laptop-6/3.jpg",
+      "images/products/laptop/laptop-6/4.jpg",
+      "images/products/laptop/laptop-6/5.jpg"
     ],
     "specs": {
       "processor": "AMD Ryzen 7 3750H",
@@ -642,11 +642,11 @@
     "oldPrice": null,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-6/1.jpg",
-      "/images/products/custom-pc/custom-pc-6/2.jpg",
-      "/images/products/custom-pc/custom-pc-6/3.jpg",
-      "/images/products/custom-pc/custom-pc-6/4.jpg",
-      "/images/products/custom-pc/custom-pc-6/5.jpg"
+      "images/products/custom-pc/custom-pc-6/1.jpg",
+      "images/products/custom-pc/custom-pc-6/2.jpg",
+      "images/products/custom-pc/custom-pc-6/3.jpg",
+      "images/products/custom-pc/custom-pc-6/4.jpg",
+      "images/products/custom-pc/custom-pc-6/5.jpg"
     ],
     "specs": {
       "processor": "AMD Ryzen 7 9700X 8-core / 16-thread, up to 5.5 GHz",
@@ -671,11 +671,11 @@
     "oldPrice": 4799.99,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-7/1.jpg",
-      "/images/products/custom-pc/custom-pc-7/2.jpg",
-      "/images/products/custom-pc/custom-pc-7/3.jpg",
-      "/images/products/custom-pc/custom-pc-7/4.jpg",
-      "/images/products/custom-pc/custom-pc-7/5.jpg"
+      "images/products/custom-pc/custom-pc-7/1.jpg",
+      "images/products/custom-pc/custom-pc-7/2.jpg",
+      "images/products/custom-pc/custom-pc-7/3.jpg",
+      "images/products/custom-pc/custom-pc-7/4.jpg",
+      "images/products/custom-pc/custom-pc-7/5.jpg"
     ],
     "specs": {
       "processor": "Intel Core i9-14900KF (24-core, up to 6.0 GHz)",
@@ -700,11 +700,11 @@
     "oldPrice": 2999.99,
     "currency": "USD",
     "images": [
-      "/images/products/custom-pc/custom-pc-8/1.jpg",
-      "/images/products/custom-pc/custom-pc-8/2.jpg",
-      "/images/products/custom-pc/custom-pc-8/3.jpg",
-      "/images/products/custom-pc/custom-pc-8/4.jpg",
-      "/images/products/custom-pc/custom-pc-8/5.jpg"
+      "images/products/custom-pc/custom-pc-8/1.jpg",
+      "images/products/custom-pc/custom-pc-8/2.jpg",
+      "images/products/custom-pc/custom-pc-8/3.jpg",
+      "images/products/custom-pc/custom-pc-8/4.jpg",
+      "images/products/custom-pc/custom-pc-8/5.jpg"
     ],
     "specs": {
       "processor": "AMD Ryzen 9 5900X (12-core, up to 4.8 GHz)",
@@ -729,10 +729,10 @@
     "oldPrice": 199.99,
     "currency": "USD",
     "images": [
-      "/images/products/smartphones/smartphones-1/1.jpg",
-      "/images/products/smartphones/smartphones-1/2.jpg",
-      "/images/products/smartphones/smartphones-1/3.jpg",
-      "/images/products/smartphones/smartphones-1/4.jpg"
+      "images/products/smartphones/smartphones-1/1.jpg",
+      "images/products/smartphones/smartphones-1/2.jpg",
+      "images/products/smartphones/smartphones-1/3.jpg",
+      "images/products/smartphones/smartphones-1/4.jpg"
     ],
     "specs": {
       "display": "6.6\" Full HD+ Infinity-V (2408 x 1080)",
@@ -758,10 +758,10 @@
     "oldPrice": 49.99,
     "currency": "USD",
     "images": [
-      "/images/products/smartphones/smartphones-2/1.jpg",
-      "/images/products/smartphones/smartphones-2/2.jpg",
-      "/images/products/smartphones/smartphones-2/3.jpg",
-      "/images/products/smartphones/smartphones-2/4.jpg"
+      "images/products/smartphones/smartphones-2/1.jpg",
+      "images/products/smartphones/smartphones-2/2.jpg",
+      "images/products/smartphones/smartphones-2/3.jpg",
+      "images/products/smartphones/smartphones-2/4.jpg"
     ],
     "specs": {
       "display": "6.5\" HD+ Max Vision (1600 x 720)",
@@ -787,11 +787,11 @@
     "oldPrice": 399.99,
     "currency": "USD",
     "images": [
-      "/images/products/smartphones/smartphones-3/1.jpg",
-      "/images/products/smartphones/smartphones-3/2.jpg",
-      "/images/products/smartphones/smartphones-3/3.jpg",
-      "/images/products/smartphones/smartphones-3/4.jpg",
-      "/images/products/smartphones/smartphones-3/5.jpg"
+      "images/products/smartphones/smartphones-3/1.jpg",
+      "images/products/smartphones/smartphones-3/2.jpg",
+      "images/products/smartphones/smartphones-3/3.jpg",
+      "images/products/smartphones/smartphones-3/4.jpg",
+      "images/products/smartphones/smartphones-3/5.jpg"
     ],
     "specs": {
       "display": "6.6\" FHD+ (2400 x 1080), 120Hz",
@@ -818,11 +818,11 @@
     "oldPrice": 549.0,
     "currency": "USD",
     "images": [
-      "/images/products/smartphones/smartphones-4/1.jpg",
-      "/images/products/smartphones/smartphones-4/2.jpg",
-      "/images/products/smartphones/smartphones-4/3.jpg",
-      "/images/products/smartphones/smartphones-4/4.jpg",
-      "/images/products/smartphones/smartphones-4/5.jpg"
+      "images/products/smartphones/smartphones-4/1.jpg",
+      "images/products/smartphones/smartphones-4/2.jpg",
+      "images/products/smartphones/smartphones-4/3.jpg",
+      "images/products/smartphones/smartphones-4/4.jpg",
+      "images/products/smartphones/smartphones-4/5.jpg"
     ],
     "specs": {
       "display": "6.1\" FHD+ OLED, 120Hz",
@@ -849,11 +849,11 @@
     "oldPrice": 279.99,
     "currency": "USD",
     "images": [
-      "/images/products/smartphones/smartphones-5/1.jpg",
-      "/images/products/smartphones/smartphones-5/2.jpg",
-      "/images/products/smartphones/smartphones-5/3.jpg",
-      "/images/products/smartphones/smartphones-5/4.jpg",
-      "/images/products/smartphones/smartphones-5/5.jpg"
+      "images/products/smartphones/smartphones-5/1.jpg",
+      "images/products/smartphones/smartphones-5/2.jpg",
+      "images/products/smartphones/smartphones-5/3.jpg",
+      "images/products/smartphones/smartphones-5/4.jpg",
+      "images/products/smartphones/smartphones-5/5.jpg"
     ],
     "specs": {
       "display": "6.7\" FHD+ (2400x1080)",
@@ -880,11 +880,11 @@
     "oldPrice": 1999.99,
     "currency": "USD",
     "images": [
-      "/images/products/laptop/laptop-7/1.jpg",
-      "/images/products/laptop/laptop-7/2.jpg",
-      "/images/products/laptop/laptop-7/3.jpg",
-      "/images/products/laptop/laptop-7/4.jpg",
-      "/images/products/laptop/laptop-7/5.jpg"
+      "images/products/laptop/laptop-7/1.jpg",
+      "images/products/laptop/laptop-7/2.jpg",
+      "images/products/laptop/laptop-7/3.jpg",
+      "images/products/laptop/laptop-7/4.jpg",
+      "images/products/laptop/laptop-7/5.jpg"
     ],
     "specs": {
       "display": "16\" QHD+ Nebula Display (2560x1600), 240Hz, 500 nits",
@@ -910,11 +910,11 @@
     "oldPrice": 9699.0,
     "currency": "USD",
     "images": [
-      "/images/products/pc/pc-6/1.jpg",
-      "/images/products/pc/pc-6/2.jpg",
-      "/images/products/pc/pc-6/3.jpg",
-      "/images/products/pc/pc-6/4.jpg",
-      "/images/products/pc/pc-6/5.jpg"
+      "images/products/pc/pc-6/1.jpg",
+      "images/products/pc/pc-6/2.jpg",
+      "images/products/pc/pc-6/3.jpg",
+      "images/products/pc/pc-6/4.jpg",
+      "images/products/pc/pc-6/5.jpg"
     ],
     "specs": {
       "processor": "Intel Core Ultra 9 285K (24-core, 3.7–5.5 GHz)",
