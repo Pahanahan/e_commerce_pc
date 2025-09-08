@@ -1,7 +1,8 @@
 .product-wrapper {
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
+  gap: 5px;
 }
 
 .product-wrapper__image {
@@ -35,4 +36,6 @@
 .product-list {
   display: flex;
   align-items: center;
+  overflow: hidden;
+  padding: 3px;
 }

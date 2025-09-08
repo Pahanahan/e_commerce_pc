@@ -30,3 +30,28 @@
   line-height: 140%;
   text-align: center;
 }
+
+@media (max-width: 900px) {
+  .benefit__box {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .benefit__item {
+    padding: 0 5px 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .benefit {
+    padding: 20px 0 20px;
+  }
+  .benefit__item-title {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .benefit__item-title {
+    font-size: 14px;
+  }
+}

@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 import ProductCategoryItem from "./ProductCategoryItem";
+import useWindowWidth from "../../customHooks/useWindowWidth";
 import { Product, State } from "../../types/types";
 
 import custom from "../../assets/images/categories/custom.jpg";
@@ -22,56 +23,51 @@ function ProductCategories() {
     (state: State) => state.products.allProducts
   );
 
-  const productsDataCustom = useMemo(() => {
-    return allProducts
-      .filter((product) => product.category === Categories.CUSTOM_PC)
-      .slice(0, 5);
-  }, [allProducts]);
+  const windowWidth = useWindowWidth();
 
-  const productsDataLaptop = useMemo(() => {
-    return allProducts
-      .filter((product) => product.category === Categories.LAPTOPS)
-      .slice(0, 5);
-  }, [allProducts]);
+  let currentProductInCategory =
+    windowWidth >= 1420
+      ? 5
+      : windowWidth >= 1190
+      ? 4
+      : windowWidth >= 965
+      ? 3
+      : windowWidth >= 740
+      ? 2
+      : windowWidth >= 510
+      ? 1
+      : 0;
 
-  const productsDataPC = useMemo(() => {
-    return allProducts
-      .filter((product) => product.category === Categories.PC)
-      .slice(0, 5);
-  }, [allProducts]);
-
-  const productsDataMonitor = useMemo(() => {
-    return allProducts
-      .filter((product) => product.category === Categories.MONITORS)
-      .slice(0, 5);
-  }, [allProducts]);
-
-  const textArray = ["Custome Builds", "Laptops", "Desktops", "Monitors"];
-
-  const arrImages: string[] = [custom, laptop, desctop, monitor];
-
-  const productsData = [
-    productsDataCustom,
-    productsDataLaptop,
-    productsDataPC,
-    productsDataMonitor,
+  const categories = [
+    { type: Categories.CUSTOM_PC, text: "Custome Builds", image: custom },
+    { type: Categories.LAPTOPS, text: "Laptops", image: laptop },
+    { type: Categories.PC, text: "Desktops", image: desctop },
+    { type: Categories.MONITORS, text: "Monitors", image: monitor },
   ];
 
-  const productsDataMap = productsData.map((item, i) => (
-    <ProductCategoryItem
-      key={i}
-      data={item}
-      image={arrImages[i]}
-      text={textArray[i]}
-    />
-  ));
+  const categoriesMap = useMemo(
+    () =>
+      categories.map((category, i) => {
+        const data = allProducts
+          .filter((product) => product.category === category.type)
+          .slice(0, currentProductInCategory);
+
+        return (
+          <ProductCategoryItem
+            key={i}
+            data={data}
+            image={category.image}
+            text={category.text}
+          />
+        );
+      }),
+    [currentProductInCategory]
+  );
 
   return (
     <div className={styles["product-categories"]}>
       <div className="container">
-        <div className={styles["product-categories__box"]}>
-          {productsDataMap}
-        </div>
+        <div className={styles["product-categories__box"]}>{categoriesMap}</div>
       </div>
     </div>
   );

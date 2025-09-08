@@ -43,7 +43,7 @@ textarea {
   margin: 0 auto;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1000px) {
   body {
     font-size: 13px;
   }

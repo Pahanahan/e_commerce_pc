@@ -4,7 +4,7 @@
 
 .partners__box {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -15,4 +15,16 @@
 
 .partners__img:hover {
   background-color: #f5f7ff;
+}
+
+@media (max-width: 1450px) {
+  .partners__box {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .partners {
+    display: none;
+  }
 }

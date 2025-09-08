@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { RootState } from "../../redux/store";
+
 import ProductItems from "../ProductItems/ProductItems";
 
 import leftarrow from "../../assets/images/new-slider/arrow-left.svg";
@@ -57,7 +58,7 @@ function NewProductsSlider() {
           </button>
           <div
             style={{
-              transform: `translateX(-${currentSlide * 234}px)`,
+              transform: `translateX(-${currentSlide * 227}px)`,
             }}
             className={styles["products-slider__box"]}
           >

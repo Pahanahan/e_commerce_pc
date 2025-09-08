@@ -29,3 +29,21 @@
   color: #272560;
   margin-left: 2px;
 }
+
+@media (max-width: 767px) {
+  .promo__box-text {
+    font-size: 14px;
+  }
+  .promo__box-link {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .promo__box-text {
+    font-size: 12px;
+  }
+  .promo__box-link {
+    font-size: 10px;
+  }
+}

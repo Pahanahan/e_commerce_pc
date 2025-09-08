@@ -10,6 +10,7 @@
 
 .instagram-news__box {
   display: flex;
+  justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -39,4 +40,26 @@
   font-size: 10px;
   text-align: center;
   color: #a2a6b0;
+}
+
+@media (max-width: 767px) {
+  .instagram-news__title {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .instagram-news__title {
+    font-size: 16px;
+  }
+
+  .instagram-news__item-text {
+    font-size: 10px;
+  }
+
+  .instagram-news__item-date {
+    font-size: 8px;
+    text-align: center;
+    color: #a2a6b0;
+  }
 }

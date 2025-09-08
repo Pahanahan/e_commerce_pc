@@ -6,14 +6,13 @@ import styles from "./Footer.module.css";
 
 function Footer() {
   return (
-    // <footer className={styles["footer"]}>
-    //   <div className="container">
-    //     <FooterTop />
-    //     <FooterList />
-    //     <FooterBottom />
-    //   </div>
-    // </footer>
-    <div></div>
+    <footer className={styles["footer"]}>
+      <div className="container">
+        <FooterTop />
+        <FooterList />
+        <FooterBottom />
+      </div>
+    </footer>
   );
 }
 
