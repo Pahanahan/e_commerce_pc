@@ -50,6 +50,7 @@ const ProductSlider = memo(function ProductSlider({ id }: ProductSliderProp) {
     return (
       <div key={img} className={styles["product-slider__item"]}>
         <img src={img} alt="product image" />
+        {/* <img src={`${import.meta.env.BASE_URL}images/${img}`} alt="product image" /> */}
       </div>
     );
   });
