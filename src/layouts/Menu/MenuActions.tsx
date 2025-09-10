@@ -28,7 +28,6 @@ function MenuActions() {
           {currentCart}
         </span>
       </a>
-      {/* <a className={styles["menu-action__user"]} href="#"> */}
       <Link className={styles["menu-action__user"]} to="/login">
         <img src={avatar} alt="cart" />
       </Link>
