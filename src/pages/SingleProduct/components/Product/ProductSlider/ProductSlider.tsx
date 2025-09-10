@@ -30,7 +30,6 @@ const ProductSlider = memo(function ProductSlider({ id }: ProductSliderProp) {
     return allProducts.find((item) => item.id === id);
   }, [allProducts, id]);
   const images: string[] = productById?.images || [defaultImage];
-  console.log(images);
 
   const handleChangeSlide = (num: number): void => {
     setCurrentSlide(num);
