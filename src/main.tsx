@@ -13,7 +13,7 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <BrowserRouter basename="/e_commerce_pc">
+    <BrowserRouter>
       <Provider store={store}>
         <App />
       </Provider>
