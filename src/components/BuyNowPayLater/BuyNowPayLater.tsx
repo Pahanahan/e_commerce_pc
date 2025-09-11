@@ -21,7 +21,12 @@ const BuyNowPayLater = memo(function BuyNowPayLater({
               <strong>own</strong> it now, up to 6 months interest free{" "}
             </span>
             <span>
-              <a className={styles["promo__box-link"]} href="#">
+              <a
+                className={styles["promo__box-link"]}
+                href="https://zip.co/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 learn more
               </a>
             </span>

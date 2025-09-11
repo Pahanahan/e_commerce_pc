@@ -4,3 +4,21 @@
   font-size: 32px;
   margin-bottom: 20px;
 }
+
+@media (max-width: 1000px) {
+  .title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 767px) {
+  .title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 18px;
+  }
+}

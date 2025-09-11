@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
-import { RootState } from "../../redux/store";
-
 import ProductItems from "../ProductItems/ProductItems";
+import useWindowWidth from "../../customHooks/useWindowWidth";
+import { RootState } from "../../redux/store";
 
 import leftarrow from "../../assets/images/new-slider/arrow-left.svg";
 import rightarrow from "../../assets/images/new-slider/arrow-right.svg";
@@ -20,6 +20,9 @@ function NewProductsSlider() {
   const productsLength = useSelector(
     (state: RootState) => state.products.allProducts.length - 5
   );
+
+  const windowWidth = useWindowWidth();
+  const widthProductItem = windowWidth >= 1024 ? 227 : 200;
 
   const handleSlides = (arrow: Arrow): void => {
     if (arrow === Arrow.LEFT) {
@@ -58,7 +61,7 @@ function NewProductsSlider() {
           </button>
           <div
             style={{
-              transform: `translateX(-${currentSlide * 227}px)`,
+              transform: `translateX(-${currentSlide * widthProductItem}px)`,
             }}
             className={styles["products-slider__box"]}
           >

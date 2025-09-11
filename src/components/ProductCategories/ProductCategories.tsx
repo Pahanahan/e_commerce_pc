@@ -30,11 +30,11 @@ function ProductCategories() {
       ? 5
       : windowWidth >= 1190
       ? 4
-      : windowWidth >= 965
+      : windowWidth >= 881
       ? 3
-      : windowWidth >= 740
+      : windowWidth >= 681
       ? 2
-      : windowWidth >= 510
+      : windowWidth >= 476
       ? 1
       : 0;
 

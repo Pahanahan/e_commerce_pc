@@ -16,3 +16,15 @@
 .button:active {
   transform: scale(0.9);
 }
+
+@media (max-width: 767px) {
+  .button {
+    padding: 10px 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .button {
+    padding: 8px 20px;
+  }
+}

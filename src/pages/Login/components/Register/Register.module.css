@@ -11,6 +11,7 @@
 
 .register p {
   font-size: 14px;
+  line-height: 20px;
   font-weight: 300;
   margin-bottom: 24px;
 }
@@ -21,9 +22,9 @@
 
 .register li {
   font-size: 14px;
+  line-height: 20px;
   font-weight: 300;
   margin-left: 20px;
-  margin-bottom: 7px;
 }
 
 .register__text {
@@ -76,4 +77,54 @@
 
 .invalid {
   border: 1px solid red;
+}
+
+@media (max-width: 767px) {
+  .register h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .register p {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .register__label {
+    margin-bottom: 10px;
+  }
+
+  .register__label-text {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+
+  .register__input {
+    padding: 5px 10px;
+  }
+
+  .register__btns {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .register {
+    padding: 20px 30px;
+  }
+
+  .register h3 {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .register p {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .register__input {
+    padding: 2px 10px;
+  }
 }
