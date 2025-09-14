@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { sortByValue } from "../../../../../redux/products/reducers";
+import useClickOutside from "../../../../../customHooks/useClickOutside";
 import { SortOptionsEnum } from "../../../../../types/types";
 
 import styles from "./SortSelector.module.css";
@@ -51,16 +52,7 @@ function SortSelector() {
     setIsOpen((prevState) => !prevState);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest(`.${styles["sort__by"]}`)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+  useClickOutside(setIsOpen, `.${styles["sort__by"]}`, false);
 
   const optionItems = sortOptions.map((item) => (
     <div

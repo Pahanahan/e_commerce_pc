@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import RatingStar from "../../../../components/RatingStar/RatingStar";
 import { toggleLike, addToCart } from "../../../../redux/user/reducers";
 import { LikeOrCart } from "../../../../types/types";
-import { useAppDispatch } from "../../../../customHooks/useAppDispatch";
 
 import check from "../../../../assets/icons/check.svg";
 import call from "../../../../assets/icons/call.svg";

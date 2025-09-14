@@ -18,10 +18,3 @@
     stroke: rgb(253, 88, 88);
   }
 }
-
-/* @media (hover: none) and (pointer: coarse) {
-  .like:hover path,
-  .like:hover circle {
-    stroke: #a2a6b0;
-  }
-} */

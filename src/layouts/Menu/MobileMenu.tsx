@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { MdOutlineMenu } from "react-icons/md";
+
+import useClickOutside from "../../customHooks/useClickOutside";
 
 import styles from "./MobileMenu.module.css";
 
 function MobileMenu() {
   const [hideNav, setHideNav] = useState<boolean>(true);
+  const btnRef = useRef(null);
 
   const btns = (
     <>
@@ -29,9 +32,15 @@ function MobileMenu() {
     </>
   );
 
+  useClickOutside(setHideNav, `.${styles["burger"]}`, true);
+
   return (
     <div className={styles["mobile-menu"]}>
-      <div onClick={() => setHideNav(!hideNav)} className={styles["burger"]}>
+      <div
+        ref={btnRef}
+        onClick={() => setHideNav(!hideNav)}
+        className={styles["burger"]}
+      >
         <MdOutlineMenu fontSize="24px" />
       </div>
       <div

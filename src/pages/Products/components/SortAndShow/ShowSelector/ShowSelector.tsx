@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import useClickOutside from "../../../../../customHooks/useClickOutside";
 import { showCurrentsProducts } from "../../../../../redux/products/reducers";
 
 import styles from "./ShowSelector.module.css";
@@ -41,16 +42,7 @@ function ShowSelector() {
     dispatch(showCurrentsProducts(currentShow));
   }, [currentShow, dispatch]);
 
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      if (!target.closest(`.${styles["show-box"]}`)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, []);
+  useClickOutside(setIsOpen, `.${styles["show-box"]}`, false);
 
   const optionItems = showArray.map((item) => (
     <div
