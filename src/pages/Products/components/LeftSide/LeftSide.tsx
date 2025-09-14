@@ -14,6 +14,7 @@ interface LeftSideProps {
   onSetPriceActiveIndex: Setter<number | null>;
   onBrandActiveIndex: number | null;
   onSetBrandActiveIndex: Setter<number | null>;
+  onSetHasFilters: Setter<boolean>;
 }
 
 function LeftSide({
@@ -23,6 +24,7 @@ function LeftSide({
   onSetPriceActiveIndex,
   onBrandActiveIndex,
   onSetBrandActiveIndex,
+  onSetHasFilters,
 }: LeftSideProps) {
   const [burgerState, setBurgerState] = useState<boolean>(true);
 
@@ -44,6 +46,7 @@ function LeftSide({
         onBrandActiveIndex={onBrandActiveIndex}
         onSetBrandActiveIndex={onSetBrandActiveIndex}
         onBurgerState={burgerState}
+        onSetHasFilters={onSetHasFilters}
       />
     </div>
   );

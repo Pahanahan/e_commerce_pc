@@ -14,7 +14,8 @@ interface FiltersProps {
   onSetPriceActiveIndex: Setter<number | null>;
   onBrandActiveIndex: number | null;
   onSetBrandActiveIndex: Setter<number | null>;
-  onBurgerState: boolean;
+  onBurgerState?: boolean;
+  onSetHasFilters: Setter<boolean>;
 }
 
 function Filters({
@@ -25,6 +26,7 @@ function Filters({
   onBrandActiveIndex,
   onSetBrandActiveIndex,
   onBurgerState,
+  onSetHasFilters,
 }: FiltersProps) {
   return (
     <div
@@ -42,6 +44,7 @@ function Filters({
       <Brands
         onBrandActiveIndex={onBrandActiveIndex}
         onSetBrandActiveIndex={onSetBrandActiveIndex}
+        onSetHasFilters={onSetHasFilters}
       />
       <MyWishList />
       <div className={styles["promo"]}>

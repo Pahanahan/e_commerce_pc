@@ -47,3 +47,28 @@
 .pagination__item-more {
   color: #a2a6b0;
 }
+
+@media (max-width: 767px) {
+  .pagination {
+    gap: 5px;
+    margin-bottom: 40px;
+  }
+
+  .pagination__item {
+    font-size: 10px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .pagination__item--active {
+    font-size: 10px;
+    width: 26px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 500px) {
+  .pagination {
+    margin-bottom: 30px;
+  }
+}

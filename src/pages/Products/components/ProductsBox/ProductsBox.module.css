@@ -5,3 +5,9 @@
   margin-bottom: 25px;
   margin-right: 2px;
 }
+
+@media (max-width: 1024px) {
+  .products-box {
+    gap: 5px;
+  }
+}

@@ -17,3 +17,9 @@
   font-size: 13px;
   line-height: 130%;
 }
+
+@media (max-width: 767px) {
+  .wish-list {
+    display: none;
+  }
+}

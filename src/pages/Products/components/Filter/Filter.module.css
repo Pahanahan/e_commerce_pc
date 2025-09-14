@@ -3,6 +3,7 @@
   flex-direction: column;
   background-color: #f5f7ff;
   padding: 20px 15px;
+  position: relative;
 }
 
 .filter__title {
@@ -97,4 +98,32 @@
 .active {
   background-color: #0156ff;
   color: #fff;
+}
+
+@media (max-width: 767px) {
+  .filter {
+    padding: 15px;
+  }
+
+  .filter__box-item {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .filter__clear-btn {
+    font-size: 12px;
+    padding: 5px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .filter {
+    padding: 10px;
+  }
+
+  .filter__box-item {
+    font-size: 10px;
+    padding: 4px;
+  }
 }

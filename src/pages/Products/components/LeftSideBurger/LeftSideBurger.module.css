@@ -28,3 +28,13 @@
   justify-content: center;
   gap: 3px;
 }
+
+@media (max-width: 1000px) {
+  .burger {
+    padding: 12px;
+  }
+
+  .burger--hidden {
+    width: 38px;
+  }
+}

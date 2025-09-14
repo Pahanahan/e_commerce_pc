@@ -1,0 +1,9 @@
+.promo img {
+  width: 100%;
+}
+
+@media (max-width: 500px) {
+  .promo {
+    display: none;
+  }
+}

@@ -17,3 +17,9 @@
   background-color: transparent;
   padding-top: 5px;
 }
+
+@media (max-width: 767px) {
+  .sort-box__style-btn {
+    display: none;
+  }
+}

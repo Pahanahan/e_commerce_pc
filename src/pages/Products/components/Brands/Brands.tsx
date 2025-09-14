@@ -5,6 +5,8 @@ import {
   deleteBrandFilter,
   applyFilters,
 } from "../../../../redux/products/reducers";
+import useWindowWidth from "../../../../customHooks/useWindowWidth";
+import { scrollTop } from "../../../../utils/scrollTop";
 import { State } from "../../../../types/types";
 
 import roccat from "../../../../assets/images/partners/roccat-min.png";
@@ -18,9 +20,14 @@ import styles from "./Brands.module.css";
 interface BrandsProps {
   onBrandActiveIndex: number | null;
   onSetBrandActiveIndex: React.Dispatch<React.SetStateAction<number | null>>;
+  onSetHasFilters: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }: BrandsProps) {
+function Brands({
+  onBrandActiveIndex,
+  onSetBrandActiveIndex,
+  onSetHasFilters,
+}: BrandsProps) {
   const haveBrandFilter = useSelector(
     (state: State) => state.products.filtersDraft?.brand
   );
@@ -28,6 +35,8 @@ function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }: BrandsProps) {
     (state: State) => state.products.filtersDraft
   );
   const dispatch = useDispatch();
+
+  const windowWidth = useWindowWidth();
 
   const brands: [number, string, string][] = [
     [0, "roccat", roccat],
@@ -50,6 +59,10 @@ function Brands({ onBrandActiveIndex, onSetBrandActiveIndex }: BrandsProps) {
 
   const handleApplyFilters = (): void => {
     dispatch(applyFilters());
+    if (windowWidth <= 767) {
+      onSetHasFilters(false);
+      scrollTop();
+    }
   };
 
   const brandsMap = brands.map((item, i) => (

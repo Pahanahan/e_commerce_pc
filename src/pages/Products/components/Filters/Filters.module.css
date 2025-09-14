@@ -9,3 +9,17 @@
 .filters--hide {
   transform: translateX(-200%);
 }
+
+@media (max-width: 767px) {
+  .filters {
+    transition: none;
+  }
+
+  .filters--hide {
+    transform: translateX(0);
+  }
+
+  .promo {
+    display: none;
+  }
+}

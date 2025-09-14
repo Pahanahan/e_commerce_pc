@@ -18,12 +18,14 @@ interface RightSideProps {
   onSetCategoryActiveIndex: Setter<null | number>;
   onSetPriceActiveIndex: Setter<null | number>;
   onSetBrandActiveIndex: Setter<null | number>;
+  onSetHasFilters: Setter<boolean>;
 }
 
 function RightSide({
   onSetCategoryActiveIndex,
   onSetPriceActiveIndex,
   onSetBrandActiveIndex,
+  onSetHasFilters,
 }: RightSideProps) {
   const [listOrGrid, setListOrGrid] = useState<GridOrList>(GridOrList.GRID);
   const { pageShowProducts } = useSelector(
@@ -33,7 +35,11 @@ function RightSide({
 
   return (
     <div className={styles["right"]}>
-      <SortAndShow onSetListOrGrid={setListOrGrid} listOrGrid={listOrGrid} />
+      <SortAndShow
+        onSetListOrGrid={setListOrGrid}
+        listOrGrid={listOrGrid}
+        onSetHasFilters={onSetHasFilters}
+      />
       <ActiveSorted
         onSetCategoryActiveIndex={onSetCategoryActiveIndex}
         onSetPriceActiveIndex={onSetPriceActiveIndex}

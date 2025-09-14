@@ -48,3 +48,22 @@
 .show-box__option:hover {
   background-color: #0156ff;
 }
+
+@media (max-width: 1000px) {
+  .show-box {
+    padding: 10px 40px 10px 15px;
+    font-size: 11px;
+  }
+
+  .show-box::after {
+    top: 12px;
+  }
+
+  .show-box span {
+    font-size: 11px;
+  }
+
+  .show-box__select {
+    margin: 18px 0 0 -15px;
+  }
+}

@@ -82,3 +82,39 @@
   color: #fff;
   cursor: pointer;
 }
+
+@media (max-width: 767px) {
+  .brands {
+    padding: 15px;
+  }
+
+  .brands__box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-template-columns: none;
+    gap: 3px;
+  }
+
+  .brands__show-all {
+    font-size: 12px;
+    padding: 5px;
+    width: 150px;
+  }
+
+  .brands__apply-box {
+    padding: 30px 0 10px;
+  }
+
+  .brands__apply {
+    font-size: 12px;
+    padding: 5px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 500px) {
+  .brands {
+    padding: 10px;
+  }
+}

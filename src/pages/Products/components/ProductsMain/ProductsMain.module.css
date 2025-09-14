@@ -4,7 +4,13 @@
 
 .products-main__inner {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   overflow: hidden;
   width: 100%;
+}
+
+@media (max-width: 767px) {
+  .products-main__inner {
+    flex-direction: column;
+  }
 }

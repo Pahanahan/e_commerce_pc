@@ -48,3 +48,22 @@
 .sort__option:hover {
   background-color: #0156ff;
 }
+
+@media (max-width: 1000px) {
+  .sort__by {
+    padding: 10px 40px 10px 15px;
+    font-size: 11px;
+  }
+
+  .sort__by::after {
+    top: 12px;
+  }
+
+  .sort__by span {
+    font-size: 11px;
+  }
+
+  .sort__select {
+    margin: 18px 0 0 -15px;
+  }
+}
