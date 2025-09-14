@@ -7,12 +7,21 @@
   transform: scale(1.2);
 }
 
-.like:hover path,
-.like:hover circle {
-  stroke: rgb(253, 88, 88);
-}
-
 .like:active path,
 .like:active circle {
   stroke: red;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .like:hover path,
+  .like:hover circle {
+    stroke: rgb(253, 88, 88);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .like:hover path,
+  .like:hover circle {
+    stroke: #a2a6b0;
+  }
 }
