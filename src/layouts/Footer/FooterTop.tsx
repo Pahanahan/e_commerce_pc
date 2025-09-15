@@ -1,3 +1,5 @@
+import Button from "../../components/Button/Button";
+
 import styles from "./FooterTop.module.css";
 
 function FooterTop() {
@@ -17,9 +19,7 @@ function FooterTop() {
           className={styles["footer-top__input"]}
           placeholder="Your Email"
         />
-        <button className={styles["footer-top__btn"]} type="submit">
-          Subscribe
-        </button>
+        <Button type="submit">Subscribe</Button>
       </form>
     </div>
   );

@@ -5,3 +5,25 @@
   max-width: 570px;
   margin-bottom: 47px;
 }
+
+@media (max-width: 1000px) {
+  .about-product {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-product {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-product {
+    font-size: 12px;
+    line-height: 16px;
+  }
+}

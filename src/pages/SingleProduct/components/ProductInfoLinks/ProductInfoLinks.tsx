@@ -37,7 +37,11 @@ function ProductInfoLinks() {
       <div className="container">
         <div className={styles["product-info__inner"]}>
           <div className={styles["product-info__links"]}>{strArrMap}</div>
-          <img src={girlImage} alt="support image" />
+          <img
+            className={styles["product-info__img"]}
+            src={girlImage}
+            alt="support image"
+          />
         </div>
       </div>
     </div>

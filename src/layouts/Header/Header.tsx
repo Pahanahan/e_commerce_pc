@@ -61,13 +61,12 @@ function Header() {
             </a>
           </div>
         </div>
-        {worksInfo ? (
-          <div className={styles["header__time-info"]}>
-            <WorkTime />
-          </div>
-        ) : (
-          ""
-        )}
+        <div
+          className={`${styles["header__time-info"]} 
+          ${!worksInfo ? styles["header__time-info--hidden"] : ""}`}
+        >
+          <WorkTime />
+        </div>
       </div>
       <Menu />
     </header>

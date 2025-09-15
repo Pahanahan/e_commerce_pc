@@ -32,6 +32,10 @@
   top: 36px;
 }
 
+.header__time-info--hidden {
+  display: none;
+}
+
 .header__contacts {
   text-align: center;
 }

@@ -1,4 +1,7 @@
 .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #0156ff;
   color: #fff;
   padding: 15px 40px;
@@ -19,12 +22,14 @@
 
 @media (max-width: 767px) {
   .button {
-    padding: 10px 30px;
+    padding: 0 30px;
+    height: 38px;
   }
 }
 
 @media (max-width: 500px) {
   .button {
-    padding: 8px 20px;
+    padding: 0 20px;
+    height: 32px;
   }
 }

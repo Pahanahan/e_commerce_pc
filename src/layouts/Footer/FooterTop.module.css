@@ -39,15 +39,6 @@
   color: #fff;
 }
 
-.footer-top__btn {
-  font-weight: 600;
-  color: #fff;
-  background-color: #0156ff;
-  padding: 13px 30px;
-  border-radius: 25px;
-  border: none;
-}
-
 @media (max-width: 1200px) {
   .footer-top {
     align-items: flex-start;

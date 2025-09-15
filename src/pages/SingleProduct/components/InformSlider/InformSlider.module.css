@@ -22,6 +22,7 @@
 
 .inform-slider__text {
   min-width: 435px;
+  padding-left: 115px;
 }
 
 .inform-slider__text h2 {
@@ -29,7 +30,6 @@
   font-weight: 500;
   line-height: 56px;
   color: #fff;
-  padding-left: 115px;
   margin-bottom: 50px;
 }
 
@@ -38,7 +38,6 @@
   font-weight: 300;
   line-height: 26px;
   color: #fff;
-  padding-left: 115px;
   margin-bottom: 30px;
 }
 
@@ -62,4 +61,10 @@
 
 .dot--active {
   background-color: #0156ff;
+}
+
+@media (max-width: 1400px) {
+  .inform-slider {
+    display: none;
+  }
 }

@@ -37,3 +37,31 @@
   font-size: 12px;
   font-weight: 300;
 }
+
+@media (max-width: 1000px) {
+  .product-descr {
+    padding-top: 50px;
+    padding-left: 30px;
+    margin-right: 50px;
+  }
+  .product-descr__title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-descr {
+    padding-top: 30px;
+    padding-left: 0;
+    margin-right: 0;
+  }
+  .product-descr__title {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .product-descr__title {
+    font-size: 16px;
+  }
+}

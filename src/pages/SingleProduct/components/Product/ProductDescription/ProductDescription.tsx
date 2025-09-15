@@ -45,7 +45,7 @@ function ProductDescription({ id, activeTab }: ProductDescriptionProps) {
           <span>Have a Question?</span>
           <Link to={"/contacts"}>Contact Us</Link>
         </div>
-        <div className={styles["product-descr__id"]}>SKU D5515AI</div>
+        <div className={styles["product-descr__id"]}>ID {id}</div>
       </div>
     </div>
   );

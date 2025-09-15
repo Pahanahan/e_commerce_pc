@@ -45,3 +45,16 @@
   align-items: center;
   gap: 13px;
 }
+
+@media (max-width: 767px) {
+  .action-panel__current-select {
+    padding: 3px 3px 3px 15px;
+  }
+}
+
+@media (max-width: 550px) {
+  .action-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+}
