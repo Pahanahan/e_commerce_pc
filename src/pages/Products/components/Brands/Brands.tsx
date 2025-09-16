@@ -61,8 +61,8 @@ function Brands({
     dispatch(applyFilters());
     if (windowWidth <= 767) {
       onSetHasFilters(false);
-      scrollTop();
     }
+    scrollTop();
   };
 
   const brandsMap = brands.map((item, i) => (

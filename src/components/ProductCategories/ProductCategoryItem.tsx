@@ -1,6 +1,13 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import ProductItem from "../ProductItem/ProductItem";
+import {
+  addFilter,
+  applyFilters,
+  deleteFilters,
+} from "../../redux/products/reducers";
+import { scrollTop } from "../../utils/scrollTop";
 import { Product } from "../../types/types";
 import { RootState } from "../../redux/store";
 
@@ -11,14 +18,29 @@ interface ProductCategoryItemProps {
   data: Product[];
   image: string | undefined;
   text: string | undefined;
+  link: string;
 }
 
-function ProductCategoryItem({ data, image, text }: ProductCategoryItemProps) {
+function ProductCategoryItem({
+  data,
+  image,
+  text,
+  link,
+}: ProductCategoryItemProps) {
+  const dispatch = useDispatch();
+
   const styleImg = {
     backgroundImage: `url(${image})`,
   };
 
   const { isLogedIn, users } = useSelector((state: RootState) => state.login);
+
+  const handleAddFilterApplyFilter = (link: string) => {
+    dispatch(deleteFilters());
+    dispatch(addFilter({ type: "category", value: link }));
+    dispatch(applyFilters());
+    scrollTop();
+  };
 
   const productItemMap = data.map((item) => {
     const findUser = users.find((login) => login.login === isLogedIn);
@@ -51,9 +73,13 @@ function ProductCategoryItem({ data, image, text }: ProductCategoryItemProps) {
     <div className={styles["product-wrapper"]}>
       <div className={styles["product-wrapper__image"]} style={styleImg}>
         <div className={styles["product-wrapper__text"]}>{text}</div>
-        <a className={styles["product-wrapper__link"]} href="#">
+        <Link
+          onClick={() => handleAddFilterApplyFilter(link)}
+          to="/products"
+          className={styles["product-wrapper__link"]}
+        >
           See All Products
-        </a>
+        </Link>
       </div>
       <div className={styles["product-list"]}>{productItemMap}</div>
     </div>

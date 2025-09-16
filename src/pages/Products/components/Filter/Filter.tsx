@@ -116,9 +116,13 @@ function Filter({
     }
   });
 
+  console.log(categoriesCount);
+
   const sortedCategoriesCount = Object.entries(categoriesCount).sort(
     (a, b) => b[1] - a[1]
   );
+
+  console.log(sortedCategoriesCount);
 
   const handleAddFilterCategory = (category: string, id: number): void => {
     onSetCategoryActiveIndex(id);

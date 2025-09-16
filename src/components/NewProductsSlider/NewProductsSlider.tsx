@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import ProductItems from "../ProductItems/ProductItems";
+import { deleteFilters } from "../../redux/products/reducers";
+import { scrollTop } from "../../utils/scrollTop";
 import useWindowWidth from "../../customHooks/useWindowWidth";
 import { RootState } from "../../redux/store";
 
@@ -16,10 +19,16 @@ enum Arrow {
 
 function NewProductsSlider() {
   const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const dispatch = useDispatch();
 
   const productsLength = useSelector(
     (state: RootState) => state.products.allProducts.length - 5
   );
+
+  const handleOpenProductsPage = () => {
+    dispatch(deleteFilters());
+    scrollTop();
+  };
 
   const windowWidth = useWindowWidth();
   const widthProductItem = windowWidth >= 1024 ? 227 : 200;
@@ -49,9 +58,13 @@ function NewProductsSlider() {
             <h4 className={styles["products-slider__top-title"]}>
               New Products
             </h4>
-            <a className={styles["products-slider__top-link"]} href="#">
+            <Link
+              onClick={handleOpenProductsPage}
+              to="/products"
+              className={styles["products-slider__top-link"]}
+            >
               See All New Products
-            </a>
+            </Link>
           </div>
           <button
             className={styles["products-slider__arrow-left"]}

@@ -1,38 +1,49 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 
+import {
+  addFilter,
+  applyFilters,
+  deleteFilters,
+} from "../../redux/products/reducers";
+import { scrollTop } from "../../utils/scrollTop";
 import useClickOutside from "../../customHooks/useClickOutside";
+import { navData } from "../../data/nav-data";
 
 import styles from "./MobileMenu.module.css";
 
 function MobileMenu() {
   const [hideNav, setHideNav] = useState<boolean>(true);
   const btnRef = useRef(null);
+  const dispatch = useDispatch();
 
-  const btns = (
-    <>
-      <a href="#" className={styles["mobile-menu__link"]}>
-        Laptops
-      </a>
-      <a href="#" className={styles["mobile-menu__link"]}>
-        Desktop PCs
-      </a>
-      <a href="#" className={styles["mobile-menu__link"]}>
-        Networking Devices
-      </a>
-      <a href="#" className={styles["mobile-menu__link"]}>
-        Printers & Scaners
-      </a>
-      <a href="#" className={styles["mobile-menu__link"]}>
-        PC Parts
-      </a>
-      <a href="#" className={styles["mobile-menu__link"]}>
-        All Other Products
-      </a>
-    </>
+  const handleAddFilterApplyFilters = (filter: string): void => {
+    dispatch(deleteFilters());
+    dispatch(addFilter({ type: "category", value: filter }));
+    dispatch(applyFilters());
+    setHideNav(true);
+    scrollTop();
+  };
+
+  const linksMap = navData.map((item) => (
+    <Link
+      onClick={() => handleAddFilterApplyFilters(item.filter)}
+      key={item.id}
+      to="/products"
+      className={styles["mobile-menu__link"]}
+    >
+      {item.text}
+    </Link>
+  ));
+
+  useClickOutside(
+    setHideNav,
+    `.${styles["burger"]}`,
+    true,
+    `.${styles["mobile-menu__items"]}`
   );
-
-  useClickOutside(setHideNav, `.${styles["burger"]}`, true);
 
   return (
     <div className={styles["mobile-menu"]}>
@@ -48,7 +59,7 @@ function MobileMenu() {
           hideNav ? styles["mobile-menu__items--hidden"] : ""
         }`}
       >
-        {btns}
+        {linksMap}
       </div>
     </div>
   );

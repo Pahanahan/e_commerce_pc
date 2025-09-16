@@ -39,10 +39,25 @@ function ProductCategories() {
       : 0;
 
   const categories = [
-    { type: Categories.CUSTOM_PC, text: "Custome Builds", image: custom },
-    { type: Categories.LAPTOPS, text: "Laptops", image: laptop },
-    { type: Categories.PC, text: "Desktops", image: desctop },
-    { type: Categories.MONITORS, text: "Monitors", image: monitor },
+    {
+      type: Categories.CUSTOM_PC,
+      text: "Custome Builds",
+      image: custom,
+      link: "custom pc",
+    },
+    {
+      type: Categories.LAPTOPS,
+      text: "Laptops",
+      image: laptop,
+      link: "laptops",
+    },
+    { type: Categories.PC, text: "Desktops", image: desctop, link: "PC" },
+    {
+      type: Categories.MONITORS,
+      text: "Monitors",
+      image: monitor,
+      link: "monitors",
+    },
   ];
 
   const categoriesMap = useMemo(
@@ -58,6 +73,7 @@ function ProductCategories() {
             data={data}
             image={category.image}
             text={category.text}
+            link={category.link}
           />
         );
       }),

@@ -20,6 +20,7 @@
   border: none;
   background-color: transparent;
   border: 2px solid transparent;
+  text-decoration: none;
   transition: all 0.4s;
 }
 

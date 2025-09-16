@@ -1,31 +1,40 @@
-// import { useState } from "react";
-// import { MdOutlineMenu } from "react-icons/md";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import {
+  addFilter,
+  applyFilters,
+  deleteFilters,
+} from "../../redux/products/reducers";
+import { scrollTop } from "../../utils/scrollTop";
+import { navData } from "../../data/nav-data";
 
 import styles from "./Nav.module.css";
 
 function Nav() {
-  // const [hideNav, setHideNav] = useState<boolean>(true);
+  const dispatch = useDispatch();
+  const handleAddFilterApplyFilters = (filter: string): void => {
+    dispatch(deleteFilters());
+    dispatch(addFilter({ type: "category", value: filter }));
+    dispatch(applyFilters());
+    scrollTop();
+  };
 
-  const btns = (
-    <>
-      <a className={styles["nav__link"]}>Laptops</a>
-      <a className={styles["nav__link"]}>Desktop PCs</a>
-      <a className={styles["nav__link"]}>Networking Devices</a>
-      <a className={styles["nav__link"]}>Printers & Scaners</a>
-      <a className={styles["nav__link"]}>PC Parts</a>
-      <a className={styles["nav__link"]}>All Other Products</a>
-      {/* <button className={styles["nav__btn"]}>Prepairs</button>
-      <button className={styles["nav__btn"]}>Our Deals</button> */}
-    </>
-  );
+  const linksMap = navData.map((item) => (
+    <Link
+      onClick={() => handleAddFilterApplyFilters(item.filter)}
+      key={item.id}
+      to="/products"
+      className={styles["nav__link"]}
+    >
+      {item.text}
+    </Link>
+  ));
 
   return (
     <div className={styles["nav"]}>
       <div>
-        {/* <div onClick={() => setHideNav(!hideNav)} className={styles["burger"]}>
-          <MdOutlineMenu fontSize="24px" />
-        </div> */}
-        <div className={styles["nav__items"]}>{btns}</div>
+        <div className={styles["nav__items"]}>{linksMap}</div>
       </div>
     </div>
   );
