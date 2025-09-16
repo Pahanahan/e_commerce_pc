@@ -116,27 +116,32 @@ function Filter({
     }
   });
 
-  console.log(categoriesCount);
-
   const sortedCategoriesCount = Object.entries(categoriesCount).sort(
     (a, b) => b[1] - a[1]
   );
 
-  console.log(sortedCategoriesCount);
+  const newSortedCategoriesCount: [string, number, boolean][] =
+    sortedCategoriesCount.map((item) => {
+      if (item[0] === filterProductKeys.category) {
+        return [...item, true];
+      } else {
+        return [...item, false];
+      }
+    });
 
   const handleAddFilterCategory = (category: string, id: number): void => {
     onSetCategoryActiveIndex(id);
     dispatch(addFilter({ type: PriceOrCategory.CATEGORY, value: category }));
   };
 
-  const categoriesCountMap = sortedCategoriesCount.map(
-    ([category, count], i) => (
+  const categoriesCountMap = newSortedCategoriesCount.map(
+    ([category, count, active], i) => (
       <div
         onClick={() => handleAddFilterCategory(category, i)}
         key={category}
         data-category={category}
         className={`${styles["filter__box-item"]} ${
-          onCategoryActiveIndex === i ? styles["active"] : ""
+          onCategoryActiveIndex === i || active ? styles["active"] : ""
         }`}
       >
         <div>{category.toLocaleUpperCase()}</div>
