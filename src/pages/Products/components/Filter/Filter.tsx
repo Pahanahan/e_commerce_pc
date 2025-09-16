@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { addFilter, deleteFilters } from "../../../../redux/products/reducers";
@@ -89,10 +89,13 @@ function Filter({
     );
   });
 
-  const handleFilterPrice = (label: string, id: number): void => {
-    onSetPriceActiveIndex(id);
-    dispatch(addFilter({ type: PriceOrCategory.PRICE, value: label }));
-  };
+  const handleFilterPrice = useCallback(
+    (label: string, id: number): void => {
+      onSetPriceActiveIndex(id);
+      dispatch(addFilter({ type: PriceOrCategory.PRICE, value: label }));
+    },
+    [onSetPriceActiveIndex, dispatch]
+  );
 
   const pricesCountMap = useMemo(
     () =>
@@ -133,10 +136,13 @@ function Filter({
       }
     });
 
-  const handleAddFilterCategory = (category: string, id: number): void => {
-    onSetCategoryActiveIndex(id);
-    dispatch(addFilter({ type: PriceOrCategory.CATEGORY, value: category }));
-  };
+  const handleAddFilterCategory = useCallback(
+    (category: string, id: number): void => {
+      onSetCategoryActiveIndex(id);
+      dispatch(addFilter({ type: PriceOrCategory.CATEGORY, value: category }));
+    },
+    [onSetCategoryActiveIndex, dispatch]
+  );
 
   const categoriesCountMap = useMemo(
     () =>

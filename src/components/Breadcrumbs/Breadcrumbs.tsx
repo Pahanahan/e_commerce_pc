@@ -1,5 +1,5 @@
+import { memo, useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { memo } from "react";
 import { RiArrowDropRightLine } from "react-icons/ri";
 
 import styles from "./Breadcrumbs.module.css";
@@ -13,30 +13,34 @@ const Breadcrumbs = memo(function Breadcrumbs() {
 
   const pathParts: string[] = location.pathname.split("/").slice(1);
 
-  const pathPartsMap = pathParts.map((str, i) => {
-    if (str === "products" && pathParts.length > 1) {
-      return (
-        <div key={i} className={styles["breadcrumbs__item"]}>
-          <Link to="/products">Products</Link>
-          <span style={{ color: "#0156FF" }}>
-            <RiArrowDropRightLine />
-          </span>
-        </div>
-      );
-    } else if (str === "products" && pathParts.length === 1) {
-      return (
-        <div key={i} className={styles["breadcrumbs__item"]}>
-          <span className={styles["breadcrumbs__span"]}>Products</span>
-        </div>
-      );
-    } else {
-      return (
-        <div key={i} className={styles["breadcrumbs__item"]}>
-          <span className={styles["breadcrumbs__span"]}>{str}</span>
-        </div>
-      );
-    }
-  });
+  const pathPartsMap = useMemo(
+    () =>
+      pathParts.map((str, i) => {
+        if (str === "products" && pathParts.length > 1) {
+          return (
+            <div key={i} className={styles["breadcrumbs__item"]}>
+              <Link to="/products">Products</Link>
+              <span style={{ color: "#0156FF" }}>
+                <RiArrowDropRightLine />
+              </span>
+            </div>
+          );
+        } else if (str === "products" && pathParts.length === 1) {
+          return (
+            <div key={i} className={styles["breadcrumbs__item"]}>
+              <span className={styles["breadcrumbs__span"]}>Products</span>
+            </div>
+          );
+        } else {
+          return (
+            <div key={i} className={styles["breadcrumbs__item"]}>
+              <span className={styles["breadcrumbs__span"]}>{str}</span>
+            </div>
+          );
+        }
+      }),
+    [location]
+  );
 
   return (
     <div className={styles["breadcrumbs"]}>

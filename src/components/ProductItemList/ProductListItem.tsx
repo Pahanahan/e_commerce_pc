@@ -105,64 +105,66 @@ const ProductListItem = memo(function ProductListItem({
           </span>
         </div>
       </div>
-      <div className={styles["product__box-second"]}>
-        <div className={styles["product__title"]}>{title}</div>
-        <div className={styles["product__text"]}>{description}</div>
-        <div className={styles["product__prices"]}>
-          {oldPrice ? (
-            <div className={styles["product__oldprice"]}>
-              ${oldPrice.toFixed(2)}
+      <div className={styles["product__box-inner"]}>
+        <div className={styles["product__box-second"]}>
+          <div className={styles["product__title"]}>{title}</div>
+          <div className={styles["product__text"]}>{description}</div>
+          <div className={styles["product__prices"]}>
+            {oldPrice ? (
+              <div className={styles["product__oldprice"]}>
+                ${oldPrice.toFixed(2)}
+              </div>
+            ) : (
+              ""
+            )}
+            <div className={styles["product__price"]}>${price.toFixed(2)}</div>
+          </div>
+          <div className={styles["product__btn"]}>
+            <button
+              onClick={() => handleAddLikeOrAddToCart(LikeOrCart.CART)}
+              type="button"
+              className={styles["product__cart"]}
+            >
+              <img
+                className={styles["product__cart-img"]}
+                src={cartProduct}
+                alt="cart"
+              />
+              {inCartOrNot ? "Remove" : "Add To Cart"}
+            </button>
+          </div>
+        </div>
+        <div className={styles["product__box"]}>
+          <div className={styles["product__specs"]}>
+            <div className={styles["product__specs-key"]}>
+              {firstLetterUpperCase(key1)}
             </div>
-          ) : (
-            ""
-          )}
-          <div className={styles["product__price"]}>${price.toFixed(2)}</div>
-        </div>
-        <div className={styles["product__btn"]}>
-          <button
-            onClick={() => handleAddLikeOrAddToCart(LikeOrCart.CART)}
-            type="button"
-            className={styles["product__cart"]}
-          >
-            <img
-              className={styles["product__cart-img"]}
-              src={cartProduct}
-              alt="cart"
-            />
-            {inCartOrNot ? "Remove" : "Add To Cart"}
-          </button>
-        </div>
-      </div>
-      <div className={styles["product__box"]}>
-        <div className={styles["product__specs"]}>
-          <div className={styles["product__specs-key"]}>
-            {firstLetterUpperCase(key1)}
+            <div className={styles["product__specs-value"]}>{value1}</div>
           </div>
-          <div className={styles["product__specs-value"]}>{value1}</div>
-        </div>
-        <div className={styles["product__specs"]}>
-          <div className={styles["product__specs-key"]}>
-            {firstLetterUpperCase(key2)}
+          <div className={styles["product__specs"]}>
+            <div className={styles["product__specs-key"]}>
+              {firstLetterUpperCase(key2)}
+            </div>
+            <div className={styles["product__specs-value"]}>{value2}</div>
           </div>
-          <div className={styles["product__specs-value"]}>{value2}</div>
-        </div>
-        <div className={styles["product__specs"]}>
-          <div className={styles["product__specs-key"]}>
-            {firstLetterUpperCase(key3)}
+          <div className={styles["product__specs"]}>
+            <div className={styles["product__specs-key"]}>
+              {firstLetterUpperCase(key3)}
+            </div>
+            <div className={styles["product__specs-value"]}>{value3}</div>
           </div>
-          <div className={styles["product__specs-value"]}>{value3}</div>
-        </div>
-        <div className={styles["product__specs"]}>
-          <div className={styles["product__specs-key"]}>
-            {firstLetterUpperCase(key4)}
+          <div className={styles["product__specs"]}>
+            <div className={styles["product__specs-key"]}>
+              {firstLetterUpperCase(key4)}
+            </div>
+            <div className={styles["product__specs-value"]}>{value4}</div>
           </div>
-          <div className={styles["product__specs-value"]}>{value4}</div>
-        </div>
-        <div className={styles["product__specs"]}>
-          <div className={styles["product__specs-key"]}>
-            {firstLetterUpperCase(key5)}
+          <div className={styles["product__specs"]}>
+            <div className={styles["product__specs-key"]}>
+              {firstLetterUpperCase(key5)}
+            </div>
+            <div className={styles["product__specs-value"]}>{value5}</div>
           </div>
-          <div className={styles["product__specs-value"]}>{value5}</div>
         </div>
       </div>
       {availability === "in stock" ? (
