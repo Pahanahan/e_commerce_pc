@@ -3,6 +3,9 @@
   width: 234px;
   flex-shrink: 0;
   transition: all 0.4s;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
 }
 
 .left--hidden {
