@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { addFilter, deleteFilters } from "../../../../redux/products/reducers";
@@ -94,19 +94,23 @@ function Filter({
     dispatch(addFilter({ type: PriceOrCategory.PRICE, value: label }));
   };
 
-  const pricesCountMap = sortedPricesCount.map(([label, count], i) => (
-    <div
-      onClick={() => handleFilterPrice(label, i)}
-      key={label}
-      data-price={label}
-      className={`${styles["filter__box-item"]} ${
-        onPriceActiveIndex === i ? styles["active"] : ""
-      }`}
-    >
-      <div>{label}</div>
-      <div>{count}</div>
-    </div>
-  ));
+  const pricesCountMap = useMemo(
+    () =>
+      sortedPricesCount.map(([label, count], i) => (
+        <div
+          onClick={() => handleFilterPrice(label, i)}
+          key={label}
+          data-price={label}
+          className={`${styles["filter__box-item"]} ${
+            onPriceActiveIndex === i ? styles["active"] : ""
+          }`}
+        >
+          <div>{label}</div>
+          <div>{count}</div>
+        </div>
+      )),
+    [onPriceActiveIndex]
+  );
 
   const categoriesCount: ObjectCount = {};
 
@@ -134,20 +138,22 @@ function Filter({
     dispatch(addFilter({ type: PriceOrCategory.CATEGORY, value: category }));
   };
 
-  const categoriesCountMap = newSortedCategoriesCount.map(
-    ([category, count, active], i) => (
-      <div
-        onClick={() => handleAddFilterCategory(category, i)}
-        key={category}
-        data-category={category}
-        className={`${styles["filter__box-item"]} ${
-          onCategoryActiveIndex === i || active ? styles["active"] : ""
-        }`}
-      >
-        <div>{category.toLocaleUpperCase()}</div>
-        <div>{count}</div>
-      </div>
-    )
+  const categoriesCountMap = useMemo(
+    () =>
+      newSortedCategoriesCount.map(([category, count, active], i) => (
+        <div
+          onClick={() => handleAddFilterCategory(category, i)}
+          key={category}
+          data-category={category}
+          className={`${styles["filter__box-item"]} ${
+            onCategoryActiveIndex === i || active ? styles["active"] : ""
+          }`}
+        >
+          <div>{category.toLocaleUpperCase()}</div>
+          <div>{count}</div>
+        </div>
+      )),
+    [onCategoryActiveIndex]
   );
 
   const handleDeleteFilters = () => {
