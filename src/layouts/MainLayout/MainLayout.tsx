@@ -7,7 +7,7 @@ import Products from "../../pages/Products/Products";
 import About from "../../pages/About";
 import Cart from "../../pages/Cart";
 import Checkout from "../../pages/Checkout";
-import Contacts from "../../pages/Contacts";
+import Contacts from "../../pages/Contacts/Contacts";
 import Dashboard from "../../pages/Dashboard";
 import SingleProduct from "../../pages/SingleProduct/SingleProduct";
 import Login from "../../pages/Login/Login";

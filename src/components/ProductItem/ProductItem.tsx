@@ -7,7 +7,7 @@ import { toggleLike, addToCart } from "../../redux/user/reducers";
 import { LikeOrCart } from "../../types/types";
 import { scrollTop } from "../../utils/scrollTop";
 import { joinStringWithoutSpace } from "../../utils/joinStringWithoutSpace";
-import LikeIcon from "../../ui/LikeIcon";
+import LikeIcon from "../../ui/LikeIcon/LikeIcon";
 
 import check from "../../assets/icons/check.svg";
 import call from "../../assets/icons/call.svg";

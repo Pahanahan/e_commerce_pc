@@ -7,7 +7,7 @@ import { RootState } from "../../../../../redux/store";
 
 import defaultImage from "../../../../../assets/images/default/default-product-img.png";
 import styles from "./ProductSlider.module.css";
-import LikeIcon from "../../../../../ui/LikeIcon";
+import LikeIcon from "../../../../../ui/LikeIcon/LikeIcon";
 
 interface ProductSliderProp {
   id: number;

@@ -2,6 +2,8 @@ import { memo, useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { RiArrowDropRightLine } from "react-icons/ri";
 
+import firstLetterUpperCase from "../../utils/firstLetterUpperCase";
+
 import styles from "./Breadcrumbs.module.css";
 
 interface Location {
@@ -34,7 +36,9 @@ const Breadcrumbs = memo(function Breadcrumbs() {
         } else {
           return (
             <div key={i} className={styles["breadcrumbs__item"]}>
-              <span className={styles["breadcrumbs__span"]}>{str}</span>
+              <span className={styles["breadcrumbs__span"]}>
+                {firstLetterUpperCase(str)}
+              </span>
             </div>
           );
         }
