@@ -1,10 +1,9 @@
 import { useState, useRef, useCallback } from "react";
-import { IoClose } from "react-icons/io5";
-
 import FormField from "../../../../ui/FormField/FormField";
 import Input from "../../../../ui/Input/Input";
 import Textarea from "../../../../ui/Textarea/Textarea";
 import Button from "../../../../components/Button/Button";
+import Modal from "../../../../ui/Modal/Modal";
 import {
   changeName,
   changeEmail,
@@ -144,7 +143,7 @@ function ContactsForm() {
     </div>
   );
 
-  const handlerCloseModal = (e: React.MouseEvent) => {
+  const handleCloseModal = (e: React.MouseEvent) => {
     if (e.target === modalRef.current) {
       setModalSendler(false);
     }
@@ -224,22 +223,13 @@ function ContactsForm() {
       <Button type="submit">Submit</Button>
 
       {modalSendler && (
-        <div
+        <Modal
           ref={modalRef}
-          className={styles["modal-sendler"]}
-          onClick={(e) => handlerCloseModal(e)}
-        >
-          <div className={styles["modal-sendler__box"]}>
-            <IoClose
-              className={styles["modal-sendler__close"]}
-              onClick={() => setModalSendler(false)}
-            />
-            <p className={styles["modal-sendler__text"]}>Message Send</p>
-            <p className={styles["modal-sendler__text-thanks"]}>
-              Thank you for your message!
-            </p>
-          </div>
-        </div>
+          onClose={() => setModalSendler(false)}
+          onBackdropClick={(e) =>
+            e.target === modalRef.current && setModalSendler(false)
+          }
+        />
       )}
     </form>
   );

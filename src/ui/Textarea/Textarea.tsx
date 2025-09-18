@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef } from "react";
+import { ChangeEvent, forwardRef, memo } from "react";
 
 import styles from "./Textarea.module.css";
 
@@ -27,4 +27,4 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   }
 );
 
-export default Textarea;
+export default memo(Textarea);

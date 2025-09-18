@@ -1,4 +1,4 @@
-import { ChangeEvent, forwardRef } from "react";
+import { ChangeEvent, forwardRef, memo } from "react";
 
 import styles from "./Input.module.css";
 
@@ -27,4 +27,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-export default Input;
+export default memo(Input);
