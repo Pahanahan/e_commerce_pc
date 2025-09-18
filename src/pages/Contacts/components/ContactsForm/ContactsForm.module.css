@@ -4,14 +4,16 @@
 
 .contacts-form__text p {
   font-size: 16px;
-  line-height: 30px;
   font-weight: 300;
+  line-height: 20px;
+  margin-bottom: 15px;
 }
 
 .contacts-form__inputs {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 0 30px;
 }
 
 .contacts-form__input-box {
@@ -21,4 +23,28 @@
 .contacts-form__incorrect {
   color: red;
   margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+  .contacts-form__text {
+    margin-bottom: 15px;
+  }
+
+  .contacts-form__text p {
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .contacts-form__input-box {
+    width: 100%;
+  }
+
+  .contacts-form__text p {
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 8px;
+  }
 }

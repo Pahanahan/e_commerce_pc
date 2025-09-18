@@ -12,12 +12,8 @@ import styles from "./Header.module.css";
 
 function Header() {
   const [worksInfo, setWorksInfo] = useState<boolean>(false);
-  const workDaysData: [string, string][] = workDays
-    ? Object.entries(workDays)
-    : [["Mon-Thu: ", "unknown"]];
 
-  const weekDay = workDaysData[0]?.[0] || "Mon-Thu: ";
-  const hoursWork = workDaysData[0]?.[1] || "unknown";
+  const hoursWork = workDays["Mon-Thu: "];
 
   return (
     <header className={styles["header"]}>
@@ -26,7 +22,7 @@ function Header() {
           onClick={() => setWorksInfo(!worksInfo)}
           className={styles["header__time"]}
         >
-          {weekDay}
+          Mon-Thu:
           <span className={styles["header__time-span"]}>{hoursWork}</span>
           <div className={styles["header__time-btn"]}>
             <img src={arrowdown} />

@@ -1,5 +1,11 @@
 {
+  "address": "1234 Street Adress City Address, 1234",
+  "phone": "(00)1234 5678",
+  "email": "shop@email.com",
   "Mon-Thu: ": "9:00 AM - 5:30 PM",
   "Fr: ": "9:00 AM - 6:00 PM",
-  "Sat: ": "11:00 AM - 5:00 PM"
+  "Sat: ": "11:00 AM - 5:00 PM",
+  "Monday - Thusday: ": "9:00 AM - 5:30 PM",
+  "Friday: ": "9:00 AM - 6:00 PM",
+  "Saturday: ": "11:00 AM - 5:00 PM"
 }

@@ -5,5 +5,22 @@
 .contacts-main__inner {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+@media (max-width: 1000px) {
+  .contacts-main {
+    margin-bottom: 60px;
+  }
+
+  .contacts-main__inner {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 900px) {
+  .contacts-main__inner {
+    flex-direction: column;
+  }
 }
