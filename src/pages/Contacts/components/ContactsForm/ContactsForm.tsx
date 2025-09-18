@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import { IoClose } from "react-icons/io5";
 
 import FormField from "../../../../ui/FormField/FormField";
@@ -88,21 +88,33 @@ function ContactsForm() {
     }
   };
 
-  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    changeName(e, setName, setNameValid);
-  };
+  const handleChangeName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      changeName(e, setName, setNameValid);
+    },
+    [setName, setNameValid]
+  );
 
-  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    changeEmail(e, setEmail, setEmailValid);
-  };
+  const handleChangeEmail = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      changeEmail(e, setEmail, setEmailValid);
+    },
+    [setEmail, setEmailValid]
+  );
 
-  const handleChangePhone = (e: React.ChangeEvent<HTMLInputElement>) => {
-    changePhone(e, setPhone, setPhoneValid);
-  };
+  const handleChangePhone = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      changePhone(e, setPhone, setPhoneValid);
+    },
+    [setPhone, setPhoneValid]
+  );
 
-  const handleChangeTextarea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    changeTextarea(e, setTextarea, setTextareaValid);
-  };
+  const handleChangeTextarea = useCallback(
+    (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      changeTextarea(e, setTextarea, setTextareaValid);
+    },
+    [setTextarea, setTextareaValid]
+  );
 
   const classNameRequired = <span style={{ color: "red" }}> *</span>;
 
