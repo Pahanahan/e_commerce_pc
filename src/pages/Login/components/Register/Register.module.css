@@ -27,56 +27,9 @@
   margin-left: 20px;
 }
 
-.register__text {
-  font-size: 14px;
-  font-weight: 300;
-  margin-bottom: 24px;
-}
-
-.register__label {
-  display: block;
-  margin-bottom: 15px;
-}
-
-.register__label-text {
-  font-size: 13px;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.register__input {
-  border: 1px solid #a2a6b0;
-  border-radius: 4px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 10px 15px;
-  width: 100%;
-}
-
-.register__input::placeholder {
-  color: #a2a6b0;
-  font-size: 14px;
-  font-weight: 300;
-}
-
-.register__forgot-btn {
-  border: none;
-  background-color: transparent;
-  padding: 0;
-  margin: 0;
-  color: #0156ff;
-  margin-left: 23px;
-}
-
 .register__incorrect {
   color: red;
   margin-bottom: 10px;
-}
-
-.invalid {
-  border: 1px solid red;
 }
 
 @media (max-width: 767px) {
@@ -88,19 +41,6 @@
   .register p {
     font-size: 12px;
     line-height: 16px;
-  }
-
-  .register__label {
-    margin-bottom: 10px;
-  }
-
-  .register__label-text {
-    font-size: 12px;
-    margin-bottom: 5px;
-  }
-
-  .register__input {
-    padding: 5px 10px;
   }
 
   .register__btns {
@@ -122,9 +62,5 @@
   .register p {
     font-size: 10px;
     line-height: 14px;
-  }
-
-  .register__input {
-    padding: 2px 10px;
   }
 }

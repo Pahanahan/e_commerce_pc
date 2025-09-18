@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
+import FormField from "../../../../ui/FormField/FormField";
+import Input from "../../../../ui/Input/Input";
 import { changeEmail, changePassword } from "../../../../utils/validation";
 import { scrollTop } from "../../../../utils/scrollTop";
 import { register } from "../../../../redux/user/reducers";
@@ -141,35 +143,14 @@ function Register() {
     changePassword(e, setConfirmPassword, setPasswordConfirmValid);
   };
 
-  const classNameInputEmail = `${styles["register__input"]} ${
-    !emailValid && email ? styles.invalid : ""
-  }`;
+  const classNameInputEmail = !emailValid && email ? true : false;
 
-  const classNameInputPassword = `${styles["register__input"]} ${
-    !passwordValid && password ? styles.invalid : ""
-  }`;
+  const classNameInputPassword = !passwordValid && password ? true : false;
 
-  const classNameInputConfirmPassword = `${styles["register__input"]} ${
-    !passwordConfirmValid && confirmPassword ? styles.invalid : ""
-  }`;
+  const classNameInputConfirmPassword =
+    !passwordConfirmValid && confirmPassword ? true : false;
 
-  const classNameEmailValid = !emailValid ? (
-    <span style={{ color: "red" }}> *</span>
-  ) : (
-    ""
-  );
-
-  const classNamePasswordValid = !passwordValid ? (
-    <span style={{ color: "red" }}> *</span>
-  ) : (
-    ""
-  );
-
-  const classNameConfirmPasswordValid = !passwordConfirmValid ? (
-    <span style={{ color: "red" }}> *</span>
-  ) : (
-    ""
-  );
+  const classNameRequired = <span style={{ color: "red" }}> *</span>;
 
   const incorrectEmailMessage = !correctEmail && (
     <div className={styles["register__incorrect"]}>
@@ -203,10 +184,9 @@ function Register() {
       <p>Creating an account has many benefits:</p>
       {createAccount ? (
         <form onSubmit={handleSubmitForm} className={styles["register__form"]}>
-          <label className={styles["register__label"]}>
-            <span className={styles["register__label-text"]}>Email</span>
-            {classNameEmailValid}
-            <input
+          <FormField label="Email">
+            {classNameRequired}
+            <Input
               onChange={handleChangeEmail}
               value={email}
               ref={emailRef}
@@ -215,12 +195,11 @@ function Register() {
               type="email"
               placeholder="Your email"
             />
-          </label>
+          </FormField>
           {incorrectEmailMessage}
-          <label className={styles["register__label"]}>
-            <span className={styles["register__label-text"]}>Password</span>
-            {classNamePasswordValid}
-            <input
+          <FormField label="Password">
+            {classNameRequired}
+            <Input
               onChange={handleChangePassword}
               value={password}
               ref={passwordRef}
@@ -229,14 +208,11 @@ function Register() {
               type="password"
               placeholder="Your password"
             />
-          </label>
+          </FormField>
           {incorrectPasswordMessage}
-          <label className={styles["register__label"]}>
-            <span className={styles["register__label-text"]}>
-              Confirm Password
-            </span>
-            {classNameConfirmPasswordValid}
-            <input
+          <FormField label="Confirm Password">
+            {classNameRequired}
+            <Input
               onChange={handleChangeConfirmPassword}
               value={confirmPassword}
               ref={passwordConfirmRef}
@@ -245,7 +221,7 @@ function Register() {
               type="password"
               placeholder="Confirm password"
             />
-          </label>
+          </FormField>
           {incorrectConfirmPasswordMessage}
           {incorrectOverlapPasswordsMessage}
           {incorrectUnicEmail}

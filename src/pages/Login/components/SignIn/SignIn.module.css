@@ -16,34 +16,6 @@
   margin-bottom: 24px;
 }
 
-.sign-in__label {
-  display: block;
-  margin-bottom: 15px;
-}
-
-.sign-in__label-text {
-  font-size: 13px;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 10px;
-}
-
-.sign-in__input {
-  border: 1px solid #a2a6b0;
-  border-radius: 4px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 10px 15px;
-  width: 100%;
-}
-
-.sign-in__input::placeholder {
-  color: #a2a6b0;
-  font-size: 14px;
-  font-weight: 300;
-}
-
 .sign-in__forgot-btn {
   border: none;
   background-color: transparent;
@@ -60,10 +32,6 @@
 
 .sign-in__btns {
   display: flex;
-}
-
-.invalid {
-  border: 1px solid red;
 }
 
 @media (max-width: 850px) {
@@ -87,19 +55,6 @@
     font-size: 12px;
     line-height: 16px;
   }
-
-  .sign-in__label {
-    margin-bottom: 10px;
-  }
-
-  .sign-in__label-text {
-    font-size: 12px;
-    margin-bottom: 5px;
-  }
-
-  .sign-in__input {
-    padding: 5px 10px;
-  }
 }
 
 @media (max-width: 500px) {
@@ -115,9 +70,5 @@
   .sign-in__text {
     font-size: 10px;
     line-height: 14px;
-  }
-
-  .sign-in__input {
-    padding: 2px 10px;
   }
 }

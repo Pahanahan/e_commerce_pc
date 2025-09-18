@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import Button from "../../../../components/Button/Button";
+import FormField from "../../../../ui/FormField/FormField";
+import Input from "../../../../ui/Input/Input";
 import { scrollTop } from "../../../../utils/scrollTop";
 import { signIn } from "../../../../redux/user/reducers";
 import { changeEmail, changePassword } from "../../../../utils/validation";
@@ -26,17 +28,21 @@ function SignIn() {
   const [passwordValid, setPasswordValid] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
   const [userNotFound, setUserNotFound] = useState<boolean>(true);
   const [correctEmail, setCorrectEmail] = useState<boolean>(true);
   const [correctPassword, setCorrectPassword] = useState<boolean>(true);
+
   const emailRef = useRef<HTMLInputElement | null>(null);
   const passwordRef = useRef<HTMLInputElement | null>(null);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmitForm = useCallback(
     (e: React.FormEvent<HTMLFormElement>): void => {
       e.preventDefault();
+
       if (!emailValid && !passwordValid) {
         if (emailRef.current) {
           emailRef.current.focus();
@@ -107,29 +113,14 @@ function SignIn() {
     changePassword(e, setPassword, setPasswordValid);
   };
 
-  const classNameInputEmail = `${styles["sign-in__input"]} ${
-    !emailValid && email ? styles.invalid : ""
-  }`;
+  const classNameInputEmail = !emailValid && email ? true : false;
 
-  const classNameInputPassword = `${styles["sign-in__input"]} ${
-    !passwordValid && password ? styles.invalid : ""
-  }`;
+  const classNameInputPassword = !passwordValid && password ? true : false;
 
-  const classNameEmailValid = !emailValid ? (
-    <span style={{ color: "red" }}> *</span>
-  ) : (
-    ""
-  );
-
-  const classNamePasswordValid = !passwordValid ? (
-    <span style={{ color: "red" }}> *</span>
-  ) : (
-    ""
-  );
+  const classNameRequired = <span style={{ color: "red" }}> *</span>;
 
   const incorrectEmailMessage = !correctEmail && (
     <div className={styles["sign-in__incorrect"]}>
-      {" "}
       Please enter a valid email address.
     </div>
   );
@@ -149,10 +140,9 @@ function SignIn() {
         If you have an account, sign in with your email address.
       </p>
       <form onSubmit={handleSubmitForm} className={styles["sign-in__form"]}>
-        <label className={styles["sign-in__label"]}>
-          <span className={styles["sign-in__label-text"]}>Email</span>
-          {classNameEmailValid}
-          <input
+        <FormField label="Email">
+          {classNameRequired}
+          <Input
             onChange={handleChangeEmail}
             value={email}
             ref={emailRef}
@@ -161,12 +151,11 @@ function SignIn() {
             type="email"
             placeholder="Your email"
           />
-        </label>
+        </FormField>
         {incorrectEmailMessage}
-        <label className={styles["sign-in__label"]}>
-          <span className={styles["sign-in__label-text"]}>Password</span>
-          {classNamePasswordValid}
-          <input
+        <FormField label="Password">
+          {classNameRequired}
+          <Input
             onChange={handleChangePassword}
             value={password}
             ref={passwordRef}
@@ -175,7 +164,7 @@ function SignIn() {
             type="password"
             placeholder="Your password"
           />
-        </label>
+        </FormField>
         {incorrectPasswordMessage}
         {notFoundMessage}
         <div className={styles["sign-in__btns"]}>
