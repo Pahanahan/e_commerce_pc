@@ -22,12 +22,12 @@ function MenuActions() {
       <button className={styles["menu-action__search"]}>
         <img src={search} alt="search" />
       </button>
-      <a className={styles["menu-action__cart"]} href="#">
+      <Link className={styles["menu-action__cart"]} to="/cart">
         <img src={cart} alt="cart" />
         <span className={styles["menu-action__cart-current"]}>
           {currentCart}
         </span>
-      </a>
+      </Link>
       <Link className={styles["menu-action__user"]} to="/login">
         <img src={avatar} alt="cart" />
       </Link>

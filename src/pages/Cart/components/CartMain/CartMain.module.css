@@ -1,0 +1,8 @@
+.cart-main {
+  margin-bottom: 67px;
+}
+
+.cart-main__inner {
+  display: flex;
+  justify-content: space-between;
+}

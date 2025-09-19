@@ -1,0 +1,33 @@
+.shopping-cart {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.shopping-cart__top {
+  display: flex;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #cacdd8;
+  margin-bottom: 25px;
+}
+
+.shopping-cart__top-item {
+  font-weight: 600;
+  width: 90px;
+  margin-right: 60px;
+}
+
+.shopping-cart__top-item-first {
+  font-weight: 600;
+  width: 90px;
+  margin-right: 350px;
+}
+
+.shopping-cart__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.shopping-cart__btns-left {
+  display: flex;
+  gap: 8px;
+}

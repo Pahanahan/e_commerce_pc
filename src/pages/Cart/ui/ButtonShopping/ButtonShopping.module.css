@@ -1,0 +1,23 @@
+.button {
+  color: #fff;
+  background-color: #000;
+  font-weight: 600;
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 8px 25px;
+}
+
+.button:disabled {
+  color: #a2a6b0;
+  background-color: #fff;
+  font-weight: 600;
+  border: 2px solid #a2a6b0;
+  border-radius: 20px;
+  padding: 8px 25px;
+  cursor: auto;
+}
+
+.button a {
+  color: #fff;
+  text-decoration: none;
+}

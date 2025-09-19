@@ -1,0 +1,8 @@
+.edit-icon {
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.edit-icon:active {
+  transform: scale(0.8);
+}
