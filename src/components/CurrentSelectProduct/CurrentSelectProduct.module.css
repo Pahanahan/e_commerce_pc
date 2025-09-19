@@ -1,0 +1,26 @@
+.product-select {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  background-color: #f5f7ff;
+  border-radius: 6px;
+  padding: 10px 10px 10px 20px;
+}
+
+.product-select__num {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.product-select__btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-select__btn {
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}

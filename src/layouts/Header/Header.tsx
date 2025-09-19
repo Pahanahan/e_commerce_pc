@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Menu from "../Menu/Menu";
 import WorkTime from "./WorkTime";
+import { scrollTop } from "../../utils/scrollTop";
 import workDays from "../../data/work-days.json";
 
 import facebook from "../../assets/icons/facebook.svg";
@@ -30,7 +31,11 @@ function Header() {
         </div>
         <div className={styles["header__contacts"]}>
           Visit our showroom in 1234 Street Adress City Address, 1234
-          <Link className={styles["header__contacts-link"]} to="/contacts">
+          <Link
+            onClick={scrollTop}
+            className={styles["header__contacts-link"]}
+            to="/contacts"
+          >
             Contact Us
           </Link>
         </div>

@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import { scrollTop } from "../../utils/scrollTop";
 import { RootState } from "../../redux/store";
 
 import search from "../../assets/icons/search.svg";
@@ -22,13 +23,21 @@ function MenuActions() {
       <button className={styles["menu-action__search"]}>
         <img src={search} alt="search" />
       </button>
-      <Link className={styles["menu-action__cart"]} to="/cart">
+      <Link
+        onClick={scrollTop}
+        className={styles["menu-action__cart"]}
+        to="/cart"
+      >
         <img src={cart} alt="cart" />
         <span className={styles["menu-action__cart-current"]}>
           {currentCart}
         </span>
       </Link>
-      <Link className={styles["menu-action__user"]} to="/login">
+      <Link
+        onClick={scrollTop}
+        className={styles["menu-action__user"]}
+        to="/login"
+      >
         <img src={avatar} alt="cart" />
       </Link>
     </div>

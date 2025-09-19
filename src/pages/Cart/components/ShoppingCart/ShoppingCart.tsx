@@ -33,7 +33,7 @@ function ShoppingCart({ isLogedIn, allProducts, findUser }: ShoppingCartProps) {
 
   if (userCartProducts) {
     userCartProductsMap = userCartProducts.map(
-      ({ id, images, description, price, quantity }) => {
+      ({ id, images, description, price, quantity, category }) => {
         return (
           <CartProduct
             key={id}
@@ -42,6 +42,8 @@ function ShoppingCart({ isLogedIn, allProducts, findUser }: ShoppingCartProps) {
             description={description}
             price={price}
             quantity={quantity}
+            isLogedIn={isLogedIn}
+            category={category}
           />
         );
       }
