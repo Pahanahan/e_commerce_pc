@@ -139,6 +139,19 @@ const loginSlice = createSlice({
       });
       saveToLocalStorage(state);
     },
+    clearCart(state, action: PayloadAction<string>) {
+      const login = action.payload;
+
+      state.users = state.users.map((user: User) => {
+        if (user.login !== login) return user;
+
+        return {
+          ...user,
+          cart: [],
+        };
+      });
+      saveToLocalStorage(state);
+    },
   },
 });
 
@@ -153,6 +166,7 @@ export const {
   addOrDeleteToCart,
   incrementCartItem,
   increaseOneCartItem,
+  clearCart,
 } = loginSlice.actions;
 
 export default loginSlice.reducer;

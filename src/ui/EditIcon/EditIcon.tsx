@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import styles from "./EditIcon.module.css";
 
 interface EditIconProp {
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 function EditIcon({ onClick }: EditIconProp) {

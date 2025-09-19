@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import ButtonShopping from "../../ui/ButtonShopping/ButtonShopping";
 import CartProduct from "../CartProduct/CartProduct";
+import { clearCart } from "../../../../redux/user/reducers";
 import { Product, User } from "../../../../types/types";
 
 import styles from "./ShoppingCart.module.css";
@@ -13,9 +15,20 @@ interface ShoppingCartProps {
 }
 
 function ShoppingCart({ isLogedIn, allProducts, findUser }: ShoppingCartProps) {
-  const disabled = isLogedIn ? true : false;
-
+  const dispatch = useDispatch();
   const userCart = findUser?.cart;
+
+  let disabled: boolean;
+
+  if (isLogedIn) {
+    if (userCart && userCart.length > 0) {
+      disabled = false;
+    } else {
+      disabled = true;
+    }
+  } else {
+    disabled = true;
+  }
 
   const userCartProducts = userCart?.flatMap((item) => {
     const filteredCartProducts = allProducts.filter(
@@ -29,9 +42,9 @@ function ShoppingCart({ isLogedIn, allProducts, findUser }: ShoppingCartProps) {
     return newUserCartProducts;
   });
 
-  let userCartProductsMap;
+  let userCartProductsMap: React.ReactNode[] | React.ReactNode;
 
-  if (userCartProducts) {
+  if (userCartProducts && userCartProducts?.length > 0) {
     userCartProductsMap = userCartProducts.map(
       ({ id, images, description, price, quantity, category }) => {
         return (
@@ -48,7 +61,18 @@ function ShoppingCart({ isLogedIn, allProducts, findUser }: ShoppingCartProps) {
         );
       }
     );
+  } else {
+    const textCart = isLogedIn
+      ? "Your cart is empty"
+      : "Please sign up or log in to continue.";
+    userCartProductsMap = (
+      <div className={styles["shopping-cart__empty"]}>{textCart}</div>
+    );
   }
+
+  const handleClearCart = (): void => {
+    dispatch(clearCart(isLogedIn));
+  };
 
   return (
     <div className={styles["shopping-cart"]}>
@@ -62,16 +86,11 @@ function ShoppingCart({ isLogedIn, allProducts, findUser }: ShoppingCartProps) {
         {userCartProductsMap}
       </div>
       <div className={styles["shopping-cart__bottom"]}>
-        <div className={styles["shopping-cart__btns-left"]}>
-          <ButtonShopping>
-            <Link to="/products">Continue Shopping</Link>
-          </ButtonShopping>
-          <ButtonShopping disabled={disabled}>
-            Clear Shopping Cart
-          </ButtonShopping>
-        </div>
-        <ButtonShopping disabled={disabled}>
-          Update Shopping Cart
+        <Link to="/products">
+          <ButtonShopping>Continue Shopping</ButtonShopping>
+        </Link>
+        <ButtonShopping onClick={() => handleClearCart()} disabled={disabled}>
+          Clear Shopping Cart
         </ButtonShopping>
       </div>
     </div>

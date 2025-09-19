@@ -38,13 +38,7 @@ function CartProduct({
 
   const validCategory = joinStringWithoutSpace(category);
 
-  const handleFocusQuantityProduct = (): void => {
-    console.log("focus");
-  };
-
   const handleDeleteProduct = (): void => {
-    console.log("delete");
-
     const payload = {
       login: isLogedIn,
       productId: id,
@@ -80,7 +74,9 @@ function CartProduct({
       </div>
       <div className={styles["cart-product__item-btns"]}>
         <CloseIcon onClick={handleDeleteProduct} />
-        <EditIcon onClick={handleFocusQuantityProduct} />
+        <Link onClick={scrollTop} to={`/products/${validCategory}(id)${id}`}>
+          <EditIcon />
+        </Link>
       </div>
     </div>
   );
