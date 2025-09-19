@@ -1,8 +1,12 @@
+import { memo } from "react";
+import { useDispatch } from "react-redux";
+
 import { Link } from "react-router-dom";
 
 import CurrentSelectProduct from "../../../../components/CurrentSelectProduct/CurrentSelectProduct";
 import { scrollTop } from "../../../../utils/scrollTop";
 import { joinStringWithoutSpace } from "../../../../utils/joinStringWithoutSpace";
+import { addToCart } from "../../../../redux/user/reducers";
 import CloseIcon from "../../../../ui/CloseIcon/CloseIcon";
 import EditIcon from "../../../../ui/EditIcon/EditIcon";
 import formatPrice from "../../../../utils/formatPrice";
@@ -29,6 +33,7 @@ function CartProduct({
   isLogedIn,
   category,
 }: CartProductProps) {
+  const dispatch = useDispatch();
   const image = images[0] ? images[0] : defaultImage;
 
   const validCategory = joinStringWithoutSpace(category);
@@ -39,6 +44,13 @@ function CartProduct({
 
   const handleDeleteProduct = (): void => {
     console.log("delete");
+
+    const payload = {
+      login: isLogedIn,
+      productId: id,
+    };
+
+    dispatch(addToCart(payload));
   };
 
   return (
@@ -74,4 +86,4 @@ function CartProduct({
   );
 }
 
-export default CartProduct;
+export default memo(CartProduct);
