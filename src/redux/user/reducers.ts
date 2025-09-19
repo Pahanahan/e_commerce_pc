@@ -57,7 +57,7 @@ const loginSlice = createSlice({
       });
       saveToLocalStorage(state);
     },
-    addToCart(state, action: PayloadAction<Payload>) {
+    addOrDeleteToCart(state, action: PayloadAction<Payload>) {
       const { login, productId } = action.payload;
 
       state.users = state.users.map((user: User) => {
@@ -150,7 +150,7 @@ export const {
   logOut,
   register,
   toggleLike,
-  addToCart,
+  addOrDeleteToCart,
   incrementCartItem,
   increaseOneCartItem,
 } = loginSlice.actions;

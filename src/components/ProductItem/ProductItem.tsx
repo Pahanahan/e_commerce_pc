@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import RatingStar from "../RatingStar/RatingStar";
-import { toggleLike, addToCart } from "../../redux/user/reducers";
+import { toggleLike, addOrDeleteToCart } from "../../redux/user/reducers";
 import { LikeOrCart } from "../../types/types";
 import { scrollTop } from "../../utils/scrollTop";
 import { joinStringWithoutSpace } from "../../utils/joinStringWithoutSpace";
@@ -45,7 +45,7 @@ const ProductItem = memo(function ProductItem({
 }: ProductItemProps) {
   const dispatch = useDispatch();
 
-  const handleAddLikeOrAddToCart = (value: LikeOrCart): void => {
+  const handleAddLikeOraddOrDeleteToCart = (value: LikeOrCart): void => {
     if (!isLogedIn) return;
 
     const payload = {
@@ -57,7 +57,7 @@ const ProductItem = memo(function ProductItem({
       dispatch(toggleLike(payload));
     }
     if (value === "cart") {
-      dispatch(addToCart(payload));
+      dispatch(addOrDeleteToCart(payload));
     }
   };
 
@@ -68,7 +68,7 @@ const ProductItem = memo(function ProductItem({
   return (
     <div className={styles["product"]}>
       <div
-        onClick={() => handleAddLikeOrAddToCart(LikeOrCart.LIKE)}
+        onClick={() => handleAddLikeOraddOrDeleteToCart(LikeOrCart.LIKE)}
         className={`${styles["product__hover-top"]} ${
           likeOrNot ? styles["like--active"] : ""
         }`}
@@ -77,7 +77,7 @@ const ProductItem = memo(function ProductItem({
       </div>
       <div className={styles["product__hover-bottom"]}>
         <button
-          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.CART)}
+          onClick={() => handleAddLikeOraddOrDeleteToCart(LikeOrCart.CART)}
           type="button"
           className={styles["product__cart"]}
         >

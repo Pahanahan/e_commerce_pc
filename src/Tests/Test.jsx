@@ -4,7 +4,7 @@ import { memo } from "react";
 import { useDispatch } from "react-redux";
 
 import RatingStar from "../components/RatingStar/RatingStar";
-import { toggleLike, addToCart } from "../redux/user/actionCreators";
+import { toggleLike, addOrDeleteToCart } from "../redux/user/actionCreators";
 
 import check from "../assets/icons/check.svg";
 import call from "../assets/icons/call.svg";
@@ -25,7 +25,7 @@ const Test = memo(function Test({
 }) {
   const dispatch = useDispatch();
 
-  const handleAddLikeOrAddToCart = (value) => {
+  const handleAddLikeOraddOrDeleteToCart = (value) => {
     if (!isLogedIn) return;
 
     const payload = {
@@ -37,7 +37,7 @@ const Test = memo(function Test({
       dispatch(toggleLike(payload));
     }
     if (value === "cart") {
-      dispatch(addToCart(payload));
+      dispatch(addOrDeleteToCart(payload));
     }
   };
 
@@ -51,7 +51,7 @@ const Test = memo(function Test({
         }`}
       >
         <svg
-          onClick={() => handleAddLikeOrAddToCart("like")}
+          onClick={() => handleAddLikeOraddOrDeleteToCart("like")}
           className={styles["product__hover-top-like"]}
           width="30"
           height="30"
@@ -77,7 +77,7 @@ const Test = memo(function Test({
       </div>
       <div className={styles["product__hover-bottom"]}>
         <button
-          onClick={() => handleAddLikeOrAddToCart("cart")}
+          onClick={() => handleAddLikeOraddOrDeleteToCart("cart")}
           type="button"
           className={styles["product__cart"]}
         >

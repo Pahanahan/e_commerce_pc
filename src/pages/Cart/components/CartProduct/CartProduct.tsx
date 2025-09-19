@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import CurrentSelectProduct from "../../../../components/CurrentSelectProduct/CurrentSelectProduct";
 import { scrollTop } from "../../../../utils/scrollTop";
 import { joinStringWithoutSpace } from "../../../../utils/joinStringWithoutSpace";
-import { addToCart } from "../../../../redux/user/reducers";
+import { addOrDeleteToCart } from "../../../../redux/user/reducers";
 import CloseIcon from "../../../../ui/CloseIcon/CloseIcon";
 import EditIcon from "../../../../ui/EditIcon/EditIcon";
 import formatPrice from "../../../../utils/formatPrice";
@@ -50,7 +50,7 @@ function CartProduct({
       productId: id,
     };
 
-    dispatch(addToCart(payload));
+    dispatch(addOrDeleteToCart(payload));
   };
 
   return (

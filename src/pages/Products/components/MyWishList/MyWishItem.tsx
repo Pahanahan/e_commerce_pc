@@ -2,7 +2,7 @@ import { memo } from "react";
 import { useDispatch } from "react-redux";
 
 import RatingStar from "../../../../components/RatingStar/RatingStar";
-import { toggleLike, addToCart } from "../../../../redux/user/reducers";
+import { toggleLike, addOrDeleteToCart } from "../../../../redux/user/reducers";
 import { LikeOrCart } from "../../../../types/types";
 
 import check from "../../../../assets/icons/check.svg";
@@ -35,7 +35,7 @@ const MyWishItem = memo(function MyWishItem({
 }: MyWishItemProps) {
   const dispatch = useDispatch();
 
-  const handleAddLikeOrAddToCart = (value: LikeOrCart): void => {
+  const handleAddLikeOraddOrDeleteToCart = (value: LikeOrCart): void => {
     if (!isLogedIn) return;
 
     const payload = {
@@ -47,7 +47,7 @@ const MyWishItem = memo(function MyWishItem({
       dispatch(toggleLike(payload));
     }
     if (value === "cart") {
-      dispatch(addToCart(payload));
+      dispatch(addOrDeleteToCart(payload));
     }
   };
 
@@ -61,7 +61,7 @@ const MyWishItem = memo(function MyWishItem({
         }`}
       >
         <svg
-          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.LIKE)}
+          onClick={() => handleAddLikeOraddOrDeleteToCart(LikeOrCart.LIKE)}
           className={styles["product__hover-top-like"]}
           width="20"
           height="20"
@@ -109,7 +109,7 @@ const MyWishItem = memo(function MyWishItem({
 
       <div className={styles["product__hover-bottom"]}>
         <button
-          onClick={() => handleAddLikeOrAddToCart(LikeOrCart.CART)}
+          onClick={() => handleAddLikeOraddOrDeleteToCart(LikeOrCart.CART)}
           type="button"
           className={styles["product__cart"]}
         >
