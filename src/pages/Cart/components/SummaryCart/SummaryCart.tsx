@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import Input from "../../../../ui/Input/Input";
 import Radio from "../../../../ui/Radio/Radio";
 import useClickOutside from "../../../../customHooks/useClickOutside";
+import accordion from "../../../../utils/accordion";
 import addressData from "../../../../data/address-data.json";
 
 import arrowUp from "../../../../assets/icons/arrow-up.svg";
@@ -12,17 +13,22 @@ interface AllAddress {
   country: string;
   stateProvince: string;
   postalCode: string;
+  delivery: string;
 }
 
 enum StandardOrPickup {
-  STANDARD = "standart",
+  STANDARD = "standard",
   PICKUP = "pickup",
 }
 
 const mainCountry = "United States";
 
 function SummaryCart() {
-  const [shippingTaxHidden, setShippingTaxHidden] = useState<boolean>(false);
+  const [shippingTaxAccordion, setShippingTaxAccordion] =
+    useState<boolean>(true);
+  const [applyAccordion, setApplyAccordion] = useState<boolean>(true);
+  const imgShippingTaxRef = useRef<HTMLImageElement | null>(null);
+  const imgApplyRef = useRef<HTMLImageElement | null>(null);
 
   const [country, setCountry] = useState<string>(mainCountry);
   const [stateProvince, setStateProvince] = useState<string>("");
@@ -30,6 +36,8 @@ function SummaryCart() {
   const [delivery, setDelivery] = useState<StandardOrPickup>(
     StandardOrPickup.STANDARD
   );
+
+  const [discountCode, setDiscountCode] = useState<string>("");
 
   const [countrySelect, setCountrySelect] = useState<boolean>(false);
   const [stateProvinceSelect, setProvinceStateSelect] =
@@ -39,6 +47,7 @@ function SummaryCart() {
     country: "",
     stateProvince: "",
     postalCode: "",
+    delivery: "",
   });
 
   useClickOutside(setCountrySelect, `.${styles["country"]}`, false);
@@ -107,6 +116,13 @@ function SummaryCart() {
     setPostalCode(value);
   };
 
+  const handleChangeDiscountCode = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const value = e.target.value;
+    setDiscountCode(value);
+  };
+
   const cssImageCountry = `${styles["summary__shipping-select-arrow"]} ${
     countrySelect ? "" : styles["summary__shipping-select-arrow--reversed"]
   }`;
@@ -128,71 +144,131 @@ function SummaryCart() {
   return (
     <form name="summary" className={styles["summary"]}>
       <h3 className={styles["summary__title"]}>Summary</h3>
-      <div className={styles["summary__shipping-tax"]}>
-        <div className={styles["summary__shipping-tax-box"]}>
-          <div className={styles["summary__shipping-tax-text"]}>
+      <div className={styles["summary__inner"]}>
+        <div
+          onClick={() =>
+            accordion(
+              shippingTaxAccordion,
+              setShippingTaxAccordion,
+              imgShippingTaxRef
+            )
+          }
+          className={styles["summary__show"]}
+        >
+          <div className={styles["summary__show-text"]}>
             Estimate Shipping and Tax
           </div>
-          <img src={arrowUp} alt="arrow" />
+          <img
+            className={styles["summary__show-img"]}
+            ref={imgShippingTaxRef}
+            src={arrowUp}
+            alt="arrow"
+          />
         </div>
         <p className={styles["summary__shipping-tax-p"]}>
           Enter your destination to get a shipping estimate.
         </p>
-        <div className={styles["summary__shipping-inputs"]}>
-          <label className={styles["summary__shipping-label"]}>
-            Country
-            <div
-              onClick={() => handleHideProvinceStateSelect()}
-              className={`${styles["summary__shipping-select"]} ${styles["country"]}`}
-            >
-              {country}
-              <img className={cssImageCountry} src={arrowUp} alt="arrow" />
-              <ul className={optionsCountry}>{countryMap}</ul>
-            </div>
-          </label>
 
-          <label className={styles["summary__shipping-label"]}>
-            State/Province
-            <div
-              onClick={() => handleHideCountrySelect()}
-              className={`${styles["summary__shipping-select"]} ${styles["state-province"]}`}
-            >
-              {stateProvince}
-              <img
-                className={cssImageStateProvince}
-                src={arrowUp}
-                alt="arrow"
+        <div
+          className={`${styles["summary__shipping-tax-container"]} ${
+            shippingTaxAccordion
+              ? styles["summary__shipping-tax-container--open"]
+              : ""
+          }`}
+        >
+          <div className={styles["summary__inputs"]}>
+            <label className={styles["summary__label"]}>
+              Country
+              <div
+                onClick={() => handleHideProvinceStateSelect()}
+                className={`${styles["summary__shipping-select"]} ${styles["country"]}`}
+              >
+                {country}
+                <img className={cssImageCountry} src={arrowUp} alt="arrow" />
+                <ul className={optionsCountry}>{countryMap}</ul>
+              </div>
+            </label>
+
+            <label className={styles["summary__label"]}>
+              State/Province
+              <div
+                onClick={() => handleHideCountrySelect()}
+                className={`${styles["summary__shipping-select"]} ${styles["state-province"]}`}
+              >
+                {stateProvince}
+                <img
+                  className={cssImageStateProvince}
+                  src={arrowUp}
+                  alt="arrow"
+                />
+                <ul className={optionsStateProvince}>{stateProvinceMap}</ul>
+              </div>
+            </label>
+
+            <label className={styles["summary__label"]}>
+              Zip/Postal Code
+              <Input
+                name="postalCode"
+                type="text"
+                value={postalCode}
+                onChange={handleChangePostalCode}
               />
-              <ul className={optionsStateProvince}>{stateProvinceMap}</ul>
-            </div>
-          </label>
+            </label>
 
-          <label className={styles["summary__shipping-label"]}>
-            Zip/Postal Code
-            <Input
-              name="postalCode"
-              type="text"
-              value={postalCode}
-              onChange={handleChangePostalCode}
+            <Radio
+              checked={delivery === StandardOrPickup.STANDARD}
+              onChange={() => setDelivery(StandardOrPickup.STANDARD)}
+              title="Standard Rate"
+              name="radio"
+              text="Price may vary depending on the item/destination. Shop Staff will contact you. $21.00"
             />
-          </label>
-
-          <Radio
-            checked={delivery === StandardOrPickup.STANDARD}
-            onChange={() => setDelivery(StandardOrPickup.STANDARD)}
-            title="Standard Rate"
-            name="radio"
-            text="Price may vary depending on the item/destination. Shop Staff will contact you. $21.00"
-          />
-          <Radio
-            checked={delivery === StandardOrPickup.PICKUP}
-            onChange={() => setDelivery(StandardOrPickup.PICKUP)}
-            title="Pickup from store"
-            name="radio"
-            text="1234 Street Adress City Address, 1234 $0.00"
-          />
+            <Radio
+              checked={delivery === StandardOrPickup.PICKUP}
+              onChange={() => setDelivery(StandardOrPickup.PICKUP)}
+              title="Pickup from store"
+              name="radio"
+              text="1234 Street Adress City Address, 1234 $0.00"
+            />
+          </div>
         </div>
       </div>
+
+      {/* <div className={styles["summary__apply"]}>
+        <div
+          onClick={() =>
+            accordion(applyAccordion, setApplyAccordion, imgApplyRef)
+          }
+          className={styles["summary__show"]}
+        >
+          <div className={styles["summary__show-text"]}>
+            Apply Discount Code
+          </div>
+          <img
+            className={styles["summary__show-img"]}
+            ref={imgApplyRef}
+            src={arrowUp}
+            alt="arrow"
+          />
+        </div>
+
+        <div
+          className={`${styles["summary__apply-container"]} ${
+            applyAccordion ? styles["summary__apply-container--open"] : ""
+          }`}
+        >
+          <div className={styles["summary__apply-inputs"]}>
+            <label className={styles["summary__label"]}>
+              Enter discount code
+              <Input
+                name="discountCode"
+                type="text"
+                value={discountCode}
+                onChange={handleChangeDiscountCode}
+              />
+            </label>
+          </div>
+        </div>
+      </div> */}
     </form>
   );
 }
