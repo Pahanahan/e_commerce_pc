@@ -1,0 +1,34 @@
+.radio {
+  cursor: pointer;
+  position: relative;
+}
+
+.radio__text {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  padding-left: 30px;
+}
+
+.radio__label-text {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.radio__input {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.radio__input:checked + .radio__span {
+  background-image: url("../../assets/icons/radio-active.svg");
+}
+
+.radio__span {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  background-image: url("../../assets/icons/radio.svg");
+}

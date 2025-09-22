@@ -13,6 +13,8 @@ function useClickOutside(
       if (!target.closest(triggerSelector)) {
         if (safeSelector && !target.closest(safeSelector)) {
           handler(falseOrTrue);
+        } else if (!safeSelector) {
+          handler(falseOrTrue);
         } else {
           return;
         }
