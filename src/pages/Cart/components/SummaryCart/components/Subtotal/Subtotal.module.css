@@ -1,0 +1,25 @@
+.subtotal {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #cacdd8;
+}
+
+.subtotal__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.subtotal__box-text,
+.subtotal__box-price {
+  font-size: 13px;
+  line-height: 200%;
+  font-weight: 600;
+}
+
+.subtotal__box-price-total {
+  font-size: 18px;
+  font-weight: 200%;
+  font-weight: 600;
+}

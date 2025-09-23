@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { logOut } from "../../../../redux/user/reducers";
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../ui/Button/Button";
 import { RootState } from "../../../../redux/store";
 
 import styles from "./OutLogin.module.css";

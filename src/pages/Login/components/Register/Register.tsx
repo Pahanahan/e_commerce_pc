@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../ui/Button/Button";
 import FormField from "../../../../ui/FormField/FormField";
 import Input from "../../../../ui/Input/Input";
 import { changeEmail, changePassword } from "../../../../utils/validation";

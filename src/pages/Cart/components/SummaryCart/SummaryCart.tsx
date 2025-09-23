@@ -2,11 +2,17 @@ import { useState, useRef } from "react";
 
 import Input from "../../../../ui/Input/Input";
 import Radio from "../../../../ui/Radio/Radio";
+import Label from "./components/Label/Label";
+import Button from "../../../../ui/Button/Button";
+import Subtotal from "./components/Subtotal/Subtotal";
+import BuyNowPayLater from "../../../../components/BuyNowPayLater/BuyNowPayLater";
 import useClickOutside from "../../../../customHooks/useClickOutside";
 import accordion from "../../../../utils/accordion";
+import { Product, User } from "../../../../types/types";
 import addressData from "../../../../data/address-data.json";
 
 import arrowUp from "../../../../assets/icons/arrow-up.svg";
+import payPal from "../../../../assets/icons/paypal-btn.svg";
 import styles from "./SummaryCart.module.css";
 
 interface AllAddress {
@@ -21,9 +27,14 @@ enum StandardOrPickup {
   PICKUP = "pickup",
 }
 
+interface SummaryCartProps {
+  allProducts: Product[];
+  findUser: User | undefined;
+}
+
 const mainCountry = "United States";
 
-function SummaryCart() {
+function SummaryCart({ allProducts, findUser }: SummaryCartProps) {
   const [shippingTaxAccordion, setShippingTaxAccordion] =
     useState<boolean>(true);
   const [applyAccordion, setApplyAccordion] = useState<boolean>(true);
@@ -44,28 +55,44 @@ function SummaryCart() {
     useState<boolean>(false);
 
   const [allAddress, setAllAddress] = useState<AllAddress>({
-    country: "",
-    stateProvince: "",
-    postalCode: "",
-    delivery: "",
+    country: country,
+    stateProvince: stateProvince,
+    postalCode: postalCode,
+    delivery: delivery,
   });
 
-  useClickOutside(setCountrySelect, `.${styles["country"]}`, false);
+  const userCart = findUser?.cart;
 
-  useClickOutside(
-    setProvinceStateSelect,
-    `.${styles["state-province"]}`,
-    false
-  );
+  const totalPrice = userCart
+    ?.flatMap((item) => {
+      const filteredCartProducts = allProducts.filter(
+        (product) => item.id === product.id
+      );
+
+      if (filteredCartProducts) {
+        const subtotal = filteredCartProducts.map((product) => {
+          return product.price * item.quantity;
+        });
+
+        return subtotal;
+      } else return 0;
+    })
+    .reduce((acc, price) => acc + price, 0);
+
+  const totalPriceOrZero: number = totalPrice ? totalPrice : 0;
 
   const countryData = addressData.countries;
+  const currentCountry = countryData.find((item) => item.name === country);
+  const tax = currentCountry?.tax!;
+  const taxName = currentCountry?.taxName!;
+  const shippingRate = currentCountry?.shippingRate ?? 0.1;
 
   const countryMap = countryData.map((country) => {
     return (
       <li
         onClick={() => handleChangeCountry(country.name)}
         key={country.code}
-        className={styles["summary__shipping-option"]}
+        className={styles["summary__option"]}
       >
         {country.name}
       </li>
@@ -79,12 +106,20 @@ function SummaryCart() {
       <li
         onClick={() => handleChangeProvinceState(country.name)}
         key={country.code}
-        className={styles["summary__shipping-option"]}
+        className={styles["summary__option"]}
       >
         {country.name}
       </li>
     );
   });
+
+  useClickOutside(setCountrySelect, `.${styles["country"]}`, false);
+
+  useClickOutside(
+    setProvinceStateSelect,
+    `.${styles["state-province"]}`,
+    false
+  );
 
   const handleChangeCountry = (country: string) => {
     setCountry(country);
@@ -123,24 +158,6 @@ function SummaryCart() {
     setDiscountCode(value);
   };
 
-  const cssImageCountry = `${styles["summary__shipping-select-arrow"]} ${
-    countrySelect ? "" : styles["summary__shipping-select-arrow--reversed"]
-  }`;
-
-  const cssImageStateProvince = `${styles["summary__shipping-select-arrow"]} ${
-    stateProvinceSelect
-      ? ""
-      : styles["summary__shipping-select-arrow--reversed"]
-  }`;
-
-  const optionsCountry = `${styles["summary__shipping-options-box"]} ${
-    countrySelect ? styles["summary__shipping-options-box--visible"] : ""
-  }`;
-
-  const optionsStateProvince = `${styles["summary__shipping-options-box"]} ${
-    stateProvinceSelect ? styles["summary__shipping-options-box--visible"] : ""
-  }`;
-
   return (
     <form name="summary" className={styles["summary"]}>
       <h3 className={styles["summary__title"]}>Summary</h3>
@@ -165,45 +182,33 @@ function SummaryCart() {
             alt="arrow"
           />
         </div>
-        <p className={styles["summary__shipping-tax-p"]}>
+        <p className={styles["summary__text"]}>
           Enter your destination to get a shipping estimate.
         </p>
 
         <div
-          className={`${styles["summary__shipping-tax-container"]} ${
-            shippingTaxAccordion
-              ? styles["summary__shipping-tax-container--open"]
-              : ""
+          className={`${styles["summary__container"]} ${
+            shippingTaxAccordion ? styles["summary__container--open"] : ""
           }`}
         >
           <div className={styles["summary__inputs"]}>
-            <label className={styles["summary__label"]}>
-              Country
-              <div
-                onClick={() => handleHideProvinceStateSelect()}
-                className={`${styles["summary__shipping-select"]} ${styles["country"]}`}
-              >
-                {country}
-                <img className={cssImageCountry} src={arrowUp} alt="arrow" />
-                <ul className={optionsCountry}>{countryMap}</ul>
-              </div>
-            </label>
+            <Label
+              title="Country"
+              className="country"
+              onClick={handleHideProvinceStateSelect}
+              stateText={country}
+              elementMap={countryMap}
+              select={countrySelect}
+            />
 
-            <label className={styles["summary__label"]}>
-              State/Province
-              <div
-                onClick={() => handleHideCountrySelect()}
-                className={`${styles["summary__shipping-select"]} ${styles["state-province"]}`}
-              >
-                {stateProvince}
-                <img
-                  className={cssImageStateProvince}
-                  src={arrowUp}
-                  alt="arrow"
-                />
-                <ul className={optionsStateProvince}>{stateProvinceMap}</ul>
-              </div>
-            </label>
+            <Label
+              title="State/Province"
+              className="state-province"
+              onClick={handleHideCountrySelect}
+              stateText={stateProvince}
+              elementMap={stateProvinceMap}
+              select={stateProvinceSelect}
+            />
 
             <label className={styles["summary__label"]}>
               Zip/Postal Code
@@ -233,7 +238,7 @@ function SummaryCart() {
         </div>
       </div>
 
-      {/* <div className={styles["summary__apply"]}>
+      <div className={styles["summary__apply"]}>
         <div
           onClick={() =>
             accordion(applyAccordion, setApplyAccordion, imgApplyRef)
@@ -252,11 +257,11 @@ function SummaryCart() {
         </div>
 
         <div
-          className={`${styles["summary__apply-container"]} ${
-            applyAccordion ? styles["summary__apply-container--open"] : ""
+          className={`${styles["summary__container"]} ${
+            applyAccordion ? styles["summary__container--open"] : ""
           }`}
         >
-          <div className={styles["summary__apply-inputs"]}>
+          <div className={styles["summary__inputs"]}>
             <label className={styles["summary__label"]}>
               Enter discount code
               <Input
@@ -266,9 +271,43 @@ function SummaryCart() {
                 onChange={handleChangeDiscountCode}
               />
             </label>
+            <div className={styles["summary__margin-bottom"]}></div>
+
+            <Button
+              type="button"
+              color="#0156FF"
+              backgroundColor="transparent"
+              border="2px solid #0156FF"
+              width="100%"
+            >
+              Apply Discount
+            </Button>
           </div>
         </div>
-      </div> */}
+      </div>
+
+      <Subtotal
+        tax={tax}
+        taxName={taxName}
+        delivery={delivery}
+        totalPrice={totalPriceOrZero}
+        shippingRate={shippingRate}
+      />
+
+      <div className={styles["summary__btns"]}>
+        <Button width="100%">Proceed to Checkout</Button>
+        <Button
+          width="100%"
+          backgroundColor="#FFB800"
+          color="#232C65"
+          href="https://www.paypal.com/"
+        >
+          Check out with
+          <img src={payPal} alt="paypal" style={{ marginLeft: "15px" }} />
+        </Button>
+      </div>
+
+      <BuyNowPayLater background="transparent" />
     </form>
   );
 }

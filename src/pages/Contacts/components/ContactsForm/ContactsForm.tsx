@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import FormField from "../../../../ui/FormField/FormField";
 import Input from "../../../../ui/Input/Input";
 import Textarea from "../../../../ui/Textarea/Textarea";
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../ui/Button/Button";
 import Modal from "../../../../ui/Modal/Modal";
 import {
   changeName,
@@ -229,6 +229,8 @@ function ContactsForm() {
           onBackdropClick={(e) =>
             e.target === modalRef.current && setModalSendler(false)
           }
+          text="Message Send"
+          thanks="Thank you for your message!"
         />
       )}
     </form>

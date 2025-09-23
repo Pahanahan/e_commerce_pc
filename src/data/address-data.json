@@ -3,6 +3,9 @@
     {
       "code": "US",
       "name": "United States",
+      "tax": 7.5,
+      "taxName": "Sales Tax",
+      "shippingRate": 0.02,
       "states": [
         { "code": "AL", "name": "Alabama" },
         { "code": "AK", "name": "Alaska" },
@@ -59,6 +62,9 @@
     {
       "code": "CA",
       "name": "Canada",
+      "tax": 5,
+      "taxName": "GST",
+      "shippingRate": 0.07,
       "states": [
         { "code": "AB", "name": "Alberta" },
         { "code": "BC", "name": "British Columbia" },
@@ -78,6 +84,9 @@
     {
       "code": "DE",
       "name": "Germany",
+      "tax": 19,
+      "taxName": "VAT",
+      "shippingRate": 0.08,
       "states": [
         { "code": "BW", "name": "Baden-Württemberg" },
         { "code": "BY", "name": "Bavaria (Bayern)" },
@@ -100,6 +109,9 @@
     {
       "code": "GB",
       "name": "United Kingdom",
+      "tax": 20,
+      "taxName": "VAT",
+      "shippingRate": 0.06,
       "states": [
         { "code": "ENG", "name": "England" },
         { "code": "SCT", "name": "Scotland" },
@@ -110,6 +122,9 @@
     {
       "code": "UA",
       "name": "Ukraine",
+      "tax": 20,
+      "taxName": "ПДВ",
+      "shippingRate": 0.09,
       "states": [
         { "code": "43", "name": "Автономна Республіка Крим" },
         { "code": "12", "name": "Дніпропетровська" },

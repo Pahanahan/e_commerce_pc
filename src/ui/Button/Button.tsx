@@ -7,6 +7,8 @@ interface ButtonProps {
   type?: "submit" | "reset" | "button";
   backgroundColor?: string;
   color?: string;
+  border?: string;
+  width?: string;
   href?: string;
   children?: React.ReactNode;
 }
@@ -16,10 +18,12 @@ const Button = memo(function Button({
   type = "button",
   backgroundColor,
   color,
+  border,
+  width,
   href,
   children,
 }: ButtonProps) {
-  const style = { backgroundColor, color };
+  const style = { backgroundColor, color, border, width };
 
   if (href) {
     return (

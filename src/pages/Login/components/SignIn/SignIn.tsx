@@ -2,7 +2,7 @@ import { useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../ui/Button/Button";
 import FormField from "../../../../ui/FormField/FormField";
 import Input from "../../../../ui/Input/Input";
 import { scrollTop } from "../../../../utils/scrollTop";

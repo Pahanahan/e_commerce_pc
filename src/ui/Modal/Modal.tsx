@@ -6,10 +6,13 @@ import styles from "./Modal.module.css";
 interface ModalProps {
   onClose: () => void;
   onBackdropClick: (e: MouseEvent<HTMLDivElement>) => void;
+  text?: string;
+  thanks?: string;
+  error?: string;
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ onClose, onBackdropClick }, ref) => {
+  ({ onClose, onBackdropClick, text, thanks }, ref) => {
     return (
       <div
         ref={ref}
@@ -21,10 +24,8 @@ const Modal = forwardRef<HTMLDivElement, ModalProps>(
             className={styles["modal-sendler__close"]}
             onClick={onClose}
           />
-          <p className={styles["modal-sendler__text"]}>Message Send</p>
-          <p className={styles["modal-sendler__text-thanks"]}>
-            Thank you for your message!
-          </p>
+          <p className={styles["modal-sendler__text"]}>{text}</p>
+          <p className={styles["modal-sendler__text-thanks"]}>{thanks}</p>
         </div>
       </div>
     );

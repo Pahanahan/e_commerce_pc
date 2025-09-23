@@ -1,4 +1,4 @@
-import Button from "../../components/Button/Button";
+import Button from "../../ui/Button/Button";
 
 import styles from "./FooterTop.module.css";
 

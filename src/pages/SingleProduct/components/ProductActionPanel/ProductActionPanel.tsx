@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import Button from "../../../../components/Button/Button";
+import Button from "../../../../ui/Button/Button";
 import CurrentSelectProduct from "../../../../components/CurrentSelectProduct/CurrentSelectProduct";
 import { increaseOneCartItem } from "../../../../redux/user/reducers";
 import formatPrice from "../../../../utils/formatPrice";

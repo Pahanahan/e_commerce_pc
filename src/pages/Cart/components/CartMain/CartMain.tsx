@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 import SummaryCart from "../SummaryCart/SummaryCart";
-import { Product, State } from "../../../../types/types";
+import { State, Product } from "../../../../types/types";
 
 import styles from "./CartMain.module.css";
 
@@ -23,7 +23,11 @@ function CartMain() {
             allProducts={allProducts}
             findUser={findUser}
           />
-          <SummaryCart />
+          {findUser ? (
+            <SummaryCart allProducts={allProducts} findUser={findUser} />
+          ) : (
+            ""
+          )}
         </div>
       </div>
     </div>

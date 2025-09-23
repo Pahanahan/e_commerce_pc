@@ -1,0 +1,50 @@
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 40px;
+}
+
+.label__select {
+  display: flex;
+  align-items: center;
+  border: 1px solid #a2a6b0;
+  border-radius: 4px;
+  color: #000;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 10px 15px;
+  width: 100%;
+  height: 44px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+.label__select-arrow {
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  transition: all 0.3s;
+}
+
+.label__select-arrow--reversed {
+  transform: rotate(180deg);
+}
+
+.label__options-box {
+  position: absolute;
+  top: 43px;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #a2a6b0;
+  border-radius: 4px;
+  z-index: 2;
+  max-height: 250px;
+  overflow: scroll;
+  display: none;
+}
+
+.label__options-box--visible {
+  display: block;
+}

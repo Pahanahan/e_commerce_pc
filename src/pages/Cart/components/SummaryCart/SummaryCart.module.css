@@ -1,6 +1,6 @@
 .summary {
   min-width: 445px;
-  padding: 18px 30px;
+  padding: 18px 30px 0;
   background-color: #f5f7ff;
   margin-left: 35px;
 }
@@ -27,7 +27,7 @@
   transition: all 0.4s;
 }
 
-.summary__shipping-tax-p {
+.summary__text {
   color: #666666;
   width: 290px;
   margin-bottom: 10px;
@@ -39,17 +39,17 @@
   line-height: 40px;
 }
 
-.summary__shipping-tax-container {
+.summary__container {
   max-height: 0;
   overflow: hidden;
   transition: all 0.4s;
 }
 
-.summary__shipping-tax-container--open {
+.summary__container--open {
   transition: all 0.4s;
 }
 
-.summary__shipping-tax-container.summary__shipping-tax-container--open {
+.summary__container.summary__container--open {
   max-height: 500px;
 }
 
@@ -57,100 +57,30 @@
   margin-bottom: 17px;
 }
 
-.summary__shipping-select {
-  display: flex;
-  align-items: center;
-  border: 1px solid #a2a6b0;
-  border-radius: 4px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 400;
-  padding: 10px 15px;
-  width: 100%;
-  height: 44px;
-  background-color: #fff;
-  cursor: pointer;
-  position: relative;
-}
-
-.summary__shipping-options-box {
-  position: absolute;
-  top: 43px;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid #a2a6b0;
-  border-radius: 4px;
-  z-index: 2;
-  max-height: 350px;
-  overflow: scroll;
-  display: none;
-}
-
-.summary__shipping-options-box--visible {
-  display: block;
-}
-
-.summary__shipping-option {
+.summary__option {
   padding: 0 15px;
   border-radius: 4px;
   list-style: none;
   transition: all 0.3s;
 }
 
-.summary__shipping-option:hover {
+.summary__option:hover {
   background-color: #0156ff;
   color: #fff;
 }
 
-.summary__shipping-option:active {
+.summary__option:active {
   background-color: #0156ff;
   color: #fff;
 }
 
-.summary__shipping-select-arrow {
-  position: absolute;
-  top: 13px;
-  right: 10px;
-  transition: all 0.3s;
+.summary__margin-bottom {
+  margin-bottom: 20px;
 }
 
-.summary__shipping-select-arrow--reversed {
-  transform: rotate(180deg);
-}
-
-.summary__apply-box {
+.summary__btns {
   display: flex;
-  justify-content: space-between;
-  cursor: pointer;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 5px;
 }
-
-.summary__apply-text {
-  font-size: 18px;
-  padding-top: 12px;
-  margin-bottom: 12px;
-}
-
-.summary__apply-label {
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 40px;
-}
-
-/* .summary__apply-container {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.4s;
-}
-
-.summary__apply-container--open {
-  transition: all 0.4s;
-}
-
-.summary__apply-container.summary__shipping-tax-container--open {
-  max-height: 500px;
-}
-
-.summary__apply-inputs {
-  margin-bottom: 17px;
-} */
