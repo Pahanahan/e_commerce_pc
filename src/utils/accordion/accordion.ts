@@ -1,5 +1,5 @@
 type State = boolean;
-type SetState = React.Dispatch<React.SetStateAction<boolean>>;
+type SetState = (value: boolean) => void;
 type RefImg = React.RefObject<HTMLImageElement | null>;
 
 const accordion = (state: State, setState: SetState, refImg: RefImg) => {

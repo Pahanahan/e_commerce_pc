@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import Button from "../../../../ui/Button/Button";
 import CurrentSelectProduct from "../../../../components/CurrentSelectProduct/CurrentSelectProduct";
 import { increaseOneCartItem } from "../../../../redux/user/reducers";
-import formatPrice from "../../../../utils/formatPrice";
+import formatPrice from "../../../../utils/formatPrice/formatPrice";
 import { RootState } from "../../../../redux/store";
 
 import paypal from "../../../../assets/icons/paypal-btn.svg";

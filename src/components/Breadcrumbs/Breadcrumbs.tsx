@@ -2,7 +2,7 @@ import { memo, useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
 import { RiArrowDropRightLine } from "react-icons/ri";
 
-import firstLetterUpperCase from "../../utils/firstLetterUpperCase";
+import firstLetterUpperCase from "../../utils/firstLetterUpperCase/firstLetterUpperCase";
 
 import styles from "./Breadcrumbs.module.css";
 

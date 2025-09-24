@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 import RatingStar from "../RatingStar/RatingStar";
 import { toggleLike, addOrDeleteToCart } from "../../redux/user/reducers";
-import firstLetterUpperCase from "../../utils/firstLetterUpperCase";
+import firstLetterUpperCase from "../../utils/firstLetterUpperCase/firstLetterUpperCase";
+import formatPrice from "../../utils/formatPrice/formatPrice";
 import { scrollTop } from "../../utils/scrollTop";
 import { joinStringWithoutSpace } from "../../utils/joinStringWithoutSpace";
 import LikeIcon from "../../ui/LikeIcon/LikeIcon";
@@ -112,12 +113,14 @@ const ProductListItem = memo(function ProductListItem({
           <div className={styles["product__prices"]}>
             {oldPrice ? (
               <div className={styles["product__oldprice"]}>
-                ${oldPrice.toFixed(2)}
+                ${formatPrice(oldPrice)}
               </div>
             ) : (
               ""
             )}
-            <div className={styles["product__price"]}>${price.toFixed(2)}</div>
+            <div className={styles["product__price"]}>
+              ${formatPrice(price)}
+            </div>
           </div>
           <div className={styles["product__btn"]}>
             <button

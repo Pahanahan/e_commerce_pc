@@ -7,7 +7,7 @@ import Button from "../../../../ui/Button/Button";
 import Subtotal from "./components/Subtotal/Subtotal";
 import BuyNowPayLater from "../../../../components/BuyNowPayLater/BuyNowPayLater";
 import useClickOutside from "../../../../customHooks/useClickOutside";
-import accordion from "../../../../utils/accordion";
+import accordion from "../../../../utils/accordion/accordion";
 import { Product, User } from "../../../../types/types";
 import addressData from "../../../../data/address-data.json";
 

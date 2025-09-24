@@ -1,4 +1,4 @@
-import formatPrice from "../../../../../../utils/formatPrice";
+import formatPrice from "../../../../../../utils/formatPrice/formatPrice";
 
 import styles from "./Subtotal.module.css";
 
@@ -17,13 +17,9 @@ function Subtotal({
   delivery,
   totalPrice,
 }: SubtotalProps) {
-  const costDelivery = Number((totalPrice * shippingRate).toFixed(2));
-  const shipping = Number(
-    (delivery === "pickup" ? 0 : costDelivery).toFixed(2)
-  );
-  const costTax = Number(
-    (((totalPrice + costDelivery) * tax) / 100).toFixed(2)
-  );
+  const costDelivery = Number(totalPrice * shippingRate);
+  const shipping = Number(delivery === "pickup" ? 0 : costDelivery);
+  const costTax = Number(((totalPrice + costDelivery) * tax) / 100);
   const orderTotal = costDelivery + shipping + costTax + totalPrice;
 
   return (

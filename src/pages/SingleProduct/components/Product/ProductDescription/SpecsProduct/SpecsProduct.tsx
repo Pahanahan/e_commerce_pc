@@ -1,5 +1,5 @@
 import { Specs } from "../../../../../../types/types";
-import firstLetterUpperCase from "../../../../../../utils/firstLetterUpperCase";
+import firstLetterUpperCase from "../../../../../../utils/firstLetterUpperCase/firstLetterUpperCase";
 
 import styles from "./SpecsProduct.module.css";
 

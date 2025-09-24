@@ -2,7 +2,7 @@ import { useState, useRef, useMemo, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { addFilter, deleteFilters } from "../../../../redux/products/reducers";
-import accordion from "../../../../utils/accordion";
+import accordion from "../../../../utils/accordion/accordion";
 import { RootState } from "../../../../redux/store";
 import { Product, Filters, State } from "../../../../types/types";
 

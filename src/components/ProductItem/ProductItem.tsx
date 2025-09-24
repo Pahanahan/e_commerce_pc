@@ -7,6 +7,7 @@ import { toggleLike, addOrDeleteToCart } from "../../redux/user/reducers";
 import { LikeOrCart } from "../../types/types";
 import { scrollTop } from "../../utils/scrollTop";
 import { joinStringWithoutSpace } from "../../utils/joinStringWithoutSpace";
+import formatPrice from "../../utils/formatPrice/formatPrice";
 import LikeIcon from "../../ui/LikeIcon/LikeIcon";
 
 import check from "../../assets/icons/check.svg";
@@ -124,12 +125,12 @@ const ProductItem = memo(function ProductItem({
       <div>
         {oldPrice ? (
           <div className={styles["product__oldprice"]}>
-            ${oldPrice.toFixed(2)}
+            ${formatPrice(oldPrice)}
           </div>
         ) : (
           ""
         )}
-        <div className={styles["product__price"]}>${price.toFixed(2)}</div>
+        <div className={styles["product__price"]}>${formatPrice(price)}</div>
       </div>
     </div>
   );

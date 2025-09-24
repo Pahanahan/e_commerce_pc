@@ -9,7 +9,7 @@ import { joinStringWithoutSpace } from "../../../../utils/joinStringWithoutSpace
 import { addOrDeleteToCart } from "../../../../redux/user/reducers";
 import CloseIcon from "../../../../ui/CloseIcon/CloseIcon";
 import EditIcon from "../../../../ui/EditIcon/EditIcon";
-import formatPrice from "../../../../utils/formatPrice";
+import formatPrice from "../../../../utils/formatPrice/formatPrice";
 
 import defaultImage from "../../../../assets/images/default/default-product-img.png";
 import styles from "./CartProduct.module.css";
