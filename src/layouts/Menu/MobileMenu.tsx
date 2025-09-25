@@ -3,11 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { MdOutlineMenu } from "react-icons/md";
 
-import {
-  addFilter,
-  applyFilters,
-  deleteFilters,
-} from "../../redux/products/reducers";
+import { addFilter, applyFilters } from "../../redux/products/reducers";
 import { scrollTop } from "../../utils/scrollTop";
 import useClickOutside from "../../customHooks/useClickOutside";
 import { navData } from "../../data/nav-data";
@@ -20,7 +16,6 @@ function MobileMenu() {
   const dispatch = useDispatch();
 
   const handleAddFilterApplyFilters = (filter: string): void => {
-    dispatch(deleteFilters());
     dispatch(addFilter({ type: "category", value: filter }));
     dispatch(applyFilters());
     setHideNav(true);

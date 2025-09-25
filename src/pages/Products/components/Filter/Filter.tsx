@@ -136,6 +136,8 @@ function Filter({
       }
     });
 
+  console.log(newSortedCategoriesCount);
+
   const handleAddFilterCategory = useCallback(
     (category: string, id: number): void => {
       onSetCategoryActiveIndex(id);
@@ -144,22 +146,20 @@ function Filter({
     [onSetCategoryActiveIndex, dispatch]
   );
 
-  const categoriesCountMap = useMemo(
-    () =>
-      newSortedCategoriesCount.map(([category, count, active], i) => (
-        <div
-          onClick={() => handleAddFilterCategory(category, i)}
-          key={category}
-          data-category={category}
-          className={`${styles["filter__box-item"]} ${
-            onCategoryActiveIndex === i || active ? styles["active"] : ""
-          }`}
-        >
-          <div>{category.toLocaleUpperCase()}</div>
-          <div>{count}</div>
-        </div>
-      )),
-    [onCategoryActiveIndex]
+  const categoriesCountMap = newSortedCategoriesCount.map(
+    ([category, count, active], i) => (
+      <div
+        onClick={() => handleAddFilterCategory(category, i)}
+        key={category}
+        data-category={category}
+        className={`${styles["filter__box-item"]} ${
+          onCategoryActiveIndex === i || active ? styles["active"] : ""
+        }`}
+      >
+        <div>{category.toLocaleUpperCase()}</div>
+        <div>{count}</div>
+      </div>
+    )
   );
 
   const handleDeleteFilters = () => {
