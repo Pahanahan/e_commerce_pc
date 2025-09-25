@@ -90,10 +90,18 @@
     font-size: 12px;
     line-height: 30px;
   }
+
+  .summary__option {
+    line-height: 30px;
+  }
 }
 
 @media (max-width: 500px) {
   .summary__label {
     font-size: 10px;
+  }
+
+  .summary__option {
+    line-height: 25px;
   }
 }
