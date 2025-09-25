@@ -13,6 +13,7 @@ import SingleProduct from "../../pages/SingleProduct/SingleProduct";
 import Login from "../../pages/Login/Login";
 import TermsAndConditions from "../../pages/TermsAndConditions";
 import ComingSoon from "../../components/ComingSoon/ComingSoon";
+import NotFound from "../../pages/NotFound";
 
 import styles from "./MainLayout.module.css";
 
@@ -22,7 +23,7 @@ function MainLayout() {
       <Header />
       <main className={styles["content"]}>
         <Routes>
-          <Route path="/" index element={<Home />} />
+          <Route index element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
@@ -41,6 +42,7 @@ function MainLayout() {
             path="/guide"
             element={<ComingSoon title="Our Buyer Guide" />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
       <Footer />

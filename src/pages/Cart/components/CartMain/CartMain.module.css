@@ -6,3 +6,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 1450px) {
+  .cart-main__inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+}

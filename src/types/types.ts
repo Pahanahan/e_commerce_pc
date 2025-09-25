@@ -92,3 +92,8 @@ export enum GridOrList {
   GRID = "grid",
   LIST = "list",
 }
+
+export enum StandardOrPickup {
+  STANDARD = "standard",
+  PICKUP = "pickup",
+}

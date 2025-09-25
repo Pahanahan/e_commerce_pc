@@ -8,23 +8,31 @@ interface ModalProps {
   onBackdropClick: (e: MouseEvent<HTMLDivElement>) => void;
   text?: string;
   thanks?: string;
-  error?: string;
+  error?: boolean;
 }
 
 const Modal = forwardRef<HTMLDivElement, ModalProps>(
-  ({ onClose, onBackdropClick, text, thanks }, ref) => {
+  ({ onClose, onBackdropClick, text, thanks, error }, ref) => {
+    const cssBox = error
+      ? `${styles["modal-sendler__box"]} ${styles["modal-sendler__box--error"]}`
+      : `${styles["modal-sendler__box"]}`;
+
+    const cssText = error
+      ? `${styles["modal-sendler__text"]} ${styles["modal-sendler__text--error"]}`
+      : `${styles["modal-sendler__text"]}`;
+
     return (
       <div
         ref={ref}
         className={styles["modal-sendler"]}
         onClick={onBackdropClick}
       >
-        <div className={styles["modal-sendler__box"]}>
+        <div className={cssBox}>
           <IoClose
             className={styles["modal-sendler__close"]}
             onClick={onClose}
           />
-          <p className={styles["modal-sendler__text"]}>{text}</p>
+          <p className={cssText}>{text}</p>
           <p className={styles["modal-sendler__text-thanks"]}>{thanks}</p>
         </div>
       </div>

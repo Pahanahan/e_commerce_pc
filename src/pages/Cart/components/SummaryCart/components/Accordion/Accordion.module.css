@@ -1,0 +1,15 @@
+.accordion {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion__text {
+  font-size: 18px;
+  padding-top: 12px;
+  margin-bottom: 12px;
+}
+
+.accordion__img {
+  transition: all 0.4s;
+}

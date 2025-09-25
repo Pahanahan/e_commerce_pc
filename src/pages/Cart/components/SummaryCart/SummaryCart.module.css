@@ -11,22 +11,6 @@
   margin-bottom: 6px;
 }
 
-.summary__show {
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.summary__show-text {
-  font-size: 18px;
-  padding-top: 12px;
-  margin-bottom: 12px;
-}
-
-.summary__show-img {
-  transition: all 0.4s;
-}
-
 .summary__text {
   color: #666666;
   width: 290px;

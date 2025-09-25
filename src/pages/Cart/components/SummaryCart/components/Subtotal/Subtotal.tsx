@@ -8,6 +8,7 @@ interface SubtotalProps {
   shippingRate: number;
   delivery: "standard" | "pickup";
   totalPrice: number;
+  discount: number;
 }
 
 function Subtotal({
@@ -16,11 +17,14 @@ function Subtotal({
   shippingRate,
   delivery,
   totalPrice,
+  discount,
 }: SubtotalProps) {
   const costDelivery = Number(totalPrice * shippingRate);
   const shipping = Number(delivery === "pickup" ? 0 : costDelivery);
   const costTax = Number(((totalPrice + costDelivery) * tax) / 100);
-  const orderTotal = costDelivery + shipping + costTax + totalPrice;
+  const costDiscount = totalPrice * discount;
+  const costWithDiscount = totalPrice - costDiscount;
+  const orderTotal = costDelivery + shipping + costTax + costWithDiscount;
 
   return (
     <div className={styles["subtotal"]}>
@@ -30,6 +34,16 @@ function Subtotal({
           ${formatPrice(totalPrice)}
         </div>
       </div>
+      {discount ? (
+        <div className={styles["subtotal__box"]}>
+          <div className={styles["subtotal__box-text"]}>Discount</div>
+          <div className={styles["subtotal__box-price"]}>
+            ${formatPrice(costDiscount)}
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
       <div className={styles["subtotal__box"]}>
         <div className={styles["subtotal__box-text"]}>Shipping</div>
         <div className={styles["subtotal__box-price"]}>
