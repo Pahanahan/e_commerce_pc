@@ -7,6 +7,7 @@ import FormField from "../../../../ui/FormField/FormField";
 import Input from "../../../../ui/Input/Input";
 import { changeEmail, changePassword } from "../../../../utils/validation";
 import { scrollTop } from "../../../../utils/scrollTop";
+import generateDiscountCode from "../../../../utils/generateDiscountCode";
 import { register } from "../../../../redux/user/reducers";
 import { RootState } from "../../../../redux/store";
 import { Login, User } from "../../../../types/types";
@@ -116,6 +117,7 @@ function Register() {
           const newUser: User = {
             login: email,
             password: password,
+            discountCode: generateDiscountCode(),
             likes: [],
             cart: [],
           };

@@ -3,9 +3,15 @@ export interface UserCart {
   quantity: number;
 }
 
+export interface DiscountCode {
+  discountName: string;
+  discount: number;
+}
+
 export interface User {
   login: string;
   password: string;
+  discountCode: DiscountCode;
   likes: number[];
   cart: UserCart[];
 }
