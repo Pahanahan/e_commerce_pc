@@ -148,26 +148,33 @@ function SummaryCart({ allProducts, findUser }: SummaryCartProps) {
   };
 
   const handleApplyDiscountCode = () => {
-    if (discountCode === discountCodeObj?.discountName) {
+    const code = discountCode.trim();
+    if (!code) {
+      setModal(true);
+      setModalObj({
+        text: "Please enter a discount code",
+        thanks: "",
+        error: true,
+      });
+      return;
+    }
+
+    if (code === discountCodeObj?.discountName) {
       setApplyDiscountCode(true);
       setModal(true);
-      setModalObj(() => {
-        return {
-          text: "Your discount has been applied",
-          thanks: "Thank you for choosing our shop",
-          error: false,
-        };
+      setModalObj({
+        text: "Your discount has been applied",
+        thanks: "Thank you for choosing our shop",
+        error: false,
       });
     } else {
       setApplyDiscountCode(false);
       setDiscountCode("");
       setModal(true);
-      setModalObj(() => {
-        return {
-          text: "Invalid discount code",
-          thanks: "Thank you for shopping with us",
-          error: true,
-        };
+      setModalObj({
+        text: "Invalid discount code",
+        thanks: "Thank you for shopping with us",
+        error: true,
       });
     }
   };

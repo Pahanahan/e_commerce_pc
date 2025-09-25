@@ -24,7 +24,7 @@ function Subtotal({
   const costTax = Number(((totalPrice + costDelivery) * tax) / 100);
   const costDiscount = totalPrice * discount;
   const costWithDiscount = totalPrice - costDiscount;
-  const orderTotal = costDelivery + shipping + costTax + costWithDiscount;
+  const orderTotal = shipping + costTax + costWithDiscount;
 
   return (
     <div className={styles["subtotal"]}>
