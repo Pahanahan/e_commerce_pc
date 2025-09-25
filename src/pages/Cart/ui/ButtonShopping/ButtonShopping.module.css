@@ -16,3 +16,23 @@
   padding: 8px 25px;
   cursor: auto;
 }
+
+@media (max-width: 767px) {
+  .button {
+    padding: 5px 20px;
+  }
+
+  .button:disabled {
+    padding: 5px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .button {
+    padding: 5px 10px;
+  }
+
+  .button:disabled {
+    padding: 5px 10px;
+  }
+}

@@ -13,3 +13,9 @@
 .accordion__img {
   transition: all 0.4s;
 }
+
+@media (max-width: 500px) {
+  .accordion__text {
+    font-size: 14px;
+  }
+}

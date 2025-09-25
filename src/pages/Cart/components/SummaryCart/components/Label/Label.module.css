@@ -48,3 +48,44 @@
 .label__options-box--visible {
   display: block;
 }
+
+@media (max-width: 767px) {
+  .label {
+    font-size: 12px;
+    line-height: 30px;
+  }
+
+  .label__options-box {
+    top: 32px;
+  }
+
+  .label__select {
+    padding: 5px 10px;
+    height: 33px;
+  }
+
+  .label__select-arrow {
+    top: 8px;
+    right: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .label {
+    font-size: 10px;
+  }
+
+  .label__options-box {
+    top: 26px;
+  }
+
+  .label__select {
+    padding: 2px 10px;
+    height: 27px;
+  }
+
+  .label__select-arrow {
+    top: 5px;
+    right: 5px;
+  }
+}

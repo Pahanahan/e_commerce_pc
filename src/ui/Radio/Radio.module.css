@@ -32,3 +32,26 @@
   position: absolute;
   background-image: url("../../assets/icons/radio.svg");
 }
+
+@media (max-width: 767px) {
+  .radio__text {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .radio__label-text {
+    font-size: 12px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .radio__text {
+    font-size: 10px;
+    line-height: 14px;
+  }
+
+  .radio__label-text {
+    font-size: 10px;
+  }
+}

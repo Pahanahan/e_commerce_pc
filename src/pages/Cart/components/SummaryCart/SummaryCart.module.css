@@ -68,3 +68,32 @@
   gap: 15px;
   margin-bottom: 5px;
 }
+
+@media (max-width: 1450px) {
+  .summary {
+    min-width: 250px;
+    width: 700px;
+    margin-left: 0;
+  }
+
+  .summary__text {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .summary {
+    width: 100%;
+  }
+
+  .summary__label {
+    font-size: 12px;
+    line-height: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .summary__label {
+    font-size: 10px;
+  }
+}

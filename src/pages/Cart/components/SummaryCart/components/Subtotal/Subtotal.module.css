@@ -23,3 +23,33 @@
   font-weight: 200%;
   font-weight: 600;
 }
+
+@media (max-width: 767px) {
+  .subtotal__box {
+    margin-bottom: 10px;
+  }
+
+  .subtotal__box-text,
+  .subtotal__box-price {
+    font-size: 12px;
+  }
+
+  .subtotal__box-price-total {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  .subtotal__box {
+    margin-bottom: 8px;
+  }
+
+  .subtotal__box-text,
+  .subtotal__box-price {
+    font-size: 10px;
+  }
+
+  .subtotal__box-price-total {
+    font-size: 14px;
+  }
+}

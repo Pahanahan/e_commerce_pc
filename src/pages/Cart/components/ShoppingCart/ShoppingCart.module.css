@@ -33,3 +33,15 @@
   text-align: center;
   margin-bottom: 30px;
 }
+
+@media (max-width: 1450px) {
+  .shopping-cart__top {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1000px) {
+  .shopping-cart__top {
+    display: none;
+  }
+}

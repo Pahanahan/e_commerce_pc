@@ -49,28 +49,40 @@ function CartProduct({
 
   return (
     <div key={id} className={styles["cart-product__item"]}>
-      <div className={styles["cart-product__item-image"]}>
-        <Link onClick={scrollTop} to={`/products/${validCategory}(id)${id}`}>
-          <img
-            className={styles["cart-product__item-img"]}
-            src={image}
-            alt="product"
+      <div className={styles["cart-product__item-box"]}>
+        <div className={styles["cart-product__item-image"]}>
+          <Link onClick={scrollTop} to={`/products/${validCategory}(id)${id}`}>
+            <img
+              className={styles["cart-product__item-img"]}
+              src={image}
+              alt="product"
+            />
+          </Link>
+        </div>
+        <div className={styles["cart-product__item-text"]}>{description}</div>
+      </div>
+
+      <div className={styles["cart-product__item-box"]}>
+        <p className={styles["cart-product__item-p"]}>Price:</p>
+        <div className={styles["cart-product__item-price"]}>
+          ${formatPrice(price)}
+        </div>
+      </div>
+      <div className={styles["cart-product__item-box"]}>
+        <p className={styles["cart-product__item-p"]}>Qty:</p>
+        <div className={styles["cart-product__item-qty"]}>
+          <CurrentSelectProduct
+            id={id}
+            quantity={quantity}
+            isLogedIn={isLogedIn}
           />
-        </Link>
+        </div>
       </div>
-      <div className={styles["cart-product__item-text"]}>{description}</div>
-      <div className={styles["cart-product__item-price"]}>
-        ${formatPrice(price)}
-      </div>
-      <div className={styles["cart-product__item-qty"]}>
-        <CurrentSelectProduct
-          id={id}
-          quantity={quantity}
-          isLogedIn={isLogedIn}
-        />
-      </div>
-      <div className={styles["cart-product__item-subtotal"]}>
-        ${formatPrice(price * quantity)}
+      <div className={styles["cart-product__item-box"]}>
+        <p className={styles["cart-product__item-p"]}>Subtotal:</p>
+        <div className={styles["cart-product__item-subtotal"]}>
+          ${formatPrice(price * quantity)}
+        </div>
       </div>
       <div className={styles["cart-product__item-btns"]}>
         <CloseIcon onClick={handleDeleteProduct} />

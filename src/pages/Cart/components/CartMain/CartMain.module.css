@@ -11,5 +11,18 @@
   .cart-main__inner {
     flex-direction: column;
     gap: 30px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
+  .cart-main {
+    margin-bottom: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .cart-main {
+    margin-bottom: 30px;
   }
 }
