@@ -136,8 +136,6 @@ function Filter({
       }
     });
 
-  console.log(newSortedCategoriesCount);
-
   const handleAddFilterCategory = useCallback(
     (category: string, id: number): void => {
       onSetCategoryActiveIndex(id);
